@@ -40,7 +40,7 @@ export default function Navbar() {
   };
 
   return (
-    <Flex style={navbarStyles} my='10px' mx='50px' as='nav' borderRadius='10px' p='10px' bg='blue.500' wrap='wrap' gap='1' boxShadow='lg' overflow='hidden'>
+    <Flex style={navbarStyles} my='10px' mx={{ base: "15px", md: "50px", lg: "56px" }} as='nav' borderRadius='10px' p='10px' bg='blue.500' wrap='wrap' gap='1' boxShadow='lg' overflow='hidden'>
       <Heading as='h1'>
         <Link to='/'>
           <TableContainer>
@@ -62,7 +62,7 @@ export default function Navbar() {
       </Heading>
       <Spacer />
       <IconButton aria-label='Open Menu' size='lg' mr={2} icon={<HamburgerIcon />} display={['flex', 'flex', 'none', 'none']} />
-      <HStack spacing='30px' alignItems='center'>
+      <HStack spacing='30px' alignItems='center' display={{ base: "none", lg:'block' }}>
         <Link to='cosmos'>
           <Button sx={buttonStyles} style={imageStyles} _hover={buttonHoverStyles}>About</Button>
         </Link>

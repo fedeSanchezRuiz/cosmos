@@ -8,6 +8,8 @@ import poseidon from '../images/PoseidonSaints2.jpeg';
 import pegasusBox from '../images/PegasusBox2.png';
 import athena from '../images/Athena2.png';
 import { Link } from "react-router-dom";
+import { Header, Test } from "../components/Home";
+import Card from "../components/Home/Card/Card";
 
 const images = [
   {name: 'Bronze Saints', image: bronze3 },
@@ -36,40 +38,46 @@ const HomePage = () => {
   return (
     <Box mx='40px' mb='40px' mt='140px' className="main-content">
 
-      <Box textAlign='center'>
-        <Heading p='10px' fontSize='40'>Burn your Cosmos!</Heading>
-        <Container w='450px'>
-          <Text p='10px' mt='20px' class='text-with-shadow'>Join Pegasus Seiya and his friends on this adventure against the forces of evil to decide the fate of the Earth!</Text>
-        </Container>
-        <Box my='50px'>
-          <Button size='lg' styles={imageStyles} _hover={boxHoverStyles} boxShadow='2px 2px 4px rgba(0, 0, 0, 0.5)' fontWeight='extrabold' background='linear-gradient(to bottom, #FFFFCC, #DAA520)' color='#704214'>PLAY NOW</Button>
-        </Box>
-      </Box>
+
+      <Header/>
 
       <Flex flexDir='row' justifyContent='center' alignItems='center' p='10px' m='20px' wrap='wrap'>
-        {images.map(image => <Box mx='40px'><Image className="image-test" style={imageStyles} _hover={imageHoverStyles} w='650px' minW='500px' h='400px' mt='30px' borderRadius='20px' src={image.image} alt={image.name} /></Box>)}
+        {images.map(image => 
+        <Box  mx={{ base: "10px", lg: "40px" }} key={image.name}>
+          <Image  
+          objectFit={'cover'}
+          style={imageStyles} _hover={imageHoverStyles}      
+          h={'300px'}
+          w={'500px'}               
+          mt='30px' 
+          borderRadius='20px' 
+          src={image.image} alt={image.name} />
+        </Box>)}
       </Flex>
-
-      <Box mx='40px' my='50px' h='250px' background='linear-gradient(to bottom, #FFFFCC, #DAA520)' borderRadius='10px' display='flex' alignItems='center'>
-        <Flex alignItems='center' justify='space-between' w='100%' wrap='wrap'>
+      <Card headingText={'Feel the Power'} text={'Discover the secrets of ancient alchemy hidden behind the sacred armors!'} src={pegasusBox} />
+      <Card headingText={'Any Questions?'} text={'DGoddess Athena will answer any questions you may have.'} src={athena} flexDir='row-reverse'/>
+      {/* <Box mx='40px' my='50px' h='250px' background='linear-gradient(to bottom, #FFFFCC, #DAA520)' borderRadius='10px' display='flex' alignItems='center' padding={'30px'}>
+        <Flex alignItems='center' justify='space-between' w='100%' wrap='wrap' >
           <Link to='cloths'>
-            <Image ml='50px' style={imageStyles} _hover={boxHoverStyles} w='350px' h='400px' mt='30px' borderRadius='20px' src={pegasusBox} alt='pegasus-box' />
+            <Image display={{ base: "none", lg:'block' }} ml='50px' style={imageStyles} _hover={boxHoverStyles} w='350px' h='400px' mt='30px' borderRadius='20px' src={pegasusBox} alt='pegasus-box' />
           </Link>
-          <Container>
-            <Heading fontSize='40' ml='20px'>Feel the Power</Heading>
+          <Box px='20px'>
+            <Heading fontSize='40' marginBottom={'10px'}>Feel the Power</Heading>
             <Text>Discover the secrets of ancient alchemy hidden behind the sacred armors!</Text>
-          </Container>
+          </Box>
         </Flex>
       </Box>
       <Box mx='40px' my='50px' h='250px' background='linear-gradient(to bottom, #FFFFCC, #DAA520)' borderRadius='10px' display='flex' alignItems='center'>
         <Flex flexDir='row-reverse' alignItems='center' justify='space-between' w='100%' wrap='wrap'>
-          <Image mr='50px' style={imageStyles} _hover={boxHoverStyles} w='350px' h='400px' mt='30px' borderRadius='20px' src={athena} alt='athena' />
-          <Container>
-            <Heading fontSize='40' ml='70px'>Any Questions?</Heading>
-            <Text ml='50px'>Goddess Athena will answer any questions you may have.</Text>
-          </Container>
+          <Image display={{ base: "none", lg:'block' }} mr='50px' style={imageStyles} _hover={boxHoverStyles} w='350px' h='400px' mt='30px' borderRadius='20px' src={athena} alt='athena' />
+          <Box  px='20px'>
+            <Heading fontSize='40'  marginBottom={'10px'} >Any Questions?</Heading>
+            <Text >Goddess Athena will answer any questions you may have.</Text>
+          </Box>
         </Flex>
-      </Box>
+      </Box> */}
+     
+      
     </Box>
   )
 };
