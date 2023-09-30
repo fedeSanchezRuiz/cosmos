@@ -1,4 +1,5 @@
-import { Button, HStack, Link } from '@chakra-ui/react';
+import { HamburgerIcon } from '@chakra-ui/icons';
+import { Button, Flex, HStack, Link, IconButton } from '@chakra-ui/react';
 
 const buttons = [
   { name: 'About', path: 'about' },
@@ -29,10 +30,13 @@ export const NavbarButtons = () => {
 
   return (
     <HStack>
+      <IconButton aria-label='Open Menu' size='lg' mr={2} icon={<HamburgerIcon />} display={{ base: 'flex', sm: 'none', md: 'none', lg: 'none'}} />
+    <Flex display={{ base: 'none', sm: 'block', lg: 'block' }}>
       {buttons.map(button => <Link to={button.path}>
         <Button key={button.name} sx={buttonStyles} style={imageStyles} _hover={buttonHoverStyles}>{button.name}</Button>
       </Link>)}
       <Button variant='solid' sx={buttonStyles} style={imageStyles} _hover={buttonHoverStyles}>Login</Button>
+    </Flex>
     </HStack>
   )
 };
