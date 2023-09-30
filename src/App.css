@@ -1,12 +1,11 @@
 .body {
-  background: #9bd9e0;
   min-height: 100vh;
 }
 
 .main-content h1, h2, h3 {
   font-family: 'Semplicita Pro' Helvetica,  sans-serif;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  color: #13181f
+  color: #13181f;
 }
 
 .main-content p {

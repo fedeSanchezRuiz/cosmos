@@ -1,7 +1,7 @@
 import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
 import { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/navbar/Navbar";
 import deathmask from '../images/DM.png';
 
 const ErrorPage = () => {
