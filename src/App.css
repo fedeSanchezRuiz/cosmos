@@ -5,13 +5,13 @@
 .main-content h1, h2, h3 {
   font-family: 'Semplicita Pro' Helvetica,  sans-serif;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  color: #13181f;
+  color:  rgb(13, 32, 61);
 }
 
 .main-content p {
   font-family: 'Open Sans', sans-serif;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  color: #13181f
+  color: rgb(23, 42, 71);
 }
 
 @media screen and (max-width: 850px) {
@@ -30,12 +30,5 @@
   .main-content p {
     font-size: 14px;
     line-height: 20px;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .image-test {
-    flex-direction: column;
-    height: 100px;
   }
 }

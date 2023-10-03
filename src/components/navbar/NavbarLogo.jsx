@@ -1,4 +1,4 @@
-import { Heading, Link, TableContainer, Box, Image } from '@chakra-ui/react';
+import { Heading, Link, Flex, Box, Image } from '@chakra-ui/react';
 import logo from '../../images/Logo.png';
 import logoSS from '../../images/SS-Logo.webp';
 
@@ -16,8 +16,14 @@ export const NavbarLogo = () => {
   return (
     <Heading as='h1'>
       <Link to='/'>
-        <TableContainer>
-          <Box w='150px' h='60px' color='silver' style={imageStyles} _hover={imageHoverStyles}>
+        <Flex alignItems='center'>
+          <Box
+            w='150px'
+            h='60px'
+            color='silver'
+            style={imageStyles}
+            _hover={imageHoverStyles}
+          >
             <Image
               src={logoSS}
               h='40px'
@@ -30,7 +36,7 @@ export const NavbarLogo = () => {
               alt='Cosmo-Warriors'
             />
           </Box>
-        </TableContainer>
+        </Flex>
       </Link>
     </Heading>
   )

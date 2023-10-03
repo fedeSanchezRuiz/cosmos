@@ -1,11 +1,14 @@
-const theme = {
-  styles: {
-    global: {
-      'html, body': {
-        background: 'rgb(136, 178, 209)',
-      },
-    },
-  },
-};
+import { extendTheme } from '@chakra-ui/react';
 
-export default theme
+const theme = extendTheme({
+
+    styles: {
+      global: () => ({
+        body: {
+          bg: 'rgb(136, 178, 209)',
+        },
+      }),
+    },
+  });
+
+  export default theme;

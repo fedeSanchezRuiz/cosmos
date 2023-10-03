@@ -1,15 +1,10 @@
-/*.custom-footer {
-  background-color: #2d3d59;
-  color: rgb(235, 222, 194);
-}*/
-
 .section__padding {
   padding: 4rem 4rem;
 }
 
 .footer {
-  background-color: #2d2d32;
-  color: white;
+  background-color: rgb(30, 39, 54);
+  color: rgb(235, 222, 194);
 }
 
 .sb__footer {

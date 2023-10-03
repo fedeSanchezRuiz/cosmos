@@ -24,11 +24,24 @@ const ErrorPage = () => {
   return (
     <Fragment>
       <Navbar />
-      <Box textAlign='center' h='430px' mx='40px' mb='40px' mt='140px' className="main-content">
+      <Box
+        textAlign='center'
+        h='430px'
+        mx='40px'
+        mb='40px'
+        mt='140px'
+        className="main-content"
+      >
         <Heading>An error occured!</Heading>
         <Text>Could not find this page!</Text>
         <Flex justifyContent='center'>
-        <Image h='400px' src={deathmask} style={imageStyles} _hover={imageHoverStyles} onClick={navigateHandler} />
+          <Image
+            h='400px'
+            src={deathmask}
+            style={imageStyles}
+            _hover={imageHoverStyles}
+            onClick={navigateHandler}
+          />
         </Flex>
       </Box>
     </Fragment>

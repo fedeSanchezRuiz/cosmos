@@ -7,12 +7,12 @@ import asgard from '../images/AsgardSaints.png';
 import poseidon from '../images/PoseidonSaints2.jpeg';
 
 const images = [
-  {name: 'Bronze Saints', image: bronze3 },
-  {name: 'Black Saints', image: black },
-  {name: 'Silver Saints', image: silver },
-  {name: 'Gold Saints', image: gold },
-  {name: 'Asgard Warriors', image: asgard },
-  {name: 'Poseidon Scales', image: poseidon },
+  { name: 'Bronze Saints', image: bronze3 },
+  { name: 'Black Saints', image: black },
+  { name: 'Silver Saints', image: silver },
+  { name: 'Gold Saints', image: gold },
+  { name: 'Asgard Warriors', image: asgard },
+  { name: 'Poseidon Scales', image: poseidon },
 ];
 
 export const CharactersImages = () => {
@@ -28,7 +28,18 @@ export const CharactersImages = () => {
 
   return (
     <Flex justifyContent='center' wrap='wrap'>
-      {images.map(image => <Box mx={{ sm: 'none', lg: '40px'}}><Image className="image-test" style={imageStyles} _hover={imageHoverStyles} w={{ sm: '400px', lg: '650px' }} h='400px' mt='30px' borderRadius='20px' src={image.image} alt={image.name} /></Box>)}
+      {images.map(image =>
+        <Box mx={{ sm: 'none', lg: '40px' }}>
+          <Image
+            style={imageStyles}
+            _hover={imageHoverStyles}
+            w={{ sm: '400px', md: '500px', lg: '650px' }}
+            h={{ base: '250', md: '320px', lg: '400px' }}
+            mt={{ base: '6px', md: '10px', lg: '30px' }}
+            borderRadius='20px'
+            src={image.image}
+            alt={image.name} />
+        </Box>)}
     </Flex>
   )
 };

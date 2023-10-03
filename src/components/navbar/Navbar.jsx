@@ -13,7 +13,18 @@ export default function Navbar() {
   };
 
   return (
-    <Flex style={navbarStyles} my='10px' mx={{ base: '5px', md: '20px', lg: '50px' }} as='nav' borderRadius='10px' p='10px' wrap='wrap' gap='1' boxShadow='lg' overflow='hidden'>
+    <Flex
+      as='nav'
+      style={navbarStyles}
+      my='10px'
+      mx={{ base: '5px', md: '20px', lg: '50px' }}
+      borderRadius='10px'
+      p='10px'
+      wrap='wrap'
+      gap='1'
+      boxShadow='lg'
+      overflow='hidden'
+    >
       <NavbarLogo />
       <Spacer />
       <NavbarButtons />

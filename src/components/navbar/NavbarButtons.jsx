@@ -9,7 +9,6 @@ const buttons = [
 ];
 
 export const NavbarButtons = () => {
-
   const imageStyles = {
     transition: 'transform 0.3s', // Add a smooth transition effect
   };
@@ -25,18 +24,44 @@ export const NavbarButtons = () => {
 
   const buttonHoverStyles = {
     transform: 'scale(1.05)', // Increase the size by 10% (adjust as needed),
-
   };
 
   return (
     <HStack>
-      <IconButton aria-label='Open Menu' size='lg' mr={2} icon={<HamburgerIcon />} display={{ base: 'flex', sm: 'none', md: 'none', lg: 'none'}} />
-    <Flex display={{ base: 'none', sm: 'block', lg: 'block' }}>
-      {buttons.map(button => <Link to={button.path}>
-        <Button key={button.name} sx={buttonStyles} style={imageStyles} _hover={buttonHoverStyles}>{button.name}</Button>
-      </Link>)}
-      <Button variant='solid' sx={buttonStyles} style={imageStyles} _hover={buttonHoverStyles}>Login</Button>
-    </Flex>
+      <IconButton
+        aria-label='Open Menu'
+        size='lg'
+        background= 'linear-gradient(to bottom, #B3E0F2, #002855)'
+        color= 'rgb(23, 42, 71)'
+        mr={2}
+        icon={<HamburgerIcon />}
+        display={{ base: 'flex', sm: 'block', md: 'block', lg: 'none' }}
+      />
+      <Flex
+        display={{ base: 'none', sm: 'none', lg: 'block' }}
+        alignItems='center'
+        justifyContent='space-between'
+      >
+        {buttons.map(button => (
+          <Link to={button.path} key={button.name}>
+            <Button
+              sx={buttonStyles}
+              style={imageStyles}
+              _hover={buttonHoverStyles}
+            >
+              {button.name}
+            </Button>
+          </Link>
+        ))}
+        <Button
+          variant='solid'
+          sx={buttonStyles}
+          style={imageStyles}
+          _hover={buttonHoverStyles}
+        >
+          Login
+        </Button>
+      </Flex>
     </HStack>
-  )
+  );
 };
