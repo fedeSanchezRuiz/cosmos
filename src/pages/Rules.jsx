@@ -1,17 +1,13 @@
-import { Box } from "@chakra-ui/react";
+import Card from '../components/UI/CardWrapper';
+import ComingSoon from '../components/UI/ComingSoon';
+import shakaMeditate from '../images/ShakaMeditation.png';
 
 const Rules = () => {
   return (
-    <Box
-      h='430px'
-      mx='40px'
-      mb='40px'
-      mt='140px'
-      className="main-content"
-    >
-      <h1>Rules</h1>
-    </Box>
-  )
+      <Card>
+        <ComingSoon src={shakaMeditate} />
+      </Card>
+  );
 };
 
 export default Rules;

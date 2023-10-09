@@ -5,10 +5,10 @@ import Cloths from './pages/Cloths';
 import Rules from './pages/Rules';
 import Characters from './pages/Characters';
 import RootLayput from './pages/RootLayout';
-import Footer from './components/Footer';
 import ErrorPage from './pages/Error';
 import './App.css';
-//import ParticlesBackground from './components/ParticlesBackground';
+import { Box } from '@chakra-ui/react';
+import CharacterDetails from './pages/CharactersDetails';
 
 const router = createBrowserRouter([
   {
@@ -16,18 +16,18 @@ const router = createBrowserRouter([
       { index: true, element: <HomePage /> },
       { path: 'about', element: <About /> },
       { path: 'rules', element: <Rules /> },
-      { path: 'characters', element: <Characters /> },
       { path: 'cloths', element: <Cloths /> },
+      { path: 'characters', element: <Characters /> },
+      { path: 'characters/:saintsId', element: <CharacterDetails /> },
     ]
   },
 ])
 
 function App() {
   return (
-    <div>
+    <Box m='auto'>
       <RouterProvider router={router} />
-      <Footer />
-    </div>
+    </Box>
   );
 }
 

@@ -1,7 +1,7 @@
-import facebook from '../icons/Facebook.png';
-import twitter from '../icons/Twitter4.png';
-import instagram from '../icons/Instagram.png';
-import youtube from '../icons/Youtube.png';
+import facebook from '../../icons/Facebook.png';
+import twitter from '../../icons/Twitter4.png';
+import instagram from '../../icons/Instagram.png';
+import youtube from '../../icons/Youtube.png';
 
 import './Footer.css';
 import { Image, Box } from '@chakra-ui/react';
@@ -42,7 +42,7 @@ const Footer = () => {
                 <p>Potokos' Group</p>
               </a>
               <a href='hotdog'>
-                <p>HotDog & Olive</p>
+                <p>LaVaineta Co.</p>
               </a>
             </div>
             <div className='sb__footer-links_div'>

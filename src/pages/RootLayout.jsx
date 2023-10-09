@@ -1,14 +1,16 @@
-import { Outlet } from "react-router-dom"
-import Navbar from "../components/navbar/Navbar";
+import { Outlet } from "react-router-dom";
+import Navbar from "../components/UI/navbar/Navbar";
+import Footer from "../components/UI/Footer";
+import AuthContext from '../components/context/auth-context';
 
-
-const RootLayput = () => {
+const RootLayout = () => {
   return (
-      <div>
+    <AuthContext.Provider value={{ formIsValid: false, setFormIsValid: () => {} }}>
         <Navbar />
         <Outlet />
-      </div>
+        <Footer />
+    </AuthContext.Provider>
   )
 };
 
-export default RootLayput;
+export default RootLayout;

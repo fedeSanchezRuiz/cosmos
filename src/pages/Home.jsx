@@ -1,29 +1,17 @@
-import { Box } from "@chakra-ui/react";
-import { Header } from "../components/Header";
-import { CharactersImages } from "../components/CharactersImages";
-import { Boxes } from "../components/Boxes";
-import pegasusBox from '../images/PegasusBox2.png';
-import athena from '../images/Athena2.png';
+import { Box } from '@chakra-ui/react';
+import { Header } from '../components/Header';
+import { CharactersImages } from '../components/CharactersImages';
+import CompletedBoxes from '../components/CompletedBoxes';
 
 const HomePage = () => {
 
   return (
-    <Box mx='40px' mb='40px' mt='140px' className="main-content">
+    <Box mx='40px'mb='40px'mt={{ base: '90px', sm: '100px', md: '120px', lg: '140px'}} className='main-content'>
       <Header />
       <CharactersImages />
-      <Boxes
-        image={pegasusBox}
-        heading={'Feel the Power'}
-        text={'Discover the secrets of ancient alchemy hidden behind the sacred armors!'}
-      />
-      <Boxes
-        image={athena}
-        heading={'Any Questions?'}
-        text={'Goddess Athena will answer any questions you may have.'}
-        flexDir={'row-reverse'}
-      />
+      <CompletedBoxes />
     </Box>
-  )
+  );
 };
 
 export default HomePage;

@@ -1,8 +1,9 @@
 import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
 import { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../components/navbar/Navbar";
+import Navbar from "../components/UI/navbar/Navbar";
 import deathmask from '../images/DM.png';
+import Footer from "../components/UI/Footer";
 
 const ErrorPage = () => {
 
@@ -18,7 +19,7 @@ const ErrorPage = () => {
 
   const imageHoverStyles = {
     transform: 'scale(1.05)', // Increase the size by 10% (adjust as needed),
-    opacity: 0.8
+    opacity: 0.8,
   };
 
   return (
@@ -28,11 +29,11 @@ const ErrorPage = () => {
         textAlign='center'
         h='430px'
         mx='40px'
-        mb='40px'
-        mt='140px'
+        mb='50px'
+        mt='130px'
         className="main-content"
       >
-        <Heading>An error occured!</Heading>
+        <Heading fontFamily='ARCADECLASSIC'>An error occured!</Heading>
         <Text>Could not find this page!</Text>
         <Flex justifyContent='center'>
           <Image
@@ -44,6 +45,7 @@ const ErrorPage = () => {
           />
         </Flex>
       </Box>
+      <Footer />
     </Fragment>
   )
 };

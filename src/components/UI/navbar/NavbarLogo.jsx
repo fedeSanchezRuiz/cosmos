@@ -1,6 +1,7 @@
-import { Heading, Link, Flex, Box, Image } from '@chakra-ui/react';
-import logo from '../../images/Logo.png';
-import logoSS from '../../images/SS-Logo.webp';
+import { Heading, Flex, Box, Image } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
+import logo from '../../../images/Logo.png';
+import logoSS from '../../../images/SS-Logo.webp';
 
 export const NavbarLogo = () => {
 
@@ -18,12 +19,11 @@ export const NavbarLogo = () => {
       <Link to='/'>
         <Flex alignItems='center'>
           <Box
-            w='150px'
-            h='60px'
-            color='silver'
+            p='8px'
             style={imageStyles}
             _hover={imageHoverStyles}
-          >
+            opacity='0.8'
+           >
             <Image
               src={logoSS}
               h='40px'

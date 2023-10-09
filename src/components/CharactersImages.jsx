@@ -1,4 +1,5 @@
-import { Flex, Box, Image } from "@chakra-ui/react";
+import { Flex, Box, Image } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 import bronze3 from '../images/BronzeSaints3.webp';
 import black from '../images/BlackSaints2.webp';
 import silver from '../images/SilverSaints2.jpeg';
@@ -6,16 +7,16 @@ import gold from '../images/GoldSaints.jpeg';
 import asgard from '../images/AsgardSaints.png';
 import poseidon from '../images/PoseidonSaints2.jpeg';
 
-const images = [
-  { name: 'Bronze Saints', image: bronze3 },
-  { name: 'Black Saints', image: black },
-  { name: 'Silver Saints', image: silver },
-  { name: 'Gold Saints', image: gold },
-  { name: 'Asgard Warriors', image: asgard },
-  { name: 'Poseidon Scales', image: poseidon },
-];
-
 export const CharactersImages = () => {
+
+  const images = [
+    { name: 'BronzeSaints', image: bronze3, path: '/characters/Bronze' },
+    { name: 'BlackSaints', image: black, path: '/characters/Black' },
+    { name: 'SilverSaints', image: silver, path: '/characters/Silver' },
+    { name: 'GoldSaints', image: gold, path: '/characters/Gold' },
+    { name: 'AsgardWarriors', image: asgard, path: '/characters/Asgard' },
+    { name: 'PoseidonScales', image: poseidon, path: '/characters/Poseidon' },
+  ];
 
   const imageStyles = {
     transition: 'transform 0.3s', // Add a smooth transition effect
@@ -23,23 +24,32 @@ export const CharactersImages = () => {
 
   const imageHoverStyles = {
     transform: 'scale(1.05)', // Increase the size by 10% (adjust as needed),
-    opacity: 0.8
+    opacity: 0.8,
   };
 
   return (
-    <Flex justifyContent='center' wrap='wrap'>
-      {images.map(image =>
-        <Box mx={{ sm: 'none', lg: '40px' }}>
+    <Flex
+      justifyContent='center'
+      wrap='wrap'
+    >
+      {images.map((image) => (
+        <Box>
+          <Link to={image.path}>
           <Image
             style={imageStyles}
             _hover={imageHoverStyles}
-            w={{ sm: '400px', md: '500px', lg: '650px' }}
-            h={{ base: '250', md: '320px', lg: '400px' }}
-            mt={{ base: '6px', md: '10px', lg: '30px' }}
+            w={{ base: '400px', sm: '450px', md: '500px', lg: '650px' }}
+            h={{ base: '210', sm: '270px', md: '320px', lg: '400px' }}
+            mt={{ base: '6px', sm: '8px', md: '10px', lg: '30px' }}
+            mx={{ sm: 'none', md: '10px', lg: '35px' }}
             borderRadius='20px'
+            key={image.name}
             src={image.image}
-            alt={image.name} />
-        </Box>)}
+            alt={image.name}
+          />
+          </Link>
+        </Box>
+      ))}
     </Flex>
-  )
+  );
 };
