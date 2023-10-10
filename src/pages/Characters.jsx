@@ -16,7 +16,7 @@ const Characters = () => {
         wrap='wrap'
       >
         <SaintsTab />
-        <ComingSoon text={<Box my='5%'>'Pick your Saint'</Box>} src={miloAttack} />
+        <ComingSoon text={<Box>'Pick your Saint'</Box>} src={miloAttack} />
       </Flex>
     </CardWrapper>
   )

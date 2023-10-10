@@ -18,7 +18,7 @@ export default function Navbar() {
     <Flex 
       style={navbarStyles}
       my={{ base: '5px', md: '8px', lg: '10px' }}
-      mx={{ base: '5px', md: '20px', lg: '50px' }}
+      mx={{ base: '10px', md: '20px', lg: '50px' }}
       boxShadow='lg'
     >
       <NavbarLogo />

@@ -17,6 +17,7 @@ const ComingSoon = ({ src, text = 'Coming Soon!' }) => {
         textAlign='center'
       >
         <Heading
+          mt='5%'
           fontFamily='ARCADECLASSIC'
           fontSize={{
             base: '30px',

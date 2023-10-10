@@ -7,52 +7,52 @@ import phoenixBlack from '../black-img/BlackPhoenix.jpeg';
 
 const blackSaintsList = [
   {
-    name: 'Black Pegasus',
+    name: 'BlackPegasus',
     country: 'Israel',
     age: '15',
     height: '1.70cm',
     weight: '58kg',
-    cloth: 'Black Pegasus',
+    cloth: 'BlackPegasus',
     attacks: ['Black Meteor Fist'],
     source: pegasusBlack,
   },
   {
-    name: 'Black Dragon',
+    name: 'BlackDragon',
     country: 'Poland',
     age: '15',
     height: '1.73cm',
     weight: '62kg',
-    cloth: 'Black Dragon',
+    cloth: 'BlackDragon',
     attacks: ['Black Rising Dragon'],
     source: dragonBlack,
   },
   {
-    name: 'Black Cygnus',
+    name: 'BlackCygnus',
     country: 'Finland',
     age: '15',
     height: '1.73cm',
     weight: '61kg',
-    cloth: 'Black Cygnus',
+    cloth: 'BlackCygnus',
     attacks: ['Black Blizzard'],
     source: cygnusBlack,
   },
   {
-    name: 'Black Andromeda',
+    name: 'BlackAndromeda',
     country: 'Turkey',
     age: '14',
     height: '1.70cm',
     weight: '58kg',
-    cloth: 'Black Andromeda',
+    cloth: 'BlackAndromeda',
     attacks: ['Black Fang Nebula'],
     source: andromedaBlack,
   },
   {
-    name: 'Black Phoenix',
+    name: 'BlackPhoenix',
     country: 'unknown',
     age: 'unknown',
     height: 'unknown',
     weight: 'unknown',
-    cloth: 'Black Phoenix',
+    cloth: 'BlackPhoenix',
     attacks: ['Black Phoenix Illusion'],
     source: phoenixBlack,
   },
@@ -69,7 +69,7 @@ const BlackSaints = () => {
 
   const cardStyle = {
     w: '140px',
-    justifyContent: 'left',
+    justifyContent: 'center',
   };
 
   return (
@@ -86,7 +86,7 @@ const BlackSaints = () => {
           key={saint.name}
           justifyContent='center'
           alignItems='center'
-          textAlign='center'
+          // textAlign='center'
           flexWrap='wrap'
         >
           <Image
@@ -104,19 +104,20 @@ const BlackSaints = () => {
               xl: '1.5rem',
             }}
             h={{
-              base: '179px',
-              sm: '250px',
-              md: '388px',
-              lg: '492px',
-              xl: '492px',
+              base: '202.5px',
+              sm: '275px',
+              md: '403.5px',
+              lg: '492.5px',
+              xl: '492.5px',
             }}
             w='50%'
-            bg='linear-gradient(to bottom, #A55628, #CD7F32, #E2A45C)'
+            bg='linear-gradient(to bottom, #1F1F1F, #4F4F4F, #A9A9A9)'
+            color='#E3DAC9'
             flexDir='column'
-            textAlign='left'
+            // textAlign='left'
             justifyContent='space-evenly'
             alignItems='center'
-            border='4px solid #7E421C'
+            border='4px solid #000000'
             flexWrap='wrap'
           >
             <Flex sx={{ ...cardStyle }}>

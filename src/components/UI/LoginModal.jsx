@@ -20,9 +20,14 @@ const buttonProps = {
   width: '200px',
 };
 
+// const fontProps = {
+//   fontFamily: 'ARCADECLASSIC',
+//   display: 'flex',
+//   justifyContent: ['center', 'center', 'left'] // base, sm, md
+// }
+
 const LoginModal = (props) => {
-  const [changeEmailLabel, setChangeEmailLabel] =
-    useState(false);
+  const [hideMailLabel, setHideMailLabel] = useState(false);
   const [formIsValid, setFormIsValid] = useState(false);
 
   const {
@@ -35,6 +40,15 @@ const LoginModal = (props) => {
   } = useInput((value) => value.includes('@'));
 
   const {
+    value: enteredUsername,
+    isValid: enteredUsernameIsValid,
+    hasError: usernameHasError,
+    valueChangeHandler: usernameChangeHandler,
+    inputBlurHandler: usernameBlurHandler,
+    reset: resetUsernameInput,
+  } = useInput((value) => value.trim().length >= 4);
+
+  const {
     value: enteredPassword,
     isValid: enteredPasswordIsValid,
     hasError: passwordHasError,
@@ -44,26 +58,36 @@ const LoginModal = (props) => {
   } = useInput((value) => value.trim().length >= 6);
 
   useEffect(() => {
-    if (enteredEmailIsValid && enteredPasswordIsValid) {
-      setFormIsValid(true);
+    if (hideMailLabel) {
+      if (enteredUsernameIsValid && enteredPasswordIsValid) {
+        setFormIsValid(true);
+      }
+    } else {
+      if (
+        enteredEmailIsValid &&
+        enteredUsernameIsValid &&
+        enteredPasswordIsValid
+      ) {
+        setFormIsValid(true);
+      }
     }
   }, [
     enteredEmailIsValid,
+    enteredUsernameIsValid,
     enteredPasswordIsValid,
+    hideMailLabel,
     setFormIsValid,
   ]);
 
   const clickLoginHandler = () => {
-    setChangeEmailLabel(true);
+    setHideMailLabel(true);
   };
 
   const clickRegisterHandler = () => {
-    setChangeEmailLabel(false);
+    setHideMailLabel(false);
   };
 
   const formLoginHandler = (event) => {
-    // event.preventDefault();
-
     const userData = {
       email: enteredEmail,
       password: enteredPassword,
@@ -71,7 +95,10 @@ const LoginModal = (props) => {
 
     if (formIsValid) {
       setFormIsValid(true);
-      resetEmailInput();
+      if (hideMailLabel) {
+        resetEmailInput();
+      }
+      resetUsernameInput();
       resetPasswordInput();
     }
     console.log(userData);
@@ -95,7 +122,7 @@ const LoginModal = (props) => {
         flexWrap='wrap'
       />
       <Box
-        h={{ base: '400px', xl: '400px' }}
+        h={{ base: '520px', sm: '520px', md: '420px', lg: '420px', xl: '420px' }}
         display='flex'
         flexDirection='column'
         width={{
@@ -103,7 +130,7 @@ const LoginModal = (props) => {
           sm: '450px',
           md: '500px',
           lg: '500px',
-          xl: '500px',
+          xl: '510px',
         }}
         position='fixed'
         bg='linear-gradient(to top, #B3E0F2, #002855)'
@@ -145,6 +172,83 @@ const LoginModal = (props) => {
           display='flex'
           flexDir='column'
         >
+          {!hideMailLabel && (
+            <Flex
+              my='5px'
+              w='380px'
+              justifyContent={{
+                base: 'center',
+                lg: 'space-between',
+              }}
+              flexDir={{
+                base: 'column',
+                sm: 'column',
+                md: 'row',
+                lg: 'row',
+              }}
+              alignItems='center'
+            >
+              <label
+                htmlFor='email'
+                style={{
+                  width: '25%',
+                  textAlign: 'center',
+                  color: 'rgb(13, 32, 61)',
+                  fontWeight: 'bolder',
+                  textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+                }}
+              >
+                <Box
+                  fontFamily='ARCADECLASSIC'
+                  display='flex'
+                  justifyContent={{
+                    base: 'center',
+                    sm: 'center',
+                    md: 'left',
+                  }}
+                >
+                  Email
+                </Box>
+              </label>
+              <input
+                onChange={emailChangeHandler}
+                onBlur={emailBlurHandler}
+                value={enteredEmail}
+                type='email'
+                id='email'
+                style={{
+                  fontFamily: 'ARCADECLASSIC',
+                  width: '75%',
+                  border: emailHasError
+                    ? '2px solid #b40e0e'
+                    : '2px solid rgb(13, 32, 61)',
+                  backgroundColor: emailHasError
+                    ? '#fddddd'
+                    : '#3C6280',
+                  color: emailHasError
+                    ? 'rgb(13, 32, 61)'
+                    : '#F2CE80',
+                  boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+                }}
+              />
+            </Flex>
+          )}
+          {!hideMailLabel && emailHasError && (
+            <Text>
+              <Box
+                color='red'
+                fontFamily='ARCADECLASSIC'
+                display='flex'
+                justifyContent={{
+                  base: 'center',
+                  sm: 'center',
+                  md: 'left',
+                }}
+              >
+                Enter a valid Email.
+              </Box>
+            </Text>
+          )}
           <Flex
             my='5px'
             w='380px'
@@ -161,60 +265,63 @@ const LoginModal = (props) => {
             alignItems='center'
           >
             <label
-              htmlFor='email'
+              htmlFor='username'
               style={{
                 width: '25%',
                 textAlign: 'center',
                 color: 'rgb(13, 32, 61)',
                 fontWeight: 'bolder',
-                textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+                textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)',
               }}
             >
-              {!changeEmailLabel ? (
-                <Box
-                  fontFamily='ARCADECLASSIC'
-                  textAlign='left'
-                >
-                  Email
-                </Box>
-              ) : (
-                <Box
-                  fontFamily='ARCADECLASSIC'
-                  textAlign='left'
-                >
-                  Username
-                </Box>
-              )}
+              <Box
+                fontFamily='ARCADECLASSIC'
+                display='flex'
+                justifyContent={{
+                  base: 'center',
+                  sm: 'center',
+                  md: 'left',
+                }}
+              >
+                Username
+              </Box>
             </label>
             <input
-              onChange={emailChangeHandler}
-              onBlur={emailBlurHandler}
-              value={enteredEmail}
-              type='email'
-              id='email'
+              onChange={usernameChangeHandler}
+              onBlur={usernameBlurHandler}
+              value={enteredUsername}
+              type='text'
+              id='username'
               style={{
                 fontFamily: 'ARCADECLASSIC',
                 width: '75%',
-                border: emailHasError
+                border: usernameHasError
                   ? '2px solid #b40e0e'
                   : '2px solid rgb(13, 32, 61)',
-                backgroundColor: emailHasError
+                backgroundColor: usernameHasError
                   ? '#fddddd'
                   : '#3C6280',
-                color: emailHasError
+                color: usernameHasError
                   ? 'rgb(13, 32, 61)'
                   : '#F2CE80',
-                boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+                boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)',
               }}
             />
           </Flex>
-          {emailHasError && (
+          {usernameHasError && (
             <Text>
-              {!changeEmailLabel ? (
-                <Box color='red'>Enter a valid Email.</Box>
-              ) : (
-                <Box color='red'>Enter a valid Username.</Box>
-              )}
+              <Box
+                color='red'
+                fontFamily='ARCADECLASSIC'
+                display='flex'
+                justifyContent={{
+                  base: 'center',
+                  sm: 'center',
+                  md: 'left',
+                }}
+              >
+                Enter a valid Username.
+              </Box>
             </Text>
           )}
           <Flex
@@ -243,8 +350,13 @@ const LoginModal = (props) => {
               }}
             >
               <Box
-                textAlign='left'
                 fontFamily='ARCADECLASSIC'
+                display='flex'
+                justifyContent={{
+                  base: 'center',
+                  sm: 'center',
+                  md: 'left',
+                }}
               >
                 Password
               </Box>
@@ -273,7 +385,18 @@ const LoginModal = (props) => {
           </Flex>
           {passwordHasError && (
             <Text>
-              <Box color='red'>Enter a valid password.</Box>
+              <Box
+                display='flex'
+                justifyContent={{
+                  base: 'center',
+                  sm: 'center',
+                  md: 'left',
+                }}
+                color='red'
+                fontFamily='ARCADECLASSIC'
+              >
+                Enter a valid password.
+              </Box>
             </Text>
           )}
           <Flex
@@ -281,7 +404,10 @@ const LoginModal = (props) => {
             my='3px'
             alignItems='center'
           >
-            <Box p='8px'>
+            <Box
+              p='8px'
+              opacity='0.8'
+            >
               <Image
                 src={logoSS}
                 h='40px'

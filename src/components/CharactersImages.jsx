@@ -33,7 +33,7 @@ export const CharactersImages = () => {
       wrap='wrap'
     >
       {images.map((image) => (
-        <Box>
+        <Box key={image.name}>
           <Link to={image.path}>
           <Image
             style={imageStyles}
@@ -43,7 +43,7 @@ export const CharactersImages = () => {
             mt={{ base: '6px', sm: '8px', md: '10px', lg: '30px' }}
             mx={{ sm: 'none', md: '10px', lg: '35px' }}
             borderRadius='20px'
-            key={image.name}
+            
             src={image.image}
             alt={image.name}
           />

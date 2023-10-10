@@ -1,9 +1,8 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
-import { Box, Button, Flex, HStack, IconButton, VStack } from '@chakra-ui/react';
+import { Button, Flex, HStack, IconButton, VStack } from '@chakra-ui/react';
 import LoginModal from '../LoginModal';
-import AuthContext from '../../context/auth-context';
 
 const buttons = [
   { name: 'About', path: 'about' },
@@ -16,12 +15,11 @@ export const NavbarButtons = () => {
 
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
-  const { formIsValid } = useContext(AuthContext);
 
   useEffect(() => {
     const handleResize = () => {
       // Close the menu if the window width is greater than the breakpoint
-      if (window.innerWidth > 480) {
+      if (window.innerWidth > 780) {
         setShowMenu(false);
       }
     };
@@ -120,7 +118,7 @@ export const NavbarButtons = () => {
           borderRadius='25px'
           onClick={showLoginModalHandler}
         >
-          {!formIsValid ? <Box>Login</Box> : <Box>Logout</Box>}
+          Login
         </Button>
       </Flex>
       {showMenu && (
@@ -178,8 +176,9 @@ export const NavbarButtons = () => {
           style={imageStyles}
           _hover={buttonHoverStyles}
           borderRadius='25px'
+          onClick={showLoginModalHandler}
         >
-          {!formIsValid ? <Box>Login</Box> : <Box>Logout</Box>}
+          Login
         </Button>
         </Flex>
         </VStack>
