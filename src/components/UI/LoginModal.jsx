@@ -9,9 +9,14 @@ import { useState, useEffect, Fragment } from 'react';
 import logo from '../../images/Logo.png';
 import logoSS from '../../images/SS-Logo.webp';
 import useInput from '../hooks/useInput';
+import starryBack from '../../images/StarryBack.jpeg';
+import Night from '../../images/NightSkyBack.jpeg'
 
 const buttonProps = {
-  bg: 'linear-gradient(to bottom, #FFFFCC, #DAA520)',
+  background: `linear-gradient(to bottom, rgba(255, 255, 204, 1), rgba(218, 165, 32, 0.6)), url(${Night})`,
+  backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: 'cover',
   color: '#704214',
   borderRadius: '15px',
   fontFamily: 'ARCADECLASSIC',
@@ -87,9 +92,10 @@ const LoginModal = (props) => {
     setHideMailLabel(false);
   };
 
-  const formLoginHandler = (event) => {
+  const formLoginHandler = () => {
     const userData = {
       email: enteredEmail,
+      username: enteredUsername,
       password: enteredPassword,
     };
 
@@ -133,7 +139,11 @@ const LoginModal = (props) => {
           xl: '510px',
         }}
         position='fixed'
-        bg='linear-gradient(to top, #B3E0F2, #002855)'
+        background= {`linear-gradient(to top, rgba(179, 224, 242, 0.9), rgba(0, 40, 85, 0.8)), url(${starryBack})`}
+     // Set the background image
+        backgroundPosition= 'center' // Center the background image
+        backgroundRepeat= 'no-repeat' // Do not repeat the background image
+        backgroundSize= 'cover' // Cover the entire element with the background image'
         top='50%' // Center the modal vertically
         left='50%' // Center the modal horizontally
         transform='translate(-50%, -50%)' // Center the modal both horizontally and vertically

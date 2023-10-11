@@ -170,6 +170,7 @@ const BronzeSaints = () => {
             }}
             w='50%'
             bg='linear-gradient(to bottom, #A55628, #CD7F32, #E2A45C)'
+            color='#44220F'
             flexDir='column'
             textAlign='left'
             justifyContent='space-evenly'

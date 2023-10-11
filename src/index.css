@@ -1,13 +1,10 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: 'papyrus'; /* Give your font a name */
+  src: url('font/papyrus.ttf') format('truetype', 'woff', 'woff2'); /* Specify the path to your font file */
+  /* You can include additional font formats (e.g., woff, woff2) for browser compatibility */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face{
+  font-family: 'ArcadeClassic';
+  src: url('font/ARCADECLASSIC.TTF') format('truetype');
 }

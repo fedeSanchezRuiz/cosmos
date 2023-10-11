@@ -2,6 +2,7 @@ import facebook from '../../icons/Facebook.png';
 import twitter from '../../icons/Twitter4.png';
 import instagram from '../../icons/Instagram.png';
 import youtube from '../../icons/Youtube.png';
+import starryBack from '../../images/StarryBack.jpeg';
 
 import './Footer.css';
 import { Image, Box } from '@chakra-ui/react';
@@ -9,7 +10,15 @@ import { Image, Box } from '@chakra-ui/react';
 const Footer = () => {
 
   return (
-      <div className='footer'>
+    <div
+  className="footer"
+  style={{
+    background: `linear-gradient(to bottom, rgba(30, 39, 54, 0.9), rgba(30, 39, 54, 0.8)), url(${starryBack})`,
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+  }}
+>
         <div className='sb__footersection__padding'>
           <div className='sb__footer-links'>
             <div className='sb__footer-links_div'>

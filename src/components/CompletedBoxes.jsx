@@ -1,7 +1,8 @@
 import { Box } from "@chakra-ui/react";
 import Boxes from './Boxes';
 import pegasusBox from '../images/PegasusBox2.png';
-import athena from '../images/Athena2.png';
+// import SagittariusCloth from '../images/SagitArmor.png';
+import popeSaga from '../images/PopeSaga.webp';
 
 const CompletedBoxes = () => {
 
@@ -20,10 +21,10 @@ const CompletedBoxes = () => {
       <Boxes
         path={emailLink}
         mx={{ base: 'none', sm: '20px', md: '30px', lg: '40px' }}
-        image={athena}
+        image={popeSaga}
         heading={'Any Questions?'}
         text={
-          'Feel free to click on Goddess Athena for any doubts you may have.'
+          'Feel free to click Grand Pope Saga for any doubts you may have.'
         }
         flexDir={'row-reverse'}
       />

@@ -1,41 +1,76 @@
-  import { NavLink } from "react-router-dom";
-  import { Button, Flex } from "@chakra-ui/react";
+import { NavLink } from 'react-router-dom';
+import { Button, Flex } from '@chakra-ui/react';
+import starryBack from '../../images/StarryBack.jpeg';
 
-  const buttonsName = [
-    { name: 'Bronze' },
-    { name: 'Black' },
-    { name: 'Silver' },
-    { name: 'Gold' },
-    { name: 'Asgard' },
-    { name: 'Poseidon' },
-  ];
+const buttonsName = [
+  { name: 'Bronze' },
+  { name: 'Black' },
+  { name: 'Silver' },
+  { name: 'Gold' },
+  { name: 'Asgard' },
+  { name: 'Poseidon' },
+];
 
-  const SaintsTab = () => {
-    return (
-      <Flex flexDir='column' textAlign='center' justifyContent='center' alignItems='center'>
-        <Flex justifyContent='center' alignItems='center' wrap='wrap'>{buttonsName.map(saint => 
-        <NavLink key={saint.name} to={`/characters/${saint.name}`} style={({ isActive }) => ({color: isActive ? 'red' : ''})}>
-          <Button
-          display='flex'
-          color='rgb(13, 32, 61)'
-          background='linear-gradient(to top, #B3E0F2, #002855)'
-          fontFamily='ARCADECLASSIC'
-          letterSpacing='0.04rem'
-          fontSize={{base: 'x-small', sm: 'small', md: 'medium', lg: 'medium', xl: 'medium'}} 
-          width={{base: '48px', sm: '60px', md: '90px', lg:'100px', xl: '100px'}} 
-          borderRadius='15px' 
-          id={`/characters/${saint.name}`}
-          _hover={{
-            background: 'linear-gradient(to top, #002855, #B3E0F2)', // change to the color you want on hover
-            color: 'white', // change to the text color you want on hover
-          }}
+const SaintsTab = () => {
+  return (
+    <Flex
+      flexDir='column'
+      textAlign='center'
+      justifyContent='center'
+      alignItems='center'
+    >
+      <Flex
+        justifyContent='center'
+        alignItems='center'
+        wrap='wrap'
+      >
+        {buttonsName.map((saint) => (
+          <NavLink
+            key={saint.name}
+            to={`/characters/${saint.name}`}
+            style={({ isActive }) => ({
+              color: isActive ? 'red' : '',
+            })}
           >
-            {saint.name}
-          </Button>
-        </NavLink>)}
-        </Flex>
+            <Button
+              display='flex'
+              color='rgb(13, 32, 61)'
+              background={`linear-gradient(to top, rgba(179, 224, 242, 0.9), rgba(0, 40, 85, 0.8)), url(${starryBack})`}
+              // Set the background image
+              backgroundPosition='center' // Center the background image
+              backgroundRepeat='no-repeat' // Do not repeat the background image
+              backgroundSize='cover' // Cover the entire element with the background image
+              fontFamily='ARCADECLASSIC'
+              letterSpacing='0.04rem'
+              fontSize={{
+                base: 'x-small',
+                sm: 'small',
+                md: 'medium',
+                lg: 'medium',
+                xl: 'medium',
+              }}
+              width={{
+                base: '48px',
+                sm: '60px',
+                md: '90px',
+                lg: '100px',
+                xl: '100px',
+              }}
+              borderRadius='15px'
+              id={`/characters/${saint.name}`}
+              _hover={{
+                background:
+                  'linear-gradient(to top, #002855, #B3E0F2)', // change to the color you want on hover
+                color: 'white', // change to the text color you want on hover
+              }}
+            >
+              {saint.name}
+            </Button>
+          </NavLink>
+        ))}
       </Flex>
-    )
-  };
+    </Flex>
+  );
+};
 
-  export default SaintsTab;
+export default SaintsTab;

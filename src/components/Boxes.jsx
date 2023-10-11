@@ -6,6 +6,7 @@ import {
   Image,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
+import Night from '../images/NightSkyBack.jpeg';
 
 const Boxes = ({
   image,
@@ -28,7 +29,10 @@ const Boxes = ({
       flexDir={{ base: 'column', lg: 'row' }}
       mx={{ base: 'none', lg: '40px' }}
       my={{ base: '20px', md: '30px', lg: '40px' }}
-      background='linear-gradient(to bottom, #FFFFCC, #DAA520)'
+      background={`linear-gradient(to bottom, rgba(255, 255, 204, 1), rgba(218, 165, 32, 0.6)), url(${Night})`}
+      backgroundPosition= 'center'
+      backgroundRepeat= 'no-repeat'
+      backgroundSize= 'cover'
       borderRadius='10px'
       justifyContent='space-around'
       textAlign='center'

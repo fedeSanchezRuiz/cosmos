@@ -1,0 +1,28 @@
+.imageStyles {
+  transition: transform 0.3s;
+  transform: scale(1.05);
+  height: 400px;
+}
+
+.imageStyles:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
+.boxStyles {
+  text-align: center;
+  height: 430px;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-bottom: 70px;
+  margin-top: 110px;
+}
+
+.heading {
+  font-family: 'ARCADECLASSIC', sans-serif;
+  font-size: 45px;
+}
+
+.text {
+  font-size: 1.4rem;
+}

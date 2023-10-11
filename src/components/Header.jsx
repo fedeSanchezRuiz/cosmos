@@ -1,7 +1,8 @@
-import { Box, Heading, Text, Button } from '@chakra-ui/react';
+import { Box, Heading, Button } from '@chakra-ui/react';
 import React, { Fragment } from 'react'
 import LoginModal from './UI/LoginModal';
 import { useState } from 'react';
+import Night from '../images/NightSkyBack.jpeg';
 
 export const Header = () => {
 
@@ -27,12 +28,7 @@ export const Header = () => {
   <Fragment>
     {showLoginModal && <LoginModal onClosingModal={closeLoginModalHandler} />}
     <Box textAlign='center'>
-      <Heading fontFamily='ARCADECLASSIC' letterSpacing='0.1rem' wordSpacing='1rem' fontSize={{ base: '25px', sm: '34px', md: '38px', lg: '45px', xl: '45px' }}>Burn your Cosmos!</Heading>
-      <Box px={{base: '50px', sm: '80px', md: '150px', lg: '200px' }}>
-        <Text letterSpacing='0.05rem' fontSize={{ base: '14px', sm: '16px', md: '18px', lg: '20px' }}>
-          Join Pegasus Seiya and his friends on this adventure against the forces of evil to decide the fate of the Earth!
-        </Text>
-      </Box>
+      <Heading fontFamily='ARCADECLASSIC' letterSpacing='0.1rem' wordSpacing='1rem' fontSize={{ base: '44px', sm: '48px', md: '55px', lg: '60px', xl: '70px' }}>Burn your Cosmos!</Heading>
       <Box my={{ base: '20px', md: '35px', lg: '50px'}}>
         <Button
           onClick={showLoginModalHandler}
@@ -44,7 +40,10 @@ export const Header = () => {
           fontFamily='ARCADECLASSIC'
           fontSize={{base: '16px', sm: '18px', md: '20px', lg: '22px', xl: '22px'}}
           letterSpacing='0.05rem'
-          background='linear-gradient(to bottom, #FFFFCC, #DAA520)'
+          background={`linear-gradient(to bottom, rgba(255, 255, 204, 1), rgba(218, 165, 32, 0.6)), url(${Night})`}
+          backgroundPosition= 'center'
+          backgroundRepeat= 'no-repeat'
+          backgroundSize= 'cover'
           color='#704214'
           h={{base: '50px', sm: '56px', md: '65px', lg: '75px', xl: '75px'}}
           w={{base: '120px', sm: '126px', md: '151px', lg: '174px', xl: '174px'}}

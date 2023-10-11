@@ -8,17 +8,15 @@ import BlackSaints from "../components/saintsSanctuary/BlackSaints";
 
 const CharacterDetails = () => {
     const isBronzeMatch = useMatch('/characters/Bronze');
-    const isBlackMatch = useMatch('characters/Black')
+    // const isBlackMatch = useMatch('characters/Black')
 
-    let saintsToRender;
+    let saintsToRender = <ComingSoon src={shakaMeditate} />;
 
     if (isBronzeMatch) {
         saintsToRender = <BronzeSaints />;
-    } else if (isBlackMatch) {
-        saintsToRender = <BlackSaints />;
     } else {
-        saintsToRender = <ComingSoon src={shakaMeditate} />;
-    }
+        saintsToRender = <BlackSaints />;
+    };
 
     return (
        <Cardwrapper>

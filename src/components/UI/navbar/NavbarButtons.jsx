@@ -1,18 +1,25 @@
 import { useState, useEffect } from 'react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
-import { Button, Flex, HStack, IconButton, VStack } from '@chakra-ui/react';
+import {
+  Button,
+  Flex,
+  HStack,
+  IconButton,
+  VStack,
+} from '@chakra-ui/react';
 import LoginModal from '../LoginModal';
+import starryNight from '../../../images/StarryBack.jpeg';
+import Night from '../../../images/NightSkyBack.jpeg';
 
 const buttons = [
   { name: 'About', path: 'about' },
   { name: 'Rules', path: 'rules' },
   { name: 'Characters', path: 'characters' },
-  { name: 'Cloths', path: 'cloths' },
+  { name: 'Inventory', path: 'inventory' },
 ];
 
 export const NavbarButtons = () => {
-
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
 
@@ -46,7 +53,7 @@ export const NavbarButtons = () => {
 
   const closeMenuHandler = () => {
     setShowMenu(false);
-  }
+  };
 
   const imageStyles = {
     transition: 'transform 0.3s', // Add a smooth transition effect
@@ -67,7 +74,9 @@ export const NavbarButtons = () => {
 
   return (
     <HStack>
-      {showLoginModal && <LoginModal onClosingModal={closeLoginModalHandler} />}
+      {showLoginModal && (
+        <LoginModal onClosingModal={closeLoginModalHandler} />
+      )}
       <IconButton
         onClick={showMenuHandler}
         aria-label='Open Menu'
@@ -83,7 +92,14 @@ export const NavbarButtons = () => {
           lg: 'none',
         }}
       />
-      <Flex display={{ base: 'none', sm: 'none', md: 'flex', lg: 'flex' }}>
+      <Flex
+        display={{
+          base: 'none',
+          sm: 'none',
+          md: 'flex',
+          lg: 'flex',
+        }}
+      >
         {buttons.map((button) => (
           <Link
             to={button.path}
@@ -92,7 +108,13 @@ export const NavbarButtons = () => {
             <Button
               fontFamily='ARCADECLASSIC'
               letterSpacing='0.03rem'
-              fontSize={{base: 'x-small', sm: 'small', md: 'medium', lg: 'medium', xl: 'medium'}}
+              fontSize={{
+                base: 'x-small',
+                sm: 'small',
+                md: 'medium',
+                lg: 'medium',
+                xl: 'medium',
+              }}
               sx={buttonStyles}
               style={imageStyles}
               _hover={buttonHoverStyles}
@@ -104,14 +126,17 @@ export const NavbarButtons = () => {
         ))}
         <Button
           mx='8px'
-          background='linear-gradient(to bottom, #FFFFCC, #DAA520)'
+          background={`linear-gradient(to bottom, rgba(255, 255, 204, 1), rgba(218, 165, 32, 0.6)), url(${starryNight})`}
+          backgroundPosition='center'
+          backgroundRepeat='no-repeat'
+          backgroundSize='cover'
           color='#704214'
           variant='solid'
           w='140px'
           h='45px'
           fontWeight='extrabold'
           fontFamily='ARCADECLASSIC'
-          fontSize={{ md: '18px', lg: '20px', xl: '20px'}}
+          fontSize={{ md: '18px', lg: '20px', xl: '20px' }}
           letterSpacing='0.04rem'
           style={imageStyles}
           _hover={buttonHoverStyles}
@@ -123,64 +148,88 @@ export const NavbarButtons = () => {
       </Flex>
       {showMenu && (
         <VStack
-        position='absolute'
-    top='68px'
-    left='0'
-    width='100%'
-    h='56vh'
-    display={{ base:'flex', sm:'flex', md: 'none', lg: 'none' }}
-    bg='linear-gradient(to bottom, #88B2D1, #B3E0F2)'
-    spacing={4}
-    zIndex={1}
-    boxShadow='lg'
-    borderBottomRadius='15px'
-    justifyContent='space-evenly'
-    alignItems='center'
-    >
-        <Flex
-        w='100%'
-        h='100%'
-        flexDir='column'
-        justifyContent='space-evenly'
-        alignItems='center'
-        overFlowY='auto'
+          position='absolute'
+          top='68px'
+          left='0'
+          width='100%'
+          h='56vh'
+          display={{
+            base: 'flex',
+            sm: 'flex',
+            md: 'none',
+            lg: 'none',
+          }}
+          background={`linear-gradient(to top, rgba(179, 224, 242, 0.9), rgba(179, 224, 242, 0.8), rgba(179, 224, 242, 0.85)), url(${starryNight})`}
+          // Set the background image
+          backgroundPosition='center' // Center the background image
+          backgroundRepeat='no-repeat' // Do not repeat the background image
+          backgroundSize='cover' // Cover the entire element with the background image
+          spacing={4}
+          zIndex={1}
+          boxShadow='lg'
+          borderBottomRadius='15px'
+          justifyContent='space-evenly'
+          alignItems='center'
         >
-          <Flex w='95%' justifyContent='flex-end'>
-            <IconButton
-            onClick={closeMenuHandler}
-            aria-label='Close-menu'
-            size='lg'
-            icon={<CloseIcon />}
-            color= 'rgb(13, 32, 61)'
-            bg='#B3E0F2'
-            fontWeight='bold'
-            />
+          <Flex
+            w='100%'
+            h='100%'
+            flexDir='column'
+            justifyContent='space-evenly'
+            alignItems='center'
+            overFlowY='auto'
+          >
+            <Flex
+              w='95%'
+              justifyContent='flex-end'
+            >
+              <IconButton
+                onClick={closeMenuHandler}
+                aria-label='Close-menu'
+                size='lg'
+                icon={<CloseIcon />}
+                color='rgb(13, 32, 61)'
+                bg='#B3E0F2'
+                fontWeight='bold'
+              />
+            </Flex>
+            {buttons.map((button) => (
+              <Link
+                to={button.path}
+                key={button.name}
+                onClick={closeMenuHandler}
+              >
+                <Button
+                  fontSize={{ base: '20px', sm: '20px' }}
+                  fontFamily='ARCADECLASSIC'
+                  sx={buttonStyles}
+                  _hover={buttonHoverStyles}
+                >
+                  {button.name}
+                </Button>
+              </Link>
+            ))}
+            <Button
+              background={`linear-gradient(to bottom, rgba(255, 255, 204, 1), rgba(218, 165, 32, 0.6)), url(${Night})`}
+              backgroundPosition='center'
+              backgroundRepeat='no-repeat'
+              backgroundSize='cover'
+              color='#704214'
+              variant='solid'
+              w={{ base: '140px', sm: '160px' }}
+              h={{ base: '50px', sm: '60px' }}
+              fontWeight='extrabold'
+              fontFamily='ARCADECLASSIC'
+              fontSize={{ base: '22px', sm: '23px' }}
+              letterSpacing='0.04rem'
+              style={imageStyles}
+              _hover={buttonHoverStyles}
+              borderRadius='25px'
+              onClick={showLoginModalHandler}
+            >
+              Login
+            </Button>
           </Flex>
-          {buttons.map((button) => (
-            <Link to={button.path} key={button.name} onClick={closeMenuHandler}>
-              <Button fontSize={{ base: '20px', sm: '20px' }} fontFamily='ARCADECLASSIC' sx={buttonStyles} _hover={buttonHoverStyles}>
-                {button.name}
-              </Button>
-            </Link>
-          ))}
-          <Button
-          background='linear-gradient(to bottom, #FFFFCC, #DAA520)'
-          color='#704214'
-          variant='solid'
-          w={{ base: '140px', sm: '160px' }}
-          h={{ base: '50px', sm: '60px' }}
-          fontWeight='extrabold'
-          fontFamily='ARCADECLASSIC'
-          fontSize={{ base:'22px', sm:'23px' }}
-          letterSpacing='0.04rem'
-          style={imageStyles}
-          _hover={buttonHoverStyles}
-          borderRadius='25px'
-          onClick={showLoginModalHandler}
-        >
-          Login
-        </Button>
-        </Flex>
         </VStack>
       )}
     </HStack>
