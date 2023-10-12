@@ -13,6 +13,7 @@ const Characters = () => {
         justifyContent='center'
         alignItems='center'
         wrap='wrap'
+        mt='2%'
       >
         <SaintsTab />
         <ComingSoon

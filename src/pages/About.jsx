@@ -51,26 +51,23 @@ const About = () => {
 
   const MuExplain = (
     <Image
-      display={{
-        base: 'none',
-        md: 'none',
-        lg: 'block',
-        xl: 'block',
-      }}
-      maxW='80%'
+      display={{ base: 'none', md: 'none', lg: 'block', xl: 'block' }}
       src={ariesMu}
     />
   );
 
   return (
     <Flex
-      className={classes.totalFlex}
-      mx={{ base: '2%', sm: '2%', md: '6%', lg: '8%', xl: '14%' }}
-      flexDir={{ base: 'column', sm: 'column', md: 'row' }}
-      flexWrap={{ base: 'wrap', lg: 'nowrap' }}
+    className={classes.totalFlex}
+      minH='70vh'
+      mt={{ base: '190px', sm: '50px', md: '90px', lg: '100px', xl: '120px' }}
+      mb={{ base: '120px', sm: '-30px', md: '10px', lg: '35px', xl: '40px' }}
+      mx={{ base: '2%', sm: '15%', md: '24%', lg: '4%', xl: '10%' }}
+      flexDir={{ base: 'column', sm: 'column', md: 'column', lg: 'row' }}
+      // flexWrap={{ base: 'wrap', md: 'wrap', lg: 'nowrap' }}
     >
       {MuExplain}
-      <Flex flexDir={{ base: 'column', sm: 'row', md: 'row' }}>
+      <Flex wrap='wrap' flexDirection={{ base: 'column', sm: 'column', md: 'column', lg: 'row',  xl: 'row' }} px={{ sm: '15px', md: '20px', lg: '5px',  xl: '30px' }} className={classes.wrapperBoxesFlex}>
         {firstPapyrus}
         {secondPapyrus}
       </Flex>

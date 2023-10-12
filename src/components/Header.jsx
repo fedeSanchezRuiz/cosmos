@@ -3,6 +3,8 @@ import React, { Fragment } from 'react'
 import LoginModal from './UI/LoginModal';
 import { useState } from 'react';
 import Night from '../images/NightSkyBack.jpeg';
+// import Starry from '../images/StarryBack.jpeg';
+import classes from './Header.module.css';
 
 export const Header = () => {
 
@@ -31,20 +33,16 @@ export const Header = () => {
       <Heading fontFamily='ARCADECLASSIC' letterSpacing='0.1rem' wordSpacing='1rem' fontSize={{ base: '44px', sm: '48px', md: '55px', lg: '60px', xl: '70px' }}>Burn your Cosmos!</Heading>
       <Box my={{ base: '20px', md: '35px', lg: '50px'}}>
         <Button
-          onClick={showLoginModalHandler}
-          size='lg'
-          styles={imageStyles}
-          _hover={boxHoverStyles}
-          boxShadow='2px 2px 4px rgba(0, 0, 0, 0.5)'
-          fontWeight='extrabold'
-          fontFamily='ARCADECLASSIC'
-          fontSize={{base: '16px', sm: '18px', md: '20px', lg: '22px', xl: '22px'}}
-          letterSpacing='0.05rem'
-          background={`linear-gradient(to bottom, rgba(255, 255, 204, 1), rgba(218, 165, 32, 0.6)), url(${Night})`}
+          className={classes.buttonStyle}
           backgroundPosition= 'center'
           backgroundRepeat= 'no-repeat'
           backgroundSize= 'cover'
           color='#704214'
+          onClick={showLoginModalHandler}
+          styles={imageStyles}
+          _hover={boxHoverStyles}
+          fontSize={{base: '16px', sm: '18px', md: '20px', lg: '22px', xl: '24px'}}
+          background={`linear-gradient(to bottom, rgba(255, 255, 204, 1), rgba(218, 165, 32, 0.6)), url(${Night})`}
           h={{base: '50px', sm: '56px', md: '65px', lg: '75px', xl: '75px'}}
           w={{base: '120px', sm: '126px', md: '151px', lg: '174px', xl: '174px'}}
         >PLAY NOW

@@ -6,6 +6,7 @@ import {
   Image,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
+import classes from './Boxes.module.css';
 import Night from '../images/NightSkyBack.jpeg';
 
 const Boxes = ({
@@ -25,18 +26,13 @@ const Boxes = ({
 
   return (
     <Flex
+      className={classes.totalStyle}
       px={{ base: '10px', sm: '10px', lg: 'none' }}
       flexDir={{ base: 'column', lg: 'row' }}
       mx={{ base: 'none', lg: '40px' }}
       my={{ base: '20px', md: '30px', lg: '40px' }}
-      background={`linear-gradient(to bottom, rgba(255, 255, 204, 1), rgba(218, 165, 32, 0.6)), url(${Night})`}
-      backgroundPosition= 'center'
-      backgroundRepeat= 'no-repeat'
-      backgroundSize= 'cover'
-      borderRadius='10px'
-      justifyContent='space-around'
-      textAlign='center'
       h={{ base: '180px', sm: '200px', md: '250px', lg: '400px' }}
+      background={`linear-gradient(to bottom, rgba(255, 255, 204, 1), rgba(218, 165, 32, 0.6)), url(${Night})`}
     >
       <Flex
         flexDir={flexDir}
@@ -49,7 +45,6 @@ const Boxes = ({
           _hover={boxHoverStyles}
           w={{ base: '120px', sm: '175px', md: '220px', lg: '350px' }}
           mt='10px'
-          borderRadius='20px'
           src={image}
           alt={image}
         />

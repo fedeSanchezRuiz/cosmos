@@ -51,7 +51,7 @@ const SaintsTab = () => {
               }}
               width={{
                 base: '48px',
-                sm: '60px',
+                sm: '70px',
                 md: '90px',
                 lg: '100px',
                 xl: '100px',

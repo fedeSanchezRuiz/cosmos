@@ -9,7 +9,7 @@ import { useState, useEffect, Fragment } from 'react';
 import logo from '../../images/Logo.png';
 import logoSS from '../../images/SS-Logo.webp';
 import useInput from '../hooks/useInput';
-import starryBack from '../../images/StarryBack.jpeg';
+import Starry from '../../images/StarryBack.jpeg';
 import Night from '../../images/NightSkyBack.jpeg'
 
 const buttonProps = {
@@ -139,7 +139,7 @@ const LoginModal = (props) => {
           xl: '510px',
         }}
         position='fixed'
-        background= {`linear-gradient(to top, rgba(179, 224, 242, 0.9), rgba(0, 40, 85, 0.8)), url(${starryBack})`}
+        background= {`linear-gradient(to top, rgba(179, 224, 242, 0.9), rgba(0, 40, 85, 0.8)), url(${Starry})`}
      // Set the background image
         backgroundPosition= 'center' // Center the background image
         backgroundRepeat= 'no-repeat' // Do not repeat the background image

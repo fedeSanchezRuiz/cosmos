@@ -1,16 +1,12 @@
 import { Flex } from "@chakra-ui/react";
+import classes from './CardWrapper.module.css';
 
 const Cardwrapper = (props) => {
   return (
     <Flex
-      minH='430px'
+    className={classes.cardStyle}
       mx={{ base: '5%', sm: '6%', md: '8%'}}
-      mb={{ base: 'none', sm: '4%', md: '4%', lg: '5%', xl: '6%'}}
-      mt={{ base: '25%', sm: '18%', md: '14%', lg: '10%', xl: '10%'}}
-      justifyContent='center' // Center horizontally
-      alignItems='center' // Center vertically
-      wrap='wrap'
-      flexDir='column'
+      mt={{ base: '15%', sm: '12%', md: '8%', lg: '6%', xl: '4%'}}
     >
       {props.children}
     </Flex>

@@ -1,4 +1,5 @@
 import { Flex, Image, Box } from '@chakra-ui/react';
+import classes from './Saints.module.css';
 import pegasusBlack from '../black-img/BlackPegasus.jpeg';
 import dragonBlack from '../black-img/BlackDragon.jpeg';
 import cygnusBlack from '../black-img/BlackCygnus.jpeg';
@@ -15,6 +16,7 @@ const blackSaintsList = [
     cloth: 'BlackPegasus',
     attacks: ['Black Meteor Fist'],
     source: pegasusBlack,
+    type: 'black',
   },
   {
     name: 'BlackDragon',
@@ -25,6 +27,7 @@ const blackSaintsList = [
     cloth: 'BlackDragon',
     attacks: ['Black Rising Dragon'],
     source: dragonBlack,
+    type: 'black',
   },
   {
     name: 'BlackCygnus',
@@ -35,6 +38,7 @@ const blackSaintsList = [
     cloth: 'BlackCygnus',
     attacks: ['Black Blizzard'],
     source: cygnusBlack,
+    type: 'black',
   },
   {
     name: 'BlackAndromeda',
@@ -45,6 +49,7 @@ const blackSaintsList = [
     cloth: 'BlackAndromeda',
     attacks: ['Black Fang Nebula'],
     source: andromedaBlack,
+    type: 'black',
   },
   {
     name: 'BlackPhoenix',
@@ -55,8 +60,27 @@ const blackSaintsList = [
     cloth: 'BlackPhoenix',
     attacks: ['Black Phoenix Illusion'],
     source: phoenixBlack,
+    type: 'black',
   },
 ];
+
+const saintProperties = [
+  { label: 'Name', key: 'name' },
+  { label: 'Country', key: 'country' },
+  { label: 'Age', key: 'age' },
+  { label: 'Height', key: 'height' },
+  { label: 'Weight', key: 'weight' },
+  { label: 'Cloth', key: 'cloth' },
+];
+
+const renderSaintProperties = (saint) => (
+  saintProperties.map((property) => (
+    <Flex className={classes.cardWrap} key={property.key}>
+      <Box fontWeight='extrabold'>{property.label}:</Box>
+      <Box fontWeight='medium'>{saint[property.key]}</Box>
+    </Flex>
+  ))
+);
 
 const BlackSaints = () => {
   // function fetchBronzeSaintsHandler() {
@@ -67,33 +91,16 @@ const BlackSaints = () => {
   //   });
   // }
 
-  const cardStyle = {
-    w: '140px',
-    justifyContent: 'center',
-  };
-
   return (
-    <Flex
-      mt='3%'
-      textAlign='center'
-      justifyContent='center'
-      alignItems='center'
-      wrap='wrap'
-    >
+    <Flex className={classes.totalFlex}>
       {blackSaintsList.map((saint) => (
         <Flex
-          flexDir='row'
           key={saint.name}
-          justifyContent='center'
-          alignItems='center'
-          // textAlign='center'
-          flexWrap='wrap'
-        >
+          className={classes.outerFlex}
+          >
           <Image
-            w='50%'
-            key={saint.source}
+            className={classes.imageStyle}
             src={saint.source}
-            margin='3% auto'
           />
           <Flex
             fontFamily='ARCADECLASSIC'
@@ -110,41 +117,9 @@ const BlackSaints = () => {
               lg: '492.5px',
               xl: '492.5px',
             }}
-            w='50%'
-            bg='linear-gradient(to bottom, #1F1F1F, #4F4F4F, #A9A9A9)'
-            color='#E3DAC9'
-            flexDir='column'
-            // textAlign='left'
-            justifyContent='space-evenly'
-            alignItems='center'
-            border='4px solid #000000'
-            flexWrap='wrap'
+            className={classes.BlackCardStyles}
           >
-            <Flex sx={{ ...cardStyle }}>
-              <Box fontWeight='extrabold'>Name:</Box>
-              <Box fontWeight='medium'>{saint.name}</Box>
-            </Flex>
-            <Flex sx={{ ...cardStyle }}>
-              <Box fontWeight='extrabold'>Country:</Box>
-              <Box fontWeight='medium'>{saint.country}</Box>
-            </Flex>
-            <Flex sx={{ ...cardStyle }}>
-              <Box fontWeight='extrabold'>Age:</Box>
-              <Box fontWeight='medium'>{saint.age}</Box>
-            </Flex>
-            <Flex sx={{ ...cardStyle }}>
-              <Box fontWeight='extrabold'>Height:</Box>
-              <Box fontWeight='medium'>{saint.height}</Box>
-            </Flex>
-            <Flex sx={{ ...cardStyle }}>
-              <Box fontWeight='extrabold'>Weight:</Box>
-              <Box fontWeight='medium'>{saint.weight}</Box>
-            </Flex>
-            <Flex sx={{ ...cardStyle }}>
-              <Box fontWeight='extrabold'>Cloth:</Box>
-              <Box fontWeight='medium'>{saint.cloth}</Box>
-            </Flex>
-            {/* <Box fontWeight='extrabold'><Flex>Cloth:<Box fontWeight='medium'>{saint.attacks}</Box></Flex></Box> */}
+            {renderSaintProperties(saint)}
           </Flex>
         </Flex>
       ))}

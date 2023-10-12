@@ -7,6 +7,7 @@ import {
 } from '@chakra-ui/react';
 import { Fragment } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Cardwrapper from '../components/UI/CardWrapper';
 import Navbar from '../components/UI/navbar/Navbar';
 import deathmask from '../images/DM.png';
 import Footer from '../components/UI/Footer';
@@ -21,8 +22,9 @@ const ErrorPage = () => {
 
   return (
     <Fragment>
+    <Cardwrapper>
       <Navbar />
-      <Box className={classes.boxStyles}>
+      <Box className={classes.boxStyles} mb={{ base: '-50px', sm: '-35px', md: '28px', lg: '22px', xl: '0' }}>
         <Heading
           className={classes.heading}
           fontFamily='ARCADECLASSIC'
@@ -36,12 +38,14 @@ const ErrorPage = () => {
           <Image
             className={classes.imageStyles}
             src={deathmask}
+            h={{ base: '300px', sm: '300px', md: '350px', lg: '400px', xl: '400px' }}
             onClick={navigateHandler}
           />
         </Flex>
       </Box>
+      </Cardwrapper>
       <Footer />
-    </Fragment>
+      </Fragment>
   );
 };
 
