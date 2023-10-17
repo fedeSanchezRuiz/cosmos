@@ -1,0 +1,58 @@
+.dice {
+  width: 50px;
+  height: 50px;
+  background-color: ivory;
+  border: 3px solid #333333;
+  border-radius: 5px;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.topLeft {
+  top: 15%;
+  left: 15%;
+}
+
+.topRight {
+  top: 15%;
+  right: 15%;
+}
+
+.bottomLeft {
+  bottom: 15%;
+  left: 15%;
+}
+
+.bottomRight {
+  bottom: 15%;
+  right: 15%;
+}
+
+.midLeft {
+  top: 50%;
+  left: 15%;
+  transform: translateY(-50%);
+}
+
+.midRight {
+  top: 50%;
+  right: 15%;
+  transform: translateY(-50%);
+}
+
+.center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

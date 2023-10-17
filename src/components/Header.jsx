@@ -41,8 +41,8 @@ export const Header = () => {
           onClick={showLoginModalHandler}
           styles={imageStyles}
           _hover={boxHoverStyles}
-          fontSize={{base: '16px', sm: '18px', md: '20px', lg: '22px', xl: '24px'}}
           background={`linear-gradient(to bottom, rgba(255, 255, 204, 1), rgba(218, 165, 32, 0.6)), url(${Night})`}
+          fontSize={{base: '16px', sm: '18px', md: '20px', lg: '22px', xl: '24px'}}
           h={{base: '50px', sm: '56px', md: '65px', lg: '75px', xl: '75px'}}
           w={{base: '120px', sm: '126px', md: '151px', lg: '174px', xl: '174px'}}
         >PLAY NOW

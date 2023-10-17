@@ -8,8 +8,11 @@ import Rules from './pages/Rules';
 import Characters from './pages/Characters';
 import RootLayput from './pages/RootLayout';
 import ErrorPage from './pages/Error';
-import './App.css';
 import CharacterDetails from './pages/CharactersDetails';
+import IntroPage from './pages/IntroPage';
+import Chapter1 from './pages/Chapter1';
+import Introduction from './components/chapter1/Introduction';
+import FightCassios from './components/chapter1/FightCassios';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +25,11 @@ const router = createBrowserRouter([
       { path: 'characters/:saintsId', element: <CharacterDetails /> },
     ]
   },
+  { path: 'intro', element: <IntroPage />, errorElement: <ErrorPage /> },
+  { path: 'chapter1', element: <Chapter1 />, errorElement: <ErrorPage />, children: [
+    { index: true, element: <Introduction /> },
+    { path: 'fightCassios', element: <FightCassios /> },
+  ] },
 ])
 
 function App() {

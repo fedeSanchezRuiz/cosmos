@@ -1,9 +1,0 @@
-.papyrus-box {
-  background: linear-gradient(to top, #c79d73, #a37e53, #795e3e); 
-  padding: 8px;
-  border: 4px solid #664D2F; /* Border color */
-  border-radius: 10px;
-  width: 94%; /* Adjust the width as needed */
-  margin: 0 auto;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
-}

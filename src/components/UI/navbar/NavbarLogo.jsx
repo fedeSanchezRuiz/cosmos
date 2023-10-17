@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import logo from '../../../images/Logo.png';
 import logoSS from '../../../images/SS-Logo.webp';
 
-export const NavbarLogo = () => {
+export const NavbarLogo = ({ logoWidth, logoHeight, logoSSWidth, logoSSHeight, disableLink }) => {
 
   const imageStyles = {
     transition: 'transform 0.3s', // Add a smooth transition effect
@@ -14,30 +14,41 @@ export const NavbarLogo = () => {
     opacity: 0.5
   };
 
+  const navbarContent = (
+    <Flex alignItems='center'>
+      <Box
+        p='8px'
+        style={imageStyles}
+        _hover={imageHoverStyles}
+        opacity='0.7'
+      >
+        <Image
+          src={logoSS}
+          h={logoSSHeight}
+          w={logoSSWidth}
+          ml='10px'
+          alt='Saint-Seiya'
+        />
+        <Image
+          src={logo}
+          h={logoHeight}
+          w={logoWidth}
+          alt='Cosmo-Warriors'
+        />
+      </Box>
+    </Flex>
+  );
+
   return (
     <Heading as='h1'>
+      {
+        disableLink ?
+        navbarContent
+        :
       <Link to='/'>
-        <Flex alignItems='center'>
-          <Box
-            p='8px'
-            style={imageStyles}
-            _hover={imageHoverStyles}
-            opacity='0.8'
-           >
-            <Image
-              src={logoSS}
-              h='40px'
-              ml='10px'
-              alt='Saint-Seiya'
-            />
-            <Image
-              src={logo}
-              h='20px'
-              alt='Cosmo-Warriors'
-            />
-          </Box>
-        </Flex>
+        {navbarContent}
       </Link>
+     } 
     </Heading>
   )
 };
