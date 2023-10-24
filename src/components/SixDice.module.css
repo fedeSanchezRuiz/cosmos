@@ -11,6 +11,11 @@
   position: relative;
 }
 
+.disabledDice {
+  opacity: 0.8;
+  pointer-events: none; /* prevent dice from being clickable */
+}
+
 .dot {
   width: 10px;
   height: 10px;

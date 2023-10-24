@@ -1,9 +1,28 @@
-import { Flex, Heading, Image } from '@chakra-ui/react';
+import { Flex, Heading, Image, Button } from '@chakra-ui/react';
 import ariesMu from '../images/AriesMu.png';
 import papyrus from '../images/PapyrusBack.jpeg';
 import classes from './About.module.css';
+import starryBack from '../images/StarryBack.jpeg';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const About = () => {
+
+  const [selectSaintSeiya, setSelectSaintSeiya] = useState(true);
+  const [selectCosmos, setSelectCosmos] = useState(false);
+
+  const MotionButton = motion(Button);
+
+  const selectSaintSeiyaHandler = () => {
+    setSelectSaintSeiya(true);
+    setSelectCosmos(false);
+  };
+
+  const selectCosmosHandler = () => {
+    setSelectCosmos(true);
+    setSelectSaintSeiya(false);
+  };
+
   const firstPapyrus = (
     <Flex
       className={`${classes.papyrusBox} ${classes.outerFlex}`}
@@ -18,11 +37,7 @@ const About = () => {
         Saint Seiya
       </Heading>
       <Flex className={classes.innerFlex}>
-        Saint Seiya is a manga and anime originally created by
-        Masami Kurumada in 1985. The plot of the story centers
-        around a group of young warriors known as Saints that
-        fight alongside the Greek Goddess Athena to protect
-        humanity against the forces of evil.
+        Saint Seiya is a manga and anime originally created by sensei Masami Kurumada in 1985. The plot of the story centers around a group of young warriors known as Saints that fight alongside the Greek Goddess Athena to protect humanity against the forces of evil.
       </Flex>
     </Flex>
   );
@@ -41,35 +56,113 @@ const About = () => {
         Cosmos Warriors
       </Heading>
       <Flex className={classes.innerFlex}>
-        Cosmos Warriors is a Saint Seiya demo website created by
-        me, Federico Sánchez, with the purpose of putting into
-        practice many of the React concepts that I have learnt so
-        far about the world of web development.
+        Cosmos Warriors is a Saint Seiya website who leads you to a beta version of an online game created by me, Federico Sánchez. My main purpose is putting into practice what I've learnt so far about React JS and the vast world of web development.
       </Flex>
     </Flex>
   );
 
   const MuExplain = (
     <Image
-      display={{ base: 'none', md: 'none', lg: 'block', xl: 'block' }}
+      maxH='550px'
+      display={{
+        base: 'none',
+        sm: 'none',
+        md: 'block',
+        lg: 'block',
+        xl: 'block',
+      }}
       src={ariesMu}
     />
   );
 
+  const buttonStyles = {
+    display: 'flex',
+    color: 'rgb(13, 32, 61)',
+    background: `linear-gradient(to top, rgba(179, 224, 242, 0.9), rgba(0, 40, 85, 0.8)), url(${starryBack})`,
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    fontFamily: 'ARCADECLASSIC',
+    letterSpacing: '0.04rem',
+    boxShadow: '0px 10px 15px -3px rgba(0, 0, 0, 0.2), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)',
+    fontSize: {
+      base: 'small',
+      sm: 'small',
+      md: 'medium',
+      lg: 'medium',
+      xl: 'medium',
+    },
+    width: {
+      base: '140px',
+      sm: '150px',
+      md: '160px',
+      lg: '160px',
+      xl: '160px',
+    },
+    height: {
+      base: '45px',
+      sm: '46px',
+      md: '50px',
+      lg: '50px',
+      xl: '50px',
+    },
+    borderRadius: '15px',
+    whileHover: { scale: 1.03 },
+    whileTap: { scale: 0.95 },
+    _hover: { bg: 'blue.400' },
+  };
+
   return (
     <Flex
-    className={classes.totalFlex}
-      minH='70vh'
-      mt={{ base: '190px', sm: '50px', md: '90px', lg: '100px', xl: '120px' }}
-      mb={{ base: '120px', sm: '-30px', md: '10px', lg: '35px', xl: '40px' }}
-      mx={{ base: '2%', sm: '15%', md: '24%', lg: '4%', xl: '10%' }}
-      flexDir={{ base: 'column', sm: 'column', md: 'column', lg: 'row' }}
-      // flexWrap={{ base: 'wrap', md: 'wrap', lg: 'nowrap' }}
+      // bg='pink'
+      minH='72vh'
+      flexDir='row'
+      // justifyContent='center'
+      mx={{ base: '2%', sm: '2%', md: '4%', lg: '10%', xl: '15%' }}
+      mt={{ base: '26%', sm: '19%', md: '14%', lg: '11%', xl: '8%' }}
+      mb={{ base: '0%', sm: '3%', md: '3%', lg: '2%', xl: '2%' }}
+      wrap='wrap'
     >
-      {MuExplain}
-      <Flex wrap='wrap' flexDirection={{ base: 'column', sm: 'column', md: 'column', lg: 'row',  xl: 'row' }} px={{ sm: '15px', md: '20px', lg: '5px',  xl: '30px' }} className={classes.wrapperBoxesFlex}>
-        {firstPapyrus}
-        {secondPapyrus}
+      <Flex
+        // bg='red'
+        width={{ base: '0%', sm: '0%', md: '50%'}}
+        justifyContent='center'
+      >
+        {MuExplain}
+      </Flex>
+      <Flex
+        // bg='blue'
+        width={{ base:'100%', sm: '100%', md: '50%' }}
+        flexDir='column'
+        justifyContent='flex-start'
+        alignItems={{ base: 'center', md: 'flex-start' }}
+      >
+        <Flex /*bg='pink'*/ h='15%' w={{ base: '100%', sm: '80%', md: '96%', lg: '95%', xl: '90%' }} justifyContent='center' alignItems={{ base: 'flex-end', md: 'center' }}>
+        <MotionButton {...buttonStyles} borderRightRadius='0' borderRight='1px solid rgb(13, 32, 61)' onClick={selectSaintSeiyaHandler}>
+          Saint Seiya
+        </MotionButton>
+        <MotionButton {...buttonStyles} borderLeftRadius='0' borderLeft='1px solid rgb(13, 32, 61)' onClick={selectCosmosHandler}>
+          Cosmos Warriors
+        </MotionButton>
+        </Flex>
+        {selectSaintSeiya && <Flex 
+        // bg='green' 
+        h={{ base: '100%', sm: '100%', md: '85%' }} 
+        w={{ base: '100%', sm: '80%', md: '96%', lg: '95%', xl: '90%' }}
+        justifyContent='center'
+        alignItems={{ base: 'center', sm: 'center', md: 'flex-start', lg: 'flex-start', xl: 'flex-start' }}
+        fontSize={{ base: '18px', sm: '22px', md: '18px', lg: '19px', xl: '22px' }}
+        // px={{ base: '', sm: '', md: '10px', lg: '5px', xl: '5px' }}
+        >{firstPapyrus}</Flex>}
+        {selectCosmos && <Flex 
+        // bg='green' 
+        h={{ base: '100%', sm: '100%', md: '85%' }} 
+        w={{ base: '100%', sm: '80%', md: '96%', lg: '95%', xl: '90%' }}
+        justifyContent='center'
+        alignItems={{ base: 'center', sm: 'center', md: 'flex-start', lg: 'flex-start', xl: 'flex-start' }}
+        fontSize={{ base: '18px', sm: '22px', md: '18px', lg: '19px', xl: '22px' }}
+        // px={{ base: '', sm: '', md: '10px', lg: '5px', xl: '5px' }}
+        >{secondPapyrus}</Flex>}
       </Flex>
     </Flex>
   );

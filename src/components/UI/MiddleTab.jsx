@@ -11,7 +11,7 @@ const buttonsName = [
   { name: 'Poseidon' },
 ];
 
-const SaintsTab = () => {
+const MiddleTab = () => {
   return (
     <Flex
       flexDir='column'
@@ -73,4 +73,4 @@ const SaintsTab = () => {
   );
 };
 
-export default SaintsTab;
+export default MiddleTab;

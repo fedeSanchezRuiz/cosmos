@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-const ANIMATION_DURATION = 1; // seconds
+const ANIMATION_DURATION = 1;
 
-const StarterSelector = ({ charA, charB, oddsA = 0.5, oddsB = 0.5, isVisible, setIsVisible }) => {
-  const [starter, setStarter] = useState('');
+const StarterSelector = ({ charA, charB, oddsA = 0.5, oddsB = 0.5, isVisible, setIsVisible, setStarter }) => {
+  const [starter, setStarterInternal] = useState('');
 
-  useMemo(() => {
+  useEffect(() => {
     // Validate the odds
     if (oddsA + oddsB !== 1) {
       console.error('Error: The sum of the odds must be equal to 1.');
@@ -16,22 +16,24 @@ const StarterSelector = ({ charA, charB, oddsA = 0.5, oddsB = 0.5, isVisible, se
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(false);
-    }, 2000);
+    }, 1600);
 
     return () => clearTimeout(timer);
   }, [isVisible, setIsVisible]);
 
   useEffect(() => {
     // Randomly select the starter based on the odds
-    setStarter(Math.random() < oddsA ? charA : charB);
-  }, [charA, charB, oddsA, oddsB]);
+    const selectedStarter = Math.random() < oddsA ? charA : charB;
+    setStarterInternal(selectedStarter);
+    setStarter(selectedStarter);
+  }, [charA, charB, oddsA, oddsB, setStarter]);
 
   return (
     isVisible && (
       <motion.div
         initial={{ opacity: 0, scale: 0.5, y: -100 }}
         animate={{ opacity: 1, scale: 1.4, y: 0 }}
-        exit={{ opacity: 1, scale: 0.5, y: 100 }}
+        exit={{ opacity: 0, scale: 0.5, y: -100 }}
         transition={{ duration: ANIMATION_DURATION }}
         style={{
           position: 'absolute',

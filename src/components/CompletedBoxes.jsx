@@ -1,6 +1,6 @@
 import { Box } from "@chakra-ui/react";
 import Boxes from './Boxes';
-import pegasusBox from '../images/PegasusBox2.png';
+import pegasusCloth1 from '../images/PegasusCloth1.png';
 import popeSaga from '../images/PopeSaga.webp';
 
 const CompletedBoxes = () => {
@@ -10,11 +10,11 @@ const CompletedBoxes = () => {
   return (
     <Box>
     <Boxes
-        path={'cloths'}
-        image={pegasusBox}
+        path={'inventory'}
+        image={pegasusCloth1}
         heading={'Feel the Power'}
         text={
-          'Discover the secrets of ancient alchemy hidden behind the sacred armors!'
+          'Check your inventory to behold the prizes you have acquired throughout the missions.'
         }
       />
       <Boxes
@@ -23,7 +23,7 @@ const CompletedBoxes = () => {
         image={popeSaga}
         heading={'Any Questions?'}
         text={
-          'Feel free to click Grand Pope Saga for any doubts you may have.'
+          'Feel free to click Pope Saga to contact the creator for any doubts you may have.'
         }
         flexDir={'row-reverse'}
       />

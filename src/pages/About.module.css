@@ -1,4 +1,4 @@
-.outerFlex {
+ .outerFlex {
   flex-direction: column;
   flex: 1;
   margin-left: 5px;
@@ -18,40 +18,25 @@
 }
 
 .innerFlex {
-    padding-left: 4px;
-    padding-right: 4px;
+    padding-left: 6px;
+    padding-right: 6px;
     text-align: center;
     font-family: papyrus;
     font-weight: bold;
     color: #321e0e;
-    line-height: 30px;
+    line-height: 40px;
 }
 
-.totalFlex {
-  height:  430px;
-  margin-bottom: 40px;
-  margin-top: 120px;
-  justify-content: center;
-}
-
-.wrapperBoxesFlex {
-  /* justify-content: space-evenly; */
-  align-items: center;
-  flex-wrap: wrap;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.papyrusBox {
+ .papyrusBox {
   margin-top: 4px;
   margin-bottom: 4px;
   margin-left: 3px;
   margin-right: 3px;
   background: linear-gradient(to top, #c79d73, #a37e53, #795e3e); 
-  padding: 20px;
-  border: 4px solid #664D2F; /* Border color */
+  padding: 26px;
+  border: 4px solid #5A3A1E; /* Border color */
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
-  height: 80%;
+  height: 85%;
   justify-content: center;
-}
+} 

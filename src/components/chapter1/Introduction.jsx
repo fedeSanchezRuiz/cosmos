@@ -4,7 +4,11 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import ButtonCustom from '../UI/ButtonCustom';
 import TotalBlack from '../../images/Total-Black1.jpg';
-import Typewriter from '../chapter1/Typewriter';
+import useTypewriter from '../chapter1/useTypewriter';
+import GameCard from './GameCard';
+
+const introText = `  Coliseum, Athena's Sanctuary, Greece
+  -Grand Pope: Among 1024 warriors, you two are the only ones who have survived till the end. The moment has come to fight against each other. The winner will obtain the sacred armor of Pegasus. Time to fight!`;
 
 const Introduction = () => {
 
@@ -12,10 +16,7 @@ const Introduction = () => {
 
   const [isClicked, setIsClicked] = useState(false);
 
-  const introText = `  Coliseum, Athena's Sanctuary, Greece
-  -Grand Pope: Among 1024 warriors, you two are the only ones who have survived till the end. The moment has come to fight against each other. The winner will obtain the sacred armor of Pegasus. Time to fight!`;
-
-  const { displayedText, setDisplayedText, isTypingCompleted, setIsTypingCompleted } = Typewriter({
+  const { displayedText, setDisplayedText, isTypingCompleted, setIsTypingCompleted } = useTypewriter({
     text: introText,
     speed: 100,
   });
@@ -24,7 +25,7 @@ const Introduction = () => {
     setIsClicked(true);
 
     setTimeout(() => {
-      navigate('fightCassios');
+      navigate('fight-cassios');
     }, 1200);
   };
 
@@ -38,21 +39,10 @@ const Introduction = () => {
     return () => {
       window.removeEventListener('click', handleClick);
     };
-  }, [introText, setDisplayedText, setIsTypingCompleted]);
+  }, [setDisplayedText, setIsTypingCompleted]);
 
   return (
-    <Flex
-      height='100vh'
-      maxWidth='768px'
-      margin='0 auto'
-      backgroundImage={`linear-gradient(to bottom, rgba(96, 128, 159, 0.1), rgba(136, 178, 209, 0.3)), url(${TotalBlack})`}
-      backgroundPosition='center'
-      backgroundRepeat='no-repeat'
-      backgroundSize='cover'
-      flexDir='column'
-      justifyContent='top'
-      alignItems='center'
-    >
+    <GameCard backgroundImage={TotalBlack} justifyContent='top'>
       <motion.div
         animate={{ opacity: isClicked ? 0 : 1, y: isClicked ? -300 : 0 }}
         transition={{ duration: 1 }}
@@ -102,21 +92,25 @@ const Introduction = () => {
         }}
       >
         <motion.div
-          animate={{ opacity: isTypingCompleted ? 1 : 0 }}
-          transition={{ duration: 1 }}
-        >
+  animate={{ 
+    opacity: isTypingCompleted ? 1 : 0, 
+    scale: [1, 1.02, 1],
+  }}
+  transition={{ 
+    scale: { repeat: Infinity, repeatType: 'loop', ease: 'linear', duration: 1.5 },
+    duration: 1.5,
+  }}
+>
           {isTypingCompleted ? 
           <ButtonCustom
-          whileHover={{ scale: 1.05, opacity: 0.6 }}
-          whileTap={{ scale: 0.9 }}
           onClick={goToFightHandler}
           initial={{ opacity: 1, y: 0 }}
           animate={{ opacity: isClicked ? 0 : 1, y: isClicked ? -300 : 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ type: 'spring', stiffness: 500, y: {duration: 0.5, delay: 0.1}, opacity: {duration: 0.4, delay: 0.1} }}
           text={'Fight!'} /> : null}
         </motion.div>
       </Flex>
-    </Flex>
+      </GameCard>
   );
 };
 

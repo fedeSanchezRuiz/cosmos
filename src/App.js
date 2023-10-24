@@ -1,22 +1,26 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Box } from '@chakra-ui/react';
+import { HeartProvider } from './context/heartProvider';
 import ScrollToTop from '../../cosmos/src/components/UI/ScrollToTop';
 import HomePage from './pages/Home';
 import About from './pages/About';
 import Inventory from './pages/Inventory';
 import Rules from './pages/Rules';
 import Characters from './pages/Characters';
-import RootLayput from './pages/RootLayout';
+import RootLayout from './pages/RootLayout';
 import ErrorPage from './pages/Error';
 import CharacterDetails from './pages/CharactersDetails';
 import IntroPage from './pages/IntroPage';
 import Chapter1 from './pages/Chapter1';
 import Introduction from './components/chapter1/Introduction';
-import FightCassios from './components/chapter1/FightCassios';
+import FightComponent from './components/chapter1/FightComponent';
+import Congratulations from './components/chapter1/Congratulations';
+import TryAgain from './components/chapter1/TryAgain';
+import GameOver from './components/chapter1/GameOver';
 
 const router = createBrowserRouter([
   {
-    path: '/', element: <RootLayput />, errorElement: <ErrorPage />, children: [
+    path: '/', element: <RootLayout />, errorElement: <ErrorPage />, children: [
       { index: true, element: <HomePage /> },
       { path: 'about', element: <About /> },
       { path: 'rules', element: <Rules /> },
@@ -28,17 +32,22 @@ const router = createBrowserRouter([
   { path: 'intro', element: <IntroPage />, errorElement: <ErrorPage /> },
   { path: 'chapter1', element: <Chapter1 />, errorElement: <ErrorPage />, children: [
     { index: true, element: <Introduction /> },
-    { path: 'fightCassios', element: <FightCassios /> },
+    { path: 'fight-cassios', element: <FightComponent /> },
+    { path: 'congratulations', element: <Congratulations /> },
+    { path: 'try-again', element: <TryAgain /> },
+    { path: 'game-over', element: <GameOver /> },
   ] },
-])
+]);
 
 function App() {
   return (
+    <HeartProvider>
     <Box m='auto'>
       <RouterProvider router={router}>
       <ScrollToTop />
       </RouterProvider>
     </Box>
+    </HeartProvider>
   );
 }
 

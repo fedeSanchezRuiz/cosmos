@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const Typewriter = ({ text, speed }) => {
+const useTypewriter = ({ text, speed }) => {
   const [displayedText, setDisplayedText] = useState('');
   const [isTypingCompleted, setIsTypingCompleted] = useState(false);
 
@@ -23,4 +23,4 @@ const Typewriter = ({ text, speed }) => {
   return { displayedText, setDisplayedText, isTypingCompleted , setIsTypingCompleted };
 };
 
-export default Typewriter;
+export default useTypewriter;

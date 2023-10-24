@@ -1,19 +1,13 @@
 import { Flex } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-import { useEffect } from 'react';
 import HeartIcon from './HeartIcon';
 
 export default function GameNavbar({
   username,
+  heartCount,
   isVisible,
-  setIsVisible,
+  livesLost,
 }) {
-  let heartCount = 3;
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, [isVisible, setIsVisible]);
-
   return (
     isVisible && (
       <motion.div
@@ -51,7 +45,14 @@ export default function GameNavbar({
             {Array.from({ length: heartCount }).map(
               (_, index) => (
                 <Flex key={index}>
-                  <HeartIcon size='22px' />
+                  <motion.div
+                    animate={{
+                      opacity: index < heartCount - livesLost ? 1 : 0,
+                    }}
+                    transition={{ duration: 2 }}
+                  >
+                    <HeartIcon size='22px' />
+                  </motion.div>
                 </Flex>
               )
             )}

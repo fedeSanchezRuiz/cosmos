@@ -44,15 +44,17 @@ const Boxes = ({
           style={imageStyles}
           _hover={boxHoverStyles}
           w={{ base: '120px', sm: '175px', md: '220px', lg: '350px' }}
+          maxH={{ base: '160px', sm: '160px', md: '200px', lg: '320px', xl: '320px' }}
+          // minH={{ base: '160px', sm: '170px', md: '220px', lg: '340px', xl: '350px' }}
           mt='10px'
           src={image}
           alt={image}
         />
         </Link>
         <Box>
-          <Heading fontFamily='ARCADECLASSIC' letterSpacing='0.1rem' wordSpacing='1rem' fontSize={{ base: '25px', sm: '28px', md: '32px', lg: '40px', xl: '40px' }}>{heading}</Heading>
+          <Heading fontFamily='ARCADECLASSIC' color='#704214' letterSpacing='0.1rem' wordSpacing='1rem' fontSize={{ base: '25px', sm: '28px', md: '32px', lg: '40px', xl: '40px' }}>{heading}</Heading>
           <Text 
-          letterSpacing='0.05rem' fontSize={{ base: '14px', sm: '16px', md: '18px', lg: '20px' }}
+          letterSpacing='0.05rem' color='#704214' fontSize={{ base: '14px', sm: '16px', md: '18px', lg: '20px' }}
           px={{base: 'none', sm: '5px', md: '80px', lg: 'none' }}>{text}</Text>
         </Box>
       </Flex>
