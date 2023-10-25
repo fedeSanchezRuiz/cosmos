@@ -16,12 +16,10 @@ const RootLayout = () => {
     const expirationTime = localStorage.getItem('expirationTime');
 
     if (expirationTime && new Date().getTime() > expirationTime) {
-      // Clear the authentication state from localStorage
       localStorage.removeItem('isLoggedIn');
       localStorage.removeItem('username');
       localStorage.removeItem('expirationTime');
 
-      // Clear the authentication state in the component
       setIsLoggedIn(false);
       setUsername(null);
     }

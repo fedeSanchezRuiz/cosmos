@@ -18,6 +18,7 @@ export const NavbarButtons = () => {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const { isLoggedIn, logout } = useContext(AuthContext);
+  const [showLogout, setShowLogout] = useState(true); // new state
 
   useEffect(() => {
     const handleResize = () => {
@@ -36,6 +37,7 @@ export const NavbarButtons = () => {
   useEffect(() => {
     if (!isLoggedIn) {
       setShowLoginModal(false);
+      setShowLogout(true); // set showLogout to true when isLoggedIn is false
     }
   }, [isLoggedIn]);
 
@@ -46,6 +48,7 @@ export const NavbarButtons = () => {
   const loginButtonClickHandler = () => {
     if (isLoggedIn) {
       logout();
+      setShowLogout(false);
     } else {
       setShowLoginModal(true);
     }
@@ -78,7 +81,7 @@ export const NavbarButtons = () => {
 
   return (
     <HStack>
-      {!isLoggedIn && showLoginModal && (
+      {!isLoggedIn && showLoginModal && showLogout && (
         <LoginModal onClosingModal={closeLoginModalHandler} />
       )}
       <IconButton

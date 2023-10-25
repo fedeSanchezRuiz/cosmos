@@ -32,7 +32,7 @@ export const Header = () => {
     {showLoginModal && !isLoggedIn && <LoginModal onClosingModal={closeLoginModalHandler} />}
     <Box textAlign='center'>
       <Heading fontFamily='ARCADECLASSIC' letterSpacing='0.1rem' fontSize={{ base: '44px', sm: '48px', md: '55px', lg: '60px', xl: '70px' }}>Burn your Cosmos!</Heading>
-      {isLoggedIn && <Flex mt={{ base: '1%', sm: '1%', md: '1.8%', lg: '2%', xl: '2%' }} justifyContent='center' alignItems='center' textAlign='center' fontSize={{ base: '22px', sm: '26px', md: '30px', lg: '42px', xl: '50px' }}>Bronze Saint {username}</Flex>}
+      {isLoggedIn && <Flex mt={{ base: '1%', sm: '1%', md: '1.8%', lg: '2%', xl: '2%' }} justifyContent='center' alignItems='center' textAlign='center' fontSize={{ base: '22px', sm: '26px', md: '30px', lg: '42px', xl: '50px' }}>Bronze Saint:<Flex mx='20px'>{username}</Flex></Flex>}
       <Box my={{ base: '20px', md: '35px', lg: '50px'}}>
         <ButtonCustom 
         text='PLAY NOW'
