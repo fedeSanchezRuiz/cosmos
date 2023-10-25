@@ -323,7 +323,7 @@ const Congratulations = () => {
         transition={{
           opacity: { duration: 1, delay: 0.3 },
           scale: {
-            duration: 2,
+            duration: 1.5,
             repeat: Infinity,
             repeatType: 'loop',
             ease: 'linear',

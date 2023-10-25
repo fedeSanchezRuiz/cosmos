@@ -5,7 +5,8 @@ import {
   Image,
   Text,
 } from '@chakra-ui/react';
-import { useState, useEffect, Fragment } from 'react';
+import { useState, useEffect, useContext, Fragment } from 'react';
+import AuthContext from '../../context/authContext';
 import logo from '../../images/Logo.png';
 import logoSS from '../../images/SS-Logo.webp';
 import useInput from '../hooks/useInput';
@@ -25,13 +26,9 @@ const buttonProps = {
   width: '200px',
 };
 
-// const fontProps = {
-//   fontFamily: 'ARCADECLASSIC',
-//   display: 'flex',
-//   justifyContent: ['center', 'center', 'left'] // base, sm, md
-// }
-
 const LoginModal = (props) => {
+
+  const { login } = useContext(AuthContext);
   const [hideMailLabel, setHideMailLabel] = useState(false);
   const [formIsValid, setFormIsValid] = useState(false);
 
@@ -101,6 +98,7 @@ const LoginModal = (props) => {
 
     if (formIsValid) {
       setFormIsValid(true);
+      login(enteredUsername)
       if (hideMailLabel) {
         resetEmailInput();
       }

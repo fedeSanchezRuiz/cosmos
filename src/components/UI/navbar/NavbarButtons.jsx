@@ -1,16 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
-import {
-  Button,
-  Flex,
-  HStack,
-  IconButton,
-  VStack,
-} from '@chakra-ui/react';
+import { Button, Flex, HStack, IconButton,  VStack } from '@chakra-ui/react';
 import LoginModal from '../LoginModal';
+import LoginLogoutButton from './LoginLogoutButton';
 import starryNight from '../../../images/StarryBack.jpeg';
-import Night from '../../../images/NightSkyBack.jpeg';
+import AuthContext from '../../../context/authContext';
 
 const buttons = [
   { name: 'About', path: 'about' },
@@ -22,6 +17,7 @@ const buttons = [
 export const NavbarButtons = () => {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
+  const { isLoggedIn, logout } = useContext(AuthContext);
 
   useEffect(() => {
     const handleResize = () => {
@@ -39,12 +35,22 @@ export const NavbarButtons = () => {
     };
   }, [setShowMenu]);
 
-  const showLoginModalHandler = () => {
-    setShowLoginModal(true);
-  };
+  useEffect(() => {
+    if (!isLoggedIn) {
+      setShowLoginModal(false);
+    }
+  }, [isLoggedIn]);
 
   const closeLoginModalHandler = () => {
     setShowLoginModal(false);
+  };
+
+  const loginButtonClickHandler = () => {
+    if (isLoggedIn) {
+      logout();
+    } else {
+      setShowLoginModal(true);
+    }
   };
 
   const showMenuHandler = () => {
@@ -74,7 +80,7 @@ export const NavbarButtons = () => {
 
   return (
     <HStack>
-      {showLoginModal && (
+      {!isLoggedIn && showLoginModal && (
         <LoginModal onClosingModal={closeLoginModalHandler} />
       )}
       <IconButton
@@ -124,27 +130,18 @@ export const NavbarButtons = () => {
             </Button>
           </Link>
         ))}
-        <Button
-          mx='8px'
-          background={`linear-gradient(to bottom, rgba(255, 255, 204, 1), rgba(218, 165, 32, 0.6)), url(${starryNight})`}
-          backgroundPosition='center'
-          backgroundRepeat='no-repeat'
-          backgroundSize='cover'
-          color='#704214'
-          variant='solid'
-          w='140px'
-          h='45px'
-          fontWeight='extrabold'
-          fontFamily='ARCADECLASSIC'
-          fontSize={{ md: '18px', lg: '20px', xl: '20px' }}
-          letterSpacing='0.04rem'
-          style={imageStyles}
-          _hover={buttonHoverStyles}
-          borderRadius='25px'
-          onClick={showLoginModalHandler}
-        >
-          Login
-        </Button>
+        <LoginLogoutButton
+  fontSize={{ md: '18px', lg: '20px', xl: '20px' }}
+  onClick={loginButtonClickHandler}
+  imageStyles={imageStyles}
+  buttonStyles={buttonStyles}
+  buttonHoverStyles={buttonHoverStyles}
+  width="140px"
+  height="45px"
+  mx="8px"
+>
+  {isLoggedIn ? 'Logout' : 'Login'}
+</LoginLogoutButton>
       </Flex>
       {showMenu && (
         <VStack
@@ -209,26 +206,17 @@ export const NavbarButtons = () => {
                 </Button>
               </Link>
             ))}
-            <Button
-              background={`linear-gradient(to bottom, rgba(255, 255, 204, 1), rgba(218, 165, 32, 0.6)), url(${Night})`}
-              backgroundPosition='center'
-              backgroundRepeat='no-repeat'
-              backgroundSize='cover'
-              color='#704214'
-              variant='solid'
-              w={{ base: '140px', sm: '160px' }}
-              h={{ base: '50px', sm: '60px' }}
-              fontWeight='extrabold'
-              fontFamily='ARCADECLASSIC'
-              fontSize={{ base: '22px', sm: '23px' }}
-              letterSpacing='0.04rem'
-              style={imageStyles}
-              _hover={buttonHoverStyles}
-              borderRadius='25px'
-              onClick={showLoginModalHandler}
-            >
-              Login
-            </Button>
+            <LoginLogoutButton
+  fontSize={{ base: '22px', sm: '23px' }}
+  onClick={loginButtonClickHandler}
+  imageStyles={imageStyles}
+  buttonStyles={buttonStyles}
+  buttonHoverStyles={buttonHoverStyles}
+  width={{ base: '140px', sm: '160px' }}
+  height={{ base: '50px', sm: '60px' }}
+>
+  {isLoggedIn ? 'Logout' : 'Login'}
+</LoginLogoutButton>
           </Flex>
         </VStack>
       )}
