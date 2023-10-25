@@ -21,7 +21,6 @@ export const NavbarButtons = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      // Close the menu if the window width is greater than the breakpoint
       if (window.innerWidth > 780) {
         setShowMenu(false);
       }
@@ -29,7 +28,6 @@ export const NavbarButtons = () => {
 
     window.addEventListener('resize', handleResize);
 
-    // Cleanup the event listener on component unmount
     return () => {
       window.removeEventListener('resize', handleResize);
     };
