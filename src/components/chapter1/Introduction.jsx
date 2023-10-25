@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import ButtonCustom from '../UI/ButtonCustom';
 import TotalBlack from '../../images/Total-Black1.jpg';
-import useTypewriter from '../chapter1/useTypewriter';
+import useTypewriter from '../../components/hooks/useTypewriter';
 import GameCard from './GameCard';
 
 const introText = `  Coliseum, Athena's Sanctuary, Greece

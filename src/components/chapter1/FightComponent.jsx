@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Flex, Heading } from '@chakra-ui/react';
-import { useTimers } from './useTimers';
+import { useTimers } from '../hooks/useTimers';
 import { useNavigate } from 'react-router-dom';
 import HeartContext from '../../context/heartContext';
 import GameNavbar from './GameNavbar';

@@ -7,7 +7,7 @@ import HeartContext from '../../context/heartContext';
 import ButtonCustom from '../UI/ButtonCustom';
 import GameNavbar from './GameNavbar';
 import GameCard from './GameCard';
-import useTypewriter from './useTypewriter';
+import useTypewriter from '../hooks/useTypewriter';
 
 const EndScreen = ({
   text,

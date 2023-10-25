@@ -7,7 +7,7 @@ import GameCard from './GameCard';
 import ModalCard from '../UI/ModalCard';
 import { NavbarLogo } from '../UI/navbar/NavbarLogo';
 import CardCollection from './CardCollection';
-import useTypewriter from '../chapter1/useTypewriter';
+import useTypewriter from '../hooks/useTypewriter';
 import PopeAres from '../../images/PopeAresCut.jpeg';
 import PegasusBox from '../../images/PegasusBox2.png';
 
