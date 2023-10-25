@@ -12,11 +12,11 @@ import ErrorPage from './pages/Error';
 import CharacterDetails from './pages/CharactersDetails';
 import IntroPage from './pages/IntroPage';
 import Chapter1 from './pages/Chapter1';
-import Introduction from './components/chapter1/Introduction';
-import FightComponent from './components/chapter1/FightComponent';
-import Congratulations from './components/chapter1/Congratulations';
-import TryAgain from './components/chapter1/TryAgain';
-import GameOver from './components/chapter1/GameOver';
+import Introduction from './components/gameComponents/Introduction';
+import FightComponent from './components/gameComponents/FightComponent';
+import Congratulations from './components/gameComponents/Congratulations';
+import TryAgain from './components/gameComponents/TryAgain';
+import GameOver from './components/gameComponents/GameOver';
 
 const router = createBrowserRouter([
   {

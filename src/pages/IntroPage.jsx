@@ -4,7 +4,7 @@ import { Flex } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { NavbarLogo } from '../components/UI/navbar/NavbarLogo';
 import ButtonCustom from '../components/UI/ButtonCustom';
-import GameCard from '../components/chapter1/GameCard';
+import GameCard from '../components/gameComponents/GameCard';
 import SanctuaryClock from '../images/Clock1.jpeg';
 import TotalBlack from '../images/Total-Black1.jpg';
 
