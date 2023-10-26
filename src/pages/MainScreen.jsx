@@ -4,7 +4,7 @@ import { Flex } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { NavbarLogo } from '../components/UI/navbar/NavbarLogo';
 import ButtonCustom from '../components/UI/ButtonCustom';
-import GameCard from '../components/gameComponents/GameCard';
+import ScreenCard from '../components/gameComponents/interfaceElements/ScreenCard';
 import SanctuaryClockBackground from '../../src/components/images/chapter1-img/Clock1.jpeg';
 import NightSkyBackground from '../../src/components/images/website-img/Total-Black1.jpg';
 
@@ -23,7 +23,10 @@ const MainScreen = () => {
 
   return (
     <>
-      <GameCard backgroundImage={SanctuaryClockBackground} justifyContent='flex-end'>
+      <ScreenCard
+        backgroundImage={SanctuaryClockBackground}
+        justifyContent='flex-end'
+      >
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: isDarkening ? 1 : 0 }}
@@ -82,30 +85,36 @@ const MainScreen = () => {
             />
           </motion.div>
           <motion.div
-          animate={{ scale: [1, 1.02, 1] }}
-          transition={{ repeat: Infinity, repeatType: 'loop', ease: 'linear', duration: '1.5' }}>
-          <ButtonCustom
-            onClick={activateDarkHandler}
-            _hover={{
-              background: 'rgba(255, 255, 204, 0.8)',
-            }}
-            text={'Start'}
-            initial={{ opacity: 1, y: 0 }}
-            animate={{
-              opacity: isDarkening ? 0 : 1,
-              y: isDarkening ? -300 : 0,
-              delay: 0.5,
-            }}
+            animate={{ scale: [1, 1.02, 1] }}
             transition={{
-              type: 'spring',
-              stiffness: 500,
-              y: { duration: 0.5, delay: 0.3 },
-              opacity: { duration: 0.4, delay: 0.1 },
+              repeat: Infinity,
+              repeatType: 'loop',
+              ease: 'linear',
+              duration: '1.5',
             }}
-          />
+          >
+            <ButtonCustom
+              onClick={activateDarkHandler}
+              _hover={{
+                background: 'rgba(255, 255, 204, 0.8)',
+              }}
+              text={'Start'}
+              initial={{ opacity: 1, y: 0 }}
+              animate={{
+                opacity: isDarkening ? 0 : 1,
+                y: isDarkening ? -300 : 0,
+                delay: 0.5,
+              }}
+              transition={{
+                type: 'spring',
+                stiffness: 500,
+                y: { duration: 0.5, delay: 0.3 },
+                opacity: { duration: 0.4, delay: 0.1 },
+              }}
+            />
           </motion.div>
         </Flex>
-      </GameCard>
+      </ScreenCard>
       <Outlet isDarkening={isDarkening} />
     </>
   );

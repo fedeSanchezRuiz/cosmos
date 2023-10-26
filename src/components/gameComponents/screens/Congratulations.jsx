@@ -2,14 +2,14 @@ import { useState, useEffect, useMemo } from 'react';
 import { Flex, Text, Image } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { ArrowLeftIcon, ArrowRightIcon } from '@chakra-ui/icons';
-import { NavbarLogo } from '../UI/navbar/NavbarLogo';
-import ButtonCustom from '../UI/ButtonCustom';
-import GameCard from './GameCard';
-import ModalCard from '../UI/ModalCard';
-import CardCollection from './CardCollection';
-import useTypewriter from '../hooks/useTypewriter';
-import PopeAresBackground from '../../components/images/chapter1-img/PopeAresCut.jpeg';
-import PegasusBox from '../../components/images/chapter1-img/PegasusBox2.png';
+import { NavbarLogo } from '../../UI/navbar/NavbarLogo';
+import ButtonCustom from '../../UI/ButtonCustom';
+import ScreenCard from '../interfaceElements/ScreenCard';
+import ModalCard from '../../UI/ModalCard';
+import CardCollection from '../cardDesigns/CardCollection';
+import useTypewriter from '../../hooks/useTypewriter';
+import PopeAresBackground from '../../images/chapter1-img/PopeAresCut.jpeg';
+import PegasusBox from '../../images/chapter1-img/PegasusBox2.png';
 
 const finishText = `  -Grand Pope: Athena recognizes Seiya as one of her warriors, and as justice demands, I deliver to you the sacred Cloth of Pegasus!`;
 
@@ -91,7 +91,7 @@ const Congratulations = () => {
   };
 
   return (
-    <GameCard
+    <ScreenCard
       justifyContent='top'
       backgroundImage={PopeAresBackground}
     >
@@ -265,8 +265,21 @@ const Congratulations = () => {
               </Flex>
               <motion.div
                 initial={{ opacity: 0, y: 200 }}
-                animate={{ opacity: 1, y: 0, scale: [1, 1.02, 1] }}
-                transition={{ duration: 1, delay: 1.2, scale: { repeat: Infinity, repeatType:'loop', ease:'linear', duration:'1.5' } }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  scale: [1, 1.02, 1],
+                }}
+                transition={{
+                  duration: 1,
+                  delay: 1.2,
+                  scale: {
+                    repeat: Infinity,
+                    repeatType: 'loop',
+                    ease: 'linear',
+                    duration: '1.5',
+                  },
+                }}
               >
                 <ButtonCustom
                   text='Continue'
@@ -365,7 +378,7 @@ const Congratulations = () => {
           </Flex>
         )}
       </motion.div>
-    </GameCard>
+    </ScreenCard>
   );
 };
 

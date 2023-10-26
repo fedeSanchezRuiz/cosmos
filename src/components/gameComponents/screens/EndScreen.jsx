@@ -3,11 +3,11 @@ import { Flex, Heading } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import HeartContext from '../../context/heartContext';
-import ButtonCustom from '../UI/ButtonCustom';
-import GameNavbar from './GameNavbar';
-import GameCard from './GameCard';
-import useTypewriter from '../hooks/useTypewriter';
+import HeartContext from '../../../context/heartContext';
+import ButtonCustom from '../../UI/ButtonCustom';
+import GameNavbar from '../interfaceElements/GameNavbar';
+import ScreenCard from '../interfaceElements/ScreenCard';
+import useTypewriter from '../../hooks/useTypewriter';
 
 const EndScreen = ({
   text,
@@ -44,7 +44,7 @@ const EndScreen = ({
       if (buttonTexts[index] === 'Reset') {
         setTimeout(() => {
           resetHeartCount();
-        }, 2000) // Call resetHeartCount if the button text is 'Reset'
+        }, 2000); // Call resetHeartCount if the button text is 'Reset'
       }
       setTimeout(() => {
         navigate(path);
@@ -53,7 +53,7 @@ const EndScreen = ({
   );
 
   return (
-    <GameCard
+    <ScreenCard
       justifyContent='flex-end'
       backgroundImage={backgroundImage}
     >
@@ -79,10 +79,10 @@ const EndScreen = ({
       >
         {showNavbar && (
           <GameNavbar
-          username='Player1'
-          heartCount={heartCount}
-          isVisible={true}
-          livesLost={livesLost}
+            username='Player1'
+            heartCount={heartCount}
+            isVisible={true}
+            livesLost={livesLost}
           />
         )}
       </Flex>
@@ -148,7 +148,7 @@ const EndScreen = ({
           )}
         </motion.div>
       </Flex>
-    </GameCard>
+    </ScreenCard>
   );
 };
 

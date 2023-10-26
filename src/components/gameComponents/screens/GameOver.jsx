@@ -1,10 +1,9 @@
 import { useContext } from 'react';
-import HeartContext from '../../context/heartContext';
+import HeartContext from '../../../context/heartContext';
 import EndScreen from './EndScreen';
-import PopaSagaBackground from '../../components/images/chapter1-img/PopeSaga.jpeg';
+import PopaSagaBackground from '../../images/chapter1-img/PopeSaga.jpeg';
 
 const GameOver = () => {
-
   const { resetHeartCount } = useContext(HeartContext);
 
   return (

@@ -47,7 +47,8 @@ export default function GameNavbar({
                 <Flex key={index}>
                   <motion.div
                     animate={{
-                      opacity: index < heartCount - livesLost ? 1 : 0,
+                      opacity:
+                        index < heartCount - livesLost ? 1 : 0,
                     }}
                     transition={{ duration: 2 }}
                   >
@@ -61,4 +62,4 @@ export default function GameNavbar({
       </motion.div>
     )
   );
-};
+}

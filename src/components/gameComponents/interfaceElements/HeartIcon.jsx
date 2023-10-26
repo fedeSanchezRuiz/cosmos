@@ -1,4 +1,4 @@
-import PixeledHeart from '../../components/images/chapter1-img/pixelheart3.png';
+import PixeledHeart from '../../images/chapter1-img/pixelheart3.png';
 
 const HeartIcon = ({ size }) => {
   return (

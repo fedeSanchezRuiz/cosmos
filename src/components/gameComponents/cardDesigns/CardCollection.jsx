@@ -1,9 +1,9 @@
-import CardBattle from './CardBattle';
-import StarryNight from '../../components/images/website-img/StarryBack.jpeg';
-import SeiyaNoCloth from '../../components/images/chapter1-img/SeiyaFirst.jpeg';
-import PegasusSeiya from '../../components/images/bronze-img/SeiyaPegasus2.jpeg';
-import Cassios from '../../components/images/chapter1-img/Cassios1.jpeg';
-import PopeAres from '../../components/images/chapter1-img/PopeAresA.jpeg';
+import CardFrame from './CardFrame';
+import StarryNight from '../../images/website-img/StarryBack.jpeg';
+import SeiyaNoCloth from '../../images/chapter1-img/SeiyaFirst.jpeg';
+import PegasusSeiya from '../../images/bronze-img/SeiyaPegasus2.jpeg';
+import Cassios from '../../images/chapter1-img/Cassios1.jpeg';
+import PopeAres from '../../images/chapter1-img/PopeAresA.jpeg';
 
 const imageStyle = {
   h: {
@@ -63,7 +63,7 @@ const cardData = [
 ];
 
 const CardCollection = cardData.map((card) => (
-  <CardBattle
+  <CardFrame
     key={card.name}
     name={card.name}
     image={card.image}

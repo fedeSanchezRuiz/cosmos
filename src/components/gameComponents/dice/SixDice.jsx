@@ -2,18 +2,27 @@ import { useState, useEffect } from 'react';
 import { Flex } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import classes from './SixDice.module.css';
-import ButtonCustom from './UI/ButtonCustom';
+import ButtonCustom from '../../UI/ButtonCustom';
 import DiceDots from './DiceDots';
 
 const Dice = ({ value, isRollComplete }) => {
   return (
-    <div className={`${classes.dice} ${isRollComplete ? classes.disabledDice : ''}`}>
+    <div
+      className={`${classes.dice} ${
+        isRollComplete ? classes.disabledDice : ''
+      }`}
+    >
       <DiceDots value={value} />
     </div>
   );
 };
 
-const SixDice = ({ starterSelected, delay, onDiceRolled, isRollComplete }) => {
+const SixDice = ({
+  starterSelected,
+  delay,
+  onDiceRolled,
+  isRollComplete,
+}) => {
   const [diceValues, setDiceValues] = useState(Array(6).fill(1));
   const [total, setTotal] = useState(0);
   const [animateDice, setAnimateDice] = useState(false);
@@ -26,7 +35,6 @@ const SixDice = ({ starterSelected, delay, onDiceRolled, isRollComplete }) => {
     }, delay);
 
     return () => clearTimeout(timer);
-
   }, [starterSelected, delay]);
 
   const diceVariants = {
@@ -52,7 +60,10 @@ const SixDice = ({ starterSelected, delay, onDiceRolled, isRollComplete }) => {
     setTotal(newDiceValues.reduce((acc, val) => acc + val, 0));
     setAnimateDice(true);
     setTimeout(() => setAnimateDice(false), 500);
-    onDiceRolled(newDiceValues.reduce((acc, val) => acc + val, 0), newDiceValues);
+    onDiceRolled(
+      newDiceValues.reduce((acc, val) => acc + val, 0),
+      newDiceValues
+    );
   };
 
   return (
@@ -100,14 +111,26 @@ const SixDice = ({ starterSelected, delay, onDiceRolled, isRollComplete }) => {
         pt='2%'
       >
         <ButtonCustom
-        text={'Fight!'}
-        onClick={rollDice}
-        whileHover={{ scale: 1.05, opacity: 0.8 }}
-        whileTap={{ scale: 0.9 }}
-        fontSize='20px'
-        height={{ base: '55px', sm: '55px', md: '55', lg: '55px', xl: '55px' }}
-        width={{ base: '130px', sm: '140px', md: '140px', lg: '140px', xl: '140px' }}
-        isDisabled={isRollComplete}
+          text={'Fight!'}
+          onClick={rollDice}
+          whileHover={{ scale: 1.05, opacity: 0.8 }}
+          whileTap={{ scale: 0.9 }}
+          fontSize='20px'
+          height={{
+            base: '55px',
+            sm: '55px',
+            md: '55',
+            lg: '55px',
+            xl: '55px',
+          }}
+          width={{
+            base: '130px',
+            sm: '140px',
+            md: '140px',
+            lg: '140px',
+            xl: '140px',
+          }}
+          isDisabled={isRollComplete}
         />
       </Flex>
     </motion.div>

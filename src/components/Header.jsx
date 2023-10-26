@@ -1,10 +1,9 @@
 import { Box, Flex, Heading } from '@chakra-ui/react';
-import React, { Fragment } from 'react'
+import { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import LoginModal from './UI/LoginModal';
 import ButtonCustom from './UI/ButtonCustom';
-import { useState, useContext } from 'react';
 import AuthContext from '../context/authContext';
-import { useNavigate } from 'react-router-dom';
 
 export const Header = () => {
 
@@ -17,7 +16,7 @@ export const Header = () => {
 
   const playNowHandler = () => {
     if (isLoggedIn) {
-      navigate('/main-screen'); // Navigate to the 'intro' route
+      navigate('/main-screen');
     } else {
       setShowLoginModal(true);
     }
@@ -28,7 +27,7 @@ export const Header = () => {
   };
 
   return (
-  <Fragment>
+  <>
     {showLoginModal && !isLoggedIn && <LoginModal onClosingModal={closeLoginModalHandler} />}
     <Box textAlign='center'>
       <Heading fontFamily='ARCADECLASSIC' letterSpacing='0.1rem' fontSize={{ base: '44px', sm: '48px', md: '55px', lg: '60px', xl: '70px' }}>Burn your Cosmos!</Heading>
@@ -43,6 +42,6 @@ export const Header = () => {
         />
       </Box>
     </Box>
-  </Fragment>
+  </>
   )
 };

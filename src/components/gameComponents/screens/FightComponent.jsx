@@ -1,19 +1,19 @@
 import { useState, useEffect, useContext } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Flex, Heading } from '@chakra-ui/react';
-import { useTimers } from '../hooks/useTimers';
+import { useTimers } from '../../hooks/useTimers';
 import { useNavigate } from 'react-router-dom';
-import HeartContext from '../../context/heartContext';
-import GameNavbar from './GameNavbar';
-import SixDice from '../SixDice';
-import GameCard from './GameCard';
-import FlashMessage from './FlashMessage';
-import CardBattle from './CardBattle';
-import StarterSelector from './StarterSelector';
-import ColiseumBackground from '../../components/images/chapter1-img/Coliseum.webp';
-import SeiyaNoCloth from '../../components/images/chapter1-img/SeiyaFirst.jpeg';
-import Cassios from '../../components/images/chapter1-img/Cassios1.jpeg';
-import StarryNight from '../../components/images/website-img/StarryBack.jpeg';
+import HeartContext from '../../../context/heartContext';
+import GameNavbar from '../interfaceElements/GameNavbar';
+import SixDice from '../dice/SixDice';
+import ScreenCard from '../interfaceElements/ScreenCard';
+import FlashMessage from '../interfaceElements/FlashMessage';
+import CardFrame from '../cardDesigns/CardFrame';
+import StarterSelector from '../interfaceElements/StarterSelector';
+import ColiseumBackground from '../../images/chapter1-img/Coliseum.webp';
+import SeiyaNoCloth from '../../images/chapter1-img/SeiyaFirst.jpeg';
+import Cassios from '../../images/chapter1-img/Cassios1.jpeg';
+import StarryNight from '../../images/website-img/StarryBack.jpeg';
 
 const FightComponent = () => {
   const imageStyle = {
@@ -147,14 +147,14 @@ const FightComponent = () => {
 
     setTimeout(() => {
       setTotalDamage(damage);
-    }, 300)
+    }, 300);
     setCharacterBLife((prevLife) =>
       Math.max(prevLife - damage, 0)
     );
     if (characterBLife - damage <= 0) {
       setTimeout(() => {
         navigate('/chapter1/congratulations');
-      }, 50)
+      }, 50);
     }
     setPlayersRolled((prev) => prev + 1);
   };
@@ -197,7 +197,7 @@ const FightComponent = () => {
 
     setTimeout(() => {
       setTotalDamage(damage);
-    }, 200) 
+    }, 200);
     setCharacterALife((prevLife) =>
       Math.max(prevLife - damage, 0)
     );
@@ -265,7 +265,7 @@ const FightComponent = () => {
   }, [starter]);
 
   return (
-    <GameCard
+    <ScreenCard
       backgroundImage={ColiseumBackground}
       justifyContent='top'
     >
@@ -373,7 +373,7 @@ const FightComponent = () => {
             initial='hidden'
             animate={visible.cardA ? 'visible' : 'hidden'}
           >
-            <CardBattle
+            <CardFrame
               name={seiya.name}
               image={seiya.image}
               fontColor={seiya.color}
@@ -393,7 +393,7 @@ const FightComponent = () => {
             initial='hidden'
             animate={visible.cardB ? 'visible' : 'hidden'}
           >
-            <CardBattle
+            <CardFrame
               name={cassios.name}
               image={cassios.image}
               fontColor={cassios.color}
@@ -458,7 +458,7 @@ const FightComponent = () => {
           />
         </motion.div>
       </Flex>
-    </GameCard>
+    </ScreenCard>
   );
 };
 

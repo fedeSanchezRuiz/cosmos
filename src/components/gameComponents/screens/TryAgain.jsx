@@ -1,8 +1,7 @@
 import EndScreen from './EndScreen';
-import SeiyaDefeatedBackground from '../../components/images/chapter1-img/SeiyaDefeated3.jpg';
+import SeiyaDefeatedBackground from '../../images/chapter1-img/SeiyaDefeated3.jpg';
 
 const TryAgain = () => {
-
   return (
     <EndScreen
       text='  Try Again'
