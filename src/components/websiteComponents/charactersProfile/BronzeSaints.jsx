@@ -146,13 +146,6 @@ const renderSaintProperties = (saint) => (
 );
 
 const BronzeSaints = () => {
-  // function fetchBronzeSaintsHandler() {
-  //   fetch('https://cosmos-92e61-default-rtdb.firebaseio.com/bronze.json').then(response => {
-  //     return response.json();
-  //   }).then(data => {
-  //     data.results
-  //   });
-  // }
 
   return (
     <Flex className={classes.totalFlex}>

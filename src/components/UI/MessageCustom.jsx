@@ -1,7 +1,7 @@
 import { Flex, Heading, Image } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
-const ComingSoon = ({ src, text = 'Coming Soon!' }) => {
+const MessageCustom = ({ src, text = 'Coming Soon!' }) => {
 
   const imageStyles = {
     transition: 'transform 0.3s', // Add a smooth transition effect
@@ -55,4 +55,4 @@ const ComingSoon = ({ src, text = 'Coming Soon!' }) => {
   )
 };
 
-export default ComingSoon;
+export default MessageCustom;

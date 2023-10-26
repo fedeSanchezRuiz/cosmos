@@ -2,7 +2,7 @@ import { useMatch } from 'react-router-dom';
 import { Box } from '@chakra-ui/react';
 import MiddleTab from '../components/UI/MiddleTab';
 import Cardwrapper from '../components/UI/CardWrapper';
-import ComingSoon from '../components/UI/ComingSoon';
+import MessageCustom from '../components/UI/MessageCustom';
 import shakaMeditate from '../../src/components/images/website-img/ShakaMeditation.png';
 import BronzeSaints from '../components/websiteComponents/charactersProfile/BronzeSaints';
 import BlackSaints from '../components/websiteComponents/charactersProfile/BlackSaints';
@@ -18,7 +18,7 @@ const CharacterDetails = () => {
 } else if(isBlackMatch) {
     saintsToRender = <BlackSaints />;
 } else {
-    saintsToRender = <ComingSoon src={shakaMeditate} />
+    saintsToRender = <MessageCustom src={shakaMeditate} />
 };
 
   return (

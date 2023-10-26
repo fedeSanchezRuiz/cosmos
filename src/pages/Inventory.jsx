@@ -1,4 +1,4 @@
-import ComingSoon from "../components/UI/ComingSoon";
+import MessageCustom from "../components/UI/MessageCustom";
 import Cardwrapper from "../components/UI/CardWrapper";
 import shakaMeditate from '../components/images/website-img/ShakaMeditation.png';
 
@@ -6,7 +6,7 @@ const Inventory = () => {
   
   return (
       <Cardwrapper>
-       <ComingSoon src={shakaMeditate} />
+       <MessageCustom src={shakaMeditate} />
       </Cardwrapper>
   )
 };

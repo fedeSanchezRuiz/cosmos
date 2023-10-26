@@ -6,10 +6,10 @@ import {
   Image,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
-import classes from './Boxes.module.css';
+import classes from './LowerContent.module.css';
 import Night from '../../components/images/website-img/NightSkyBack.jpeg';
 
-const Boxes = ({
+const LowerContent = ({
   image,
   flexDir = 'row',
   heading,
@@ -62,4 +62,4 @@ const Boxes = ({
   );
 };
 
-export default Boxes;
+export default LowerContent;

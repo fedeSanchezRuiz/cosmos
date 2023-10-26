@@ -1,6 +1,6 @@
 import { Flex, Box } from '@chakra-ui/react';
 import MiddleTab from '../components/UI/MiddleTab';
-import ComingSoon from '../components/UI/ComingSoon';
+import MessageCustom from '../components/UI/MessageCustom';
 import CardWrapper from '../components/UI/CardWrapper';
 import ShakaMeditate from '../../src/components/images/website-img/ShakaMeditation.png';
 
@@ -16,7 +16,7 @@ const Characters = () => {
         mt='2%'
       >
         <MiddleTab />
-        <ComingSoon
+        <MessageCustom
           text={<Box>'Pick your Saint'</Box>}
           src={ShakaMeditate}
         />

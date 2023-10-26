@@ -1,8 +1,8 @@
 import { Box } from '@chakra-ui/react';
 import { Header } from '../components/websiteComponents/Header';
-import { CharactersImages } from '../components/websiteComponents/CharactersImages';
-import CompletedBoxes from '../components/websiteComponents/CompletedBoxes';
-import FightCollect from '../components/websiteComponents/FightCollect';
+import MiddleContent from '../components/websiteComponents/MiddleContent';
+import LowerContentFull from '../components/websiteComponents/LowerContentFull';
+import TopContent from '../components/websiteComponents/TopContent';
 
 const HomePage = () => {
   return (
@@ -17,9 +17,9 @@ const HomePage = () => {
       }}
     >
       <Header />
-      <FightCollect />
-      <CharactersImages />
-      <CompletedBoxes />
+      <TopContent />
+      <MiddleContent />
+      <LowerContentFull />
     </Box>
   );
 };

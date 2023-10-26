@@ -7,7 +7,7 @@ import goldSaints from '../../components/images/website-img/GoldSaints.jpeg';
 import asgardSaints from '../../components/images/website-img/AsgardSaints.png';
 import poseidonSaints from '../../components/images/website-img/PoseidonSaints2.jpeg';
 
-export const CharactersImages = () => {
+const MiddleContent = () => {
 
   const images = [
     { name: 'BronzeSaints', image: bronzeSaints, path: '/characters/Bronze' },
@@ -53,3 +53,5 @@ export const CharactersImages = () => {
     </Flex>
   );
 };
+
+export default MiddleContent;

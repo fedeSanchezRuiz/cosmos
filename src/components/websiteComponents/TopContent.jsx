@@ -3,9 +3,9 @@ import React from 'react';
 import BronzeChibi from '../../components/images/website-img/BronzeGroup.png';
 import Milo from '../../components/images/website-img/MiloChibi2.png';
 import Saori from '../../components/images/website-img/SaoriChibi.png';
-import classes from './FightCollect.module.css';
+import classes from './TopContent.module.css';
 
-export default function FightCollect() {
+export default function TopContent() {
   
   return (
       <Flex
