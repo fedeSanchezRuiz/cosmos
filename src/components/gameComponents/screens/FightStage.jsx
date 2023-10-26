@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Flex, Heading } from '@chakra-ui/react';
 import { useTimers } from '../../hooks/useTimers';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import HeartContext from '../../../context/heartContext';
 import GameNavbar from '../interfaceElements/GameNavbar';
 import SixDice from '../dice/SixDice';
@@ -15,7 +15,7 @@ import SeiyaNoCloth from '../../images/chapter1-img/SeiyaFirst.jpeg';
 import Cassios from '../../images/chapter1-img/Cassios1.jpeg';
 import StarryNight from '../../images/website-img/StarryBack.jpeg';
 
-const FightComponent = () => {
+const FightStage = ({ onStepChange }) => {
   const imageStyle = {
     h: {
       base: '200px',
@@ -33,7 +33,7 @@ const FightComponent = () => {
 
   const seiya = {
     name: 'Seiya',
-    life: 25,
+    life: 5,
     color: '#D72638',
     image: SeiyaNoCloth,
     attack: 'Meteor Fist',
@@ -99,7 +99,7 @@ const FightComponent = () => {
     </Flex>
   );
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleCharacterASpecialAttack = () => {
     setCharacterASpecialVisible(true);
@@ -153,7 +153,8 @@ const FightComponent = () => {
     );
     if (characterBLife - damage <= 0) {
       setTimeout(() => {
-        navigate('/chapter1/congratulations');
+        // navigate('/chapter1/congratulations');
+        onStepChange('congratulations');
       }, 50);
     }
     setPlayersRolled((prev) => prev + 1);
@@ -204,9 +205,11 @@ const FightComponent = () => {
     if (characterALife - damage <= 0) {
       setHeartCount((prevHeartCount) => prevHeartCount - 1);
       if (heartCount <= 1) {
-        navigate('/chapter1/game-over');
+        // navigate('/chapter1/game-over');
+        onStepChange('game-over');
       } else {
-        navigate('/chapter1/try-again');
+        // navigate('/chapter1/try-again');
+        onStepChange('try-again');
       }
     }
     setPlayersRolled((prev) => prev + 1);
@@ -462,4 +465,4 @@ const FightComponent = () => {
   );
 };
 
-export default FightComponent;
+export default FightStage;

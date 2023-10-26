@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { Flex } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { NavbarLogo } from '../components/UI/navbar/NavbarLogo';
@@ -8,8 +8,8 @@ import ScreenCard from '../components/gameComponents/interfaceElements/ScreenCar
 import SanctuaryClockBackground from '../../src/components/images/chapter1-img/Clock1.jpeg';
 import NightSkyBackground from '../../src/components/images/website-img/Total-Black1.jpg';
 
-const MainScreen = () => {
-  const navigate = useNavigate();
+const MainScreen = ({ onStepChange }) => {
+  // const navigate = useNavigate();
 
   const [isDarkening, setIsDarkening] = useState(false);
 
@@ -17,7 +17,7 @@ const MainScreen = () => {
     setIsDarkening(true);
 
     setTimeout(() => {
-      navigate('/chapter1');
+      onStepChange('/chapter1');
     }, 1500);
   };
 

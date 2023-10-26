@@ -10,13 +10,14 @@ import Characters from './pages/Characters';
 import RootLayout from './pages/RootLayout';
 import ErrorPage from './pages/Error';
 import CharacterDetails from './pages/CharactersDetails';
-import MainScreen from './pages/MainScreen';
-import Chapter1 from './pages/Chapter1';
-import Introduction from './components/gameComponents/screens/Introduction';
-import FightComponent from './components/gameComponents/screens/FightComponent';
-import Congratulations from './components/gameComponents/screens/Congratulations';
-import TryAgain from './components/gameComponents/screens/TryAgain';
-import GameOver from './components/gameComponents/screens/GameOver';
+// import MainScreen from './pages/MainScreen';
+// import Chapter1 from './pages/Chapter1';
+// import Introduction from './components/gameComponents/screens/Introduction';
+// import FightComponent from './components/gameComponents/screens/FightComponent';
+// import Congratulations from './components/gameComponents/screens/Congratulations';
+// import TryAgain from './components/gameComponents/screens/TryAgain';
+// import GameOver from './components/gameComponents/screens/GameOver';
+import CosmosWarriors from './pages/CosmosWarriors';
 
 const router = createBrowserRouter([
   {
@@ -29,14 +30,15 @@ const router = createBrowserRouter([
       { path: 'characters/:saintsId', element: <CharacterDetails /> },
     ]
   },
-  { path: 'main-screen', element: <MainScreen />, errorElement: <ErrorPage /> },
-  { path: 'chapter1', element: <Chapter1 />, errorElement: <ErrorPage />, children: [
-    { index: true, element: <Introduction /> },
-    { path: 'fight-cassios', element: <FightComponent /> },
-    { path: 'congratulations', element: <Congratulations /> },
-    { path: 'try-again', element: <TryAgain /> },
-    { path: 'game-over', element: <GameOver /> },
-  ] },
+  // { path: 'main-screen', element: <MainScreen />, errorElement: <ErrorPage /> },
+  // { path: 'chapter1', element: <Chapter1 />, errorElement: <ErrorPage />, children: [
+  //   { index: true, element: <Introduction /> },
+  //   { path: 'fight', element: <FightComponent /> },
+  //   { path: 'congratulations', element: <Congratulations /> },
+  //   { path: 'try-again', element: <TryAgain /> },
+  //   { path: 'game-over', element: <GameOver /> },
+  // ] },
+  { path: 'cosmos-warriors', element: <CosmosWarriors />, errorElement: <ErrorPage /> },
 ]);
 
 function App() {

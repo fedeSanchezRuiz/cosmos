@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Flex, Text } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import ButtonCustom from '../../UI/ButtonCustom';
 import useTypewriter from '../../hooks/useTypewriter';
 import ScreenCard from '../interfaceElements/ScreenCard';
@@ -10,8 +10,8 @@ import NightSkyBackground from '../../images/website-img/Total-Black1.jpg';
 const introText = `  Coliseum, Athena's Sanctuary, Greece
   -Grand Pope: Among 1024 warriors, you two are the only ones who have survived till the end. The moment has come to fight against each other. The winner will obtain the sacred armor of Pegasus. Time to fight!`;
 
-const Introduction = () => {
-  const navigate = useNavigate();
+const Introduction = ({ onStepChange }) => {
+  // const navigate = useNavigate();
 
   const [isClicked, setIsClicked] = useState(false);
 
@@ -29,7 +29,7 @@ const Introduction = () => {
     setIsClicked(true);
 
     setTimeout(() => {
-      navigate('fight-cassios');
+      onStepChange();
     }, 1200);
   };
 

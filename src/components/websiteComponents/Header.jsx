@@ -15,7 +15,7 @@ export const Header = () => {
 
   const playNowHandler = () => {
     if (isLoggedIn) {
-      navigate('/main-screen');
+      navigate('/cosmos-warriors');
     } else {
       setShowLoginModal(true);
     }

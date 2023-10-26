@@ -3,7 +3,7 @@ import HeartContext from '../../../context/heartContext';
 import EndScreen from './EndScreen';
 import PopaSagaBackground from '../../images/chapter1-img/PopeSaga.jpeg';
 
-const GameOver = () => {
+const GameOver = ({ onRestart, onExit }) => {
   const { resetHeartCount } = useContext(HeartContext);
 
   return (
@@ -11,9 +11,17 @@ const GameOver = () => {
       text='  Game Over'
       backgroundImage={PopaSagaBackground}
       buttonTexts={['Reset', 'Exit']}
-      navigatePaths={['/intro', '/']}
       livesLost={3}
       resetHeartCount={resetHeartCount}
+      onButtonClick={(buttonText) => {
+        if (buttonText === 'Reset') {
+          onRestart();
+          resetHeartCount();
+        } else {
+          onExit();
+          resetHeartCount();
+        }
+      }}
     />
   );
 };

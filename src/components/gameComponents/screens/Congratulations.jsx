@@ -21,8 +21,7 @@ const Congratulations = () => {
   const [boxVisible, setBoxVisible] = useState(true);
   const [blockText, setBlockText] = useState(false);
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
-  const [thanksForPlaying, setThanksForPlaying] =
-    useState(false);
+  const [thanksForPlaying, setThanksForPlaying] = useState(false);
 
   const {
     displayedText,

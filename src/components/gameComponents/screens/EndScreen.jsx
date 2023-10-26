@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 import { Flex, Heading } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import HeartContext from '../../../context/heartContext';
 import ButtonCustom from '../../UI/ButtonCustom';
@@ -13,15 +12,13 @@ const EndScreen = ({
   text,
   backgroundImage,
   buttonTexts,
-  navigatePaths,
   livesLost,
-  resetHeartCount,
+  onButtonClick,
 }) => {
   const { heartCount } = useContext(HeartContext);
   const [isClicked, setIsClicked] = useState(false);
   const [showNavbar, setShowNavbar] = useState(false);
-  const navigate = useNavigate();
-  const speed = 160; // speed of the typewriter effect in milliseconds
+  const speed = 160;
 
   useEffect(() => {
     const timerId = setTimeout(() => {
@@ -37,20 +34,6 @@ const EndScreen = ({
     text,
     speed,
   });
-
-  const buttonHandlers = navigatePaths.map(
-    (path, index) => () => {
-      setIsClicked(true);
-      if (buttonTexts[index] === 'Reset') {
-        setTimeout(() => {
-          resetHeartCount();
-        }, 2000); // Call resetHeartCount if the button text is 'Reset'
-      }
-      setTimeout(() => {
-        navigate(path);
-      }, 800);
-    }
-  );
 
   return (
     <ScreenCard
@@ -129,7 +112,7 @@ const EndScreen = ({
               {buttonTexts.map((buttonText, index) => (
                 <ButtonCustom
                   key={index}
-                  onClick={buttonHandlers[index]}
+                  onClick={() => onButtonClick(buttonText)}
                   text={buttonText}
                   initial={{ opacity: 1, y: 0 }}
                   animate={{
