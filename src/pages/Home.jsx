@@ -1,8 +1,8 @@
 import { Box } from '@chakra-ui/react';
-import { Header } from '../components/Header';
-import { CharactersImages } from '../components/CharactersImages';
-import CompletedBoxes from '../components/CompletedBoxes';
-import FightCollect from '../components/FightCollect';
+import { Header } from '../components/websiteComponents/Header';
+import { CharactersImages } from '../components/websiteComponents/CharactersImages';
+import CompletedBoxes from '../components/websiteComponents/CompletedBoxes';
+import FightCollect from '../components/websiteComponents/FightCollect';
 
 const HomePage = () => {
   return (
