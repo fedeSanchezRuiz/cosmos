@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to top, rgba(179, 224, 242, 0.9), rgba(0, 40, 85, 0.8)), url('../../../images/StarryBack.jpeg');
+  background: linear-gradient(to top, rgba(179, 224, 242, 0.9), rgba(0, 40, 85, 0.8)), url('../../images/website-img/StarryBack.jpeg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

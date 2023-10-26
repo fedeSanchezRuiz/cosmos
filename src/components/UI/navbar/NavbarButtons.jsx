@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { Button, Flex, HStack, IconButton,  VStack } from '@chakra-ui/react';
 import LoginModal from '../LoginModal';
 import LoginLogoutButton from './LoginLogoutButton';
-import starryNight from '../../../images/StarryBack.jpeg';
 import AuthContext from '../../../context/authContext';
+import starryNight from '../../images/website-img/StarryBack.jpeg';
 
 const buttons = [
   { name: 'About', path: 'about' },

@@ -1,12 +1,12 @@
 import { extendTheme } from '@chakra-ui/react';
-import starryBack from '../../images/StarryBack.jpeg';
+import starryNight from '../../components/images/website-img/StarryBack.jpeg';
 
 const theme = extendTheme({
   styles: {
     global: () => ({
       body: {
         minHeight: '100vh',
-        background: `linear-gradient(to top, rgba(96, 128, 159, 0.9), rgba(136, 178, 209, 0.8)), url(${starryBack})`,
+        background: `linear-gradient(to top, rgba(96, 128, 159, 0.9), rgba(136, 178, 209, 0.8)), url(${starryNight})`,
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',

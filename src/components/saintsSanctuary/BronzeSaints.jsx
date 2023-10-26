@@ -1,15 +1,15 @@
 import { Flex, Image, Box } from '@chakra-ui/react';
 import classes from './Saints.module.css'
-import seiya from '../bronze-img/SeiyaPegasus2.jpeg';
-import shiryu from '../bronze-img/ShiryuDragon2.jpeg';
-import hyoga from '../bronze-img/HyogaCygnus2.jpeg';
-import shun from '../bronze-img/ShunAndromeda.jpeg';
-import ikki from '../bronze-img/IkkiPhoenix2.jpeg';
-import jabu from '../bronze-img/JabuUnicorn2.jpeg';
-import ban from '../bronze-img/BanLeon.jpeg';
-import geki from '../bronze-img/GekiOso.jpeg';
-import ichi from '../bronze-img/IchiHydra.jpeg';
-import nachi from '../bronze-img/NachiLobo.jpeg';
+import seiya from '../images/bronze-img/SeiyaPegasus2.jpeg';
+import shiryu from '../images/bronze-img/ShiryuDragon2.jpeg';
+import hyoga from '../images/bronze-img/HyogaCygnus2.jpeg';
+import shun from '../images/bronze-img/ShunAndromeda.jpeg';
+import ikki from '../images/bronze-img/IkkiPhoenix2.jpeg';
+import jabu from '../images/bronze-img/JabuUnicorn2.jpeg';
+import ban from '../images/bronze-img/BanLeon.jpeg';
+import geki from '../images/bronze-img/GekiOso.jpeg';
+import ichi from '../images/bronze-img/IchiHydra.jpeg';
+import nachi from '../images/bronze-img/NachiLobo.jpeg';
 
 const saintsList = [
   {

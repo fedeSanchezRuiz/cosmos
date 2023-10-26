@@ -1,21 +1,21 @@
 import { Flex, Box, Image } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
-import bronze3 from '../images/BronzeSaints3.webp';
-import black from '../images/BlackSaints2.webp';
-import silver from '../images/SilverSaints2.jpeg';
-import gold from '../images/GoldSaints.jpeg';
-import asgard from '../images/AsgardSaints.png';
-import poseidon from '../images/PoseidonSaints2.jpeg';
+import bronzeSaints from '../../src/components/images/website-img/BronzeSaints3.webp';
+import blackSaints from '../../src/components/images/website-img/BlackSaints2.webp';
+import silverSaints from '../../src/components/images/website-img/SilverSaints2.jpeg';
+import goldSaints from '../../src/components/images/website-img/GoldSaints.jpeg';
+import asgardSaints from '../../src/components/images/website-img/AsgardSaints.png';
+import poseidonSaints from '../../src/components/images/website-img/PoseidonSaints2.jpeg';
 
 export const CharactersImages = () => {
 
   const images = [
-    { name: 'BronzeSaints', image: bronze3, path: '/characters/Bronze' },
-    { name: 'BlackSaints', image: black, path: '/characters/Black' },
-    { name: 'SilverSaints', image: silver, path: '/characters/Silver' },
-    { name: 'GoldSaints', image: gold, path: '/characters/Gold' },
-    { name: 'AsgardWarriors', image: asgard, path: '/characters/Asgard' },
-    { name: 'PoseidonScales', image: poseidon, path: '/characters/Poseidon' },
+    { name: 'BronzeSaints', image: bronzeSaints, path: '/characters/Bronze' },
+    { name: 'BlackSaints', image: blackSaints, path: '/characters/Black' },
+    { name: 'SilverSaints', image: silverSaints, path: '/characters/Silver' },
+    { name: 'GoldSaints', image: goldSaints, path: '/characters/Gold' },
+    { name: 'AsgardWarriors', image: asgardSaints, path: '/characters/Asgard' },
+    { name: 'PoseidonScales', image: poseidonSaints, path: '/characters/Poseidon' },
   ];
 
   const imageStyles = {

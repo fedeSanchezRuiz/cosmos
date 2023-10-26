@@ -1,7 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import Boxes from './Boxes';
-import pegasusCloth1 from '../images/PegasusCloth1.png';
-import popeSaga from '../images/PopeSaga.webp';
+import pegasusCloth1 from '../../src/components/images/website-img/PegasusCloth1.png';
+import popeSaga from '../../src/components/images/website-img/PopeSaga.webp';
 
 const CompletedBoxes = () => {
 

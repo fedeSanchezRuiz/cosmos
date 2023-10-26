@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import HeartContext from '../../context/heartContext';
 import EndScreen from './EndScreen';
-import PopaSaga from '../../images/PopeSaga.jpeg';
+import PopaSagaBackground from '../../components/images/chapter1-img/PopeSaga.jpeg';
 
 const GameOver = () => {
 
@@ -10,7 +10,7 @@ const GameOver = () => {
   return (
     <EndScreen
       text='  Game Over'
-      backgroundImage={PopaSaga}
+      backgroundImage={PopaSagaBackground}
       buttonTexts={['Reset', 'Exit']}
       navigatePaths={['/intro', '/']}
       livesLost={3}

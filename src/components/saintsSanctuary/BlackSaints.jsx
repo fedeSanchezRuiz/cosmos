@@ -1,10 +1,10 @@
 import { Flex, Image, Box } from '@chakra-ui/react';
 import classes from './Saints.module.css';
-import pegasusBlack from '../black-img/BlackPegasus.jpeg';
-import dragonBlack from '../black-img/BlackDragon.jpeg';
-import cygnusBlack from '../black-img/BlackCygnus.jpeg';
-import andromedaBlack from '../black-img/BlackAndromeda.jpeg';
-import phoenixBlack from '../black-img/BlackPhoenix.jpeg';
+import pegasusBlack from '../images/black-img/BlackPegasus.jpeg';
+import dragonBlack from '../images/black-img/BlackDragon.jpeg';
+import cygnusBlack from '../images/black-img/BlackCygnus.jpeg';
+import andromedaBlack from '../images/black-img/BlackAndromeda.jpeg';
+import phoenixBlack from '../images/black-img/BlackPhoenix.jpeg';
 
 const blackSaintsList = [
   {

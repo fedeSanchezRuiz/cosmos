@@ -1,10 +1,10 @@
 import { Flex, Heading, Image, Button } from '@chakra-ui/react';
-import ariesMu from '../images/AriesMu.png';
-import papyrus from '../images/PapyrusBack.jpeg';
-import classes from './About.module.css';
-import starryBack from '../images/StarryBack.jpeg';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import classes from './About.module.css';
+import ariesMu from '../../src/components/images/website-img/AriesMu.png';
+import PapyrusBackground from '../../src/components/images/website-img/PapyrusBack.jpeg';
+import starryNight from '../../src/components/images/website-img/StarryBack.jpeg';
 
 const About = () => {
 
@@ -27,7 +27,7 @@ const About = () => {
     <Flex
       className={`${classes.papyrusBox} ${classes.outerFlex}`}
       style={{
-        background: `linear-gradient(to top, rgba(199, 157, 115, 0.8), rgba(163, 126, 83, 0.94)), url(${papyrus})`,
+        background: `linear-gradient(to top, rgba(199, 157, 115, 0.8), rgba(163, 126, 83, 0.94)), url(${PapyrusBackground})`,
       }}
     >
       <Heading
@@ -45,7 +45,7 @@ const About = () => {
   const secondPapyrus = (
     <Flex
       style={{
-        background: `linear-gradient(to top, rgba(199, 157, 115, 0.8), rgba(163, 126, 83, 0.9)), url(${papyrus})`,
+        background: `linear-gradient(to top, rgba(199, 157, 115, 0.8), rgba(163, 126, 83, 0.9)), url(${PapyrusBackground})`,
       }}
       className={`${classes.papyrusBox} ${classes.outerFlex}`}
     >
@@ -78,7 +78,7 @@ const About = () => {
   const buttonStyles = {
     display: 'flex',
     color: 'rgb(13, 32, 61)',
-    background: `linear-gradient(to top, rgba(179, 224, 242, 0.9), rgba(0, 40, 85, 0.8)), url(${starryBack})`,
+    background: `linear-gradient(to top, rgba(179, 224, 242, 0.9), rgba(0, 40, 85, 0.8)), url(${starryNight})`,
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',

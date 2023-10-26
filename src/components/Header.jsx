@@ -17,7 +17,7 @@ export const Header = () => {
 
   const playNowHandler = () => {
     if (isLoggedIn) {
-      navigate('/intro'); // Navigate to the 'intro' route
+      navigate('/main-screen'); // Navigate to the 'intro' route
     } else {
       setShowLoginModal(true);
     }

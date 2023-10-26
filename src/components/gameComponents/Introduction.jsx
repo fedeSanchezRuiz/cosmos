@@ -3,9 +3,9 @@ import { Flex, Text } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import ButtonCustom from '../UI/ButtonCustom';
-import TotalBlack from '../../images/Total-Black1.jpg';
 import useTypewriter from '../../components/hooks/useTypewriter';
 import GameCard from './GameCard';
+import NightSkyBackground from '../../components/images/website-img/Total-Black1.jpg';
 
 const introText = `  Coliseum, Athena's Sanctuary, Greece
   -Grand Pope: Among 1024 warriors, you two are the only ones who have survived till the end. The moment has come to fight against each other. The winner will obtain the sacred armor of Pegasus. Time to fight!`;
@@ -42,7 +42,7 @@ const Introduction = () => {
   }, [setDisplayedText, setIsTypingCompleted]);
 
   return (
-    <GameCard backgroundImage={TotalBlack} justifyContent='top'>
+    <GameCard backgroundImage={NightSkyBackground} justifyContent='top'>
       <motion.div
         animate={{ opacity: isClicked ? 0 : 1, y: isClicked ? -300 : 0 }}
         transition={{ duration: 1 }}

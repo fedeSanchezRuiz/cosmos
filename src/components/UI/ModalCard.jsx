@@ -1,6 +1,6 @@
 import { Flex, Box } from "@chakra-ui/react";
 import ReactDOM from 'react-dom';
-import Starry from '../../images/StarryBack.jpeg';
+import StarrySky from '../../components/images/website-img/StarryBack.jpeg';
 import { useNavigate } from 'react-router-dom';
 
 const ModalCard = ({ children, height }) => {
@@ -42,7 +42,7 @@ const ModalCard = ({ children, height }) => {
           xl: '510px',
         }}
         position='fixed'
-        background= {`linear-gradient(to top, rgba(179, 224, 242, 0.9), rgba(0, 40, 85, 0.8)), url(${Starry})`}
+        background= {`linear-gradient(to top, rgba(179, 224, 242, 0.9), rgba(0, 40, 85, 0.8)), url(${StarrySky})`}
         backgroundPosition= 'center'
         backgroundRepeat= 'no-repeat'
         backgroundSize= 'cover'

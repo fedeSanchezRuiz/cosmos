@@ -7,7 +7,7 @@ import {
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import classes from './Boxes.module.css';
-import Night from '../images/NightSkyBack.jpeg';
+import Night from '../../src/components/images/website-img/NightSkyBack.jpeg';
 
 const Boxes = ({
   image,

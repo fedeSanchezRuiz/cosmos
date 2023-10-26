@@ -1,9 +1,9 @@
 import CardBattle from './CardBattle';
-import StarryBack from '../../images/StarryBack.jpeg';
-import SeiyaA from '../../images/SeiyaFirst.jpeg';
-import SeiyaB from '../bronze-img/SeiyaPegasus2.jpeg';
-import Cassios from '../../images/Cassios1.jpeg';
-import PopeAres from '../../images/PopeAresA.jpeg';
+import StarryNight from '../../components/images/website-img/StarryBack.jpeg';
+import SeiyaNoCloth from '../../components/images/chapter1-img/SeiyaFirst.jpeg';
+import PegasusSeiya from '../../components/images/bronze-img/SeiyaPegasus2.jpeg';
+import Cassios from '../../components/images/chapter1-img/Cassios1.jpeg';
+import PopeAres from '../../components/images/chapter1-img/PopeAresA.jpeg';
 
 const imageStyle = {
   h: {
@@ -20,22 +20,22 @@ const cardData = [
     name: 'Pegasus Seiya',
     life: 35,
     color: '#D72638',
-    image: SeiyaB,
+    image: PegasusSeiya,
     attack: 'Pegasus Meteor',
     round: 3,
     extraDamage: 8,
-    background: `linear-gradient(to top, rgba(173, 216, 230, 0.6), rgba(102, 153, 204, 0.6), rgba(0, 115, 230, 0.6)), url(${StarryBack})`,
+    background: `linear-gradient(to top, rgba(173, 216, 230, 0.6), rgba(102, 153, 204, 0.6), rgba(0, 115, 230, 0.6)), url(${StarryNight})`,
     glow: 'rgba(173, 216, 230, 1)',
   },
   {
     name: 'Seiya',
     life: 25,
     color: '#D72638',
-    image: SeiyaA,
+    image: SeiyaNoCloth,
     attack: 'Meteor Fist',
     round: 3,
     extraDamage: 6,
-    background: `linear-gradient(to top, rgba(173, 216, 230, 0.6), rgba(102, 153, 204, 0.6), rgba(0, 115, 230, 0.6)), url(${StarryBack})`,
+    background: `linear-gradient(to top, rgba(173, 216, 230, 0.6), rgba(102, 153, 204, 0.6), rgba(0, 115, 230, 0.6)), url(${StarryNight})`,
     glow: 'rgba(173, 216, 230, 1)',
   },
   {
@@ -46,7 +46,7 @@ const cardData = [
     attack: 'Crushing Fist',
     round: 1,
     extraDamage: 4,
-    background: `linear-gradient(to bottom, rgba(92, 64, 51, 0.6), rgba(140, 112, 75, 0.6), rgba(191, 160, 114, 0.6)), url(${StarryBack})`,
+    background: `linear-gradient(to bottom, rgba(92, 64, 51, 0.6), rgba(140, 112, 75, 0.6), rgba(191, 160, 114, 0.6)), url(${StarryNight})`,
     glow: 'rgba(92, 64, 51, 1)',
   },
   {
@@ -57,7 +57,7 @@ const cardData = [
     attack: 'unknown',
     round: null,
     extraDamage: null,
-    background: `linear-gradient(to bottom, rgba(128, 0, 128, 0.6), rgba(75, 0, 130, 0.6), rgba(182, 149, 221, 0.6)), url(${StarryBack})`,
+    background: `linear-gradient(to bottom, rgba(128, 0, 128, 0.6), rgba(75, 0, 130, 0.6), rgba(182, 149, 221, 0.6)), url(${StarryNight})`,
     glow: 'rgba(128, 0, 128, 1)',
   },
 ];

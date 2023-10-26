@@ -9,10 +9,10 @@ import { Fragment } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Cardwrapper from '../components/UI/CardWrapper';
 import Navbar from '../components/UI/navbar/Navbar';
-import deathmask from '../images/DM.png';
 import Footer from '../components/UI/Footer';
-import classes from './Error.module.css';
 import ReactDOM from 'react-dom';
+import classes from './Error.module.css';
+import Deathmask from '../../src/components/images/website-img/DM.png';
 
 const ErrorPage = () => {
   const navigate = useNavigate();
@@ -48,7 +48,7 @@ const ErrorPage = () => {
             <Flex justifyContent='center'>
               <Image
                 className={classes.imageStyles}
-                src={deathmask}
+                src={Deathmask}
                 h={{
                   base: '300px',
                   sm: '300px',

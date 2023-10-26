@@ -3,7 +3,7 @@ import { Box } from '@chakra-ui/react';
 import MiddleTab from '../components/UI/MiddleTab';
 import Cardwrapper from '../components/UI/CardWrapper';
 import ComingSoon from '../components/UI/ComingSoon';
-import shakaMeditate from '../images/ShakaMeditation.png';
+import shakaMeditate from '../../src/components/images/website-img/ShakaMeditation.png';
 import BronzeSaints from '../components/saintsSanctuary/BronzeSaints';
 import BlackSaints from '../components/saintsSanctuary/BlackSaints';
 

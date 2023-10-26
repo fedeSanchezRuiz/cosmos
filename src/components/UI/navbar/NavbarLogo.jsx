@@ -1,7 +1,7 @@
 import { Heading, Flex, Box, Image } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
-import logo from '../../../images/Logo.png';
-import logoSS from '../../../images/SS-Logo.webp';
+import logo from '../../images/website-img/Logo.png';
+import logoSS from '../../images/website-img/SS-Logo.webp';
 
 export const NavbarLogo = ({ logoWidth, logoHeight, logoSSWidth, logoSSHeight, disableLink }) => {
 

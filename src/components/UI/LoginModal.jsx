@@ -7,11 +7,11 @@ import {
 } from '@chakra-ui/react';
 import { useState, useEffect, useContext, Fragment } from 'react';
 import AuthContext from '../../context/authContext';
-import logo from '../../images/Logo.png';
-import logoSS from '../../images/SS-Logo.webp';
 import useInput from '../hooks/useInput';
-import Starry from '../../images/StarryBack.jpeg';
-import Night from '../../images/NightSkyBack.jpeg'
+import logo from '../../components/images/website-img/Logo.png';
+import logoSS from '../../components/images/website-img/SS-Logo.webp';
+import Starry from '../../components/images/website-img/StarryBack.jpeg';
+import Night from '../../components/images/website-img/NightSkyBack.jpeg'
 
 const buttonProps = {
   background: `linear-gradient(to bottom, rgba(255, 255, 204, 1), rgba(218, 165, 32, 0.6)), url(${Night})`,

@@ -1,8 +1,8 @@
-import facebook from '../../icons/Facebook.png';
-import twitter from '../../icons/Twitter4.png';
-import instagram from '../../icons/Instagram.png';
-import youtube from '../../icons/Youtube.png';
-import starryBack from '../../images/StarryBack.jpeg';
+import facebook from '../../components/images/icons/Facebook.png';
+import twitter from '../../components/images/icons/Twitter4.png';
+import instagram from '../../components/images/icons/Instagram.png';
+import youtube from '../../components/images/icons/Youtube.png';
+import starryBack from '../../components/images/website-img/StarryBack.jpeg';
 
 import './Footer.css';
 import { Image, Box } from '@chakra-ui/react';

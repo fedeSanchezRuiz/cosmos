@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { Button, Flex } from '@chakra-ui/react';
-import starryBack from '../../images/StarryBack.jpeg';
+import starryBack from '../../components/images/website-img/StarryBack.jpeg';
 
 const buttonsName = [
   { name: 'Bronze' },

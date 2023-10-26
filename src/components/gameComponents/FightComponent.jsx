@@ -10,10 +10,10 @@ import GameCard from './GameCard';
 import FlashMessage from './FlashMessage';
 import CardBattle from './CardBattle';
 import StarterSelector from './StarterSelector';
-import coliseum from '../../images/Coliseum.webp';
-import Seiya from '../../images/SeiyaFirst.jpeg';
-import Cassios from '../../images/Cassios1.jpeg';
-import StarryBack from '../../images/StarryBack.jpeg';
+import ColiseumBackground from '../../components/images/chapter1-img/Coliseum.webp';
+import SeiyaNoCloth from '../../components/images/chapter1-img/SeiyaFirst.jpeg';
+import Cassios from '../../components/images/chapter1-img/Cassios1.jpeg';
+import StarryNight from '../../components/images/website-img/StarryBack.jpeg';
 
 const FightComponent = () => {
   const imageStyle = {
@@ -35,11 +35,11 @@ const FightComponent = () => {
     name: 'Seiya',
     life: 25,
     color: '#D72638',
-    image: Seiya,
+    image: SeiyaNoCloth,
     attack: 'Meteor Fist',
     round: 3,
     extraDamage: 6,
-    background: `linear-gradient(to top, rgba(173, 216, 230, 0.6), rgba(102, 153, 204, 0.6), rgba(0, 115, 230, 0.6)), url(${StarryBack})`,
+    background: `linear-gradient(to top, rgba(173, 216, 230, 0.6), rgba(102, 153, 204, 0.6), rgba(0, 115, 230, 0.6)), url(${StarryNight})`,
   };
 
   const cassios = {
@@ -50,7 +50,7 @@ const FightComponent = () => {
     attack: 'Crushing Fist',
     round: 1,
     extraDamage: 4,
-    background: `linear-gradient(to bottom, rgba(92, 64, 51, 0.6), rgba(140, 112, 75, 0.6), rgba(191, 160, 114, 0.6)), url(${StarryBack})`,
+    background: `linear-gradient(to bottom, rgba(92, 64, 51, 0.6), rgba(140, 112, 75, 0.6), rgba(191, 160, 114, 0.6)), url(${StarryNight})`,
   };
 
   const specialAttackA = (
@@ -266,7 +266,7 @@ const FightComponent = () => {
 
   return (
     <GameCard
-      backgroundImage={coliseum}
+      backgroundImage={ColiseumBackground}
       justifyContent='top'
     >
       <AnimatePresence>

@@ -1,8 +1,8 @@
 import { Flex, Image, Text } from '@chakra-ui/react';
 import React from 'react';
-import BronzeChibi from '../images/BronzeGroup.png';
-import Milo from '../images/MiloChibi2.png';
-import Saori from '../images/SaoriChibi.png';
+import BronzeChibi from '../../src/components/images/website-img/BronzeGroup.png';
+import Milo from '../../src/components/images/website-img/MiloChibi2.png';
+import Saori from '../../src/components/images/website-img/SaoriChibi.png';
 import classes from './FightCollect.module.css';
 
 export default function FightCollect() {

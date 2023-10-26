@@ -10,7 +10,7 @@ import Characters from './pages/Characters';
 import RootLayout from './pages/RootLayout';
 import ErrorPage from './pages/Error';
 import CharacterDetails from './pages/CharactersDetails';
-import IntroPage from './pages/IntroPage';
+import MainScreen from './pages/MainScreen';
 import Chapter1 from './pages/Chapter1';
 import Introduction from './components/gameComponents/Introduction';
 import FightComponent from './components/gameComponents/FightComponent';
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
       { path: 'characters/:saintsId', element: <CharacterDetails /> },
     ]
   },
-  { path: 'intro', element: <IntroPage />, errorElement: <ErrorPage /> },
+  { path: 'main-screen', element: <MainScreen />, errorElement: <ErrorPage /> },
   { path: 'chapter1', element: <Chapter1 />, errorElement: <ErrorPage />, children: [
     { index: true, element: <Introduction /> },
     { path: 'fight-cassios', element: <FightComponent /> },

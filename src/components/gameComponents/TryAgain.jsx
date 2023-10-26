@@ -1,12 +1,12 @@
 import EndScreen from './EndScreen';
-import SeiyaDefeated from '../../images/SeiyaDefeated3.jpg';
+import SeiyaDefeatedBackground from '../../components/images/chapter1-img/SeiyaDefeated3.jpg';
 
 const TryAgain = () => {
 
   return (
     <EndScreen
       text='  Try Again'
-      backgroundImage={SeiyaDefeated}
+      backgroundImage={SeiyaDefeatedBackground}
       buttonTexts={['Yes', 'No']}
       navigatePaths={['/chapter1/fight-cassios', '/']}
       livesLost={0}

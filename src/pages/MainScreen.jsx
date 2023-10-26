@@ -5,10 +5,10 @@ import { motion } from 'framer-motion';
 import { NavbarLogo } from '../components/UI/navbar/NavbarLogo';
 import ButtonCustom from '../components/UI/ButtonCustom';
 import GameCard from '../components/gameComponents/GameCard';
-import SanctuaryClock from '../images/Clock1.jpeg';
-import TotalBlack from '../images/Total-Black1.jpg';
+import SanctuaryClockBackground from '../../src/components/images/chapter1-img/Clock1.jpeg';
+import NightSkyBackground from '../../src/components/images/website-img/Total-Black1.jpg';
 
-const IntroPage = () => {
+const MainScreen = () => {
   const navigate = useNavigate();
 
   const [isDarkening, setIsDarkening] = useState(false);
@@ -23,7 +23,7 @@ const IntroPage = () => {
 
   return (
     <>
-      <GameCard backgroundImage={SanctuaryClock} justifyContent='flex-end'>
+      <GameCard backgroundImage={SanctuaryClockBackground} justifyContent='flex-end'>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: isDarkening ? 1 : 0 }}
@@ -33,7 +33,7 @@ const IntroPage = () => {
             width: '100%',
             maxWidth: '768px',
             height: '100%',
-            backgroundImage: `linear-gradient(to bottom, rgba(96, 128, 159, 0.1), rgba(136, 178, 209, 0.3)), url(${TotalBlack})`,
+            backgroundImage: `linear-gradient(to bottom, rgba(96, 128, 159, 0.1), rgba(136, 178, 209, 0.3)), url(${NightSkyBackground})`,
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
@@ -111,4 +111,4 @@ const IntroPage = () => {
   );
 };
 
-export default IntroPage;
+export default MainScreen;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@chakra-ui/react';
-import starryNight from '../../../images/StarryBack.jpeg';
+import starryNight from '../../images/website-img/StarryBack.jpeg';
 
 const LoginLogoutButton = ({ children, onClick, imageStyles, buttonStyles, buttonHoverStyles, width, mx, height, fontSize }) => (
   <Button

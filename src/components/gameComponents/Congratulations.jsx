@@ -2,14 +2,14 @@ import { useState, useEffect, useMemo } from 'react';
 import { Flex, Text, Image } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { ArrowLeftIcon, ArrowRightIcon } from '@chakra-ui/icons';
+import { NavbarLogo } from '../UI/navbar/NavbarLogo';
 import ButtonCustom from '../UI/ButtonCustom';
 import GameCard from './GameCard';
 import ModalCard from '../UI/ModalCard';
-import { NavbarLogo } from '../UI/navbar/NavbarLogo';
 import CardCollection from './CardCollection';
 import useTypewriter from '../hooks/useTypewriter';
-import PopeAres from '../../images/PopeAresCut.jpeg';
-import PegasusBox from '../../images/PegasusBox2.png';
+import PopeAresBackground from '../../components/images/chapter1-img/PopeAresCut.jpeg';
+import PegasusBox from '../../components/images/chapter1-img/PegasusBox2.png';
 
 const finishText = `  -Grand Pope: Athena recognizes Seiya as one of her warriors, and as justice demands, I deliver to you the sacred Cloth of Pegasus!`;
 
@@ -93,7 +93,7 @@ const Congratulations = () => {
   return (
     <GameCard
       justifyContent='top'
-      backgroundImage={PopeAres}
+      backgroundImage={PopeAresBackground}
     >
       {thanksForPlaying && (
         <ModalCard
