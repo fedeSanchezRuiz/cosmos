@@ -14,8 +14,31 @@ import ColiseumBackground from '../../images/chapter1-img/Coliseum.webp';
 import SeiyaNoCloth from '../../images/chapter1-img/SeiyaFirst.jpeg';
 import Cassios from '../../images/chapter1-img/Cassios1.jpeg';
 import StarryNight from '../../images/website-img/StarryBack.jpeg';
+import chapter1JSON from '../../../json/chapter1.json';
+
+const images = {
+  Cassios,
+  SeiyaNoCloth,
+};
 
 const FightStage = ({ onStepChange }) => {
+  const playerData = chapter1JSON.player;
+  const enemyData = chapter1JSON.enemy;
+
+  const addImagesToObject = (obj) => {
+    const newObject = { ...obj };
+    newObject.background = `${obj.background}, url(${StarryNight})`;
+    newObject.image = images[obj.image];
+    return newObject;
+  };
+
+  const [player, setPlayer] = useState(
+    addImagesToObject(playerData)
+  );
+  const [enemy, setEnemy] = useState(
+    addImagesToObject(enemyData)
+  );
+
   const imageStyle = {
     h: {
       base: '200px',
@@ -31,34 +54,12 @@ const FightStage = ({ onStepChange }) => {
     visible: { opacity: 1, y: 0, scale: 1 },
   };
 
-  const seiya = {
-    name: 'Seiya',
-    life: 25,
-    color: '#D72638',
-    image: SeiyaNoCloth,
-    attack: 'Meteor Fist',
-    round: 3,
-    extraDamage: 6,
-    background: `linear-gradient(to top, rgba(173, 216, 230, 0.6), rgba(102, 153, 204, 0.6), rgba(0, 115, 230, 0.6)), url(${StarryNight})`,
-  };
-
-  const cassios = {
-    name: 'Cassios',
-    life: 20,
-    color: '#1A0D05',
-    image: Cassios,
-    attack: 'Crushing Fist',
-    round: 1,
-    extraDamage: 4,
-    background: `linear-gradient(to bottom, rgba(92, 64, 51, 0.6), rgba(140, 112, 75, 0.6), rgba(191, 160, 114, 0.6)), url(${StarryNight})`,
-  };
-
   const playerSpecialAttack = (
     <Flex
       flexDir='column'
       justifyContent='center'
       alignItems='center'
-      color={seiya.color}
+      color={player.color}
     >
       <Heading
         fontFamily='ARCADECLASSIC'
@@ -71,7 +72,7 @@ const FightStage = ({ onStepChange }) => {
         fontWeight='bold'
         fontSize='32px'
       >
-        {seiya.attack}
+        {player.attack}
       </Heading>
     </Flex>
   );
@@ -81,7 +82,7 @@ const FightStage = ({ onStepChange }) => {
       flexDir='column'
       justifyContent='center'
       alignItems='center'
-      color={cassios.color}
+      color={enemy.color}
     >
       <Heading
         fontFamily='ARCADECLASSIC'
@@ -94,7 +95,7 @@ const FightStage = ({ onStepChange }) => {
         fontWeight='bold'
         fontSize='32px'
       >
-        {cassios.attack}
+        {enemy.attack}
       </Heading>
     </Flex>
   );
@@ -116,15 +117,15 @@ const FightStage = ({ onStepChange }) => {
       roundMod;
 
     // Seiya special attack logic
-    if (seiya.round % 6 === currentRound % 6) {
+    if (player.round % 6 === currentRound % 6) {
       handlePlayerSpecialAttack();
-      if (seiya.round % 2 === 1) {
+      if (player.round % 2 === 1) {
         // odd round
         const oddDiceCount = diceValues.filter(
           (dice) => dice % 2 === 1
         ).length;
         if (oddDiceCount >= 3) {
-          damage += seiya.extraDamage;
+          damage += player.extraDamage;
         }
       } else {
         // even round
@@ -132,7 +133,7 @@ const FightStage = ({ onStepChange }) => {
           (dice) => dice % 2 === 0
         ).length;
         if (evenDiceCount >= 3) {
-          damage += seiya.extraDamage;
+          damage += player.extraDamage;
         }
       }
     }
@@ -146,9 +147,7 @@ const FightStage = ({ onStepChange }) => {
     setTimeout(() => {
       setTotalDamage(damage);
     }, 300);
-    setEnemyLife((prevLife) =>
-      Math.max(prevLife - damage, 0)
-    );
+    setEnemyLife((prevLife) => Math.max(prevLife - damage, 0));
     if (enemyLife - damage <= 0) {
       setTimeout(() => {
         // navigate('/chapter1/congratulations');
@@ -168,15 +167,15 @@ const FightStage = ({ onStepChange }) => {
       roundMod;
 
     // Cassios special attack logic
-    if (cassios.round % 6 === currentRound % 6) {
+    if (enemy.round % 6 === currentRound % 6) {
       handleEnemySpecialAttack();
-      if (cassios.round % 2 === 1) {
+      if (enemy.round % 2 === 1) {
         // odd round
         const oddDiceCount = diceValues.filter(
           (dice) => dice % 2 === 1
         ).length;
         if (oddDiceCount >= 3) {
-          damage += cassios.extraDamage;
+          damage += enemy.extraDamage;
         }
       } else {
         // even round
@@ -184,7 +183,7 @@ const FightStage = ({ onStepChange }) => {
           (dice) => dice % 2 === 0
         ).length;
         if (evenDiceCount >= 3) {
-          damage += cassios.extraDamage;
+          damage += enemy.extraDamage;
         }
       }
     }
@@ -198,9 +197,7 @@ const FightStage = ({ onStepChange }) => {
     setTimeout(() => {
       setTotalDamage(damage);
     }, 200);
-    setPlayerLife((prevLife) =>
-      Math.max(prevLife - damage, 0)
-    );
+    setPlayerLife((prevLife) => Math.max(prevLife - damage, 0));
     if (PlayerLife - damage <= 0) {
       setHeartCount((prevHeartCount) => prevHeartCount - 1);
       if (heartCount <= 1) {
@@ -225,12 +222,8 @@ const FightStage = ({ onStepChange }) => {
     useState(false);
   const [isEnemyRollComplete, setIsEnemyRollComplete] =
     useState(false);
-  const [PlayerLife, setPlayerLife] = useState(
-    seiya.life
-  );
-  const [enemyLife, setEnemyLife] = useState(
-    cassios.life
-  );
+  const [PlayerLife, setPlayerLife] = useState(player.life);
+  const [enemyLife, setEnemyLife] = useState(enemy.life);
   const [currentRound, setCurrentRound] = useState(1);
   const [playersRolled, setPlayersRolled] = useState(0);
   const [playerSpecialVisible, setPlayerSpecialVisible] =
@@ -240,7 +233,8 @@ const FightStage = ({ onStepChange }) => {
   const [missedAttackVisible, setMissedAttackVisible] =
     useState(false);
   const [totalDamage, setTotalDamage] = useState(0);
-  const { heartCount, setHeartCount, resetHeartCount } = useContext(HeartContext);
+  const { heartCount, setHeartCount, resetHeartCount } =
+    useContext(HeartContext);
   const visible = useTimers(
     fightVisible,
     setFightVisible,
@@ -258,14 +252,14 @@ const FightStage = ({ onStepChange }) => {
   }, [playersRolled]);
 
   useEffect(() => {
-    if (starter === 'Seiya') {
+    if (starter === player.name) {
       setIsPlayerRollComplete(false);
       setIsEnemyRollComplete(true);
     } else {
       setIsEnemyRollComplete(false);
       setIsPlayerRollComplete(true);
     }
-  }, [starter]);
+  }, [starter, player.name]);
 
   return (
     <ScreenCard
@@ -283,8 +277,8 @@ const FightStage = ({ onStepChange }) => {
         />
         <StarterSelector
           key='starter-selector'
-          player='Seiya'
-          enemy='Cassios'
+          player={player.name}
+          enemy={enemy.name}
           playerOdds={0.6}
           enemyOdds={0.4}
           isVisible={starterSelectorVisible}
@@ -374,18 +368,18 @@ const FightStage = ({ onStepChange }) => {
           <motion.div
             variants={variants}
             initial='hidden'
-            animate={visible.cardA ? 'visible' : 'hidden'}
+            animate={visible.playerCard ? 'visible' : 'hidden'}
           >
             <CardFrame
-              name={seiya.name}
-              image={seiya.image}
-              fontColor={seiya.color}
+              name={player.name}
+              image={player.image}
+              fontColor={player.color}
               hp={PlayerLife}
-              specialAttack={seiya.attack}
-              backgroundImage={seiya.background}
-              visibleText={visible.characterAText}
+              specialAttack={player.attack}
+              backgroundImage={player.background}
+              visibleText={visible.playerText}
               visibleHp={visible.hpText}
-              visibleImage={visible.characterA}
+              visibleImage={visible.playerImage}
               visibleSpecialAttack={visible.spAtk}
               imageStyle={imageStyle}
             />
@@ -394,18 +388,18 @@ const FightStage = ({ onStepChange }) => {
           <motion.div
             variants={variants}
             initial='hidden'
-            animate={visible.cardB ? 'visible' : 'hidden'}
+            animate={visible.enemyCard ? 'visible' : 'hidden'}
           >
             <CardFrame
-              name={cassios.name}
-              image={cassios.image}
-              fontColor={cassios.color}
+              name={enemy.name}
+              image={enemy.image}
+              fontColor={enemy.color}
               hp={enemyLife}
-              specialAttack={cassios.attack}
-              backgroundImage={cassios.background}
-              visibleText={visible.characterBText}
+              specialAttack={enemy.attack}
+              backgroundImage={enemy.background}
+              visibleText={visible.enemyText}
               visibleHp={visible.hpText}
-              visibleImage={visible.characterB}
+              visibleImage={visible.enemyImage}
               visibleSpecialAttack={visible.spAtk}
               imageStyle={imageStyle}
             />
@@ -436,9 +430,9 @@ const FightStage = ({ onStepChange }) => {
           animate={visible.dice ? 'visible' : 'hidden'}
         >
           <SixDice
-            playerName={seiya.name}
+            playerName={player.name}
             delay={3600}
-            starterSelected={starter === seiya.name}
+            starterSelected={starter === player.name}
             onDiceRolled={(total, diceValues) =>
               onDiceRolledByPlayer(total, diceValues)
             }
@@ -451,9 +445,9 @@ const FightStage = ({ onStepChange }) => {
           animate={visible.dice ? 'visible' : 'hidden'}
         >
           <SixDice
-            enemyName={cassios.name}
+            enemyName={enemy.name}
             delay={3600}
-            starterSelected={starter === cassios.name}
+            starterSelected={starter === enemy.name}
             onDiceRolled={(total, diceValues) =>
               onDiceRolledByEnemy(total, diceValues)
             }
