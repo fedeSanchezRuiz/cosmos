@@ -175,7 +175,7 @@ export const NavbarButtons = () => {
             flexDir='column'
             justifyContent='space-evenly'
             alignItems='center'
-            overFlowY='auto'
+            overflowY='auto'
           >
             <Flex
               w='95%'

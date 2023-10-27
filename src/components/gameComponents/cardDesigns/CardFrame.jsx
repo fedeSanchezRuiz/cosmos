@@ -11,7 +11,12 @@ const CardFrame = ({
   fontColor,
   glow,
   onClick,
-  ...props
+  visibleHp,
+  visibleText,
+  visibleImage,
+  imageStyle,
+  visibleSpecialAttack,
+  ...rest
 }) => {
   const variants = {
     hidden: { opacity: 0, y: 30, scale: 1.5 },
@@ -45,7 +50,7 @@ const CardFrame = ({
           lg: '293px',
           xl: '295px',
         }}
-        // h={{ base: '320px', sm: '', md: '', lg: '', xl: '' }}
+
         flexDir='column'
         alignItems='center'
         justifyContent='center'
@@ -54,7 +59,7 @@ const CardFrame = ({
         borderRadius='20px'
         backgroundImage={backgroundImage}
         opacity='0.8'
-        {...props}
+        {...rest}
       >
         <Flex
           justifyContent='center'
@@ -71,7 +76,7 @@ const CardFrame = ({
           <motion.div
             variants={variants}
             initial='hidden'
-            animate={props.visibleText ? 'visible' : 'hidden'}
+            animate={visibleText ? 'visible' : 'hidden'}
           >
             <Flex
               minW={{
@@ -97,7 +102,7 @@ const CardFrame = ({
           <motion.div
             variants={variants}
             initial='hidden'
-            animate={props.visibleHp ? 'visible' : 'hidden'}
+            animate={visibleHp ? 'visible' : 'hidden'}
           >
             <Flex
               fontSize={{
@@ -121,11 +126,11 @@ const CardFrame = ({
         <motion.div
           variants={variants}
           initial='hidden'
-          animate={props.visibleImage ? 'visible' : 'hidden'}
+          animate={visibleImage ? 'visible' : 'hidden'}
         >
           <Image
             src={image}
-            {...props.imageStyle}
+            {...imageStyle}
           />
         </motion.div>
         <Flex>
@@ -133,7 +138,7 @@ const CardFrame = ({
             variants={variants}
             initial='hidden'
             animate={
-              props.visibleSpecialAttack ? 'visible' : 'hidden'
+              visibleSpecialAttack ? 'visible' : 'hidden'
             }
           >
             <Flex

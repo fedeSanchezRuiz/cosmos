@@ -154,7 +154,7 @@ const LoginModal = (props) => {
       >
         <Flex
           mb='10px'
-          flexDir={{
+          flexDirection={{
             base: 'column',
             sm: 'column',
             md: 'row',
@@ -178,7 +178,7 @@ const LoginModal = (props) => {
           onSubmit={formLoginHandler}
           style={{ marginTop: '5px' }}
           display='flex'
-          flexDir='column'
+          
         >
           {!hideMailLabel && (
             <Flex
@@ -188,7 +188,7 @@ const LoginModal = (props) => {
                 base: 'center',
                 lg: 'space-between',
               }}
-              flexDir={{
+              flexDirection={{
                 base: 'column',
                 sm: 'column',
                 md: 'row',
@@ -264,7 +264,7 @@ const LoginModal = (props) => {
               base: 'center',
               lg: 'space-between',
             }}
-            flexDir={{
+            flexDirection={{
               base: 'column',
               sm: 'column',
               md: 'row',
@@ -339,7 +339,7 @@ const LoginModal = (props) => {
               base: 'center',
               lg: 'space-between',
             }}
-            flexDir={{
+            flexDirection={{
               base: 'column',
               sm: 'column',
               md: 'row',
@@ -408,7 +408,7 @@ const LoginModal = (props) => {
             </Text>
           )}
           <Flex
-            flexDir='column'
+            flexDirection='column'
             my='3px'
             alignItems='center'
           >
