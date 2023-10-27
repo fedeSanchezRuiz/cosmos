@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import HeartContext from './heartContext';
 
 export const HeartProvider = ({ children }) => {
@@ -16,8 +16,8 @@ export const HeartProvider = ({ children }) => {
   }, [heartCount]);
 
   const resetHeartCount = () => {
-    setHeartCount(3); // Reset to the initial heart count
-    localStorage.removeItem('heartCount'); // Remove saved heart count from local storage
+    setHeartCount(3);
+    localStorage.removeItem('heartCount');
   }
 
   return (

@@ -3,6 +3,7 @@ import { Flex, Heading } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import HeartContext from '../../../context/heartContext';
+import AuthContext from '../../../context/authContext';
 import ButtonCustom from '../../UI/ButtonCustom';
 import GameNavbar from '../interfaceElements/GameNavbar';
 import ScreenCard from '../interfaceElements/ScreenCard';
@@ -15,6 +16,7 @@ const EndScreen = ({
   livesLost,
   onButtonClick,
 }) => {
+  const { username } = useContext(AuthContext);
   const { heartCount } = useContext(HeartContext);
   const [isClicked, setIsClicked] = useState(false);
   const [showNavbar, setShowNavbar] = useState(false);
@@ -62,7 +64,7 @@ const EndScreen = ({
       >
         {showNavbar && (
           <GameNavbar
-            username='Player1'
+            username={username}
             heartCount={heartCount}
             isVisible={true}
             livesLost={livesLost}

@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Flex, Heading } from '@chakra-ui/react';
 import { useTimers } from '../../hooks/useTimers';
-// import { useNavigate } from 'react-router-dom';
+import AuthContext from '../../../context/authContext';
 import HeartContext from '../../../context/heartContext';
 import GameNavbar from '../interfaceElements/GameNavbar';
 import SixDice from '../dice/SixDice';
@@ -98,8 +98,6 @@ const FightStage = ({ onStepChange }) => {
       </Heading>
     </Flex>
   );
-
-  // const navigate = useNavigate();
 
   const handleCharacterASpecialAttack = () => {
     setCharacterASpecialVisible(true);
@@ -215,6 +213,7 @@ const FightStage = ({ onStepChange }) => {
     setPlayersRolled((prev) => prev + 1);
   };
 
+  const { username } = useContext(AuthContext);
   const [fightVisible, setFightVisible] = useState(false);
   const [starterSelectorVisible, setStarterSelectorVisible] =
     useState(false);
@@ -340,7 +339,7 @@ const FightStage = ({ onStepChange }) => {
         }}
       >
         <GameNavbar
-          username='Player 1'
+          username={username}
           heartCount={heartCount}
           isVisible={gameNavbarVisible}
           livesLost={0}

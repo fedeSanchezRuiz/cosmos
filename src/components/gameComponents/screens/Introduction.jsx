@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Flex, Text } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-// import { useNavigate } from 'react-router-dom';
 import ButtonCustom from '../../UI/ButtonCustom';
 import useTypewriter from '../../hooks/useTypewriter';
 import ScreenCard from '../interfaceElements/ScreenCard';
@@ -11,7 +10,6 @@ const introText = `  Coliseum, Athena's Sanctuary, Greece
   -Grand Pope: Among 1024 warriors, you two are the only ones who have survived till the end. The moment has come to fight against each other. The winner will obtain the sacred armor of Pegasus. Time to fight!`;
 
 const Introduction = ({ onStepChange }) => {
-  // const navigate = useNavigate();
 
   const [isClicked, setIsClicked] = useState(false);
 
