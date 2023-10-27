@@ -1,15 +1,15 @@
 import { Flex, Heading, Image } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
+const imageStyles = {
+  transition: 'transform 0.3s',
+};
+
+const imageHoverStyles = {
+  transform: 'scale(1.03)',
+};
+
 const MessageCustom = ({ src, text = 'Coming Soon!' }) => {
-
-  const imageStyles = {
-    transition: 'transform 0.3s', // Add a smooth transition effect
-  };
-
-  const imageHoverStyles = {
-    transform: 'scale(1.03)', // Increase the size by 10% (adjust as needed),
-  };
 
   return (
     <Flex

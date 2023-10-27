@@ -10,8 +10,9 @@ import CardCollection from '../cardDesigns/CardCollection';
 import useTypewriter from '../../hooks/useTypewriter';
 import PopeAresBackground from '../../images/chapter1-img/PopeAresCut.jpeg';
 import PegasusBox from '../../images/chapter1-img/PegasusBox2.png';
+import chapter1JSON from '../../../json/chapter1.json';
 
-const finishText = `  -Grand Pope: Athena recognizes Seiya as one of her warriors, and as justice demands, I deliver to you the sacred Cloth of Pegasus!`;
+const finishText = chapter1JSON.endingText;
 
 const TEXT_HIDE_DISTANCE = -300;
 
@@ -148,7 +149,7 @@ const Congratulations = () => {
                 xl: '8%',
               }}
               whiteSpace='pre-line'
-              flexDir='column' // Add this line
+              flexDir='column'
             >
               Thanks for playing! I hope you have enjoyed this
               demo!

@@ -19,23 +19,19 @@ const ButtonCustom = ({
 }) => {
   const MotionButton = motion(ChakraButton);
 
-  // Define default whileHover property
   const defaultWhileHover = {
     scale: 1.05,
-    opacity: 0.6,
+    opacity: 0.8,
   };
 
-  // Merge default whileHover with custom whileHover if provided
   const whileHover = customWhileHover
     ? { ...defaultWhileHover, ...customWhileHover }
     : defaultWhileHover;
 
-  // Define default whileTap property
   const defaultWhileTap = {
     scale: 0.9,
   };
 
-  // Merge default whileTap with custom whileTap if provided
   const whileTap = customWhileTap
     ? { ...defaultWhileTap, ...customWhileTap }
     : defaultWhileTap;
@@ -51,6 +47,7 @@ const ButtonCustom = ({
       transition={transition}
       opacity={opacity}
       isDisabled={isDisabled}
+      _hover={{ color: '#5a3517' }}
       style={{
         background: `linear-gradient(to bottom, rgba(255, 255, 204, 1), rgba(218, 165, 32, 0.6)), url(${Night})`,
         backgroundPosition: 'center',

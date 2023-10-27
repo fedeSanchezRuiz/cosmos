@@ -23,8 +23,8 @@ const FlashMessage = ({ isVisible, setIsVisible, text, fontSize, style, duration
           fontWeight: 'bold',
           color: 'red',
           zIndex: 10,
-          top: '30%', // Default value
-          ...style, // Apply custom styles
+          top: '30%',
+          ...style,
         }}
       >
         {text}

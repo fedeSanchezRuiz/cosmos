@@ -16,38 +16,41 @@ import Cassios from '../../images/chapter1-img/Cassios1.jpeg';
 import StarryNight from '../../images/website-img/StarryBack.jpeg';
 import chapter1JSON from '../../../json/chapter1.json';
 
+const playerData = chapter1JSON.player;
+const enemyData = chapter1JSON.enemy;
+
 const images = {
   Cassios,
   SeiyaNoCloth,
 };
 
+const imageStyle = {
+  h: {
+    base: '200px',
+    sm: '260px',
+    md: '280px',
+    lg: '300px',
+    xl: '300px',
+  },
+};
+
+const addImageToCard = (card) => {
+  const newCard = { ...card };
+  newCard.background = `${card.background}, url(${StarryNight})`;
+  newCard.image = images[card.image];
+  return newCard;
+};
+
 const FightStage = ({ onStepChange }) => {
-  const playerData = chapter1JSON.player;
-  const enemyData = chapter1JSON.enemy;
 
-  const addImagesToObject = (obj) => {
-    const newObject = { ...obj };
-    newObject.background = `${obj.background}, url(${StarryNight})`;
-    newObject.image = images[obj.image];
-    return newObject;
-  };
-
-  const [player, setPlayer] = useState(
-    addImagesToObject(playerData)
-  );
-  const [enemy, setEnemy] = useState(
-    addImagesToObject(enemyData)
-  );
-
-  const imageStyle = {
-    h: {
-      base: '200px',
-      sm: '260px',
-      md: '280px',
-      lg: '300px',
-      xl: '300px',
-    },
-  };
+  const player = addImageToCard(playerData);
+  const enemy = addImageToCard(enemyData);
+  // const [player, setPlayer] = useState(
+  //   addImageToCard(playerData)
+  // );
+  // const [enemy, setEnemy] = useState(
+  //   addImageToCard(enemyData)
+  // );
 
   const variants = {
     hidden: { opacity: 0, y: 30, scale: 1.5 },
@@ -150,7 +153,6 @@ const FightStage = ({ onStepChange }) => {
     setEnemyLife((prevLife) => Math.max(prevLife - damage, 0));
     if (enemyLife - damage <= 0) {
       setTimeout(() => {
-        // navigate('/chapter1/congratulations');
         onStepChange('congratulations');
         resetHeartCount();
       }, 50);
@@ -201,10 +203,8 @@ const FightStage = ({ onStepChange }) => {
     if (PlayerLife - damage <= 0) {
       setHeartCount((prevHeartCount) => prevHeartCount - 1);
       if (heartCount <= 1) {
-        // navigate('/chapter1/game-over');
         onStepChange('game-over');
       } else {
-        // navigate('/chapter1/try-again');
         onStepChange('try-again');
       }
     }

@@ -36,10 +36,9 @@ const MiddleTab = () => {
               display='flex'
               color='rgb(13, 32, 61)'
               background={`linear-gradient(to top, rgba(179, 224, 242, 0.9), rgba(0, 40, 85, 0.8)), url(${starryBack})`}
-              // Set the background image
-              backgroundPosition='center' // Center the background image
-              backgroundRepeat='no-repeat' // Do not repeat the background image
-              backgroundSize='cover' // Cover the entire element with the background image
+              backgroundPosition='center'
+              backgroundRepeat='no-repeat'
+              backgroundSize='cover'
               fontFamily='ARCADECLASSIC'
               letterSpacing='0.04rem'
               fontSize={{
@@ -60,8 +59,8 @@ const MiddleTab = () => {
               id={`/characters/${saint.name}`}
               _hover={{
                 background:
-                  'linear-gradient(to top, #002855, #B3E0F2)', // change to the color you want on hover
-                color: 'white', // change to the text color you want on hover
+                  'linear-gradient(to top, #002855, #B3E0F2)',
+                color: 'white',
               }}
             >
               {saint.name}

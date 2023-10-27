@@ -1,7 +1,7 @@
 {
   "title": "Chapter 1",
-  "introText": "Coliseum, Athena's Sanctuary, Greece - Grand Pope: Among 1024 warriors, you two are the only ones who have survived till the end. The moment has come to fight against each other. The winner will obtain the sacred armor of Pegasus. Time to fight!",
-  "endingText": "- Grand Pope: Athena recognizes Seiya as one of her warriors, and as justice demands, I deliver to you the sacred Cloth of Pegasus!",
+  "introText": "  Coliseum, Athena's Sanctuary, Greece\n - Grand Pope: Among 1024 warriors, you two are the only ones who have survived till the end. The moment has come to fight against each other. The winner will obtain the sacred armor of Pegasus. Time to fight!",
+  "endingText": "  - Grand Pope: Athena recognizes Seiya as one of her warriors, and as justice demands, I deliver to you the sacred Cloth of Pegasus!",
   "player": {
     "name": "Seiya",
     "life": 25,

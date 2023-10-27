@@ -20,7 +20,6 @@ const TryAgain = ({ onTryAgain, onExit }) => {
           resetHeartCount();
         }
       }}
-      
     />
   );
 };

@@ -7,7 +7,6 @@ const StarterSelector = ({ player, enemy, playerOdds = 0.5, enemyOdds = 0.5, isV
   const [starter, setStarterInternal] = useState('');
 
   useEffect(() => {
-    // Validate the odds
     if (playerOdds + enemyOdds !== 1) {
       console.error('Error: The sum of the odds must be equal to 1.');
     }
@@ -22,7 +21,6 @@ const StarterSelector = ({ player, enemy, playerOdds = 0.5, enemyOdds = 0.5, isV
   }, [isVisible, setIsVisible]);
 
   useEffect(() => {
-    // Randomly select the starter based on the odds
     const selectedStarter = Math.random() < playerOdds ? player : enemy;
     setStarterInternal(selectedStarter);
     setStarter(selectedStarter);
@@ -41,7 +39,7 @@ const StarterSelector = ({ player, enemy, playerOdds = 0.5, enemyOdds = 0.5, isV
           fontWeight: 'bold',
           color: 'red',
           zIndex: 10,
-          top: '30%', // Adjust this value as needed
+          top: '30%',
         }}
       >
         <p>{starter} starts!</p>

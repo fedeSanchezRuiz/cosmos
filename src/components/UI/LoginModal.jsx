@@ -138,13 +138,12 @@ const LoginModal = (props) => {
         }}
         position='fixed'
         background= {`linear-gradient(to top, rgba(179, 224, 242, 0.9), rgba(0, 40, 85, 0.8)), url(${Starry})`}
-     // Set the background image
-        backgroundPosition= 'center' // Center the background image
-        backgroundRepeat= 'no-repeat' // Do not repeat the background image
-        backgroundSize= 'cover' // Cover the entire element with the background image'
-        top='50%' // Center the modal vertically
-        left='50%' // Center the modal horizontally
-        transform='translate(-50%, -50%)' // Center the modal both horizontally and vertically
+        backgroundPosition= 'center'
+        backgroundRepeat= 'no-repeat'
+        backgroundSize= 'cover'
+        top='50%'
+        left='50%'
+        transform='translate(-50%, -50%)'
         zIndex='110'
         alignItems='center'
         justifyContent='center'

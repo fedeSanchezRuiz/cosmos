@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom';
 import logo from '../../images/website-img/Logo.png';
 import logoSS from '../../images/website-img/SS-Logo.webp';
 
+const imageStyles = {
+  transition: 'transform 0.3s',
+};
+
+const imageHoverStyles = {
+  transform: 'scale(1.03)',
+  opacity: 0.5
+};
+
 export const NavbarLogo = ({ logoWidth, logoHeight, logoSSWidth, logoSSHeight, disableLink }) => {
-
-  const imageStyles = {
-    transition: 'transform 0.3s', // Add a smooth transition effect
-  };
-
-  const imageHoverStyles = {
-    transform: 'scale(1.03)', // Increase the size by 10% (adjust as needed),
-    opacity: 0.5
-  };
 
   const navbarContent = (
     <Flex alignItems='center'>

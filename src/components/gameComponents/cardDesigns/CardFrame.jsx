@@ -130,6 +130,7 @@ const CardFrame = ({
         >
           <Image
             src={image}
+            alt={name}
             {...imageStyle}
           />
         </motion.div>

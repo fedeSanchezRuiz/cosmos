@@ -1,7 +1,13 @@
 import { useState, useEffect, useContext } from 'react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
-import { Button, Flex, HStack, IconButton,  VStack } from '@chakra-ui/react';
+import {
+  Button,
+  Flex,
+  HStack,
+  IconButton,
+  VStack,
+} from '@chakra-ui/react';
 import LoginModal from '../LoginModal';
 import LoginLogoutButton from './LoginLogoutButton';
 import AuthContext from '../../../context/authContext';
@@ -13,6 +19,23 @@ const buttons = [
   { name: 'Characters', path: 'characters' },
   { name: 'Inventory', path: 'inventory' },
 ];
+
+const imageStyles = {
+  transition: 'transform 0.3s',
+};
+
+const buttonStyles = {
+  minW: '105px',
+  h: '45px',
+  bg: 'transparent',
+  color: 'rgb(13, 32, 61)',
+  variant: 'solid',
+  colorScheme: 'blackAlpha',
+};
+
+const buttonHoverStyles = {
+  transform: 'scale(1.05)',
+};
 
 export const NavbarButtons = () => {
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -37,7 +60,7 @@ export const NavbarButtons = () => {
   useEffect(() => {
     if (!isLoggedIn) {
       setShowLoginModal(false);
-      setShowLogout(true); // set showLogout to true when isLoggedIn is false
+      setShowLogout(true);
     }
   }, [isLoggedIn]);
 
@@ -60,23 +83,6 @@ export const NavbarButtons = () => {
 
   const closeMenuHandler = () => {
     setShowMenu(false);
-  };
-
-  const imageStyles = {
-    transition: 'transform 0.3s', // Add a smooth transition effect
-  };
-
-  const buttonStyles = {
-    minW: '105px',
-    h: '45px',
-    bg: 'transparent',
-    color: 'rgb(13, 32, 61)',
-    variant: 'solid',
-    colorScheme: 'blackAlpha',
-  };
-
-  const buttonHoverStyles = {
-    transform: 'scale(1.05)', // Increase the size by 10% (adjust as needed),
   };
 
   return (
@@ -124,7 +130,7 @@ export const NavbarButtons = () => {
               }}
               sx={buttonStyles}
               style={imageStyles}
-              _hover={buttonHoverStyles}
+              _hover={{ color: 'white', ...buttonHoverStyles }}
               onClick={closeMenuHandler}
             >
               {button.name}
@@ -132,17 +138,17 @@ export const NavbarButtons = () => {
           </Link>
         ))}
         <LoginLogoutButton
-  fontSize={{ md: '18px', lg: '20px', xl: '20px' }}
-  onClick={loginButtonClickHandler}
-  imageStyles={imageStyles}
-  buttonStyles={buttonStyles}
-  buttonHoverStyles={buttonHoverStyles}
-  width="140px"
-  height="45px"
-  mx="8px"
->
-  {isLoggedIn ? 'Logout' : 'Login'}
-</LoginLogoutButton>
+          fontSize={{ md: '18px', lg: '20px', xl: '20px' }}
+          onClick={loginButtonClickHandler}
+          imageStyles={imageStyles}
+          buttonStyles={buttonStyles}
+          buttonHoverStyles={{ color: '#5a3517', ...buttonHoverStyles }}
+          width='140px'
+          height='45px'
+          mx='8px'
+        >
+          {isLoggedIn ? 'Logout' : 'Login'}
+        </LoginLogoutButton>
       </Flex>
       {showMenu && (
         <VStack
@@ -158,10 +164,9 @@ export const NavbarButtons = () => {
             lg: 'none',
           }}
           background={`linear-gradient(to top, rgba(179, 224, 242, 0.9), rgba(179, 224, 242, 0.8), rgba(179, 224, 242, 0.85)), url(${starryNight})`}
-          // Set the background image
-          backgroundPosition='center' // Center the background image
-          backgroundRepeat='no-repeat' // Do not repeat the background image
-          backgroundSize='cover' // Cover the entire element with the background image
+          backgroundPosition='center'
+          backgroundRepeat='no-repeat'
+          backgroundSize='cover'
           spacing={4}
           zIndex={1}
           boxShadow='lg'
@@ -208,16 +213,16 @@ export const NavbarButtons = () => {
               </Link>
             ))}
             <LoginLogoutButton
-  fontSize={{ base: '22px', sm: '23px' }}
-  onClick={loginButtonClickHandler}
-  imageStyles={imageStyles}
-  buttonStyles={buttonStyles}
-  buttonHoverStyles={buttonHoverStyles}
-  width={{ base: '140px', sm: '160px' }}
-  height={{ base: '50px', sm: '60px' }}
->
-  {isLoggedIn ? 'Logout' : 'Login'}
-</LoginLogoutButton>
+              fontSize={{ base: '22px', sm: '23px' }}
+              onClick={loginButtonClickHandler}
+              imageStyles={imageStyles}
+              buttonStyles={buttonStyles}
+              buttonHoverStyles={buttonHoverStyles}
+              width={{ base: '140px', sm: '160px' }}
+              height={{ base: '50px', sm: '60px' }}
+            >
+              {isLoggedIn ? 'Logout' : 'Login'}
+            </LoginLogoutButton>
           </Flex>
         </VStack>
       )}

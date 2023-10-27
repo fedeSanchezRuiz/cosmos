@@ -31,7 +31,7 @@ const ModalCard = ({ children, height }) => {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -30 }}
         open
-        h={height} // Set the height to the passed prop
+        h={height}
         display='flex'
         flexDirection='column'
         width={{

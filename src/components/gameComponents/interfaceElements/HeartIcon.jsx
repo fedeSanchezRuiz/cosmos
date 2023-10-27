@@ -1,9 +1,9 @@
-import PixeledHeart from '../../images/chapter1-img/pixelheart3.png';
+import PixelatedHeart from '../../images/chapter1-img/pixelheart3.png';
 
 const HeartIcon = ({ size }) => {
   return (
     <img
-      src={PixeledHeart}
+      src={PixelatedHeart}
       alt='Heart Icon'
       width={size}
       height={size}

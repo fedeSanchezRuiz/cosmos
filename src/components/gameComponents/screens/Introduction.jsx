@@ -7,8 +7,7 @@ import ScreenCard from '../interfaceElements/ScreenCard';
 import NightSkyBackground from '../../images/website-img/Total-Black1.jpg';
 import chapter1JSON from '../../../json/chapter1.json';
 
-const introText = `  Coliseum, Athena's Sanctuary, Greece
-  -Grand Pope: Among 1024 warriors, you two are the only ones who have survived till the end. The moment has come to fight against each other. The winner will obtain the sacred armor of Pegasus. Time to fight!`;
+const introText = chapter1JSON.introText;
 
 const Introduction = ({ onStepChange }) => {
 

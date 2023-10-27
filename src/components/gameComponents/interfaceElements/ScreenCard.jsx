@@ -2,8 +2,8 @@ import { Flex } from '@chakra-ui/react';
 
 const ScreenCard = ({
   backgroundImage,
-  children,
   justifyContent,
+  children,
 }) => {
   return (
     <Flex

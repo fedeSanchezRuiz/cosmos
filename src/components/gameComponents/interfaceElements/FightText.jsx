@@ -23,7 +23,7 @@ const FightText = ({ isVisible, setIsVisible }) => {
           fontWeight: 'bold',
           color: 'red',
           zIndex: 10,
-          top: '30%', // Adjust this value as needed
+          top: '30%',
         }}
       >
         Fight!
