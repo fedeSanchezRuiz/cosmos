@@ -2,14 +2,13 @@ import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Flex } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-import { NavbarLogo } from '../components/UI/navbar/NavbarLogo';
-import ButtonCustom from '../components/UI/ButtonCustom';
-import ScreenCard from '../components/gameComponents/interfaceElements/ScreenCard';
-import SanctuaryClockBackground from '../../src/components/images/chapter1-img/Clock1.jpeg';
-import NightSkyBackground from '../../src/components/images/website-img/Total-Black1.jpg';
+import { NavbarLogo } from '../../UI/navbar/NavbarLogo';
+import ButtonCustom from '../../UI/ButtonCustom';
+import ScreenCard from '../interfaceElements/ScreenCard';
+import SanctuaryClockBackground from '../../images/chapter1-img/Clock1.jpeg';
+import NightSkyBackground from '../../images/website-img/Total-Black1.jpg';
 
 const MainScreen = ({ onStepChange }) => {
-  // const navigate = useNavigate();
 
   const [isDarkening, setIsDarkening] = useState(false);
 

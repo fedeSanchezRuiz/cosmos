@@ -5,7 +5,6 @@ import {
   Image,
   Text,
 } from '@chakra-ui/react';
-import { Fragment } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Cardwrapper from '../components/UI/CardWrapper';
 import Navbar from '../components/UI/navbar/Navbar';
@@ -23,7 +22,7 @@ const ErrorPage = () => {
 
   const ErrorContent = () => {
     return (
-      <Fragment>
+      <>
         <Cardwrapper>
           <Navbar />
           <Box
@@ -62,17 +61,17 @@ const ErrorPage = () => {
           </Box>
         </Cardwrapper>
         <Footer />
-      </Fragment>
+      </>
     );
   };
 
   return (
-    <Fragment>
+    <>
       {ReactDOM.createPortal(
         <ErrorContent />,
         document.getElementById('error-root')
       )}
-    </Fragment>
+    </>
   );
 };
 

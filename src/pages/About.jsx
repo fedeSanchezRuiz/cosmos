@@ -114,30 +114,26 @@ const About = () => {
 
   return (
     <Flex
-      // bg='pink'
       minH='72vh'
       flexDir='row'
-      // justifyContent='center'
       mx={{ base: '2%', sm: '2%', md: '4%', lg: '10%', xl: '15%' }}
       mt={{ base: '26%', sm: '19%', md: '14%', lg: '11%', xl: '8%' }}
       mb={{ base: '0%', sm: '3%', md: '3%', lg: '2%', xl: '2%' }}
       wrap='wrap'
     >
       <Flex
-        // bg='red'
         width={{ base: '0%', sm: '0%', md: '50%'}}
         justifyContent='center'
       >
         {MuExplain}
       </Flex>
       <Flex
-        // bg='blue'
         width={{ base:'100%', sm: '100%', md: '50%' }}
         flexDir='column'
         justifyContent='flex-start'
         alignItems={{ base: 'center', md: 'flex-start' }}
       >
-        <Flex /*bg='pink'*/ h='15%' w={{ base: '100%', sm: '80%', md: '96%', lg: '95%', xl: '90%' }} justifyContent='center' alignItems={{ base: 'flex-end', md: 'center' }}>
+        <Flex h='15%' w={{ base: '100%', sm: '80%', md: '96%', lg: '95%', xl: '90%' }} justifyContent='center' alignItems={{ base: 'flex-end', md: 'center' }}>
         <MotionButton {...buttonStyles} borderRightRadius='0' borderRight='1px solid rgb(13, 32, 61)' onClick={selectSaintSeiyaHandler}>
           Saint Seiya
         </MotionButton>
@@ -145,23 +141,19 @@ const About = () => {
           Cosmos Warriors
         </MotionButton>
         </Flex>
-        {selectSaintSeiya && <Flex 
-        // bg='green' 
+        {selectSaintSeiya && <Flex
         h={{ base: '100%', sm: '100%', md: '85%' }} 
         w={{ base: '100%', sm: '80%', md: '96%', lg: '95%', xl: '90%' }}
         justifyContent='center'
         alignItems={{ base: 'center', sm: 'center', md: 'flex-start', lg: 'flex-start', xl: 'flex-start' }}
         fontSize={{ base: '18px', sm: '22px', md: '18px', lg: '19px', xl: '22px' }}
-        // px={{ base: '', sm: '', md: '10px', lg: '5px', xl: '5px' }}
         >{firstPapyrus}</Flex>}
         {selectCosmos && <Flex 
-        // bg='green' 
         h={{ base: '100%', sm: '100%', md: '85%' }} 
         w={{ base: '100%', sm: '80%', md: '96%', lg: '95%', xl: '90%' }}
         justifyContent='center'
         alignItems={{ base: 'center', sm: 'center', md: 'flex-start', lg: 'flex-start', xl: 'flex-start' }}
         fontSize={{ base: '18px', sm: '22px', md: '18px', lg: '19px', xl: '22px' }}
-        // px={{ base: '', sm: '', md: '10px', lg: '5px', xl: '5px' }}
         >{secondPapyrus}</Flex>}
       </Flex>
     </Flex>
