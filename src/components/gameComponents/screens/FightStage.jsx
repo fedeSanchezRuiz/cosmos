@@ -33,7 +33,7 @@ const FightStage = ({ onStepChange }) => {
 
   const seiya = {
     name: 'Seiya',
-    life: 5,
+    life: 25,
     color: '#D72638',
     image: SeiyaNoCloth,
     attack: 'Meteor Fist',
@@ -53,7 +53,7 @@ const FightStage = ({ onStepChange }) => {
     background: `linear-gradient(to bottom, rgba(92, 64, 51, 0.6), rgba(140, 112, 75, 0.6), rgba(191, 160, 114, 0.6)), url(${StarryNight})`,
   };
 
-  const specialAttackA = (
+  const playerSpecialAttack = (
     <Flex
       flexDir='column'
       justifyContent='center'
@@ -76,7 +76,7 @@ const FightStage = ({ onStepChange }) => {
     </Flex>
   );
 
-  const specialAttackB = (
+  const enemySpecialAttack = (
     <Flex
       flexDir='column'
       justifyContent='center'
@@ -99,17 +99,17 @@ const FightStage = ({ onStepChange }) => {
     </Flex>
   );
 
-  const handleCharacterASpecialAttack = () => {
-    setCharacterASpecialVisible(true);
+  const handlePlayerSpecialAttack = () => {
+    setPlayerSpecialVisible(true);
   };
 
-  const handleCharacterBSpecialAttack = () => {
-    setCharacterBSpecialVisible(true);
+  const handleEnemySpecialAttack = () => {
+    setEnemySpecialVisible(true);
   };
 
-  const onDiceRolledCharacterA = (total, diceValues) => {
-    setIsCharacterARollComplete(true);
-    setIsCharacterBRollComplete(false);
+  const onDiceRolledByPlayer = (total, diceValues) => {
+    setIsPlayerRollComplete(true);
+    setIsEnemyRollComplete(false);
     const roundMod = ((currentRound - 1) % 6) + 1;
     let damage =
       diceValues.filter((dice) => dice === roundMod).length *
@@ -117,7 +117,7 @@ const FightStage = ({ onStepChange }) => {
 
     // Seiya special attack logic
     if (seiya.round % 6 === currentRound % 6) {
-      handleCharacterASpecialAttack();
+      handlePlayerSpecialAttack();
       if (seiya.round % 2 === 1) {
         // odd round
         const oddDiceCount = diceValues.filter(
@@ -146,21 +146,22 @@ const FightStage = ({ onStepChange }) => {
     setTimeout(() => {
       setTotalDamage(damage);
     }, 300);
-    setCharacterBLife((prevLife) =>
+    setEnemyLife((prevLife) =>
       Math.max(prevLife - damage, 0)
     );
-    if (characterBLife - damage <= 0) {
+    if (enemyLife - damage <= 0) {
       setTimeout(() => {
         // navigate('/chapter1/congratulations');
         onStepChange('congratulations');
+        resetHeartCount();
       }, 50);
     }
     setPlayersRolled((prev) => prev + 1);
   };
 
-  const onDiceRolledCharacterB = (total, diceValues) => {
-    setIsCharacterBRollComplete(true);
-    setIsCharacterARollComplete(false);
+  const onDiceRolledByEnemy = (total, diceValues) => {
+    setIsEnemyRollComplete(true);
+    setIsPlayerRollComplete(false);
     const roundMod = ((currentRound - 1) % 6) + 1;
     let damage =
       diceValues.filter((dice) => dice === roundMod).length *
@@ -168,7 +169,7 @@ const FightStage = ({ onStepChange }) => {
 
     // Cassios special attack logic
     if (cassios.round % 6 === currentRound % 6) {
-      handleCharacterBSpecialAttack();
+      handleEnemySpecialAttack();
       if (cassios.round % 2 === 1) {
         // odd round
         const oddDiceCount = diceValues.filter(
@@ -197,10 +198,10 @@ const FightStage = ({ onStepChange }) => {
     setTimeout(() => {
       setTotalDamage(damage);
     }, 200);
-    setCharacterALife((prevLife) =>
+    setPlayerLife((prevLife) =>
       Math.max(prevLife - damage, 0)
     );
-    if (characterALife - damage <= 0) {
+    if (PlayerLife - damage <= 0) {
       setHeartCount((prevHeartCount) => prevHeartCount - 1);
       if (heartCount <= 1) {
         // navigate('/chapter1/game-over');
@@ -220,26 +221,26 @@ const FightStage = ({ onStepChange }) => {
   const [gameNavbarVisible, setGameNavbarVisible] =
     useState(false);
   const [starter, setStarter] = useState('');
-  const [isCharacterARollComplete, setIsCharacterARollComplete] =
+  const [isPlayerRollComplete, setIsPlayerRollComplete] =
     useState(false);
-  const [isCharacterBRollComplete, setIsCharacterBRollComplete] =
+  const [isEnemyRollComplete, setIsEnemyRollComplete] =
     useState(false);
-  const [characterALife, setCharacterALife] = useState(
+  const [PlayerLife, setPlayerLife] = useState(
     seiya.life
   );
-  const [characterBLife, setCharacterBLife] = useState(
+  const [enemyLife, setEnemyLife] = useState(
     cassios.life
   );
   const [currentRound, setCurrentRound] = useState(1);
   const [playersRolled, setPlayersRolled] = useState(0);
-  const [characterASpecialVisible, setCharacterASpecialVisible] =
+  const [playerSpecialVisible, setPlayerSpecialVisible] =
     useState(false);
-  const [characterBSpecialVisible, setCharacterBSpecialVisible] =
+  const [enemySpecialVisible, setEnemySpecialVisible] =
     useState(false);
   const [missedAttackVisible, setMissedAttackVisible] =
     useState(false);
   const [totalDamage, setTotalDamage] = useState(0);
-  const { heartCount, setHeartCount } = useContext(HeartContext);
+  const { heartCount, setHeartCount, resetHeartCount } = useContext(HeartContext);
   const visible = useTimers(
     fightVisible,
     setFightVisible,
@@ -258,11 +259,11 @@ const FightStage = ({ onStepChange }) => {
 
   useEffect(() => {
     if (starter === 'Seiya') {
-      setIsCharacterARollComplete(false);
-      setIsCharacterBRollComplete(true);
+      setIsPlayerRollComplete(false);
+      setIsEnemyRollComplete(true);
     } else {
-      setIsCharacterBRollComplete(false);
-      setIsCharacterARollComplete(true);
+      setIsEnemyRollComplete(false);
+      setIsPlayerRollComplete(true);
     }
   }, [starter]);
 
@@ -282,29 +283,29 @@ const FightStage = ({ onStepChange }) => {
         />
         <StarterSelector
           key='starter-selector'
-          charA='Seiya'
-          charB='Cassios'
-          oddsA={0.6}
-          oddsB={0.4}
+          player='Seiya'
+          enemy='Cassios'
+          playerOdds={0.6}
+          enemyOdds={0.4}
           isVisible={starterSelectorVisible}
           setIsVisible={setStarterSelectorVisible}
           setStarter={setStarter}
         />
         <FlashMessage
-          key='seiya-special'
+          key='player-special'
           fontSize='30px'
-          text={specialAttackA}
+          text={playerSpecialAttack}
           duration={1400}
-          isVisible={characterASpecialVisible}
-          setIsVisible={setCharacterASpecialVisible}
+          isVisible={playerSpecialVisible}
+          setIsVisible={setPlayerSpecialVisible}
         />
         <FlashMessage
-          key='cassios-special'
+          key='enemy-special'
           fontSize='30px'
-          text={specialAttackB}
+          text={enemySpecialAttack}
           duration={1400}
-          isVisible={characterBSpecialVisible}
-          setIsVisible={setCharacterBSpecialVisible}
+          isVisible={enemySpecialVisible}
+          setIsVisible={setEnemySpecialVisible}
         />
         <FlashMessage
           key='total-damage'
@@ -379,7 +380,7 @@ const FightStage = ({ onStepChange }) => {
               name={seiya.name}
               image={seiya.image}
               fontColor={seiya.color}
-              hp={characterALife}
+              hp={PlayerLife}
               specialAttack={seiya.attack}
               backgroundImage={seiya.background}
               visibleText={visible.characterAText}
@@ -399,7 +400,7 @@ const FightStage = ({ onStepChange }) => {
               name={cassios.name}
               image={cassios.image}
               fontColor={cassios.color}
-              hp={characterBLife}
+              hp={enemyLife}
               specialAttack={cassios.attack}
               backgroundImage={cassios.background}
               visibleText={visible.characterBText}
@@ -435,13 +436,13 @@ const FightStage = ({ onStepChange }) => {
           animate={visible.dice ? 'visible' : 'hidden'}
         >
           <SixDice
-            characterAName={seiya.name}
+            playerName={seiya.name}
             delay={3600}
             starterSelected={starter === seiya.name}
             onDiceRolled={(total, diceValues) =>
-              onDiceRolledCharacterA(total, diceValues)
+              onDiceRolledByPlayer(total, diceValues)
             }
-            isRollComplete={isCharacterARollComplete}
+            isRollComplete={isPlayerRollComplete}
           />
         </motion.div>
         <motion.div
@@ -450,13 +451,13 @@ const FightStage = ({ onStepChange }) => {
           animate={visible.dice ? 'visible' : 'hidden'}
         >
           <SixDice
-            characterBName={cassios.name}
+            enemyName={cassios.name}
             delay={3600}
             starterSelected={starter === cassios.name}
             onDiceRolled={(total, diceValues) =>
-              onDiceRolledCharacterB(total, diceValues)
+              onDiceRolledByEnemy(total, diceValues)
             }
-            isRollComplete={isCharacterBRollComplete}
+            isRollComplete={isEnemyRollComplete}
           />
         </motion.div>
       </Flex>
