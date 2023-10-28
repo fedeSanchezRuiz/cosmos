@@ -1,5 +1,5 @@
 import { Box, Flex, Heading } from '@chakra-ui/react';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import LoginModal from '../UI/LoginModal';
 import ButtonCustom from '../UI/ButtonCustom';
@@ -10,8 +10,16 @@ export const Header = () => {
   const navigate = useNavigate();
 
   const { isLoggedIn, username } = context;
+  const isLoggedInPrev = useRef(isLoggedIn);
 
   const [showLoginModal, setShowLoginModal] = useState(false);
+
+  useEffect(() => {
+    if (!isLoggedIn && isLoggedInPrev.current) {
+      setShowLoginModal(false);
+    }
+    isLoggedInPrev.current = isLoggedIn;
+  }, [isLoggedIn]);
 
   const playNowHandler = () => {
     if (isLoggedIn) {

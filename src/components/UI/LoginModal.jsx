@@ -3,7 +3,7 @@ import {
   Button,
   Flex,
 } from '@chakra-ui/react';
-import { useState, useEffect, useContext, Fragment } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { NavbarLogo } from './navbar/NavbarLogo';
 import AuthContext from '../../context/authContext';
 import useInput from '../hooks/useInput';
