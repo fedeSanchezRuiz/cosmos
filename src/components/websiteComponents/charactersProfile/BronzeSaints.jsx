@@ -1,159 +1,64 @@
 import { Flex, Image, Box } from '@chakra-ui/react';
-import classes from './Saints.module.css'
-import seiya from '../../images/bronze-img/SeiyaPegasus2.jpeg';
-import shiryu from '../../images/bronze-img/ShiryuDragon2.jpeg';
-import hyoga from '../../images/bronze-img/HyogaCygnus2.jpeg';
-import shun from '../../images/bronze-img/ShunAndromeda.jpeg';
-import ikki from '../../images/bronze-img/IkkiPhoenix2.jpeg';
-import jabu from '../../images/bronze-img/JabuUnicorn2.jpeg';
-import ban from '../../images/bronze-img/BanLeon.jpeg';
-import geki from '../../images/bronze-img/GekiOso.jpeg';
-import ichi from '../../images/bronze-img/IchiHydra.jpeg';
-import nachi from '../../images/bronze-img/NachiLobo.jpeg';
+import classes from './Saints.module.css';
+import Seiya from '../../images/bronze-img/SeiyaPegasus2.jpeg';
+import Shiryu from '../../images/bronze-img/ShiryuDragon2.jpeg';
+import Hyoga from '../../images/bronze-img/HyogaCygnus2.jpeg';
+import Shun from '../../images/bronze-img/ShunAndromeda.jpeg';
+import Ikki from '../../images/bronze-img/IkkiPhoenix2.jpeg';
+import Jabu from '../../images/bronze-img/JabuUnicorn2.jpeg';
+import Ban from '../../images/bronze-img/BanLeon.jpeg';
+import Geki from '../../images/bronze-img/GekiOso.jpeg';
+import Ichi from '../../images/bronze-img/IchiHydra.jpeg';
+import Nachi from '../../images/bronze-img/NachiLobo.jpeg';
+import BronzeSaintsJSON from '../../../json/websiteSaints.json';
 
-const saintsList = [
-  {
-    name: 'Seiya',
-    country: 'Japan',
-    age: '13',
-    height: '1.65cm',
-    weight: '53kg',
-    cloth: 'Pegasus',
-    attacks: ['Pegasus Meteor Fist', 'Pegasus Comet Fist'],
-    source: seiya,
-    type: 'bronze',
-  },
-  {
-    name: 'Shiryu',
-    country: 'China',
-    age: '14',
-    height: '1.72cm',
-    weight: '53kg',
-    cloth: 'Dragon',
-    attacks: ['Rozan Rising Dragon', 'Rozan Flying Dragon'],
-    source: shiryu,
-    type: 'bronze',
-  },
-  {
-    name: 'Hyoga',
-    country: 'Russia',
-    age: '14',
-    height: '1.73cm',
-    weight: '60kg',
-    cloth: 'Cygnus',
-    attacks: ['Diamond Dust', 'Aurora Thunder Attack'],
-    source: hyoga,
-    type: 'bronze',
-  },
-  {
-    name: 'Shun',
-    country: 'Japan',
-    age: '13',
-    height: '1.65cm',
-    weight: '51kg',
-    cloth: 'Andromeda',
-    attacks: ['Nebula Chain', 'Rolling Defense'],
-    source: shun,
-    type: 'bronze',
-  },
-  {
-    name: 'Ikki',
-    country: 'Japan',
-    age: '15',
-    height: '1.75cm',
-    weight: '62kg',
-    cloth: 'Phoenix',
-    attacks: [
-      "Phoenix's Wings Rise",
-      "Phoenix's Illusion Demon Fist",
-    ],
-    source: ikki,
-    type: 'bronze',
-  },
-  {
-    name: 'Jabu',
-    country: 'Japan',
-    age: '13',
-    height: '1.65cm',
-    weight: '55kg',
-    cloth: 'Unicorn',
-    attacks: ['Unicorn Gallop'],
-    source: jabu,
-    type: 'bronze',
-  },
-  {
-    name: 'Ban',
-    country: 'Japan',
-    age: '14',
-    height: '1.81cm',
-    weight: '83kg',
-    cloth: 'Lionet',
-    attacks: ['Lionet Bomber'],
-    source: ban,
-    type: 'bronze',
-  },
-  {
-    name: 'Geki',
-    country: 'Japan',
-    age: '15',
-    height: '1.88cm',
-    weight: '102kg',
-    cloth: 'Bear',
-    attacks: ['Hanging Bear'],
-    source: geki,
-    type: 'bronze',
-  },
-  {
-    name: 'Ichi',
-    country: 'Japan',
-    age: '14',
-    height: '1.70cm',
-    weight: '56kg',
-    cloth: 'Hydra',
-    attacks: ['Hydra Fangs'],
-    source: ichi,
-    type: 'bronze',
-  },
-  {
-    name: 'Nachi',
-    country: 'Japan',
-    age: '14',
-    height: '1.71cm',
-    weight: '57kg',
-    cloth: 'Wolf',
-    attacks: ['Dead Howling'],
-    source: nachi,
-    type: 'bronze',
-  },
-];
+const bronzeSaintsData = BronzeSaintsJSON.bronze;
+const features = BronzeSaintsJSON.features;
 
-const saintProperties = [
-  { label: 'Name', key: 'name' },
-  { label: 'Country', key: 'country' },
-  { label: 'Age', key: 'age' },
-  { label: 'Height', key: 'height' },
-  { label: 'Weight', key: 'weight' },
-  { label: 'Cloth', key: 'cloth' },
-];
+const images = {
+  Seiya,
+  Shiryu,
+  Hyoga,
+  Shun,
+  Ikki,
+  Jabu,
+  Ban,
+  Geki,
+  Ichi,
+  Nachi,
+};
 
-const renderSaintProperties = (saint) => (
-  saintProperties.map((property) => (
-    <Flex className={classes.cardWrap} key={property.key}>
-      <Box fontWeight='extrabold'>{property.label}:</Box>
-      <Box fontWeight='medium'>{saint[property.key]}</Box>
+const addImageToCard = (card) => {
+  const newCard = { ...card };
+  newCard.source = images[card.source];
+  return newCard;
+};
+
+const bronzeSaints = bronzeSaintsData.map(addImageToCard);
+
+const renderSaintFeatures = (saint) =>
+  features.map((feature) => (
+    <Flex
+      className={classes.cardWrap}
+      key={feature.key}
+    >
+      <Box fontWeight='extrabold'>{feature.label}:</Box>
+      <Box fontWeight='medium'>{saint[feature.key]}</Box>
     </Flex>
-  ))
-);
+  ));
 
 const BronzeSaints = () => {
-
   return (
     <Flex className={classes.totalFlex}>
-      {saintsList.map((saint) => (
-        <Flex key={saint.source} className={classes.outerFlex}>
+      {bronzeSaints.map((saint) => (
+        <Flex
+          key={saint.source}
+          className={classes.outerFlex}
+        >
           <Image
             className={classes.imageStyle}
             src={saint.source}
+            alt={saint.name}
           />
           <Flex
             fontFamily='ARCADECLASSIC'
@@ -172,7 +77,7 @@ const BronzeSaints = () => {
             }}
             className={classes.BronzeCardStyles}
           >
-            {renderSaintProperties(saint)}
+            {renderSaintFeatures(saint)}
           </Flex>
         </Flex>
       ))}

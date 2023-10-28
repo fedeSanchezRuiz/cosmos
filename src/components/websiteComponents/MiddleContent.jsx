@@ -7,6 +7,15 @@ import goldSaints from '../../components/images/website-img/GoldSaints.jpeg';
 import asgardSaints from '../../components/images/website-img/AsgardSaints.png';
 import poseidonSaints from '../../components/images/website-img/PoseidonSaints2.jpeg';
 
+const imageStyles = {
+  transition: 'transform 0.3s',
+};
+
+const imageHoverStyles = {
+  transform: 'scale(1.05)',
+  opacity: 0.8,
+};
+
 const MiddleContent = () => {
 
   const images = [
@@ -17,15 +26,6 @@ const MiddleContent = () => {
     { name: 'AsgardWarriors', image: asgardSaints, path: '/characters/Asgard' },
     { name: 'PoseidonScales', image: poseidonSaints, path: '/characters/Poseidon' },
   ];
-
-  const imageStyles = {
-    transition: 'transform 0.3s', // Add a smooth transition effect
-  };
-
-  const imageHoverStyles = {
-    transform: 'scale(1.05)', // Increase the size by 10% (adjust as needed),
-    opacity: 0.8,
-  };
 
   return (
     <Flex
@@ -43,7 +43,6 @@ const MiddleContent = () => {
             mt={{ base: '6px', sm: '8px', md: '10px', lg: '30px' }}
             mx={{ sm: 'none', md: '10px', lg: '35px' }}
             borderRadius='20px'
-            
             src={image.image}
             alt={image.name}
           />

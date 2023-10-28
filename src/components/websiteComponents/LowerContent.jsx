@@ -9,6 +9,14 @@ import { Link } from 'react-router-dom';
 import classes from './LowerContent.module.css';
 import Night from '../../components/images/website-img/NightSkyBack.jpeg';
 
+const imageStyles = {
+  transition: 'transform 0.3s',
+};
+
+const boxHoverStyles = {
+  transform: 'scale(1.05)',
+};
+
 const LowerContent = ({
   image,
   flexDir = 'row',
@@ -16,13 +24,6 @@ const LowerContent = ({
   text,
   path,
 }) => {
-  const imageStyles = {
-    transition: 'transform 0.3s', // Add a smooth transition effect
-  };
-
-  const boxHoverStyles = {
-    transform: 'scale(1.05)', // Increase the size by 10% (adjust as needed),
-  };
 
   return (
     <Flex
@@ -45,7 +46,6 @@ const LowerContent = ({
           _hover={boxHoverStyles}
           w={{ base: '120px', sm: '175px', md: '220px', lg: '350px' }}
           maxH={{ base: '160px', sm: '160px', md: '200px', lg: '320px', xl: '320px' }}
-          // minH={{ base: '160px', sm: '170px', md: '220px', lg: '340px', xl: '350px' }}
           mt='10px'
           src={image}
           alt={image}
