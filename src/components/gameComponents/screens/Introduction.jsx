@@ -56,6 +56,7 @@ const Introduction = ({ onStepChange }) => {
         transition={{ duration: 1 }}
       >
         <Flex
+          minW={{ base: '45vh', sm: '66vh', md: '68vh', lg: '80vh', xl: '80vh' }}
           color='#F1E8D5'
           textAlign='left'
           fontSize={{
@@ -68,7 +69,7 @@ const Introduction = ({ onStepChange }) => {
           px={{
             base: '10%',
             sm: '10%',
-            md: '12%',
+            md: '10%',
             lg: '11%',
             xl: '10%',
           }}

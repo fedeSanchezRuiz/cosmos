@@ -295,6 +295,7 @@ const Congratulations = () => {
         transition={{ duration: 2 }}
       >
         <Flex
+          minW={{ base: '45vh', sm: '66vh', md: '68vh', lg: '80vh', xl: '80vh' }}
           color='#F1E8D5'
           textAlign='left'
           fontSize={{
