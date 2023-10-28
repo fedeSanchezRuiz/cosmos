@@ -1,12 +1,4 @@
 {
-  "features": [
-    { "label": "Name", "key": "name" },
-    { "label": "Country", "key": "country" },
-    { "label": "Age", "key": "age" },
-    { "label": "Height", "key": "height" },
-    { "label": "Weight", "key": "weight" },
-    { "label": "Cloth", "key": "cloth" }
-  ],
   "saintsCategory": [
     { "name": "BronzeSaints", "image": "BronzeSaints", "path": "/characters/Bronze" },
     { "name": "BlackSaints", "image": "BlackSaints", "path": "/characters/Black" },
@@ -14,6 +6,14 @@
     { "name": "GoldSaints", "image": "GoldSaints", "path": "/characters/Gold" },
     { "name": "AsgardWarriors", "image": "AsgardWarriors", "path": "/characters/Asgard" },
     { "name": "PoseidonScales", "image": "PoseidonScales", "path": "/characters/Poseidon" }
+  ],
+  "features": [
+    { "label": "Name", "key": "name" },
+    { "label": "Country", "key": "country" },
+    { "label": "Age", "key": "age" },
+    { "label": "Height", "key": "height" },
+    { "label": "Weight", "key": "weight" },
+    { "label": "Cloth", "key": "cloth" }
   ],
   "bronze": [
     {
