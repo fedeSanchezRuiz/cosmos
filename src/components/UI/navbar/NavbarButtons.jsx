@@ -142,7 +142,7 @@ export const NavbarButtons = () => {
           onClick={loginButtonClickHandler}
           imageStyles={imageStyles}
           buttonStyles={buttonStyles}
-          buttonHoverStyles={{ color: '#5a3517', ...buttonHoverStyles }}
+          buttonHoverStyles={{ color: '#5a3517', filter: 'brightness(90%)', ...buttonHoverStyles }}
           width='140px'
           height='45px'
           mx='8px'
@@ -217,7 +217,7 @@ export const NavbarButtons = () => {
               onClick={loginButtonClickHandler}
               imageStyles={imageStyles}
               buttonStyles={buttonStyles}
-              buttonHoverStyles={buttonHoverStyles}
+              buttonHoverStyles={{ color: '#5a3517', filter: 'brightness(90%)', ...buttonHoverStyles }}
               width={{ base: '140px', sm: '160px' }}
               height={{ base: '50px', sm: '60px' }}
             >

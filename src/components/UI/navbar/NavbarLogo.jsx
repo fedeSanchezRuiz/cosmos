@@ -5,11 +5,11 @@ import logoSS from '../../images/website-img/SS-Logo.webp';
 
 const imageStyles = {
   transition: 'transform 0.3s',
+  opacity: '0.6'
 };
 
 const imageHoverStyles = {
   transform: 'scale(1.03)',
-  opacity: 0.5
 };
 
 export const NavbarLogo = ({ logoWidth, logoHeight, logoSSWidth, logoSSHeight, disableLink }) => {
@@ -19,8 +19,7 @@ export const NavbarLogo = ({ logoWidth, logoHeight, logoSSWidth, logoSSHeight, d
       <Box
         p='8px'
         style={imageStyles}
-        _hover={imageHoverStyles}
-        opacity='0.7'
+        _hover={{ filter: 'brightness(90%)', ...imageHoverStyles }}
       >
         <Image
           src={logoSS}

@@ -43,7 +43,7 @@ const LowerContent = ({
         <Link to={path}>
         <Image
           style={imageStyles}
-          _hover={boxHoverStyles}
+          _hover={{ filter: 'brightness(115%)', ...boxHoverStyles }}
           w={{ base: '120px', sm: '175px', md: '220px', lg: '350px' }}
           maxH={{ base: '160px', sm: '160px', md: '200px', lg: '320px', xl: '320px' }}
           mt='10px'

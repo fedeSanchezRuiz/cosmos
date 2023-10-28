@@ -6,7 +6,7 @@ import Saori from '../../components/images/website-img/SaoriChibi.png';
 import classes from './TopContent.module.css';
 
 export default function TopContent() {
-  
+
   return (
       <Flex
         className={classes.totalStyle}

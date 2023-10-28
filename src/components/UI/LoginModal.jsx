@@ -2,14 +2,12 @@ import {
   Box,
   Button,
   Flex,
-  Image,
   Text,
 } from '@chakra-ui/react';
 import { useState, useEffect, useContext, Fragment } from 'react';
+import { NavbarLogo } from './navbar/NavbarLogo';
 import AuthContext from '../../context/authContext';
 import useInput from '../hooks/useInput';
-import logo from '../../components/images/website-img/Logo.png';
-import logoSS from '../../components/images/website-img/SS-Logo.webp';
 import Starry from '../../components/images/website-img/StarryBack.jpeg';
 import Night from '../../components/images/website-img/NightSkyBack.jpeg'
 
@@ -413,19 +411,8 @@ const LoginModal = (props) => {
           >
             <Box
               p='8px'
-              opacity='0.8'
             >
-              <Image
-                src={logoSS}
-                h='40px'
-                ml='10px'
-                alt='Saint-Seiya'
-              />
-              <Image
-                src={logo}
-                h='20px'
-                alt='Cosmo-Warriors'
-              />
+              <NavbarLogo logoHeight='20px' logoSSHeight='42px' />
             </Box>
           </Flex>
           <Flex justifyContent='center'>

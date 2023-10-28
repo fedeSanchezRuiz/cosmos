@@ -24,8 +24,7 @@ const imageStyles = {
 };
 
 const imageHoverStyles = {
-  transform: 'scale(1.05)',
-  opacity: 0.8,
+  transform: 'scale(1.03)',
 };
 
 const addImageToCategory = (category) => {
@@ -48,7 +47,7 @@ const MiddleContent = () => {
           <Link to={category.path}>
           <Image
             style={imageStyles}
-            _hover={imageHoverStyles}
+            _hover={{ filter: 'brightness(115%)', ...imageHoverStyles }}
             w={{ base: '400px', sm: '450px', md: '500px', lg: '650px' }}
             h={{ base: '210', sm: '270px', md: '320px', lg: '400px' }}
             mt={{ base: '6px', sm: '8px', md: '10px', lg: '30px' }}
