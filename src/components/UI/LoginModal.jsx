@@ -2,7 +2,6 @@ import {
   Box,
   Button,
   Flex,
-  Text,
 } from '@chakra-ui/react';
 import { useState, useEffect, useContext, Fragment } from 'react';
 import { NavbarLogo } from './navbar/NavbarLogo';
@@ -111,7 +110,7 @@ const LoginModal = (props) => {
   };
 
   return (
-    <Fragment>
+    <>
       <Box
         onClick={closeModalHandler}
         position='fixed'
@@ -175,7 +174,6 @@ const LoginModal = (props) => {
           onSubmit={formLoginHandler}
           style={{ marginTop: '5px' }}
           display='flex'
-          
         >
           {!hideMailLabel && (
             <Flex
@@ -221,6 +219,7 @@ const LoginModal = (props) => {
                 value={enteredEmail}
                 type='email'
                 id='email'
+                autoComplete="email"
                 style={{
                   fontFamily: 'ARCADECLASSIC',
                   width: '75%',
@@ -239,7 +238,6 @@ const LoginModal = (props) => {
             </Flex>
           )}
           {!hideMailLabel && emailHasError && (
-            <Text>
               <Box
                 color='red'
                 fontFamily='ARCADECLASSIC'
@@ -252,7 +250,6 @@ const LoginModal = (props) => {
               >
                 Enter a valid Email.
               </Box>
-            </Text>
           )}
           <Flex
             my='5px'
@@ -297,6 +294,7 @@ const LoginModal = (props) => {
               value={enteredUsername}
               type='text'
               id='username'
+              autoComplete="username"
               style={{
                 fontFamily: 'ARCADECLASSIC',
                 width: '75%',
@@ -314,7 +312,6 @@ const LoginModal = (props) => {
             />
           </Flex>
           {usernameHasError && (
-            <Text>
               <Box
                 color='red'
                 fontFamily='ARCADECLASSIC'
@@ -327,7 +324,6 @@ const LoginModal = (props) => {
               >
                 Enter a valid Username.
               </Box>
-            </Text>
           )}
           <Flex
             my='5px'
@@ -372,6 +368,7 @@ const LoginModal = (props) => {
               value={enteredPassword}
               type='password'
               id='password'
+              autoComplete="current-password"
               style={{
                 fontFamily: 'ARCADECLASSIC',
                 width: '75%',
@@ -389,7 +386,6 @@ const LoginModal = (props) => {
             />
           </Flex>
           {passwordHasError && (
-            <Text>
               <Box
                 display='flex'
                 justifyContent={{
@@ -402,7 +398,6 @@ const LoginModal = (props) => {
               >
                 Enter a valid password.
               </Box>
-            </Text>
           )}
           <Flex
             flexDirection='column'
@@ -412,7 +407,7 @@ const LoginModal = (props) => {
             <Box
               p='8px'
             >
-              <NavbarLogo logoHeight='20px' logoSSHeight='42px' />
+              <NavbarLogo logoHeight='19.5px' logoSSHeight='41.5px' />
             </Box>
           </Flex>
           <Flex justifyContent='center'>
@@ -427,7 +422,7 @@ const LoginModal = (props) => {
           </Flex>
         </form>
       </Box>
-    </Fragment>
+    </>
   );
 };
 

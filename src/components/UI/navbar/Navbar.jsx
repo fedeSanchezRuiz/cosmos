@@ -11,7 +11,7 @@ export default function Navbar() {
       my={{ base: '5px', md: '8px', lg: '10px' }}
       mx={{ base: '10px', md: '20px', lg: '50px' }}
     >
-      <NavbarLogo logoSSHeight={'42px'} logoHeight={'20px'} disableLink={false} />
+      <NavbarLogo logoSSHeight={'41.5px'} logoHeight={'19.5px'} disableLink={false} />
       <Spacer />
       <NavbarButtons />
     </Flex>

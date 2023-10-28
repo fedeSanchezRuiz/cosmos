@@ -27,7 +27,7 @@ export const Header = () => {
 
   return (
     <>
-      {showLoginModal && !isLoggedIn && (
+      {!isLoggedIn && showLoginModal && (
         <LoginModal onClosingModal={closeLoginModalHandler} />
       )}
       <Box textAlign='center'>

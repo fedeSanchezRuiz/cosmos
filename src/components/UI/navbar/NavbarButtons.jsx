@@ -41,7 +41,7 @@ export const NavbarButtons = () => {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const { isLoggedIn, logout } = useContext(AuthContext);
-  const [showLogout, setShowLogout] = useState(true); // new state
+  const [showLogout, setShowLogout] = useState(true);
 
   useEffect(() => {
     const handleResize = () => {

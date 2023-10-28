@@ -366,7 +366,7 @@ const Congratulations = () => {
               <Image
                 src={PegasusBox}
                 alt='Pegasus Box'
-                _hover={{ filter: 'brightness(105%)' }}
+                _hover={{ filter: 'brightness(110%)' }}
                 maxH={{
                   base: '300px',
                   sm: '385px',
