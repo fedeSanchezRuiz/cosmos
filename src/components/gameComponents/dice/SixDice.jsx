@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Flex } from '@chakra-ui/react';
+import { Flex, background } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import classes from './SixDice.module.css';
 import ButtonCustom from '../../UI/ButtonCustom';
@@ -72,12 +72,10 @@ const SixDice = ({
       initial='initial'
       animate={animateDice ? 'animate' : 'rest'}
     >
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
+      <Flex
+        flexDir='column'
+        alignItems='center'
+        marginTop={{ base: '30%', sm: '15%', md: '10%', lg: '0%', xl: '0%' }}
       >
         <div style={{ display: 'flex' }}>
           {diceValues.slice(0, 3).map((value, index) => (
@@ -95,7 +93,7 @@ const SixDice = ({
             />
           ))}
         </div>
-      </div>
+      </Flex>
       <Flex
         fontSize={{
           base: '17px',

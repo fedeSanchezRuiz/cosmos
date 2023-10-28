@@ -42,7 +42,6 @@ const addImageToCard = (card) => {
 };
 
 const FightStage = ({ onStepChange }) => {
-
   const player = addImageToCard(playerData);
   const enemy = addImageToCard(enemyData);
   // const [player, setPlayer] = useState(
@@ -321,17 +320,10 @@ const FightStage = ({ onStepChange }) => {
         />
       </AnimatePresence>
       <Flex
-        h='60%'
-        width='100%'
-        color='#222222'
-        flexDir='column'
-        fontSize={{
-          base: '22px',
-          sm: '31px',
-          md: '33px',
-          lg: '33.5px',
-          xl: '34px',
-        }}
+        w='85%'
+        justifyContent='flex-end'
+        alignItems='center'
+        color='#111111'
       >
         <GameNavbar
           username={username}
@@ -339,73 +331,94 @@ const FightStage = ({ onStepChange }) => {
           isVisible={gameNavbarVisible}
           livesLost={0}
         />
-        <motion.div
-          variants={variants}
-          initial='hidden'
-          animate={visible.heading ? 'visible' : 'hidden'}
+      </Flex>
+      <motion.div
+        variants={variants}
+        initial='hidden'
+        animate={visible.heading ? 'visible' : 'hidden'}
+      >
+        <Flex
+          mt={{
+            base: '25%',
+            sm: '45%',
+            md: '30%',
+            lg: '25%',
+            xl: '25%',
+          }}
         >
           <Heading
             textAlign='center'
             fontFamily='ARCADECLASSIC'
+            color='#111111'
+            opacity='0.8'
           >
             Round {currentRound}
           </Heading>
+        </Flex>
+      </motion.div>
+
+      <Flex
+        mt={{
+          base: '5%',
+          sm: '5%',
+          md: '4%',
+          lg: '3%',
+          xl: '3%',
+        }}
+        w='100%'
+        maxHeight='100%'
+        maxWidth='768px'
+        justifyContent={{
+          base: 'space-between',
+          sm: 'space-around',
+          md: 'space-around',
+          lg: 'space-around',
+          xl: 'space-around',
+        }}
+        alignItems='center'
+        wrap='wrap'
+      >
+        <motion.div
+          variants={variants}
+          initial='hidden'
+          animate={visible.playerCard ? 'visible' : 'hidden'}
+        >
+          <CardFrame
+            name={player.name}
+            image={player.image}
+            fontColor={player.color}
+            hp={PlayerLife}
+            specialAttack={player.attack}
+            backgroundImage={player.background}
+            visibleText={visible.playerText}
+            visibleHp={visible.hpText}
+            visibleImage={visible.playerImage}
+            visibleSpecialAttack={visible.spAtk}
+            imageStyle={imageStyle}
+          />
         </motion.div>
 
-        <Flex
-          maxHeight='100%'
-          maxWidth='768px'
-          justifyContent={{
-            base: 'space-between',
-            sm: 'space-around',
-            md: 'space-around',
-            lg: 'space-around',
-            xl: 'space-around',
-          }}
-          alignItems='center'
-          wrap='wrap'
+        <motion.div
+          variants={variants}
+          initial='hidden'
+          animate={visible.enemyCard ? 'visible' : 'hidden'}
         >
-          <motion.div
-            variants={variants}
-            initial='hidden'
-            animate={visible.playerCard ? 'visible' : 'hidden'}
-          >
-            <CardFrame
-              name={player.name}
-              image={player.image}
-              fontColor={player.color}
-              hp={PlayerLife}
-              specialAttack={player.attack}
-              backgroundImage={player.background}
-              visibleText={visible.playerText}
-              visibleHp={visible.hpText}
-              visibleImage={visible.playerImage}
-              visibleSpecialAttack={visible.spAtk}
-              imageStyle={imageStyle}
-            />
-          </motion.div>
-
-          <motion.div
-            variants={variants}
-            initial='hidden'
-            animate={visible.enemyCard ? 'visible' : 'hidden'}
-          >
-            <CardFrame
-              name={enemy.name}
-              image={enemy.image}
-              fontColor={enemy.color}
-              hp={enemyLife}
-              specialAttack={enemy.attack}
-              backgroundImage={enemy.background}
-              visibleText={visible.enemyText}
-              visibleHp={visible.hpText}
-              visibleImage={visible.enemyImage}
-              visibleSpecialAttack={visible.spAtk}
-              imageStyle={imageStyle}
-            />
-          </motion.div>
-        </Flex>
+          <CardFrame
+            name={enemy.name}
+            image={enemy.image}
+            fontColor={enemy.color}
+            hp={enemyLife}
+            specialAttack={enemy.attack}
+            backgroundImage={enemy.background}
+            visibleText={visible.enemyText}
+            visibleHp={visible.hpText}
+            visibleImage={visible.enemyImage}
+            visibleSpecialAttack={visible.spAtk}
+            imageStyle={imageStyle}
+          />
+        </motion.div>
       </Flex>
+
       <Flex
         mt={{
           base: '-2%',

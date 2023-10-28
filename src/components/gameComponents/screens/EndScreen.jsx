@@ -39,14 +39,15 @@ const EndScreen = ({
 
   return (
     <ScreenCard
-      justifyContent='flex-end'
+      justifyContent='flex-start'
       backgroundImage={backgroundImage}
     >
       <Flex
-        h='60%'
-        width='100%'
+        w='85%'
         color='red.600'
-        flexDir='column'
+        mb={{ base: '50%', sm: '45%', md: '45%', lg: '45%', xl: '45%' }} 
+        justifyContent='flex-end' 
+        alignItems='center'
         fontSize={{
           base: '22px',
           sm: '31px',
@@ -70,7 +71,7 @@ const EndScreen = ({
             livesLost={livesLost}
           />
         )}
-      </Flex>
+        </Flex>
       <Flex
         width='100%'
         justifyContent='center'
