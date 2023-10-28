@@ -1,11 +1,23 @@
 import { Flex, Box, Image } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
-import bronzeSaints from '../../components/images/website-img/BronzeSaints3.webp';
-import blackSaints from '../../components/images/website-img/BlackSaints2.webp';
-import silverSaints from '../../components/images/website-img/SilverSaints2.jpeg';
-import goldSaints from '../../components/images/website-img/GoldSaints.jpeg';
-import asgardSaints from '../../components/images/website-img/AsgardSaints.png';
-import poseidonSaints from '../../components/images/website-img/PoseidonSaints2.jpeg';
+import BronzeSaints from '../../components/images/website-img/BronzeSaints3.webp';
+import BlackSaints from '../../components/images/website-img/BlackSaints2.webp';
+import SilverSaints from '../../components/images/website-img/SilverSaints2.jpeg';
+import GoldSaints from '../../components/images/website-img/GoldSaints.jpeg';
+import AsgardWarriors from '../../components/images/website-img/AsgardSaints.png';
+import PoseidonScales from '../../components/images/website-img/PoseidonSaints2.jpeg';
+import saintsCategoryJSON from '../../json/websiteSaints.json';
+
+const saintsCategoryData = saintsCategoryJSON.saintsCategory;
+
+const images = {
+  BronzeSaints,
+  BlackSaints,
+  SilverSaints,
+  GoldSaints,
+  AsgardWarriors,
+  PoseidonScales,
+};
 
 const imageStyles = {
   transition: 'transform 0.3s',
@@ -16,25 +28,24 @@ const imageHoverStyles = {
   opacity: 0.8,
 };
 
-const MiddleContent = () => {
+const addImageToCategory = (category) => {
+  const newCategory = { ...category };
+  newCategory.image = images[category.image];
+  return newCategory;
+};
 
-  const images = [
-    { name: 'BronzeSaints', image: bronzeSaints, path: '/characters/Bronze' },
-    { name: 'BlackSaints', image: blackSaints, path: '/characters/Black' },
-    { name: 'SilverSaints', image: silverSaints, path: '/characters/Silver' },
-    { name: 'GoldSaints', image: goldSaints, path: '/characters/Gold' },
-    { name: 'AsgardWarriors', image: asgardSaints, path: '/characters/Asgard' },
-    { name: 'PoseidonScales', image: poseidonSaints, path: '/characters/Poseidon' },
-  ];
+const saintsCategory = saintsCategoryData.map(addImageToCategory);
+
+const MiddleContent = () => {
 
   return (
     <Flex
       justifyContent='center'
       wrap='wrap'
     >
-      {images.map((image) => (
-        <Box key={image.name}>
-          <Link to={image.path}>
+      {saintsCategory.map((category) => (
+        <Box key={category.name}>
+          <Link to={category.path}>
           <Image
             style={imageStyles}
             _hover={imageHoverStyles}
@@ -43,8 +54,8 @@ const MiddleContent = () => {
             mt={{ base: '6px', sm: '8px', md: '10px', lg: '30px' }}
             mx={{ sm: 'none', md: '10px', lg: '35px' }}
             borderRadius='20px'
-            src={image.image}
-            alt={image.name}
+            src={category.image}
+            alt={category.name}
           />
           </Link>
         </Box>

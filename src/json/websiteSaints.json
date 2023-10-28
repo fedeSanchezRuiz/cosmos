@@ -7,6 +7,14 @@
     { "label": "Weight", "key": "weight" },
     { "label": "Cloth", "key": "cloth" }
   ],
+  "saintsCategory": [
+    { "name": "BronzeSaints", "image": "BronzeSaints", "path": "/characters/Bronze" },
+    { "name": "BlackSaints", "image": "BlackSaints", "path": "/characters/Black" },
+    { "name": "SilverSaints", "image": "SilverSaints", "path": "/characters/Silver" },
+    { "name": "GoldSaints", "image": "GoldSaints", "path": "/characters/Gold" },
+    { "name": "AsgardWarriors", "image": "AsgardWarriors", "path": "/characters/Asgard" },
+    { "name": "PoseidonScales", "image": "PoseidonScales", "path": "/characters/Poseidon" }
+  ],
   "bronze": [
     {
       "name": "Seiya",
