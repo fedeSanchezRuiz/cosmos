@@ -23,7 +23,6 @@ const addImageToCard = (card) => {
 
 const BlackSaints = () => {
   const [blackSaintsData, setBlackSaintsData] = useState([]);
-  const [featuresData, setFeaturesData] = useState([]);
 
   useEffect(() => {
     const fetchBlackSaintsData = async () => {
@@ -31,30 +30,32 @@ const BlackSaints = () => {
       const response = await fetch(url);
       const data = await response.json();
       setBlackSaintsData(data);
-      setFeaturesData(data);
-    }
+    };
     fetchBlackSaintsData();
   }, []);
 
-  const blackSaints = blackSaintsData[0]?.black?.map(addImageToCard);
-  const features = featuresData[0].features;
+  const blackSaints =
+    blackSaintsData[0]?.black?.map(addImageToCard);
+  const features = blackSaintsData[0]?.features;
 
-  const renderSaintProperties = (saint) => (
-    features.map((feature) => (
-      <Flex className={classes.cardWrap} key={feature.key}>
+  const renderSaintProperties = (saint) =>
+    features?.map((feature) => (
+      <Flex
+        className={classes.cardWrap}
+        key={feature.key}
+      >
         <Box fontWeight='extrabold'>{feature.label}:</Box>
         <Box fontWeight='medium'>{saint[feature.key]}</Box>
       </Flex>
-    ))
-  );
+    ));
 
   return (
     <Flex className={classes.totalFlex}>
-      {blackSaints.map((saint) => (
+      {blackSaints?.map((saint) => (
         <Flex
           key={saint.name}
           className={classes.outerFlex}
-          >
+        >
           <Image
             className={classes.imageStyle}
             src={saint.source}

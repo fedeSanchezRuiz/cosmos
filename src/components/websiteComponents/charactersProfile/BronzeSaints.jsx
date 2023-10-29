@@ -33,7 +33,6 @@ const addImageToCard = (card) => {
 
 const BronzeSaints = () => {
   const [bronzeSaintsData, setBronzeSaintsData] = useState([]);
-  const [featuresData, setFeaturesData] = useState([]);
 
   useEffect(() => {
     const fetchBronzeSaintsData = async () => {
@@ -41,28 +40,28 @@ const BronzeSaints = () => {
       const response = await fetch(url);
       const data = await response.json();
       setBronzeSaintsData(data);
-      setFeaturesData(data);
-    }
+    };
     fetchBronzeSaintsData();
   }, []);
 
-  const bronzeSaints = bronzeSaintsData[0]?.bronze?.map(addImageToCard);
-  const features =featuresData[0]?.features;
+  const bronzeSaints =
+    bronzeSaintsData[0]?.bronze?.map(addImageToCard);
+  const features = bronzeSaintsData[0]?.features;
 
   const renderSaintFeatures = (saint) =>
-  features.map((feature) => (
-    <Flex
-      className={classes.cardWrap}
-      key={feature.key}
-    >
-      <Box fontWeight='extrabold'>{feature.label}:</Box>
-      <Box fontWeight='medium'>{saint[feature.key]}</Box>
-    </Flex>
-  ));
+    features?.map((feature) => (
+      <Flex
+        className={classes.cardWrap}
+        key={feature.key}
+      >
+        <Box fontWeight='extrabold'>{feature.label}:</Box>
+        <Box fontWeight='medium'>{saint[feature.key]}</Box>
+      </Flex>
+    ));
 
   return (
     <Flex className={classes.totalFlex}>
-      {bronzeSaints.map((saint) => (
+      {bronzeSaints?.map((saint) => (
         <Flex
           key={saint.source}
           className={classes.outerFlex}
