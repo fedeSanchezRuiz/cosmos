@@ -16,9 +16,10 @@ export default function GameNavbar({
       >
         <Flex
           opacity='0.8'
-          justifyContent='center'
+          justifyContent='flex-end'
           alignItems='center'
           h='25px'
+          minW={{ base: '100px', sm: '130px', md: '152px', lg: '155px', xl: '160px' }}
           maxWidth='100%'
           margin='0 auto'
         >

@@ -320,7 +320,7 @@ const FightStage = ({ onStepChange }) => {
         />
       </AnimatePresence>
       <Flex
-        w='85%'
+        w={{ base: '86.5%', sm: '89%', md: '88%', lg: '88%', xl: '88%' }}
         justifyContent='flex-end'
         alignItems='center'
         color='#111111'
