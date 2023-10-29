@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Flex, Image, Box } from '@chakra-ui/react';
 import classes from './Saints.module.css';
 import Seiya from '../../images/bronze-img/SeiyaPegasus2.jpeg';
@@ -10,10 +11,6 @@ import Ban from '../../images/bronze-img/BanLeon.jpeg';
 import Geki from '../../images/bronze-img/GekiOso.jpeg';
 import Ichi from '../../images/bronze-img/IchiHydra.jpeg';
 import Nachi from '../../images/bronze-img/NachiLobo.jpeg';
-import BronzeSaintsJSON from '../../../json/websiteSaints.json';
-
-const bronzeSaintsData = BronzeSaintsJSON.bronze;
-const features = BronzeSaintsJSON.features;
 
 const images = {
   Seiya,
@@ -34,9 +31,25 @@ const addImageToCard = (card) => {
   return newCard;
 };
 
-const bronzeSaints = bronzeSaintsData.map(addImageToCard);
+const BronzeSaints = () => {
+  const [bronzeSaintsData, setBronzeSaintsData] = useState([]);
+  const [featuresData, setFeaturesData] = useState([]);
 
-const renderSaintFeatures = (saint) =>
+  useEffect(() => {
+    const fetchBronzeSaintsData = async () => {
+      let url = 'http://localhost:3000/website';
+      const response = await fetch(url);
+      const data = await response.json();
+      setBronzeSaintsData(data);
+      setFeaturesData(data);
+    }
+    fetchBronzeSaintsData();
+  }, []);
+
+  const bronzeSaints = bronzeSaintsData[0]?.bronze?.map(addImageToCard);
+  const features =featuresData[0]?.features;
+
+  const renderSaintFeatures = (saint) =>
   features.map((feature) => (
     <Flex
       className={classes.cardWrap}
@@ -47,7 +60,6 @@ const renderSaintFeatures = (saint) =>
     </Flex>
   ));
 
-const BronzeSaints = () => {
   return (
     <Flex className={classes.totalFlex}>
       {bronzeSaints.map((saint) => (

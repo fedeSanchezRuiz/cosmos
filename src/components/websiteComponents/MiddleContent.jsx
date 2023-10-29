@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Flex, Box, Image } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import BronzeSaints from '../../components/images/website-img/BronzeSaints3.webp';
@@ -6,9 +7,6 @@ import SilverSaints from '../../components/images/website-img/SilverSaints2.jpeg
 import GoldSaints from '../../components/images/website-img/GoldSaints.jpeg';
 import AsgardWarriors from '../../components/images/website-img/AsgardSaints.png';
 import PoseidonScales from '../../components/images/website-img/PoseidonSaints2.jpeg';
-import saintsCategoryJSON from '../../json/websiteSaints.json';
-
-const saintsCategoryData = saintsCategoryJSON.saintsCategory;
 
 const images = {
   BronzeSaints,
@@ -33,16 +31,27 @@ const addImageToCategory = (category) => {
   return newCategory;
 };
 
-const saintsCategory = saintsCategoryData.map(addImageToCategory);
-
 const MiddleContent = () => {
+  const [saintCategoriesData, setSaintCategoriesData] = useState([]);
+
+  useEffect(() => {
+    const fetchSaintsCategoriesData = async () => {
+      let url = 'http://localhost:3000/website';
+      const response = await fetch(url);
+      const data = await response.json();
+      setSaintCategoriesData(data);
+    };
+    fetchSaintsCategoriesData();
+  }, []);
+
+  const saintCategories = saintCategoriesData[0]?.saintsCategory?.map(addImageToCategory);
 
   return (
     <Flex
       justifyContent='center'
       wrap='wrap'
     >
-      {saintsCategory.map((category) => (
+      {saintCategories?.map((category) => (
         <Box key={category.name}>
           <Link to={category.path}>
           <Image
