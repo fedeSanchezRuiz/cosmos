@@ -23,11 +23,11 @@ export default function GameNavbar({
           h='25px'
           minW={{ base: '100px', sm: '130px', md: '152px', lg: '155px', xl: '160px' }}
           maxWidth='100%'
-          margin='0 auto'
+          mt='1%'
         >
           <Flex
             mr='2%'
-            mt='1%'
+            mt='1.5%'
             fontSize={{
               base: '20px',
               sm: '20px',
@@ -36,7 +36,7 @@ export default function GameNavbar({
               xl: '22px',
             }}
             justifyContent='center'
-            alignItems='center'
+            alignItems='bottom'
             fontWeight='bold'
           >
             {username}

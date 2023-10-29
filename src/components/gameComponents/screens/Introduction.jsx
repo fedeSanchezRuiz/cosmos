@@ -5,13 +5,22 @@ import ButtonCustom from '../../UI/ButtonCustom';
 import useTypewriter from '../../hooks/useTypewriter';
 import ScreenCard from '../interfaceElements/ScreenCard';
 import NightSkyBackground from '../../images/website-img/Total-Black1.jpg';
-import chapter1JSON from '../../../json/chapter1.json';
-
-const introText = chapter1JSON.introText;
 
 const Introduction = ({ onStepChange }) => {
-
+  const [introTextData, setIntroTextData] = useState([]);
   const [isClicked, setIsClicked] = useState(false);
+
+  useEffect(() => {
+    const fetchIntroTextData = async () => {
+      let url = 'http://localhost:3000/chapters';
+      const response = await fetch(url);
+      const data = await response.json();
+      setIntroTextData(data);
+    };
+    fetchIntroTextData();
+  }, []);
+
+  const introText = introTextData[0]?.introText;
 
   const {
     displayedText,
@@ -23,14 +32,6 @@ const Introduction = ({ onStepChange }) => {
     speed: 100,
   });
 
-  const goToFightHandler = () => {
-    setIsClicked(true);
-
-    setTimeout(() => {
-      onStepChange();
-    }, 1200);
-  };
-
   useEffect(() => {
     const handleClick = () => {
       setDisplayedText(introText);
@@ -41,7 +42,15 @@ const Introduction = ({ onStepChange }) => {
     return () => {
       window.removeEventListener('click', handleClick);
     };
-  }, [setDisplayedText, setIsTypingCompleted]);
+  }, [setDisplayedText, setIsTypingCompleted, introText]);
+
+  const goToFightHandler = () => {
+    setIsClicked(true);
+
+    setTimeout(() => {
+      onStepChange();
+    }, 1200);
+  };
 
   return (
     <ScreenCard
@@ -56,13 +65,19 @@ const Introduction = ({ onStepChange }) => {
         transition={{ duration: 1 }}
       >
         <Flex
-          minW={{ base: '45vh', sm: '66vh', md: '68vh', lg: '80vh', xl: '80vh' }}
+          minW={{
+            base: '45vh',
+            sm: '60vh',
+            md: '84vh',
+            lg: '90vh',
+            xl: '90vh',
+          }}
           color='#F1E8D5'
-          textAlign='left'
+          textAlign='center'
           fontSize={{
             base: '22px',
-            sm: '31px',
-            md: '33px',
+            sm: '30px',
+            md: '32px',
             lg: '33.5px',
             xl: '34px',
           }}

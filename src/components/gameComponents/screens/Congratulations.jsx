@@ -10,19 +10,30 @@ import CardCollection from '../cardDesigns/CardCollection';
 import useTypewriter from '../../hooks/useTypewriter';
 import PopeAresBackground from '../../images/chapter1-img/PopeAresCut.jpeg';
 import PegasusBox from '../../images/chapter1-img/PegasusBox2.png';
-import chapter1JSON from '../../../json/chapter1.json';
-
-const finishText = chapter1JSON.endingText;
 
 const TEXT_HIDE_DISTANCE = -300;
 
 const Congratulations = () => {
+  const [endingTextData, setEndingTextData] = useState([]);
   const [isClicked, setIsClicked] = useState(false);
   const [prizesVisible, setPrizesVisible] = useState(false);
   const [boxVisible, setBoxVisible] = useState(true);
   const [blockText, setBlockText] = useState(false);
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
-  const [thanksForPlaying, setThanksForPlaying] = useState(false);
+  const [thanksForPlaying, setThanksForPlaying] =
+    useState(false);
+
+  useEffect(() => {
+    const fetchEndingTextData = async () => {
+      let url = 'http://localhost:3000/chapters';
+      const response = await fetch(url);
+      const data = await response.json();
+      setEndingTextData(data);
+    };
+    fetchEndingTextData();
+  }, []);
+
+  const endingText = endingTextData[0]?.endingText;
 
   const {
     displayedText,
@@ -30,9 +41,21 @@ const Congratulations = () => {
     isTypingCompleted,
     setIsTypingCompleted,
   } = useTypewriter({
-    text: finishText,
+    text: endingText,
     speed: 100,
   });
+
+  useEffect(() => {
+    const handleClick = () => {
+      setDisplayedText(endingText);
+      setIsTypingCompleted(true);
+    };
+
+    window.addEventListener('click', handleClick);
+    return () => {
+      window.removeEventListener('click', handleClick);
+    };
+  }, [setDisplayedText, setIsTypingCompleted, endingText]);
 
   const textAnimation = useMemo(
     () => ({
@@ -50,18 +73,6 @@ const Congratulations = () => {
     }),
     [isTypingCompleted, isClicked]
   );
-
-  useEffect(() => {
-    const handleClick = () => {
-      setDisplayedText(finishText);
-      setIsTypingCompleted(true);
-    };
-
-    window.addEventListener('click', handleClick);
-    return () => {
-      window.removeEventListener('click', handleClick);
-    };
-  }, [setDisplayedText, setIsTypingCompleted]);
 
   const handleImageClick = () => {
     setTimeout(() => {
@@ -295,12 +306,18 @@ const Congratulations = () => {
         transition={{ duration: 2 }}
       >
         <Flex
-          minW={{ base: '45vh', sm: '66vh', md: '68vh', lg: '80vh', xl: '80vh' }}
+          minW={{
+            base: '45vh',
+            sm: '60vh',
+            md: '84vh',
+            lg: '90vh',
+            xl: '90vh',
+          }}
           color='#F1E8D5'
-          textAlign='left'
+          textAlign='center'
           fontSize={{
             base: '22px',
-            sm: '31px',
+            sm: '30px',
             md: '33px',
             lg: '33.5px',
             xl: '34px',
@@ -308,7 +325,7 @@ const Congratulations = () => {
           px={{
             base: '10%',
             sm: '10%',
-            md: '12%',
+            md: '10%',
             lg: '11%',
             xl: '10%',
           }}

@@ -44,12 +44,70 @@ const addImageToCard = (card) => {
 const FightStage = ({ onStepChange }) => {
   const player = addImageToCard(playerData);
   const enemy = addImageToCard(enemyData);
-  // const [player, setPlayer] = useState(
-  //   addImageToCard(playerData)
-  // );
-  // const [enemy, setEnemy] = useState(
-  //   addImageToCard(enemyData)
-  // );
+
+  const { username } = useContext(AuthContext);
+  const { heartCount, setHeartCount, resetHeartCount } =
+    useContext(HeartContext);
+  // const [charactersData, setCharactersData] = useState([]);
+  const [fightVisible, setFightVisible] = useState(false);
+  const [starterSelectorVisible, setStarterSelectorVisible] =
+    useState(false);
+  const [gameNavbarVisible, setGameNavbarVisible] =
+    useState(false);
+  const [starter, setStarter] = useState('');
+  const [isPlayerRollComplete, setIsPlayerRollComplete] =
+    useState(false);
+  const [isEnemyRollComplete, setIsEnemyRollComplete] =
+    useState(false);
+  const [PlayerLife, setPlayerLife] = useState(player.life);
+  const [enemyLife, setEnemyLife] = useState(enemy.life);
+  const [currentRound, setCurrentRound] = useState(1);
+  const [playersRolled, setPlayersRolled] = useState(0);
+  const [playerSpecialVisible, setPlayerSpecialVisible] =
+    useState(false);
+  const [enemySpecialVisible, setEnemySpecialVisible] =
+    useState(false);
+  const [missedAttackVisible, setMissedAttackVisible] =
+    useState(false);
+  const [totalDamage, setTotalDamage] = useState(0);
+  const visible = useTimers(
+    fightVisible,
+    setFightVisible,
+    starterSelectorVisible,
+    setStarterSelectorVisible,
+    gameNavbarVisible,
+    setGameNavbarVisible
+  );
+
+  // useEffect(() => {
+  //   const fetchCharactersData = async () => {
+  //     let url = 'http://localhost:3000/chapters';
+  //     const response = await fetch(url);
+  //     const data = await response.json();
+  //     setCharactersData(data);
+  //   }
+  //   fetchCharactersData();
+  // }, []);
+
+  // const player = addImageToCard(charactersData[0]?.player);
+  // const enemy = addImageToCard(charactersData[0]?.enemy);
+
+  useEffect(() => {
+    if (playersRolled === 2) {
+      setCurrentRound((prevRound) => prevRound + 1);
+      setPlayersRolled(0);
+    }
+  }, [playersRolled]);
+
+  useEffect(() => {
+    if (starter === player.name) {
+      setIsPlayerRollComplete(false);
+      setIsEnemyRollComplete(true);
+    } else {
+      setIsEnemyRollComplete(false);
+      setIsPlayerRollComplete(true);
+    }
+  }, [starter, player.name]);
 
   const variants = {
     hidden: { opacity: 0, y: 30, scale: 1.5 },
@@ -210,56 +268,6 @@ const FightStage = ({ onStepChange }) => {
     setPlayersRolled((prev) => prev + 1);
   };
 
-  const { username } = useContext(AuthContext);
-  const [fightVisible, setFightVisible] = useState(false);
-  const [starterSelectorVisible, setStarterSelectorVisible] =
-    useState(false);
-  const [gameNavbarVisible, setGameNavbarVisible] =
-    useState(false);
-  const [starter, setStarter] = useState('');
-  const [isPlayerRollComplete, setIsPlayerRollComplete] =
-    useState(false);
-  const [isEnemyRollComplete, setIsEnemyRollComplete] =
-    useState(false);
-  const [PlayerLife, setPlayerLife] = useState(player.life);
-  const [enemyLife, setEnemyLife] = useState(enemy.life);
-  const [currentRound, setCurrentRound] = useState(1);
-  const [playersRolled, setPlayersRolled] = useState(0);
-  const [playerSpecialVisible, setPlayerSpecialVisible] =
-    useState(false);
-  const [enemySpecialVisible, setEnemySpecialVisible] =
-    useState(false);
-  const [missedAttackVisible, setMissedAttackVisible] =
-    useState(false);
-  const [totalDamage, setTotalDamage] = useState(0);
-  const { heartCount, setHeartCount, resetHeartCount } =
-    useContext(HeartContext);
-  const visible = useTimers(
-    fightVisible,
-    setFightVisible,
-    starterSelectorVisible,
-    setStarterSelectorVisible,
-    gameNavbarVisible,
-    setGameNavbarVisible
-  );
-
-  useEffect(() => {
-    if (playersRolled === 2) {
-      setCurrentRound((prevRound) => prevRound + 1);
-      setPlayersRolled(0);
-    }
-  }, [playersRolled]);
-
-  useEffect(() => {
-    if (starter === player.name) {
-      setIsPlayerRollComplete(false);
-      setIsEnemyRollComplete(true);
-    } else {
-      setIsEnemyRollComplete(false);
-      setIsPlayerRollComplete(true);
-    }
-  }, [starter, player.name]);
-
   return (
     <ScreenCard
       backgroundImage={ColiseumBackground}
@@ -320,7 +328,13 @@ const FightStage = ({ onStepChange }) => {
         />
       </AnimatePresence>
       <Flex
-        w={{ base: '86.5%', sm: '89%', md: '88%', lg: '88%', xl: '88%' }}
+        w={{
+          base: '86.5%',
+          sm: '89%',
+          md: '88%',
+          lg: '88%',
+          xl: '88%',
+        }}
         justifyContent='flex-end'
         alignItems='center'
       >
