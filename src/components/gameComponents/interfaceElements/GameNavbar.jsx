@@ -7,6 +7,7 @@ export default function GameNavbar({
   heartCount,
   isVisible,
   livesLost,
+  color,
 }) {
   return (
     isVisible && (
@@ -16,6 +17,7 @@ export default function GameNavbar({
       >
         <Flex
           opacity='0.8'
+          color={color}
           justifyContent='flex-end'
           alignItems='center'
           h='25px'

@@ -44,7 +44,6 @@ const EndScreen = ({
     >
       <Flex
         w='85%'
-        color='red.600'
         mb={{ base: '50%', sm: '45%', md: '45%', lg: '45%', xl: '45%' }} 
         justifyContent='flex-end' 
         alignItems='center'
@@ -69,6 +68,7 @@ const EndScreen = ({
             heartCount={heartCount}
             isVisible={true}
             livesLost={livesLost}
+            color='red.600'
           />
         )}
         </Flex>
