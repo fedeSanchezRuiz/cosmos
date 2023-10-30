@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 
-const useTypewriter = ({ text, speed }) => {
+const useTypewriter = ({ text = '', speed = 100 }) => {
   const [displayedText, setDisplayedText] = useState('');
-  const [isTypingCompleted, setIsTypingCompleted] = useState(false);
+  const [isTypingCompleted, setIsTypingCompleted] =
+    useState(false);
 
   useEffect(() => {
     if (isTypingCompleted) return;
@@ -20,7 +21,12 @@ const useTypewriter = ({ text, speed }) => {
     return () => clearInterval(intervalId);
   }, [text, speed, isTypingCompleted]);
 
-  return { displayedText, setDisplayedText, isTypingCompleted , setIsTypingCompleted };
+  return {
+    displayedText,
+    setDisplayedText,
+    isTypingCompleted,
+    setIsTypingCompleted,
+  };
 };
 
 export default useTypewriter;

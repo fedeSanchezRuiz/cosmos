@@ -4,14 +4,13 @@ import Footer from '../components/UI/Footer';
 import { AuthProvider } from '../context/authProvider';
 
 const RootLayout = () => {
-
-    return (
-        <AuthProvider>
-            <Navbar />
-            <Outlet />
-            <Footer />
-        </AuthProvider>
-    );
+  return (
+    <AuthProvider>
+      <Navbar />
+      <Outlet />
+      <Footer />
+    </AuthProvider>
+  );
 };
 
 export default RootLayout;

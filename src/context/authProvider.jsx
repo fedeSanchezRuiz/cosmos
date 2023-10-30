@@ -10,9 +10,13 @@ export const AuthProvider = ({ children }) => {
   );
 
   useEffect(() => {
-    const expirationTime = localStorage.getItem('expirationTime');
+    const expirationTime =
+      localStorage.getItem('expirationTime');
 
-    if (expirationTime && new Date().getTime() > expirationTime) {
+    if (
+      expirationTime &&
+      new Date().getTime() > expirationTime
+    ) {
       localStorage.removeItem('isLoggedIn');
       localStorage.removeItem('username');
       localStorage.removeItem('expirationTime');
@@ -25,7 +29,8 @@ export const AuthProvider = ({ children }) => {
   const login = (enteredUsername) => {
     setIsLoggedIn(true);
     setUsername(enteredUsername);
-    const expirationTime = new Date().getTime() + 6 * 60 * 60 * 1000;
+    const expirationTime =
+      new Date().getTime() + 6 * 60 * 60 * 1000;
     localStorage.setItem('isLoggedIn', true);
     localStorage.setItem('username', enteredUsername);
     localStorage.setItem('expirationTime', expirationTime);
@@ -40,7 +45,9 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, username, login, logout }}>
+    <AuthContext.Provider
+      value={{ isLoggedIn, username, login, logout }}
+    >
       {children}
     </AuthContext.Provider>
   );

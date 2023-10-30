@@ -6,6 +6,7 @@ import DragonBlack from '../../images/black-img/BlackDragon.jpeg';
 import CygnusBlack from '../../images/black-img/BlackCygnus.jpeg';
 import AndromedaBlack from '../../images/black-img/BlackAndromeda.jpeg';
 import PhoenixBlack from '../../images/black-img/BlackPhoenix.jpeg';
+import LoadingMessage from '../../UI/LoadingMessage';
 
 const images = {
   PegasusBlack,
@@ -23,13 +24,16 @@ const addImageToCard = (card) => {
 
 const BlackSaints = () => {
   const [blackSaintsData, setBlackSaintsData] = useState([]);
+  const [isFetching, setIsFetching] = useState(false);
 
   useEffect(() => {
     const fetchBlackSaintsData = async () => {
+      setIsFetching(true);
       let url = 'http://localhost:3000/website';
       const response = await fetch(url);
       const data = await response.json();
       setBlackSaintsData(data);
+      setIsFetching(false);
     };
     fetchBlackSaintsData();
   }, []);
@@ -49,7 +53,7 @@ const BlackSaints = () => {
       </Flex>
     ));
 
-  return (
+  const blackSaintsList = (
     <Flex className={classes.totalFlex}>
       {blackSaints?.map((saint) => (
         <Flex
@@ -84,6 +88,8 @@ const BlackSaints = () => {
       ))}
     </Flex>
   );
+
+  return isFetching ? <LoadingMessage /> : blackSaintsList;
 };
 
 export default BlackSaints;

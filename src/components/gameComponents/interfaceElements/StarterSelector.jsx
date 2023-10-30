@@ -3,12 +3,22 @@ import { motion } from 'framer-motion';
 
 const ANIMATION_DURATION = 1;
 
-const StarterSelector = ({ player, enemy, playerOdds = 0.5, enemyOdds = 0.5, isVisible, setIsVisible, setStarter }) => {
+const StarterSelector = ({
+  player,
+  enemy,
+  playerOdds = 0.5,
+  enemyOdds = 0.5,
+  isVisible,
+  setIsVisible,
+  setStarter,
+}) => {
   const [starter, setStarterInternal] = useState('');
 
   useEffect(() => {
     if (playerOdds + enemyOdds !== 1) {
-      console.error('Error: The sum of the odds must be equal to 1.');
+      console.error(
+        'Error: The sum of the odds must be equal to 1.'
+      );
     }
   }, [playerOdds, enemyOdds]);
 
@@ -21,7 +31,8 @@ const StarterSelector = ({ player, enemy, playerOdds = 0.5, enemyOdds = 0.5, isV
   }, [isVisible, setIsVisible]);
 
   useEffect(() => {
-    const selectedStarter = Math.random() < playerOdds ? player : enemy;
+    const selectedStarter =
+      Math.random() < playerOdds ? player : enemy;
     setStarterInternal(selectedStarter);
     setStarter(selectedStarter);
   }, [player, enemy, playerOdds, enemyOdds, setStarter]);

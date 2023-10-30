@@ -11,6 +11,7 @@ import Ban from '../../images/bronze-img/BanLeon.jpeg';
 import Geki from '../../images/bronze-img/GekiOso.jpeg';
 import Ichi from '../../images/bronze-img/IchiHydra.jpeg';
 import Nachi from '../../images/bronze-img/NachiLobo.jpeg';
+import LoadingMessage from '../../UI/LoadingMessage';
 
 const images = {
   Seiya,
@@ -33,13 +34,16 @@ const addImageToCard = (card) => {
 
 const BronzeSaints = () => {
   const [bronzeSaintsData, setBronzeSaintsData] = useState([]);
+  const [isFetching, setIsFetching] = useState(false);
 
   useEffect(() => {
     const fetchBronzeSaintsData = async () => {
+      setIsFetching(true);
       let url = 'http://localhost:3000/website';
       const response = await fetch(url);
       const data = await response.json();
       setBronzeSaintsData(data);
+      setIsFetching(false);
     };
     fetchBronzeSaintsData();
   }, []);
@@ -59,7 +63,7 @@ const BronzeSaints = () => {
       </Flex>
     ));
 
-  return (
+  const bronzeSaintsList = (
     <Flex className={classes.totalFlex}>
       {bronzeSaints?.map((saint) => (
         <Flex
@@ -94,6 +98,8 @@ const BronzeSaints = () => {
       ))}
     </Flex>
   );
+
+  return isFetching ? <LoadingMessage /> : bronzeSaintsList;
 };
 
 export default BronzeSaints;

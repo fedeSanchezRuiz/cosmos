@@ -15,11 +15,11 @@ const CharacterDetails = () => {
 
   if (isBronzeMatch) {
     saintsToRender = <BronzeSaints />;
-} else if(isBlackMatch) {
+  } else if (isBlackMatch) {
     saintsToRender = <BlackSaints />;
-} else {
-    saintsToRender = <MessageCustom src={shakaMeditate} />
-};
+  } else {
+    saintsToRender = <MessageCustom src={shakaMeditate} />;
+  }
 
   return (
     <Box

@@ -21,7 +21,13 @@ export default function GameNavbar({
           justifyContent='flex-end'
           alignItems='center'
           h='25px'
-          minW={{ base: '100px', sm: '130px', md: '152px', lg: '155px', xl: '160px' }}
+          minW={{
+            base: '100px',
+            sm: '130px',
+            md: '152px',
+            lg: '155px',
+            xl: '160px',
+          }}
           maxWidth='100%'
           mt='1%'
         >
@@ -66,4 +72,4 @@ export default function GameNavbar({
       </motion.div>
     )
   );
-};
+}

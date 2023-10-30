@@ -44,8 +44,14 @@ const EndScreen = ({
     >
       <Flex
         w='85%'
-        mb={{ base: '50%', sm: '45%', md: '45%', lg: '45%', xl: '45%' }} 
-        justifyContent='flex-end' 
+        mb={{
+          base: '50%',
+          sm: '45%',
+          md: '45%',
+          lg: '45%',
+          xl: '45%',
+        }}
+        justifyContent='flex-end'
         alignItems='center'
         fontSize={{
           base: '22px',
@@ -71,7 +77,7 @@ const EndScreen = ({
             color='red.600'
           />
         )}
-        </Flex>
+      </Flex>
       <Flex
         width='100%'
         justifyContent='center'

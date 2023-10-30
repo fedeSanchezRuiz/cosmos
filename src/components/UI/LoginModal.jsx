@@ -1,14 +1,10 @@
-import {
-  Box,
-  Button,
-  Flex,
-} from '@chakra-ui/react';
+import { Box, Button, Flex } from '@chakra-ui/react';
 import { useState, useEffect, useContext } from 'react';
 import { NavbarLogo } from './navbar/NavbarLogo';
 import AuthContext from '../../context/authContext';
 import useInput from '../hooks/useInput';
 import Starry from '../../components/images/website-img/StarryBack.jpeg';
-import Night from '../../components/images/website-img/NightSkyBack.jpeg'
+import Night from '../../components/images/website-img/NightSkyBack.jpeg';
 
 const buttonProps = {
   background: `linear-gradient(to bottom, rgba(255, 255, 204, 1), rgba(218, 165, 32, 0.6)), url(${Night})`,
@@ -24,7 +20,6 @@ const buttonProps = {
 };
 
 const LoginModal = (props) => {
-
   const { login } = useContext(AuthContext);
   const [hideMailLabel, setHideMailLabel] = useState(false);
   const [formIsValid, setFormIsValid] = useState(false);
@@ -95,7 +90,7 @@ const LoginModal = (props) => {
 
     if (formIsValid) {
       setFormIsValid(true);
-      login(enteredUsername)
+      login(enteredUsername);
       if (hideMailLabel) {
         resetEmailInput();
       }
@@ -123,7 +118,13 @@ const LoginModal = (props) => {
         flexWrap='wrap'
       />
       <Box
-        h={{ base: '520px', sm: '520px', md: '420px', lg: '420px', xl: '420px' }}
+        h={{
+          base: '520px',
+          sm: '520px',
+          md: '420px',
+          lg: '420px',
+          xl: '420px',
+        }}
         display='flex'
         flexDirection='column'
         width={{
@@ -134,10 +135,10 @@ const LoginModal = (props) => {
           xl: '510px',
         }}
         position='fixed'
-        background= {`linear-gradient(to top, rgba(179, 224, 242, 0.9), rgba(0, 40, 85, 0.8)), url(${Starry})`}
-        backgroundPosition= 'center'
-        backgroundRepeat= 'no-repeat'
-        backgroundSize= 'cover'
+        background={`linear-gradient(to top, rgba(179, 224, 242, 0.9), rgba(0, 40, 85, 0.8)), url(${Starry})`}
+        backgroundPosition='center'
+        backgroundRepeat='no-repeat'
+        backgroundSize='cover'
         top='50%'
         left='50%'
         transform='translate(-50%, -50%)'
@@ -219,7 +220,7 @@ const LoginModal = (props) => {
                 value={enteredEmail}
                 type='email'
                 id='email'
-                autoComplete="email"
+                autoComplete='email'
                 style={{
                   fontFamily: 'ARCADECLASSIC',
                   width: '75%',
@@ -238,18 +239,18 @@ const LoginModal = (props) => {
             </Flex>
           )}
           {!hideMailLabel && emailHasError && (
-              <Box
-                color='red'
-                fontFamily='ARCADECLASSIC'
-                display='flex'
-                justifyContent={{
-                  base: 'center',
-                  sm: 'center',
-                  md: 'left',
-                }}
-              >
-                Enter a valid Email.
-              </Box>
+            <Box
+              color='red'
+              fontFamily='ARCADECLASSIC'
+              display='flex'
+              justifyContent={{
+                base: 'center',
+                sm: 'center',
+                md: 'left',
+              }}
+            >
+              Enter a valid Email.
+            </Box>
           )}
           <Flex
             my='5px'
@@ -294,7 +295,7 @@ const LoginModal = (props) => {
               value={enteredUsername}
               type='text'
               id='username'
-              autoComplete="username"
+              autoComplete='username'
               style={{
                 fontFamily: 'ARCADECLASSIC',
                 width: '75%',
@@ -312,18 +313,18 @@ const LoginModal = (props) => {
             />
           </Flex>
           {usernameHasError && (
-              <Box
-                color='red'
-                fontFamily='ARCADECLASSIC'
-                display='flex'
-                justifyContent={{
-                  base: 'center',
-                  sm: 'center',
-                  md: 'left',
-                }}
-              >
-                Enter a valid Username.
-              </Box>
+            <Box
+              color='red'
+              fontFamily='ARCADECLASSIC'
+              display='flex'
+              justifyContent={{
+                base: 'center',
+                sm: 'center',
+                md: 'left',
+              }}
+            >
+              Enter a valid Username.
+            </Box>
           )}
           <Flex
             my='5px'
@@ -368,7 +369,7 @@ const LoginModal = (props) => {
               value={enteredPassword}
               type='password'
               id='password'
-              autoComplete="current-password"
+              autoComplete='current-password'
               style={{
                 fontFamily: 'ARCADECLASSIC',
                 width: '75%',
@@ -386,28 +387,29 @@ const LoginModal = (props) => {
             />
           </Flex>
           {passwordHasError && (
-              <Box
-                display='flex'
-                justifyContent={{
-                  base: 'center',
-                  sm: 'center',
-                  md: 'left',
-                }}
-                color='red'
-                fontFamily='ARCADECLASSIC'
-              >
-                Enter a valid password.
-              </Box>
+            <Box
+              display='flex'
+              justifyContent={{
+                base: 'center',
+                sm: 'center',
+                md: 'left',
+              }}
+              color='red'
+              fontFamily='ARCADECLASSIC'
+            >
+              Enter a valid password.
+            </Box>
           )}
           <Flex
             flexDirection='column'
             my='3px'
             alignItems='center'
           >
-            <Box
-              p='8px'
-            >
-              <NavbarLogo logoHeight='19.5px' logoSSHeight='41.5px' />
+            <Box p='8px'>
+              <NavbarLogo
+                logoHeight='19.5px'
+                logoSSHeight='41.5px'
+              />
             </Box>
           </Flex>
           <Flex justifyContent='center'>

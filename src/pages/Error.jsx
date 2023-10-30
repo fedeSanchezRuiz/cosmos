@@ -19,47 +19,50 @@ const ErrorPage = () => {
   function navigateHandler() {
     navigate('..');
   }
+  const errorMessage = (
+    <Cardwrapper>
+      <Navbar />
+      <Box
+        className={classes.boxStyles}
+        mb={{
+          base: '-50px',
+          sm: '-35px',
+          md: '28px',
+          lg: '22px',
+          xl: '0',
+        }}
+      >
+        <Heading
+          className={classes.heading}
+          fontFamily='ARCADECLASSIC'
+        >
+          An error occured!
+        </Heading>
+        <Text className={classes.text}>
+          Could not find this page!
+        </Text>
+        <Flex justifyContent='center'>
+          <Image
+            className={classes.imageStyles}
+            src={Deathmask}
+            h={{
+              base: '300px',
+              sm: '300px',
+              md: '350px',
+              lg: '400px',
+              xl: '400px',
+            }}
+            onClick={navigateHandler}
+          />
+        </Flex>
+      </Box>
+    </Cardwrapper>
+  );
 
   const ErrorContent = () => {
     return (
       <>
-        <Cardwrapper>
-          <Navbar />
-          <Box
-            className={classes.boxStyles}
-            mb={{
-              base: '-50px',
-              sm: '-35px',
-              md: '28px',
-              lg: '22px',
-              xl: '0',
-            }}
-          >
-            <Heading
-              className={classes.heading}
-              fontFamily='ARCADECLASSIC'
-            >
-              An error occured!
-            </Heading>
-            <Text className={classes.text}>
-              Could not find this page!
-            </Text>
-            <Flex justifyContent='center'>
-              <Image
-                className={classes.imageStyles}
-                src={Deathmask}
-                h={{
-                  base: '300px',
-                  sm: '300px',
-                  md: '350px',
-                  lg: '400px',
-                  xl: '400px',
-                }}
-                onClick={navigateHandler}
-              />
-            </Flex>
-          </Box>
-        </Cardwrapper>
+        {errorMessage}
         <Footer />
       </>
     );

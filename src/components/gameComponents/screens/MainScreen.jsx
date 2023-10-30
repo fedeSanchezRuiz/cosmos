@@ -9,7 +9,6 @@ import SanctuaryClockBackground from '../../images/chapter1-img/Clock1.jpeg';
 import NightSkyBackground from '../../images/website-img/Total-Black1.jpg';
 
 const MainScreen = ({ onStepChange }) => {
-
   const [isDarkening, setIsDarkening] = useState(false);
 
   const activateDarkHandler = () => {
@@ -40,8 +39,7 @@ const MainScreen = ({ onStepChange }) => {
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
           }}
-        ></motion.div>
-
+        />
         <Flex
           flexDir='column'
           pb={{

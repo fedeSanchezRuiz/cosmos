@@ -50,7 +50,6 @@ const CardFrame = ({
           lg: '293px',
           xl: '295px',
         }}
-
         flexDir='column'
         alignItems='center'
         justifyContent='center'
@@ -138,9 +137,7 @@ const CardFrame = ({
           <motion.div
             variants={variants}
             initial='hidden'
-            animate={
-              visibleSpecialAttack ? 'visible' : 'hidden'
-            }
+            animate={visibleSpecialAttack ? 'visible' : 'hidden'}
           >
             <Flex
               justifyContent='center'

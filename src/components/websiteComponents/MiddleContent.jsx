@@ -7,6 +7,7 @@ import SilverSaints from '../../components/images/website-img/SilverSaints2.jpeg
 import GoldSaints from '../../components/images/website-img/GoldSaints.jpeg';
 import AsgardWarriors from '../../components/images/website-img/AsgardSaints.png';
 import PoseidonScales from '../../components/images/website-img/PoseidonSaints2.jpeg';
+import LoadingMessage from '../UI/LoadingMessage';
 
 const images = {
   BronzeSaints,
@@ -32,21 +33,29 @@ const addImageToCategory = (category) => {
 };
 
 const MiddleContent = () => {
-  const [saintCategoriesData, setSaintCategoriesData] = useState([]);
+  const [saintCategoriesData, setSaintCategoriesData] = useState(
+    []
+  );
+  const [isFetching, setIsFetching] = useState(false);
 
   useEffect(() => {
     const fetchSaintsCategoriesData = async () => {
+      setIsFetching(true);
       let url = 'http://localhost:3000/website';
       const response = await fetch(url);
       const data = await response.json();
       setSaintCategoriesData(data);
+      setIsFetching(false);
     };
     fetchSaintsCategoriesData();
   }, []);
 
-  const saintCategories = saintCategoriesData[0]?.saintsCategory?.map(addImageToCategory);
+  const saintCategories =
+    saintCategoriesData[0]?.saintsCategory?.map(
+      addImageToCategory
+    );
 
-  return (
+  const saintCategoriesDisplay = (
     <Flex
       justifyContent='center'
       wrap='wrap'
@@ -54,21 +63,45 @@ const MiddleContent = () => {
       {saintCategories?.map((category) => (
         <Box key={category.name}>
           <Link to={category.path}>
-          <Image
-            style={imageStyles}
-            _hover={{ filter: 'brightness(115%)', ...imageHoverStyles }}
-            w={{ base: '400px', sm: '450px', md: '500px', lg: '650px' }}
-            h={{ base: '210', sm: '270px', md: '320px', lg: '400px' }}
-            mt={{ base: '6px', sm: '8px', md: '10px', lg: '30px' }}
-            mx={{ sm: 'none', md: '10px', lg: '35px' }}
-            borderRadius='20px'
-            src={category.image}
-            alt={category.name}
-          />
+            <Image
+              style={imageStyles}
+              _hover={{
+                filter: 'brightness(115%)',
+                ...imageHoverStyles,
+              }}
+              w={{
+                base: '400px',
+                sm: '450px',
+                md: '500px',
+                lg: '650px',
+              }}
+              h={{
+                base: '210',
+                sm: '270px',
+                md: '320px',
+                lg: '400px',
+              }}
+              mt={{
+                base: '6px',
+                sm: '8px',
+                md: '10px',
+                lg: '30px',
+              }}
+              mx={{ sm: 'none', md: '10px', lg: '35px' }}
+              borderRadius='20px'
+              src={category.image}
+              alt={category.name}
+            />
           </Link>
         </Box>
       ))}
     </Flex>
+  );
+
+  return isFetching ? (
+    <LoadingMessage />
+  ) : (
+    saintCategoriesDisplay
   );
 };
 

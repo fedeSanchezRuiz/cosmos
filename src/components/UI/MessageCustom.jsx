@@ -1,5 +1,5 @@
-import { Flex, Heading, Image } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Flex, Heading, Image } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
 const imageStyles = {
   transition: 'transform 0.3s',
@@ -10,26 +10,25 @@ const imageHoverStyles = {
 };
 
 const MessageCustom = ({ src, text = 'Coming Soon!' }) => {
-
   return (
     <Flex
-        flexDir='column'
-        textAlign='center'
+      flexDir='column'
+      textAlign='center'
+    >
+      <Heading
+        mt='5%'
+        fontFamily='ARCADECLASSIC'
+        fontSize={{
+          base: '30px',
+          sm: '32px',
+          md: '36px',
+          lg: '40px',
+          xl: '50px',
+        }}
       >
-        <Heading
-          mt='5%'
-          fontFamily='ARCADECLASSIC'
-          fontSize={{
-            base: '30px',
-            sm: '32px',
-            md: '36px',
-            lg: '40px',
-            xl: '50px',
-          }}
-        >
-          {text}
-        </Heading>
-        <Link to='..'>
+        {text}
+      </Heading>
+      <Link to='..'>
         <Image
           mt='2%'
           w={{
@@ -50,9 +49,9 @@ const MessageCustom = ({ src, text = 'Coming Soon!' }) => {
           style={imageStyles}
           _hover={imageHoverStyles}
         />
-        </Link>
-      </Flex>
-  )
+      </Link>
+    </Flex>
+  );
 };
 
 export default MessageCustom;

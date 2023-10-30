@@ -1,7 +1,14 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-const FlashMessage = ({ isVisible, setIsVisible, text, fontSize, style, duration }) => {
+const FlashMessage = ({
+  isVisible,
+  setIsVisible,
+  text,
+  fontSize,
+  style,
+  duration,
+}) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(false);

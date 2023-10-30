@@ -5,21 +5,29 @@ import logoSS from '../../images/website-img/SS-Logo.webp';
 
 const imageStyles = {
   transition: 'transform 0.3s',
-  opacity: '0.6'
+  opacity: '0.6',
 };
 
 const imageHoverStyles = {
   transform: 'scale(1.03)',
 };
 
-export const NavbarLogo = ({ logoWidth, logoHeight, logoSSWidth, logoSSHeight, disableLink }) => {
-
+export const NavbarLogo = ({
+  logoWidth,
+  logoHeight,
+  logoSSWidth,
+  logoSSHeight,
+  disableLink,
+}) => {
   const navbarContent = (
     <Flex alignItems='center'>
       <Box
         p='8px'
         style={imageStyles}
-        _hover={{ filter: 'brightness(90%)', ...imageHoverStyles }}
+        _hover={{
+          filter: 'brightness(90%)',
+          ...imageHoverStyles,
+        }}
       >
         <Image
           src={logoSS}
@@ -40,14 +48,11 @@ export const NavbarLogo = ({ logoWidth, logoHeight, logoSSWidth, logoSSHeight, d
 
   return (
     <Heading as='h1'>
-      {
-        disableLink ?
+      {disableLink ? (
         navbarContent
-        :
-      <Link to='/'>
-        {navbarContent}
-      </Link>
-     } 
+      ) : (
+        <Link to='/'>{navbarContent}</Link>
+      )}
     </Heading>
-  )
+  );
 };
