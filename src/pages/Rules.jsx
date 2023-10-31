@@ -110,11 +110,11 @@ const Rules = () => {
                 matching the round, damage in that round is 0.
               </li>
               <li>
-                If you reach round 7th and beyond, the dice count
-                is reset. For example, round 7 is equivalent to
-                round 1, and so, only 1s will be counted as
-                damage. Round 8 is equivalent to round 2 and so
-                on.
+                If you reach the seventh round and beyond, the
+                dice count resets. For example, round 7 is
+                equivalent to round 1, so only 1s will be
+                counted as damage. Round 8 is equivalent to round
+                2 and so on.
               </li>
               <li>
                 Each character has a special attack that will be
