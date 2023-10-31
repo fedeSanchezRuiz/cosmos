@@ -6,19 +6,30 @@ import MessageCustom from '../components/UI/MessageCustom';
 import shakaMeditate from '../../src/components/images/website-img/ShakaMeditation.png';
 import BronzeSaints from '../components/websiteComponents/charactersProfile/BronzeSaints';
 import BlackSaints from '../components/websiteComponents/charactersProfile/BlackSaints';
+import ErrorCustom from '../components/UI/ErrorCustom';
 
 const CharacterDetails = () => {
   const isBronzeMatch = useMatch('/characters/Bronze');
-  const isBlackMatch = useMatch('characters/Black');
+  const isBlackMatch = useMatch('/characters/Black');
+  const isSilverMatch = useMatch('/characters/Silver');
+  const isGoldMatch = useMatch('/characters/Gold');
+  const isAsgardMatch = useMatch('/characters/Asgard');
+  const isPoseidonMatch = useMatch('/characters/Poseidon');
 
-  let saintsToRender = '';
+  let saintsToRender;
 
-  if (isBronzeMatch) {
-    saintsToRender = <BronzeSaints />;
-  } else if (isBlackMatch) {
-    saintsToRender = <BlackSaints />;
-  } else {
-    saintsToRender = <MessageCustom src={shakaMeditate} />;
+  switch (true) {
+    case !!isBronzeMatch:
+      saintsToRender = <BronzeSaints />;
+      break;
+    case !!isBlackMatch:
+      saintsToRender = <BlackSaints />;
+      break;
+    case !!isSilverMatch || !!isGoldMatch || !!isAsgardMatch || !!isPoseidonMatch:
+      saintsToRender = <MessageCustom src={shakaMeditate} />;
+      break;
+    default:
+      saintsToRender = <ErrorCustom title='404' message='Page not Found' />;
   }
 
   return (

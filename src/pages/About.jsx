@@ -71,7 +71,7 @@ const About = () => {
     </Flex>
   );
 
-  const MuExplain = (
+  const muExplain = (
     <Image
       maxH='550px'
       display={{
@@ -127,8 +127,9 @@ const About = () => {
     <Flex
       width={{ base: '0%', sm: '0%', md: '50%' }}
       justifyContent='center'
+      alignItems='center'
     >
-      {MuExplain}
+      {muExplain}
     </Flex>
   );
 

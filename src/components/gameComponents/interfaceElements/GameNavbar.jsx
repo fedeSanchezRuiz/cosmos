@@ -1,14 +1,17 @@
 import { Flex } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import HeartIcon from './HeartIcon';
+import AuthContext from '../../../context/authContext';
+import { useContext } from 'react';
 
 export default function GameNavbar({
-  username,
   heartCount,
   isVisible,
   livesLost,
   color,
 }) {
+  const { username } = useContext(AuthContext);
+
   return (
     isVisible && (
       <motion.div

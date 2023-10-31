@@ -85,42 +85,44 @@ const LoginModal = (props) => {
 
   const formLoginHandler = async (event) => {
     event.preventDefault();
-  
+
     const userData = {
       email: enteredEmail,
       username: enteredUsername,
       password: enteredPassword,
     };
-  
+
     if (formIsValid) {
       try {
         const url = 'http://localhost:3000/users';
         const response = await fetch(url, {
           method: 'POST',
           headers: {
-            'Content-type': 'application/json'
+            'Content-type': 'application/json',
           },
-          body: JSON.stringify(userData)
+          body: JSON.stringify(userData),
         });
-  
+
         if (!response.ok) {
-          throw new Error('Failed to login, please try again later');
+          throw new Error(
+            'Failed to login, please try again later'
+          );
         }
-  
+
         const responseData = await response.json();
         login(responseData.username);
-  
+
         if (hideMailLabel) {
           resetEmailInput();
         }
         resetUsernameInput();
         resetPasswordInput();
-      } catch(error) {
+      } catch (error) {
         setError(error.message);
       }
     }
   };
-  
+
   if (error) {
     return <ErrorCustom message={error.message} />;
   }
