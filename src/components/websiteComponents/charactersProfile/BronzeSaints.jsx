@@ -12,6 +12,7 @@ import Geki from '../../images/bronze-img/GekiOso.jpeg';
 import Ichi from '../../images/bronze-img/IchiHydra.jpeg';
 import Nachi from '../../images/bronze-img/NachiLobo.jpeg';
 import LoadingMessage from '../../UI/LoadingMessage';
+import ErrorCustom from '../../UI/ErrorCustom';
 
 const images = {
   Seiya,
@@ -35,18 +36,32 @@ const addImageToCard = (card) => {
 const BronzeSaints = () => {
   const [bronzeSaintsData, setBronzeSaintsData] = useState([]);
   const [isFetching, setIsFetching] = useState(false);
+  const [error, setError] = useState();
 
   useEffect(() => {
     const fetchBronzeSaintsData = async () => {
       setIsFetching(true);
       let url = 'http://localhost:3000/website';
-      const response = await fetch(url);
-      const data = await response.json();
-      setBronzeSaintsData(data);
+
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch Bronze Saints');
+        }
+        setBronzeSaintsData(data);
+      } catch (error) {
+        setError(error);
+      }
       setIsFetching(false);
     };
     fetchBronzeSaintsData();
   }, []);
+
+  if (error) {
+    return <ErrorCustom message={error.message} />;
+  }
 
   const bronzeSaints =
     bronzeSaintsData[0]?.bronze?.map(addImageToCard);

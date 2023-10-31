@@ -79,20 +79,62 @@
     {
       "id": 1,
       "saintsCategory": [
-        { "name": "BronzeSaints", "image": "BronzeSaints", "path": "/characters/Bronze" },
-        { "name": "BlackSaints", "image": "BlackSaints", "path": "/characters/Black" },
-        { "name": "SilverSaints", "image": "SilverSaints", "path": "/characters/Silver" },
-        { "name": "GoldSaints", "image": "GoldSaints", "path": "/characters/Gold" },
-        { "name": "AsgardWarriors", "image": "AsgardWarriors", "path": "/characters/Asgard" },
-        { "name": "PoseidonScales", "image": "PoseidonScales", "path": "/characters/Poseidon" }
+        {
+          "name": "BronzeSaints",
+          "image": "BronzeSaints",
+          "path": "/characters/Bronze"
+        },
+        {
+          "name": "BlackSaints",
+          "image": "BlackSaints",
+          "path": "/characters/Black"
+        },
+        {
+          "name": "SilverSaints",
+          "image": "SilverSaints",
+          "path": "/characters/Silver"
+        },
+        {
+          "name": "GoldSaints",
+          "image": "GoldSaints",
+          "path": "/characters/Gold"
+        },
+        {
+          "name": "AsgardWarriors",
+          "image": "AsgardWarriors",
+          "path": "/characters/Asgard"
+        },
+        {
+          "name": "PoseidonScales",
+          "image": "PoseidonScales",
+          "path": "/characters/Poseidon"
+        }
       ],
       "features": [
-        { "label": "Name", "key": "name" },
-        { "label": "Country", "key": "country" },
-        { "label": "Age", "key": "age" },
-        { "label": "Height", "key": "height" },
-        { "label": "Weight", "key": "weight" },
-        { "label": "Cloth", "key": "cloth" }
+        {
+          "label": "Name",
+          "key": "name"
+        },
+        {
+          "label": "Country",
+          "key": "country"
+        },
+        {
+          "label": "Age",
+          "key": "age"
+        },
+        {
+          "label": "Height",
+          "key": "height"
+        },
+        {
+          "label": "Weight",
+          "key": "weight"
+        },
+        {
+          "label": "Cloth",
+          "key": "cloth"
+        }
       ],
       "bronze": [
         {
@@ -102,7 +144,10 @@
           "height": "1.65cm",
           "weight": "53kg",
           "cloth": "Pegasus",
-          "attacks": ["Pegasus Meteor Fist", "Pegasus Comet Fist"],
+          "attacks": [
+            "Pegasus Meteor Fist",
+            "Pegasus Comet Fist"
+          ],
           "source": "Seiya",
           "type": "bronze"
         },
@@ -113,7 +158,10 @@
           "height": "1.72cm",
           "weight": "53kg",
           "cloth": "Dragon",
-          "attacks": ["Rozan Rising Dragon", "Rozan Flying Dragon"],
+          "attacks": [
+            "Rozan Rising Dragon",
+            "Rozan Flying Dragon"
+          ],
           "source": "Shiryu",
           "type": "bronze"
         },
@@ -124,7 +172,10 @@
           "height": "1.73cm",
           "weight": "60kg",
           "cloth": "Cygnus",
-          "attacks": ["Diamond Dust", "Aurora Thunder Attack"],
+          "attacks": [
+            "Diamond Dust",
+            "Aurora Thunder Attack"
+          ],
           "source": "Hyoga",
           "type": "bronze"
         },
@@ -135,7 +186,10 @@
           "height": "1.65cm",
           "weight": "51kg",
           "cloth": "Andromeda",
-          "attacks": ["Nebula Chain", "Rolling Defense"],
+          "attacks": [
+            "Nebula Chain",
+            "Rolling Defense"
+          ],
           "source": "Shun",
           "type": "bronze"
         },
@@ -146,7 +200,10 @@
           "height": "1.75cm",
           "weight": "62kg",
           "cloth": "Phoenix",
-          "attacks": ["Phoenix's Wings Rise", "Phoenix's Illusion Demon Fist"],
+          "attacks": [
+            "Phoenix's Wings Rise",
+            "Phoenix's Illusion Demon Fist"
+          ],
           "source": "Ikki",
           "type": "bronze"
         },
@@ -157,7 +214,9 @@
           "height": "1.65cm",
           "weight": "55kg",
           "cloth": "Unicorn",
-          "attacks": ["Unicorn Gallop"],
+          "attacks": [
+            "Unicorn Gallop"
+          ],
           "source": "Jabu",
           "type": "bronze"
         },
@@ -168,7 +227,9 @@
           "height": "1.81cm",
           "weight": "83kg",
           "cloth": "Lionet",
-          "attacks": ["Lionet Bomber"],
+          "attacks": [
+            "Lionet Bomber"
+          ],
           "source": "Ban",
           "type": "bronze"
         },
@@ -179,7 +240,9 @@
           "height": "1.88cm",
           "weight": "102kg",
           "cloth": "Bear",
-          "attacks": ["Hanging Bear"],
+          "attacks": [
+            "Hanging Bear"
+          ],
           "source": "Geki",
           "type": "bronze"
         },
@@ -190,7 +253,9 @@
           "height": "1.70cm",
           "weight": "56kg",
           "cloth": "Hydra",
-          "attacks": ["Hydra Fangs"],
+          "attacks": [
+            "Hydra Fangs"
+          ],
           "source": "Ichi",
           "type": "bronze"
         },
@@ -201,7 +266,9 @@
           "height": "1.71cm",
           "weight": "57kg",
           "cloth": "Wolf",
-          "attacks": ["Dead Howling"],
+          "attacks": [
+            "Dead Howling"
+          ],
           "source": "Nachi",
           "type": "bronze"
         }
@@ -214,7 +281,9 @@
           "height": "1.70cm",
           "weight": "58kg",
           "cloth": "BlackPegasus",
-          "attacks": ["Black Meteor Fist"],
+          "attacks": [
+            "Black Meteor Fist"
+          ],
           "source": "PegasusBlack",
           "type": "black"
         },
@@ -225,7 +294,9 @@
           "height": "1.73cm",
           "weight": "62kg",
           "cloth": "BlackDragon",
-          "attacks": ["Black Rising Dragon"],
+          "attacks": [
+            "Black Rising Dragon"
+          ],
           "source": "DragonBlack",
           "type": "black"
         },
@@ -236,7 +307,9 @@
           "height": "1.73cm",
           "weight": "61kg",
           "cloth": "BlackCygnus",
-          "attacks": ["Black Blizzard"],
+          "attacks": [
+            "Black Blizzard"
+          ],
           "source": "CygnusBlack",
           "type": "black"
         },
@@ -247,7 +320,9 @@
           "height": "1.70cm",
           "weight": "58kg",
           "cloth": "BlackAndromeda",
-          "attacks": ["Black Fang Nebula"],
+          "attacks": [
+            "Black Fang Nebula"
+          ],
           "source": "AndromedaBlack",
           "type": "black"
         },
@@ -258,11 +333,27 @@
           "height": "unknown",
           "weight": "unknown",
           "cloth": "BlackPhoenix",
-          "attacks": ["Black Phoenix Illusion"],
+          "attacks": [
+            "Black Phoenix Illusion"
+          ],
           "source": "PhoenixBlack",
           "type": "black"
         }
       ]
+    }
+  ],
+  "users": [
+    {
+      "email": "sanchezruizfederico@gmail.com",
+      "username": "Fedexa",
+      "password": "k ndnvpknns",
+      "id": "Ha3IzOx"
+    },
+    {
+      "email": "fede_sanchezruiz@hotmail.com",
+      "username": "Fetuchini",
+      "password": "mcsampclsmpkm",
+      "id": "iFXVnHV"
     }
   ]
 }

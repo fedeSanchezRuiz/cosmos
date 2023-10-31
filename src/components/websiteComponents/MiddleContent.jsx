@@ -8,6 +8,7 @@ import GoldSaints from '../../components/images/website-img/GoldSaints.jpeg';
 import AsgardWarriors from '../../components/images/website-img/AsgardSaints.png';
 import PoseidonScales from '../../components/images/website-img/PoseidonSaints2.jpeg';
 import LoadingMessage from '../UI/LoadingMessage';
+import ErrorCustom from '../UI/ErrorCustom';
 
 const images = {
   BronzeSaints,
@@ -37,18 +38,32 @@ const MiddleContent = () => {
     []
   );
   const [isFetching, setIsFetching] = useState(false);
+  const [error, setError] = useState();
 
   useEffect(() => {
     const fetchSaintsCategoriesData = async () => {
       setIsFetching(true);
       let url = 'http://localhost:3000/website';
-      const response = await fetch(url);
-      const data = await response.json();
-      setSaintCategoriesData(data);
+
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch Saint Categories');
+        }
+        setSaintCategoriesData(data);
+      } catch (error) {
+        setError(error);
+      }
       setIsFetching(false);
     };
     fetchSaintsCategoriesData();
   }, []);
+
+  if (error) {
+    return <ErrorCustom message={error.message} />;
+  }
 
   const saintCategories =
     saintCategoriesData[0]?.saintsCategory?.map(

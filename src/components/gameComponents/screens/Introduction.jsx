@@ -5,17 +5,32 @@ import ButtonCustom from '../../UI/ButtonCustom';
 import useTypewriter from '../../hooks/useTypewriter';
 import ScreenCard from '../interfaceElements/ScreenCard';
 import NightSkyBackground from '../../images/website-img/Total-Black1.jpg';
+import Cardwrapper from '../../UI/CardWrapper';
+import ErrorCustom from '../../UI/ErrorCustom';
+import Footer from '../../UI/Footer';
 
 const Introduction = ({ onStepChange }) => {
   const [introTextData, setIntroTextData] = useState([]);
+  const [error, setError] = useState();
   const [isClicked, setIsClicked] = useState(false);
 
   useEffect(() => {
     const fetchIntroTextData = async () => {
       let url = 'http://localhost:3000/chapters';
-      const response = await fetch(url);
-      const data = await response.json();
-      setIntroTextData(data);
+
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(
+            'Failed to load game data, please try again later'
+          );
+        }
+        setIntroTextData(data);
+      } catch (error) {
+        setError(error);
+      }
     };
     fetchIntroTextData();
   }, []);
@@ -43,6 +58,33 @@ const Introduction = ({ onStepChange }) => {
       window.removeEventListener('click', handleClick);
     };
   }, [setDisplayedText, setIsTypingCompleted, introText]);
+
+  if (error) {
+    return (
+      <>
+        <Cardwrapper>
+          <ErrorCustom
+            imageHeight={{
+              base: '270px',
+              sm: '300px',
+              md: '350px',
+              lg: '380px',
+              xl: '400px',
+            }}
+            marginTop={{
+              base: '15%',
+              sm: '14%',
+              md: '3%',
+              lg: '0%',
+              xl: '-2%',
+            }}
+            message={error.message}
+          />
+        </Cardwrapper>
+        <Footer />
+      </>
+    );
+  }
 
   const goToFightHandler = () => {
     setIsClicked(true);

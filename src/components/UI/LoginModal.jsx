@@ -5,6 +5,7 @@ import AuthContext from '../../context/authContext';
 import useInput from '../hooks/useInput';
 import Starry from '../../components/images/website-img/StarryBack.jpeg';
 import Night from '../../components/images/website-img/NightSkyBack.jpeg';
+import ErrorCustom from './ErrorCustom';
 
 const buttonProps = {
   background: `linear-gradient(to bottom, rgba(255, 255, 204, 1), rgba(218, 165, 32, 0.6)), url(${Night})`,
@@ -23,6 +24,7 @@ const LoginModal = (props) => {
   const { login } = useContext(AuthContext);
   const [hideMailLabel, setHideMailLabel] = useState(false);
   const [formIsValid, setFormIsValid] = useState(false);
+  const [error, setError] = useState();
 
   const {
     value: enteredEmail,
@@ -81,24 +83,47 @@ const LoginModal = (props) => {
     setHideMailLabel(false);
   };
 
-  const formLoginHandler = () => {
+  const formLoginHandler = async (event) => {
+    event.preventDefault();
+  
     const userData = {
       email: enteredEmail,
       username: enteredUsername,
       password: enteredPassword,
     };
-
+  
     if (formIsValid) {
-      setFormIsValid(true);
-      login(enteredUsername);
-      if (hideMailLabel) {
-        resetEmailInput();
+      try {
+        const url = 'http://localhost:3000/users';
+        const response = await fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-type': 'application/json'
+          },
+          body: JSON.stringify(userData)
+        });
+  
+        if (!response.ok) {
+          throw new Error('Failed to login, please try again later');
+        }
+  
+        const responseData = await response.json();
+        login(responseData.username);
+  
+        if (hideMailLabel) {
+          resetEmailInput();
+        }
+        resetUsernameInput();
+        resetPasswordInput();
+      } catch(error) {
+        setError(error.message);
       }
-      resetUsernameInput();
-      resetPasswordInput();
     }
-    console.log(userData);
   };
+  
+  if (error) {
+    return <ErrorCustom message={error.message} />;
+  }
 
   const closeModalHandler = () => {
     props.onClosingModal();

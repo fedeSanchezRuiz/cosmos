@@ -6,15 +6,27 @@ import {
   Text,
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
-import Cardwrapper from './CardWrapper';
 import Navbar from './navbar/Navbar';
-import Footer from './Footer';
-import ReactDOM from 'react-dom';
 import classes from './ErrorCustom.module.css';
 import Deathmask from '../images/website-img/DM.png';
 
 const ErrorCustom = ({
-  errorMessage = 'Could not find this page!',
+  title = 'An error occurred!',
+  message = 'Could not find this page!',
+  imageHeight = {
+    base: '230px',
+    sm: '280px',
+    md: '330px',
+    lg: '340px',
+    xl: '350px',
+  },
+  marginTop = {
+    base: '20%',
+    sm: '17%',
+    md: '6%',
+    lg: '4%',
+    xl: '3%'
+  },
 }) => {
   const navigate = useNavigate();
 
@@ -22,53 +34,34 @@ const ErrorCustom = ({
     navigate('..');
   }
 
-  const errorElement = (
-    <>
-      <Cardwrapper>
-        <Navbar />
-        <Box
-          className={classes.boxStyles}
-          mb={{
-            base: '-50px',
-            sm: '-35px',
-            md: '20px',
-            lg: '18px',
-            xl: '10px',
-          }}
-        >
-          <Heading
-            className={classes.heading}
-            fontFamily='ARCADECLASSIC'
-          >
-            An error occurred!
-          </Heading>
-          <Text className={classes.text}>{errorMessage}</Text>
-          <Flex justifyContent='center'>
-            <Image
-              className={classes.imageStyles}
-              src={Deathmask}
-              h={{
-                base: '300px',
-                sm: '300px',
-                md: '350px',
-                lg: '400px',
-                xl: '400px',
-              }}
-              onClick={navigateHandler}
-            />
-          </Flex>
-        </Box>
-      </Cardwrapper>
-      <Footer />
-    </>
-  );
-
   return (
     <>
-      {ReactDOM.createPortal(
-        errorElement,
-        document.getElementById('error-root')
-      )}
+      <Navbar />
+      <Box
+        className={classes.boxStyles}
+      >
+        <Heading
+          className={classes.heading}
+          fontFamily='ARCADECLASSIC'
+          mt={marginTop}
+        >
+          {title}
+        </Heading>
+        <Text
+          className={classes.text}
+          wordSpacing='2px'
+        >
+          {message}
+        </Text>
+        <Flex justifyContent='center'>
+          <Image
+            className={classes.imageStyles}
+            src={Deathmask}
+            h={imageHeight}
+            onClick={navigateHandler}
+          />
+        </Flex>
+      </Box>
     </>
   );
 };

@@ -10,11 +10,15 @@ import CardCollection from '../cardDesigns/CardCollection';
 import useTypewriter from '../../hooks/useTypewriter';
 import PopeAresBackground from '../../images/chapter1-img/PopeAresCut.jpeg';
 import PegasusBox from '../../images/chapter1-img/PegasusBox2.png';
+import Cardwrapper from '../../UI/CardWrapper';
+import ErrorCustom from '../../UI/ErrorCustom';
+import Footer from '../../UI/Footer';
 
 const TEXT_HIDE_DISTANCE = -300;
 
 const Congratulations = () => {
   const [endingTextData, setEndingTextData] = useState([]);
+  const [error, setError] = useState();
   const [isClicked, setIsClicked] = useState(false);
   const [prizesVisible, setPrizesVisible] = useState(false);
   const [boxVisible, setBoxVisible] = useState(true);
@@ -26,9 +30,20 @@ const Congratulations = () => {
   useEffect(() => {
     const fetchEndingTextData = async () => {
       let url = 'http://localhost:3000/chapters';
-      const response = await fetch(url);
-      const data = await response.json();
-      setEndingTextData(data);
+
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(
+            'Failed to load game data, please try again later'
+          );
+        }
+        setEndingTextData(data);
+      } catch (error) {
+        setError(error);
+      }
     };
     fetchEndingTextData();
   }, []);
@@ -73,6 +88,33 @@ const Congratulations = () => {
     }),
     [isTypingCompleted, isClicked]
   );
+
+  if (error) {
+    return (
+      <>
+        <Cardwrapper>
+          <ErrorCustom
+            imageHeight={{
+              base: '270px',
+              sm: '300px',
+              md: '350px',
+              lg: '380px',
+              xl: '400px',
+            }}
+            marginTop={{
+              base: '15%',
+              sm: '14%',
+              md: '3%',
+              lg: '0%',
+              xl: '-2%',
+            }}
+            message={error.message}
+          />
+        </Cardwrapper>
+        <Footer />
+      </>
+    );
+  }
 
   const handleImageClick = () => {
     setTimeout(() => {
