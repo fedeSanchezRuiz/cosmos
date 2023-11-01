@@ -13,12 +13,14 @@ import PegasusBox from '../../images/chapter1-img/PegasusBox2.png';
 import Cardwrapper from '../../UI/CardWrapper';
 import ErrorCustom from '../../UI/ErrorCustom';
 import Footer from '../../UI/Footer';
+import { useFetch } from '../../hooks/useFetch';
 
 const TEXT_HIDE_DISTANCE = -300;
 
 const Congratulations = () => {
-  const [endingTextData, setEndingTextData] = useState([]);
-  const [error, setError] = useState();
+  const fetchUrl = 'http://localhost:3000/chapters';
+  const errorMessage =
+    'Failed to load game data, please try again later';
   const [isClicked, setIsClicked] = useState(false);
   const [prizesVisible, setPrizesVisible] = useState(false);
   const [boxVisible, setBoxVisible] = useState(true);
@@ -27,28 +29,15 @@ const Congratulations = () => {
   const [thanksForPlaying, setThanksForPlaying] =
     useState(false);
 
-  useEffect(() => {
-    const fetchEndingTextData = async () => {
-      let url = 'http://localhost:3000/chapters';
+  const { error, fetchedData } = useFetch(
+    fetch,
+    fetchUrl,
+    errorMessage
+  );
 
-      try {
-        const response = await fetch(url);
-        const data = await response.json();
-
-        if (!response.ok) {
-          throw new Error(
-            'Failed to load game data, please try again later'
-          );
-        }
-        setEndingTextData(data);
-      } catch (error) {
-        setError(error);
-      }
-    };
-    fetchEndingTextData();
-  }, []);
-
-  const endingText = endingTextData[0]?.endingText;
+  const endingText = fetchedData
+    ? fetchedData[0]?.endingText
+    : [];
 
   const {
     displayedText,
@@ -108,7 +97,7 @@ const Congratulations = () => {
               lg: '0%',
               xl: '-2%',
             }}
-            message={error.message}
+            message={errorMessage}
           />
         </Cardwrapper>
         <Footer />

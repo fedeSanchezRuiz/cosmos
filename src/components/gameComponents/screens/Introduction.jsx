@@ -8,34 +8,21 @@ import NightSkyBackground from '../../images/website-img/Total-Black1.jpg';
 import Cardwrapper from '../../UI/CardWrapper';
 import ErrorCustom from '../../UI/ErrorCustom';
 import Footer from '../../UI/Footer';
+import { useFetch } from '../../hooks/useFetch';
 
 const Introduction = ({ onStepChange }) => {
-  const [introTextData, setIntroTextData] = useState([]);
-  const [error, setError] = useState();
+  const fetchUrl = 'http://localhost:3000/chapters';
+  const errorMessage =
+    'Failed to load game data, please try again later';
   const [isClicked, setIsClicked] = useState(false);
 
-  useEffect(() => {
-    const fetchIntroTextData = async () => {
-      let url = 'http://localhost:3000/chapters';
+  const { error, fetchedData } = useFetch(
+    fetch,
+    fetchUrl,
+    errorMessage
+  );
 
-      try {
-        const response = await fetch(url);
-        const data = await response.json();
-
-        if (!response.ok) {
-          throw new Error(
-            'Failed to load game data, please try again later'
-          );
-        }
-        setIntroTextData(data);
-      } catch (error) {
-        setError(error);
-      }
-    };
-    fetchIntroTextData();
-  }, []);
-
-  const introText = introTextData[0]?.introText;
+  const introText = fetchedData ? fetchedData[0]?.introText : [];
 
   const {
     displayedText,
@@ -78,7 +65,7 @@ const Introduction = ({ onStepChange }) => {
               lg: '0%',
               xl: '-2%',
             }}
-            message={error.message}
+            message={errorMessage}
           />
         </Cardwrapper>
         <Footer />

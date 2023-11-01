@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { Flex, Image, Box } from '@chakra-ui/react';
 import classes from './Saints.module.css';
 import Seiya from '../../images/bronze-img/SeiyaPegasus2.jpeg';
@@ -13,6 +12,7 @@ import Ichi from '../../images/bronze-img/IchiHydra.jpeg';
 import Nachi from '../../images/bronze-img/NachiLobo.jpeg';
 import LoadingMessage from '../../UI/LoadingMessage';
 import ErrorCustom from '../../UI/ErrorCustom';
+import { useFetch } from '../../hooks/useFetch';
 
 const images = {
   Seiya,
@@ -34,38 +34,23 @@ const addImageToCard = (card) => {
 };
 
 const BronzeSaints = () => {
-  const [bronzeSaintsData, setBronzeSaintsData] = useState([]);
-  const [isFetching, setIsFetching] = useState(false);
-  const [error, setError] = useState();
+  const fetchUrl = 'http://localhost:3000/website';
+  const errorMessage = 'Failed to fetch Bronze Saints';
 
-  useEffect(() => {
-    const fetchBronzeSaintsData = async () => {
-      setIsFetching(true);
-      let url = 'http://localhost:3000/website';
-
-      try {
-        const response = await fetch(url);
-        const data = await response.json();
-
-        if (!response.ok) {
-          throw new Error('Failed to fetch Bronze Saints');
-        }
-        setBronzeSaintsData(data);
-      } catch (error) {
-        setError(error);
-      }
-      setIsFetching(false);
-    };
-    fetchBronzeSaintsData();
-  }, []);
+  const { isFetching, error, fetchedData } = useFetch(
+    fetch,
+    fetchUrl,
+    errorMessage
+  );
 
   if (error) {
-    return <ErrorCustom message={error.message} />;
+    return <ErrorCustom message={errorMessage} />;
   }
 
-  const bronzeSaints =
-    bronzeSaintsData[0]?.bronze?.map(addImageToCard);
-  const features = bronzeSaintsData[0]?.features;
+  const bronzeSaints = fetchedData
+    ? fetchedData[0]?.bronze?.map(addImageToCard)
+    : [];
+  const features = fetchedData ? fetchedData[0]?.features : [];
 
   const renderSaintFeatures = (saint) =>
     features?.map((feature) => (

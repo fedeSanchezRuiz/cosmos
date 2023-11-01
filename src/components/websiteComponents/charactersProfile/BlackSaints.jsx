@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { Flex, Image, Box } from '@chakra-ui/react';
 import classes from './Saints.module.css';
 import PegasusBlack from '../../images/black-img/BlackPegasus.jpeg';
@@ -8,6 +7,7 @@ import AndromedaBlack from '../../images/black-img/BlackAndromeda.jpeg';
 import PhoenixBlack from '../../images/black-img/BlackPhoenix.jpeg';
 import LoadingMessage from '../../UI/LoadingMessage';
 import ErrorCustom from '../../UI/ErrorCustom';
+import { useFetch } from '../../hooks/useFetch';
 
 const images = {
   PegasusBlack,
@@ -24,38 +24,21 @@ const addImageToCard = (card) => {
 };
 
 const BlackSaints = () => {
-  const [blackSaintsData, setBlackSaintsData] = useState([]);
-  const [isFetching, setIsFetching] = useState(false);
-  const [error, setError] = useState();
+  const fetchUrl = 'http://localhost:3000/website';
+  const errorMessage = 'Failed to fetch Black Saints';
 
-  useEffect(() => {
-    const fetchBlackSaintsData = async () => {
-      setIsFetching(true);
-      let url = 'http://localhost:3000/website';
-
-      try {
-        const response = await fetch(url);
-        const data = await response.json();
-
-        if (!response.ok) {
-          throw new Error('Failed to fetch Black Saints');
-        }
-        setBlackSaintsData(data);
-      } catch (error) {
-        setError(error);
-      }
-      setIsFetching(false);
-    };
-    fetchBlackSaintsData();
-  }, []);
+  const { isFetching, error, fetchedData } = useFetch(
+    fetch,
+    fetchUrl,
+    errorMessage
+  );
 
   if (error) {
-    return <ErrorCustom message={error.message} />;
+    return <ErrorCustom message={errorMessage} />;
   }
 
-  const blackSaints =
-    blackSaintsData[0]?.black?.map(addImageToCard);
-  const features = blackSaintsData[0]?.features;
+  const blackSaints = fetchedData ? fetchedData[0]?.black?.map(addImageToCard) : [];
+  const features = fetchedData ? fetchedData[0]?.features : [];
 
   const renderSaintProperties = (saint) =>
     features?.map((feature) => (
