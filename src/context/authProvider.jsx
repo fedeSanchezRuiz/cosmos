@@ -6,7 +6,7 @@ export const AuthProvider = ({ children }) => {
     JSON.parse(localStorage.getItem('isLoggedIn')) || false
   );
   const [username, setUsername] = useState(
-    localStorage.getItem('username') || null
+    localStorage.getItem('username') || 'Player1'
   );
 
   useEffect(() => {
@@ -38,7 +38,7 @@ export const AuthProvider = ({ children }) => {
 
   const logout = () => {
     setIsLoggedIn(false);
-    setUsername(null);
+    setUsername('Player1');
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('username');
     localStorage.removeItem('expirationTime');

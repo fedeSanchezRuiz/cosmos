@@ -329,8 +329,8 @@ const FightStage = ({ onStepChange }) => {
       </AnimatePresence>
       <Flex
         w={{
-          base: '86.5%',
-          sm: '89%',
+          base: '81%',
+          sm: '85.5%',
           md: '88%',
           lg: '88%',
           xl: '88%',

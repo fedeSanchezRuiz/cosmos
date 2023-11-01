@@ -1,12 +1,12 @@
 import { Flex, Heading, Image } from '@chakra-ui/react';
-import DohkoOld from '../components/images/website-img/DohkoOld.png';
 import classes from './Rules.module.css';
+import AriesMu from '../components/images/website-img/AriesMu.png'
 import Scroll from '../../src/components/images/website-img/ScrollPaperB.webp';
 
 const Rules = () => {
-  const dohkoExplain = (
+  const muExplain = (
     <Image
-      maxH='450px'
+      maxH='550px'
       display={{
         base: 'none',
         sm: 'none',
@@ -14,17 +14,17 @@ const Rules = () => {
         lg: 'block',
         xl: 'block',
       }}
-      src={DohkoOld}
+      src={AriesMu}
     />
   );
 
-  const dohkoExplanation = (
+  const muExplanation = (
     <Flex
       width={{ base: '0%', sm: '0%', md: '50%' }}
       justifyContent='center'
       alignItems='center'
     >
-      {dohkoExplain}
+      {muExplain}
     </Flex>
   );
 
@@ -42,6 +42,7 @@ const Rules = () => {
         backgroundImage: `url(${Scroll})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
+        filter: 'brightness(90%)',
       }}
     >
       <Flex
@@ -118,7 +119,7 @@ const Rules = () => {
               </li>
               <li>
                 Each character has a special attack that will be
-                automaticaly triggered in the corresponding
+                automatically triggered in the corresponding
                 round. If the condition is met, extra damage will
                 be inflicted.
               </li>
@@ -155,7 +156,7 @@ const Rules = () => {
       mb={{ base: '0%', sm: '2%', md: '3%', lg: '2%', xl: '2%' }}
       wrap='wrap'
     >
-      {dohkoExplanation}
+      {muExplanation}
       {stoneBoxes}
     </Flex>
   );

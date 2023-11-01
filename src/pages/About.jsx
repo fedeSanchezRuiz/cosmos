@@ -2,7 +2,7 @@ import { Flex, Heading, Image, Button } from '@chakra-ui/react';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import classes from './About.module.css';
-import ariesMu from '../../src/components/images/website-img/AriesMu.png';
+import DohkoOld from '../components/images/website-img/DohkoOld.png';
 import MessageBackground from '../../src/components/images/website-img/AiorosMessage.webp';
 import starryNight from '../../src/components/images/website-img/StarryBack.jpeg';
 
@@ -71,9 +71,9 @@ const About = () => {
     </Flex>
   );
 
-  const muExplain = (
+  const dohkoExplain = (
     <Image
-      maxH='550px'
+      maxH='450px'
       display={{
         base: 'none',
         sm: 'none',
@@ -81,7 +81,7 @@ const About = () => {
         lg: 'block',
         xl: 'block',
       }}
-      src={ariesMu}
+      src={DohkoOld}
     />
   );
 
@@ -123,13 +123,13 @@ const About = () => {
     _hover: { bg: 'blue.400' },
   };
 
-  const muExplanation = (
+  const dohkoExplanation = (
     <Flex
       width={{ base: '0%', sm: '0%', md: '50%' }}
       justifyContent='center'
       alignItems='center'
     >
-      {muExplain}
+      {dohkoExplain}
     </Flex>
   );
 
@@ -251,7 +251,7 @@ const About = () => {
       mb={{ base: '0%', sm: '3%', md: '3%', lg: '2%', xl: '2%' }}
       wrap='wrap'
     >
-      {muExplanation}
+      {dohkoExplanation}
       {stoneBoxes}
     </Flex>
   );

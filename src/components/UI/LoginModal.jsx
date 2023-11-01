@@ -42,7 +42,7 @@ const LoginModal = (props) => {
     valueChangeHandler: usernameChangeHandler,
     inputBlurHandler: usernameBlurHandler,
     reset: resetUsernameInput,
-  } = useInput((value) => value.trim().length >= 4);
+  } = useInput((value) => value.trim().length >= 3 && value.trim().length <= 10);
 
   const {
     value: enteredPassword,
@@ -51,7 +51,7 @@ const LoginModal = (props) => {
     valueChangeHandler: passwordChangeHandler,
     inputBlurHandler: passwordBlurHandler,
     reset: resetPasswordInput,
-  } = useInput((value) => value.trim().length >= 6);
+  } = useInput((value) => value.trim().length >= 6 && value.trim().length <= 12);
 
   useEffect(() => {
     if (hideMailLabel) {
@@ -323,6 +323,7 @@ const LoginModal = (props) => {
               type='text'
               id='username'
               autoComplete='username'
+              maxLength={10}
               style={{
                 fontFamily: 'ARCADECLASSIC',
                 width: '75%',
@@ -397,6 +398,7 @@ const LoginModal = (props) => {
               type='password'
               id='password'
               autoComplete='current-password'
+              maxLength={12}
               style={{
                 fontFamily: 'ARCADECLASSIC',
                 width: '75%',
