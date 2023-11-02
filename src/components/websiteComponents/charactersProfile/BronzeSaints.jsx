@@ -1,4 +1,5 @@
 import { Flex, Image, Box } from '@chakra-ui/react';
+import { useFetch } from '../../hooks/useFetch';
 import classes from './Saints.module.css';
 import Seiya from '../../images/bronze-img/SeiyaPegasus2.jpeg';
 import Shiryu from '../../images/bronze-img/ShiryuDragon2.jpeg';
@@ -12,7 +13,6 @@ import Ichi from '../../images/bronze-img/IchiHydra.jpeg';
 import Nachi from '../../images/bronze-img/NachiLobo.jpeg';
 import LoadingMessage from '../../UI/LoadingMessage';
 import ErrorCustom from '../../UI/ErrorCustom';
-import { useFetch } from '../../hooks/useFetch';
 
 const images = {
   Seiya,

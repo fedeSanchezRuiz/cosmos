@@ -31,4 +31,3 @@ export function useFetch(fetchFn, fetchUrl, errorMessage) {
     error,
   };
 }
-

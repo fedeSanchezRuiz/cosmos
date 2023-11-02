@@ -1,4 +1,5 @@
 import { Flex, Image, Box } from '@chakra-ui/react';
+import { useFetch } from '../../hooks/useFetch';
 import classes from './Saints.module.css';
 import PegasusBlack from '../../images/black-img/BlackPegasus.jpeg';
 import DragonBlack from '../../images/black-img/BlackDragon.jpeg';
@@ -7,7 +8,6 @@ import AndromedaBlack from '../../images/black-img/BlackAndromeda.jpeg';
 import PhoenixBlack from '../../images/black-img/BlackPhoenix.jpeg';
 import LoadingMessage from '../../UI/LoadingMessage';
 import ErrorCustom from '../../UI/ErrorCustom';
-import { useFetch } from '../../hooks/useFetch';
 
 const images = {
   PegasusBlack,

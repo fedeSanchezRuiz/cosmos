@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Flex, Text } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
+import { useFetch } from '../../hooks/useFetch';
 import ButtonCustom from '../../UI/ButtonCustom';
 import useTypewriter from '../../hooks/useTypewriter';
 import ScreenCard from '../interfaceElements/ScreenCard';
@@ -8,7 +9,6 @@ import NightSkyBackground from '../../images/website-img/Total-Black1.jpg';
 import Cardwrapper from '../../UI/CardWrapper';
 import ErrorCustom from '../../UI/ErrorCustom';
 import Footer from '../../UI/Footer';
-import { useFetch } from '../../hooks/useFetch';
 
 const Introduction = ({ onStepChange }) => {
   const fetchUrl = 'http://localhost:3000/chapters';

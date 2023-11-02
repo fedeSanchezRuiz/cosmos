@@ -1,8 +1,10 @@
 import { useState, useEffect, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Flex, Text, Image } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { ArrowLeftIcon, ArrowRightIcon } from '@chakra-ui/icons';
 import { NavbarLogo } from '../../UI/navbar/NavbarLogo';
+import { useFetch } from '../../hooks/useFetch';
 import ButtonCustom from '../../UI/ButtonCustom';
 import ScreenCard from '../interfaceElements/ScreenCard';
 import ModalCard from '../../UI/ModalCard';
@@ -13,7 +15,7 @@ import PegasusBox from '../../images/chapter1-img/PegasusBox2.png';
 import Cardwrapper from '../../UI/CardWrapper';
 import ErrorCustom from '../../UI/ErrorCustom';
 import Footer from '../../UI/Footer';
-import { useFetch } from '../../hooks/useFetch';
+
 
 const TEXT_HIDE_DISTANCE = -300;
 
@@ -21,6 +23,7 @@ const Congratulations = () => {
   const fetchUrl = 'http://localhost:3000/chapters';
   const errorMessage =
     'Failed to load game data, please try again later';
+  const navigate = useNavigate(); 
   const [isClicked, setIsClicked] = useState(false);
   const [prizesVisible, setPrizesVisible] = useState(false);
   const [boxVisible, setBoxVisible] = useState(true);
@@ -77,6 +80,10 @@ const Congratulations = () => {
     }),
     [isTypingCompleted, isClicked]
   );
+
+  const toMainPageHandler = () => {
+    navigate('/');
+  };
 
   if (error) {
     return (
@@ -146,6 +153,7 @@ const Congratulations = () => {
             lg: '340px',
             xl: '350px',
           }}
+          onClick={toMainPageHandler}
         >
           <Flex
             flexDir='column'
