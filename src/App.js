@@ -24,7 +24,10 @@ const router = createBrowserRouter([
       { path: 'characters/:saintsId', element: <CharacterDetails /> },
     ]
   },
-  { path: 'cosmos-warriors', element: <CosmosWarriors />, errorElement: <ErrorPage /> },
+  { path: 'cosmos-warriors', element: 
+  <AuthProvider>
+    <CosmosWarriors />
+  </AuthProvider>, errorElement: <ErrorPage /> },
 ]);
 
 function App() {

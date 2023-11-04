@@ -17,7 +17,6 @@ const Introduction = ({ onStepChange }) => {
   const [isClicked, setIsClicked] = useState(false);
 
   const { error, fetchedData } = useFetch(
-    fetch,
     fetchUrl,
     errorMessage
   );

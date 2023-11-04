@@ -1,4 +1,4 @@
-import { useMatch } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Box } from '@chakra-ui/react';
 import MiddleTab from '../components/UI/MiddleTab';
 import Cardwrapper from '../components/UI/CardWrapper';
@@ -9,23 +9,21 @@ import BlackSaints from '../components/websiteComponents/charactersProfile/Black
 import ErrorCustom from '../components/UI/ErrorCustom';
 
 const CharacterDetails = () => {
-  const isBronzeMatch = useMatch('/characters/Bronze');
-  const isBlackMatch = useMatch('/characters/Black');
-  const isSilverMatch = useMatch('/characters/Silver');
-  const isGoldMatch = useMatch('/characters/Gold');
-  const isAsgardMatch = useMatch('/characters/Asgard');
-  const isPoseidonMatch = useMatch('/characters/Poseidon');
+  const { saintsId } = useParams();
 
   let saintsToRender;
 
-  switch (true) {
-    case !!isBronzeMatch:
+  switch (saintsId) {
+    case 'Bronze':
       saintsToRender = <BronzeSaints />;
       break;
-    case !!isBlackMatch:
+    case 'Black':
       saintsToRender = <BlackSaints />;
       break;
-    case !!isSilverMatch || !!isGoldMatch || !!isAsgardMatch || !!isPoseidonMatch:
+    case 'Silver':
+    case 'Gold':
+    case 'Asgard':
+    case 'Poseidon':
       saintsToRender = <MessageCustom src={shakaMeditate} />;
       break;
     default:

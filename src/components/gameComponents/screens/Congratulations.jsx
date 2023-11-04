@@ -33,7 +33,6 @@ const Congratulations = () => {
     useState(false);
 
   const { error, fetchedData } = useFetch(
-    fetch,
     fetchUrl,
     errorMessage
   );

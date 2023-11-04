@@ -50,7 +50,6 @@ const MiddleContent = () => {
   };
 
   const { isFetching, error, fetchedData } = useFetch(
-    fetch,
     fetchUrl,
     errorMessage
   );

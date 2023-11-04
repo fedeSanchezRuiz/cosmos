@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export function useFetch(fetchFn, fetchUrl, errorMessage) {
+export function useFetch(fetchUrl, errorMessage) {
   const [isFetching, setIsFetching] = useState(false);
   const [error, setError] = useState(null);
   const [fetchedData, setFetchedData] = useState(null);
@@ -10,7 +10,7 @@ export function useFetch(fetchFn, fetchUrl, errorMessage) {
       setIsFetching(true);
 
       try {
-        const response = await fetchFn(fetchUrl);
+        const response = await fetch(fetchUrl);
         const data = await response.json();
 
         if (!response.ok) {
@@ -23,7 +23,7 @@ export function useFetch(fetchFn, fetchUrl, errorMessage) {
       setIsFetching(false);
     };
     fetchData();
-  }, [fetchFn, fetchUrl, errorMessage]);
+  }, [fetchUrl, errorMessage]);
 
   return {
     isFetching,
