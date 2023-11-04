@@ -2,7 +2,6 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Box } from '@chakra-ui/react';
 import { AuthProvider } from './context/authProvider';
 import { HeartProvider } from './context/heartProvider';
-import ScrollToTop from '../../cosmos/src/components/UI/ScrollToTop';
 import HomePage from './pages/Home';
 import About from './pages/About';
 import Inventory from './pages/Inventory';
@@ -32,9 +31,7 @@ function App() {
     <AuthProvider>
     <HeartProvider>
     <Box m='auto'>
-      <RouterProvider router={router}>
-      <ScrollToTop />
-      </RouterProvider>
+      <RouterProvider router={router} />
     </Box>
     </HeartProvider>
     </AuthProvider>
