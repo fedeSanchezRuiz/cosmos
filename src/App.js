@@ -24,7 +24,7 @@ const router = createBrowserRouter([
       { path: 'characters/:saintsId', element: <CharacterDetails /> },
     ]
   },
-  { path: 'cosmos-warriors', element: 
+  { path: 'cosmos-warriors', element:
   <AuthProvider>
     <CosmosWarriors />
   </AuthProvider>, errorElement: <ErrorPage /> },

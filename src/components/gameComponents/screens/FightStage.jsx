@@ -48,7 +48,6 @@ const FightStage = ({ onStepChange }) => {
   const { username } = useContext(AuthContext);
   const { heartCount, setHeartCount, resetHeartCount } =
     useContext(HeartContext);
-  // const [charactersData, setCharactersData] = useState([]);
   const [fightVisible, setFightVisible] = useState(false);
   const [starterSelectorVisible, setStarterSelectorVisible] =
     useState(false);
@@ -78,19 +77,6 @@ const FightStage = ({ onStepChange }) => {
     gameNavbarVisible,
     setGameNavbarVisible
   );
-
-  // useEffect(() => {
-  //   const fetchCharactersData = async () => {
-  //     let url = 'http://localhost:3000/chapters';
-  //     const response = await fetch(url);
-  //     const data = await response.json();
-  //     setCharactersData(data);
-  //   }
-  //   fetchCharactersData();
-  // }, []);
-
-  // const player = addImageToCard(charactersData[0]?.player);
-  // const enemy = addImageToCard(charactersData[0]?.enemy);
 
   useEffect(() => {
     if (playersRolled === 2) {
