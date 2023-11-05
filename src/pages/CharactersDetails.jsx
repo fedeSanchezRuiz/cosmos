@@ -9,12 +9,12 @@ import BlackSaints from '../components/websiteComponents/charactersProfile/Black
 import ErrorCustom from '../components/UI/ErrorCustom';
 
 const CharacterDetails = () => {
-  const isBronzeMatch = useMatch('/characters/Bronze');
-  const isBlackMatch = useMatch('/characters/Black');
-  const isSilverMatch = useMatch('/characters/Silver');
-  const isGoldMatch = useMatch('/characters/Gold');
-  const isAsgardMatch = useMatch('/characters/Asgard');
-  const isPoseidonMatch = useMatch('/characters/Poseidon');
+  const isBronzeMatch = useMatch('/characters/bronze');
+  const isBlackMatch = useMatch('/characters/black');
+  const isSilverMatch = useMatch('/characters/silver');
+  const isGoldMatch = useMatch('/characters/gold');
+  const isAsgardMatch = useMatch('/characters/asgard');
+  const isPoseidonMatch = useMatch('/characters/poseidon');
 
   let saintsToRender;
 

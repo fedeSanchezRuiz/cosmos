@@ -5,7 +5,7 @@ import Introduction from '../components/gameComponents/screens/Introduction';
 import FightStage from '../components/gameComponents/screens/FightStage';
 import Conclusion from '../components/gameComponents/screens/Conclusion';
 
-const CosmosWarriors = () => {
+const PlayGame = () => {
   const [gameSteps, setGameSteps] = useState('main-screen');
   const navigate = useNavigate();
 
@@ -44,4 +44,4 @@ const CosmosWarriors = () => {
   );
 };
 
-export default CosmosWarriors;
+export default PlayGame;

@@ -3,12 +3,12 @@ import { Button, Flex } from '@chakra-ui/react';
 import starryBack from '../../components/images/website-img/StarryBack.jpeg';
 
 const buttonsName = [
-  { name: 'Bronze' },
-  { name: 'Black' },
-  { name: 'Silver' },
-  { name: 'Gold' },
-  { name: 'Asgard' },
-  { name: 'Poseidon' },
+  { name: 'bronze' },
+  { name: 'black' },
+  { name: 'silver' },
+  { name: 'gold' },
+  { name: 'asgard' },
+  { name: 'poseidon' },
 ];
 
 const MiddleTab = () => {

@@ -6,10 +6,10 @@ import { HeartProvider } from './context/heartProvider';
 import RootLayout from './pages/RootLayout';
 import ErrorPage from './pages/Error';
 import HomePage from './pages/Home';
+import About from './pages/About';
 import Rules from './pages/Rules';
-import CosmosWarriors from './pages/CosmosWarriors';
+import PlayGame from './pages/PlayGame';
 
-const About = lazy(() => import('./pages/About'));
 const Inventory = lazy(() => import('./pages/Inventory'));
 const Characters = lazy(() => import('./pages/Characters'));
 const CharacterDetails = lazy(() => import('./pages/CharactersDetails'));
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
       { path: 'characters/:saintsId', element: <CharacterDetails /> },
     ]
   },
-  { path: 'cosmos-warriors', element: <CosmosWarriors />, errorElement: <ErrorPage /> },
+  { path: 'play-game', element: <PlayGame />, errorElement: <ErrorPage /> },
 ]);
 
 function App() {
