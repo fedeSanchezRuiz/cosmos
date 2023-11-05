@@ -5,14 +5,14 @@ import { AuthProvider } from './context/authProvider';
 import { HeartProvider } from './context/heartProvider';
 import RootLayout from './pages/RootLayout';
 import ErrorPage from './pages/Error';
+import HomePage from './pages/Home';
+import Rules from './pages/Rules';
+import CosmosWarriors from './pages/CosmosWarriors';
 
-const HomePage = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
 const Inventory = lazy(() => import('./pages/Inventory'));
-const Rules = lazy(() => import('./pages/Rules'));
 const Characters = lazy(() => import('./pages/Characters'));
 const CharacterDetails = lazy(() => import('./pages/CharactersDetails'));
-const CosmosWarriors = lazy(() => import('./pages/CosmosWarriors'));
 
 const loading = (
   <Flex
