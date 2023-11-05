@@ -16,7 +16,7 @@ There is a lot of Flexbox and responsive design to make the website more friendl
 
 ## Installation 💆🏻‍♂️
 
-This project needs no set up, just visit the link!
+Visit the link and run in yout terminal (json-server --watch src/json/db.json)
 
 ## Contact ☎️
 
