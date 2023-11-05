@@ -82,32 +82,32 @@
         {
           "name": "BronzeSaints",
           "image": "BronzeSaints",
-          "path": "/characters/Bronze"
+          "path": "/characters/bronze"
         },
         {
           "name": "BlackSaints",
           "image": "BlackSaints",
-          "path": "/characters/Black"
+          "path": "/characters/black"
         },
         {
           "name": "SilverSaints",
           "image": "SilverSaints",
-          "path": "/characters/Silver"
+          "path": "/characters/silver"
         },
         {
           "name": "GoldSaints",
           "image": "GoldSaints",
-          "path": "/characters/Gold"
+          "path": "/characters/gold"
         },
         {
           "name": "AsgardWarriors",
           "image": "AsgardWarriors",
-          "path": "/characters/Asgard"
+          "path": "/characters/asgard"
         },
         {
           "name": "PoseidonScales",
           "image": "PoseidonScales",
-          "path": "/characters/Poseidon"
+          "path": "/characters/poseidon"
         }
       ],
       "features": [
