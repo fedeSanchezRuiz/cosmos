@@ -14,16 +14,16 @@ const CharacterDetails = () => {
   let saintsToRender;
 
   switch (saintsId) {
-    case 'Bronze':
+    case 'bronze':
       saintsToRender = <BronzeSaints />;
       break;
-    case 'Black':
+    case 'black':
       saintsToRender = <BlackSaints />;
       break;
-    case 'Silver':
-    case 'Gold':
-    case 'Asgard':
-    case 'Poseidon':
+    case 'silver':
+    case 'gold':
+    case 'asgard':
+    case 'poseidon':
       saintsToRender = <MessageCustom src={shakaMeditate} />;
       break;
     default:
