@@ -2,14 +2,13 @@
 
 # Description 🏛️
 
-In the project directory, you can run:
 This is my first project as a developer creted with ReactJS and some other libraries such as Router, Chakra and Framer Motion. 
 There is a lot of Flexbox and responsive design to make the website more friendly to the user.
 
 ## Author 🖋️
 
 **Federico Sanchez Ruiz**
-[LinkedIn](www.linkedin.com/in/fedesanchezruiz)
+[LinkedIn](https://www.linkedin.com/in/fedeSanchezRuiz/)
 
 ## Watch Live 👀
 
@@ -21,4 +20,4 @@ This project needs no set up, just visit the link!
 
 ## Contact ☎️
 
-If you want to contact me, you can write to me at (sanchezruizfederico@gmail.com)
+If you want to contact me, you can write me at (sanchezruizfederico@gmail.com)
