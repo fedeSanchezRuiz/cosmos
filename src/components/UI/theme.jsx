@@ -1,5 +1,6 @@
 import { extendTheme } from '@chakra-ui/react';
 import starryNight from '../../components/images/website-img/StarryBack.jpeg';
+import coliseum from '../images/website-img/coliseumFlipped.png';
 
 const theme = extendTheme({
   styles: {
