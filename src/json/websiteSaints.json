@@ -1,11 +1,11 @@
 {
   "saintsCategory": [
-    { "name": "BronzeSaints", "image": "BronzeSaints", "path": "/characters/Bronze" },
-    { "name": "BlackSaints", "image": "BlackSaints", "path": "/characters/Black" },
-    { "name": "SilverSaints", "image": "SilverSaints", "path": "/characters/Silver" },
-    { "name": "GoldSaints", "image": "GoldSaints", "path": "/characters/Gold" },
-    { "name": "AsgardWarriors", "image": "AsgardWarriors", "path": "/characters/Asgard" },
-    { "name": "PoseidonScales", "image": "PoseidonScales", "path": "/characters/Poseidon" }
+    { "name": "BronzeSaints", "image": "BronzeSaints", "path": "/characters/bronze" },
+    { "name": "BlackSaints", "image": "BlackSaints", "path": "/characters/black" },
+    { "name": "SilverSaints", "image": "SilverSaints", "path": "/characters/silver" },
+    { "name": "GoldSaints", "image": "GoldSaints", "path": "/characters/gold" },
+    { "name": "AsgardWarriors", "image": "AsgardWarriors", "path": "/characters/asgard" },
+    { "name": "PoseidonScales", "image": "PoseidonScales", "path": "/characters/poseidon" }
   ],
   "features": [
     { "label": "Name", "key": "name" },
