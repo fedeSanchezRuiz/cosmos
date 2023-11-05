@@ -6,7 +6,6 @@ import DragonBlack from '../../images/black-img/BlackDragon.jpeg';
 import CygnusBlack from '../../images/black-img/BlackCygnus.jpeg';
 import AndromedaBlack from '../../images/black-img/BlackAndromeda.jpeg';
 import PhoenixBlack from '../../images/black-img/BlackPhoenix.jpeg';
-import LoadingMessage from '../../UI/LoadingMessage';
 import ErrorCustom from '../../UI/ErrorCustom';
 
 const images = {
@@ -27,7 +26,7 @@ const BlackSaints = () => {
   const fetchUrl = 'http://localhost:3000/website';
   const errorMessage = 'Failed to fetch Black Saints';
 
-  const { isFetching, error, fetchedData } = useFetch(
+  const { error, fetchedData } = useFetch(
     fetch,
     fetchUrl,
     errorMessage
@@ -87,7 +86,7 @@ const BlackSaints = () => {
     </Flex>
   );
 
-  return isFetching ? <LoadingMessage /> : blackSaintsList;
+  return (blackSaintsList);
 };
 
 export default BlackSaints;

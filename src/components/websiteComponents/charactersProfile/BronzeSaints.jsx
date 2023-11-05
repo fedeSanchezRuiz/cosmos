@@ -11,7 +11,6 @@ import Ban from '../../images/bronze-img/BanLeon.jpeg';
 import Geki from '../../images/bronze-img/GekiOso.jpeg';
 import Ichi from '../../images/bronze-img/IchiHydra.jpeg';
 import Nachi from '../../images/bronze-img/NachiLobo.jpeg';
-import LoadingMessage from '../../UI/LoadingMessage';
 import ErrorCustom from '../../UI/ErrorCustom';
 
 const images = {
@@ -37,7 +36,7 @@ const BronzeSaints = () => {
   const fetchUrl = 'http://localhost:3000/website';
   const errorMessage = 'Failed to fetch Bronze Saints';
 
-  const { isFetching, error, fetchedData } = useFetch(
+  const { error, fetchedData } = useFetch(
     fetch,
     fetchUrl,
     errorMessage
@@ -99,7 +98,7 @@ const BronzeSaints = () => {
     </Flex>
   );
 
-  return isFetching ? <LoadingMessage /> : bronzeSaintsList;
+  return (bronzeSaintsList);
 };
 
 export default BronzeSaints;

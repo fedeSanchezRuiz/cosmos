@@ -1,16 +1,37 @@
+import React, { lazy, Suspense } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { Box } from '@chakra-ui/react';
+import { Box, Flex, Heading } from '@chakra-ui/react';
 import { AuthProvider } from './context/authProvider';
 import { HeartProvider } from './context/heartProvider';
-import HomePage from './pages/Home';
-import About from './pages/About';
-import Inventory from './pages/Inventory';
-import Rules from './pages/Rules';
-import Characters from './pages/Characters';
 import RootLayout from './pages/RootLayout';
 import ErrorPage from './pages/Error';
-import CharacterDetails from './pages/CharactersDetails';
-import CosmosWarriors from './pages/CosmosWarriors';
+
+const HomePage = lazy(() => import('./pages/Home'));
+const About = lazy(() => import('./pages/About'));
+const Inventory = lazy(() => import('./pages/Inventory'));
+const Rules = lazy(() => import('./pages/Rules'));
+const Characters = lazy(() => import('./pages/Characters'));
+const CharacterDetails = lazy(() => import('./pages/CharactersDetails'));
+const CosmosWarriors = lazy(() => import('./pages/CosmosWarriors'));
+
+const loading = (
+  <Flex
+      flexDir='column'
+      textAlign='center'
+    >
+      <Heading
+        mt='20%'
+        fontFamily='ARCADECLASSIC'
+        fontSize={{
+          base: '30px',
+          sm: '32px',
+          md: '36px',
+          lg: '40px',
+          xl: '50px',
+        }}
+      >Loading...</Heading>
+  </Flex>
+);
 
 const router = createBrowserRouter([
   {
@@ -23,20 +44,19 @@ const router = createBrowserRouter([
       { path: 'characters/:saintsId', element: <CharacterDetails /> },
     ]
   },
-  { path: 'cosmos-warriors', element: 
-  <AuthProvider>
-    <CosmosWarriors />
-  </AuthProvider>, errorElement: <ErrorPage /> },
+  { path: 'cosmos-warriors', element: <CosmosWarriors />, errorElement: <ErrorPage /> },
 ]);
 
 function App() {
   return (
     <AuthProvider>
-    <HeartProvider>
-    <Box m='auto'>
-      <RouterProvider router={router} />
-    </Box>
-    </HeartProvider>
+      <HeartProvider>
+        <Box m='auto'>
+          <Suspense fallback={loading}>
+            <RouterProvider router={router} />
+          </Suspense>
+        </Box>
+      </HeartProvider>
     </AuthProvider>
   );
 }

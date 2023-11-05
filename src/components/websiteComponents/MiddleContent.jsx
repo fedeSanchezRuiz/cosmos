@@ -7,9 +7,8 @@ import BronzeSaints from '../../components/images/website-img/BronzeSaints3.webp
 import BlackSaints from '../../components/images/website-img/BlackSaints2.webp';
 import SilverSaints from '../../components/images/website-img/SilverSaints2.jpeg';
 import GoldSaints from '../../components/images/website-img/GoldSaints.jpeg';
-import AsgardWarriors from '../../components/images/website-img/AsgardSaints.png';
+import AsgardWarriors from '../../components/images/website-img/AsgardSaints .png';
 import PoseidonScales from '../../components/images/website-img/PoseidonSaints2.jpeg';
-import LoadingMessage from '../UI/LoadingMessage';
 import ErrorCustom from '../UI/ErrorCustom';
 import ModalCard from '../UI/ModalCard';
 
@@ -49,7 +48,7 @@ const MiddleContent = () => {
     setIsModalOpen(false);
   };
 
-  const { isFetching, error, fetchedData } = useFetch(
+  const { error, fetchedData } = useFetch(
     fetch,
     fetchUrl,
     errorMessage
@@ -167,11 +166,7 @@ const MiddleContent = () => {
     </Flex>
   );
 
-  return isFetching ? (
-    <LoadingMessage />
-  ) : (
-    saintCategoriesDisplay
-  );
+  return (saintCategoriesDisplay);
 };
 
 export default MiddleContent;
