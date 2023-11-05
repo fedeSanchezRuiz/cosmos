@@ -6,7 +6,7 @@ import { NavbarLogo } from '../../UI/navbar/NavbarLogo';
 import ButtonCustom from '../../UI/ButtonCustom';
 import ScreenCard from '../interfaceElements/ScreenCard';
 import SanctuaryClockBackground from '../../images/chapter1-img/Clock1.jpeg';
-import NightSkyBackground from '../../images/website-img/Total-Black1.jpg';
+import NightSkyBackground from '../../images/website-img/TotalBlack.jpeg';
 
 const MainScreen = ({ onStepChange }) => {
   const [isDarkening, setIsDarkening] = useState(false);

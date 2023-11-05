@@ -7,7 +7,7 @@ import {
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import classes from './LowerContent.module.css';
-import Night from '../../components/images/website-img/NightSkyBack.jpeg';
+import Night from '../../components/images/website-img/NightSky.jpeg';
 
 const imageStyles = {
   transition: 'transform 0.3s',

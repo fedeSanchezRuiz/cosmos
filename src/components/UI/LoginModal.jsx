@@ -4,7 +4,7 @@ import { NavbarLogo } from './navbar/NavbarLogo';
 import AuthContext from '../../context/authContext';
 import useInput from '../hooks/useInput';
 import Starry from '../../components/images/website-img/StarryBack.jpeg';
-import Night from '../../components/images/website-img/NightSkyBack.jpeg';
+import Night from '../../components/images/website-img/NightSky.jpeg';
 import ErrorCustom from './ErrorCustom';
 
 const buttonProps = {

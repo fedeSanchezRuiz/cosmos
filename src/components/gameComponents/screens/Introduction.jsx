@@ -5,7 +5,7 @@ import { useFetch } from '../../hooks/useFetch';
 import ButtonCustom from '../../UI/ButtonCustom';
 import useTypewriter from '../../hooks/useTypewriter';
 import ScreenCard from '../interfaceElements/ScreenCard';
-import NightSkyBackground from '../../images/website-img/Total-Black1.jpg';
+import NightSkyBackground from '../../images/website-img/TotalBlack.jpeg';
 import Cardwrapper from '../../UI/CardWrapper';
 import ErrorCustom from '../../UI/ErrorCustom';
 import Footer from '../../UI/Footer';

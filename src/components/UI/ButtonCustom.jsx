@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Button as ChakraButton } from '@chakra-ui/react';
-import Night from '../../components/images/website-img/NightSkyBack.jpeg';
+import Night from '../../components/images/website-img/NightSky.jpeg';
 
 const ButtonCustom = ({
   text,
