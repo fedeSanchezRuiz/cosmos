@@ -1,4 +1,5 @@
-<img width="1118" alt="Presentation" src="https://github.com/fedeSanchezRuiz/cosmos/assets/146485052/85857b18-ba4a-4694-b218-7f66f7b73e9b">
+
+<img width="1126" alt="Presentation" src="https://github.com/fedeSanchezRuiz/cosmos/assets/146485052/68c6d3b1-7d1d-445b-80f7-f9b52a02cce8">
 
 # Description 🏛️
 
