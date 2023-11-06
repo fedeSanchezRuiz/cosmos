@@ -27,7 +27,6 @@ const BlackSaints = () => {
   const errorMessage = 'Failed to fetch Black Saints';
 
   const { error, fetchedData } = useFetch(
-    fetch,
     fetchUrl,
     errorMessage
   );

@@ -3,12 +3,12 @@ import { useState, useEffect, useContext } from 'react';
 import { NavbarLogo } from './navbar/NavbarLogo';
 import AuthContext from '../../context/authContext';
 import useInput from '../hooks/useInput';
-import Starry from '../../components/images/website-img/StarryBack.jpeg';
-import Night from '../../components/images/website-img/NightSky.jpeg';
+import StarryNight from '../../components/images/website-img/StarryBack.jpeg';
+import NightSky from '../../components/images/website-img/NightSky.jpeg';
 import ErrorCustom from './ErrorCustom';
 
 const buttonProps = {
-  background: `linear-gradient(to bottom, rgba(255, 255, 204, 1), rgba(218, 165, 32, 0.6)), url(${Night})`,
+  background: `linear-gradient(to bottom, rgba(255, 255, 204, 1), rgba(218, 165, 32, 0.6)), url(${NightSky})`,
   backgroundPosition: 'center',
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'cover',
@@ -162,7 +162,7 @@ const LoginModal = (props) => {
           xl: '510px',
         }}
         position='fixed'
-        background={`linear-gradient(to top, rgba(179, 224, 242, 0.9), rgba(0, 40, 85, 0.8)), url(${Starry})`}
+        background={`linear-gradient(to top, rgba(179, 224, 242, 0.9), rgba(0, 40, 85, 0.8)), url(${StarryNight})`}
         backgroundPosition='center'
         backgroundRepeat='no-repeat'
         backgroundSize='cover'

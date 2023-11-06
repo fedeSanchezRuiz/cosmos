@@ -11,7 +11,7 @@ import {
 import LoginModal from '../LoginModal';
 import LoginLogoutButton from './LoginLogoutButton';
 import AuthContext from '../../../context/authContext';
-import starryNight from '../../images/website-img/StarryBack.jpeg';
+import StarryNight from '../../images/website-img/StarryBack.jpeg';
 
 const buttons = [
   { name: 'About', path: 'about' },
@@ -167,7 +167,7 @@ export const NavbarButtons = () => {
             md: 'none',
             lg: 'none',
           }}
-          background={`linear-gradient(to top, rgba(179, 224, 242, 0.9), rgba(179, 224, 242, 0.8), rgba(179, 224, 242, 0.85)), url(${starryNight})`}
+          background={`linear-gradient(to top, rgba(179, 224, 242, 0.9), rgba(179, 224, 242, 0.8), rgba(179, 224, 242, 0.85)), url(${StarryNight})`}
           backgroundPosition='center'
           backgroundRepeat='no-repeat'
           backgroundSize='cover'

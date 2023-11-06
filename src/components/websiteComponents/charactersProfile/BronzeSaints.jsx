@@ -37,7 +37,6 @@ const BronzeSaints = () => {
   const errorMessage = 'Failed to fetch Bronze Saints';
 
   const { error, fetchedData } = useFetch(
-    fetch,
     fetchUrl,
     errorMessage
   );

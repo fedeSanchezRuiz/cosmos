@@ -1,14 +1,8 @@
 import { Flex, Box } from '@chakra-ui/react';
 import ReactDOM from 'react-dom';
 import StarrySky from '../../components/images/website-img/StarryBack.jpeg';
-// import { useNavigate } from 'react-router-dom';
 
 const ModalCard = ({ children, height, onClick }) => {
-  // const navigate = useNavigate();
-
-  // const handleBackdropClick = () => {
-  //   navigate('/');
-  // };
 
   const ModalContent = () => {
     return (

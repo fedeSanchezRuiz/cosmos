@@ -2,7 +2,7 @@ import facebook from '../../components/images/icons/Facebook.png';
 import twitter from '../../components/images/icons/Twitter4.png';
 import instagram from '../../components/images/icons/Instagram.png';
 import youtube from '../../components/images/icons/Youtube.png';
-import starryBack from '../../components/images/website-img/StarryBack.jpeg';
+import StarryNight from '../../components/images/website-img/StarryBack.jpeg';
 
 import './Footer.css';
 import { Image, Box } from '@chakra-ui/react';
@@ -12,7 +12,7 @@ const Footer = () => {
     <div
       className='footer'
       style={{
-        background: `linear-gradient(to bottom, rgba(30, 39, 54, 0.9), rgba(30, 39, 54, 0.8)), url(${starryBack})`,
+        background: `linear-gradient(to bottom, rgba(30, 39, 54, 0.9), rgba(30, 39, 54, 0.8)), url(${StarryNight})`,
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',

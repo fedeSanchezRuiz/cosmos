@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Button as ChakraButton } from '@chakra-ui/react';
-import Night from '../../components/images/website-img/NightSky.jpeg';
+import NightSky from '../../components/images/website-img/NightSky.jpeg';
 
 const ButtonCustom = ({
   text,
@@ -49,7 +49,7 @@ const ButtonCustom = ({
       isDisabled={isDisabled}
       _hover={{ filter: 'brightness(90%)', color: '#5a3517' }}
       style={{
-        background: `linear-gradient(to bottom, rgba(255, 255, 204, 1), rgba(218, 165, 32, 0.6)), url(${Night})`,
+        background: `linear-gradient(to bottom, rgba(255, 255, 204, 1), rgba(218, 165, 32, 0.6)), url(${NightSky})`,
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',

@@ -13,7 +13,7 @@
 
 .disabledDice {
   opacity: 0.8;
-  pointer-events: none; /* prevent dice from being clickable */
+  pointer-events: none;
 }
 
 .dot {

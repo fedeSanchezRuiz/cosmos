@@ -1,12 +1,11 @@
 import React from 'react';
 import { Button } from '@chakra-ui/react';
-import starryNight from '../../images/website-img/StarryBack.jpeg';
+import StarryNight from '../../images/website-img/StarryBack.jpeg';
 
 const LoginLogoutButton = ({
   children,
   onClick,
   imageStyles,
-  buttonStyles,
   buttonHoverStyles,
   width,
   mx,
@@ -15,7 +14,7 @@ const LoginLogoutButton = ({
 }) => (
   <Button
     mx={mx}
-    background={`linear-gradient(to bottom, rgba(255, 255, 204, 1), rgba(218, 165, 32, 0.6)), url(${starryNight})`}
+    background={`linear-gradient(to bottom, rgba(255, 255, 204, 1), rgba(218, 165, 32, 0.6)), url(${StarryNight})`}
     backgroundPosition='center'
     backgroundRepeat='no-repeat'
     backgroundSize='cover'

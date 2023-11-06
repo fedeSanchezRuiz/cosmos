@@ -1,6 +1,6 @@
 import { extendTheme } from '@chakra-ui/react';
-import starryNight from '../../components/images/website-img/StarryBack.jpeg';
-import coliseum from '../images/website-img/coliseumFlipped.png';
+import StarryNight from '../../components/images/website-img/StarryBack.jpeg';
+import Coliseum from '../images/website-img/coliseumFlipped.png';
 
 const theme = extendTheme({
   styles: {
@@ -8,7 +8,7 @@ const theme = extendTheme({
       body: {
         minHeight: '100vh',
         position: 'relative',
-        background: `linear-gradient(to top, rgba(96, 128, 159, 0.9), rgba(136, 178, 209, 0.8)), url(${starryNight})`,
+        background: `linear-gradient(to top, rgba(96, 128, 159, 0.9), rgba(136, 178, 209, 0.8)), url(${StarryNight})`,
         backgroundPosition: 'center 50%',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
@@ -22,7 +22,7 @@ const theme = extendTheme({
           right: 0,
           bottom: 0,
           left: 0,
-          backgroundImage: `url(${coliseum})`,
+          backgroundImage: `url(${Coliseum})`,
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
