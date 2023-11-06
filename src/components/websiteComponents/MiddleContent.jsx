@@ -157,7 +157,7 @@ const MiddleContent = () => {
             whiteSpace='pre-line'
             flexDir='column'
           >
-            Open JSON-Server to load the full content of the website
+            Run "JSON-SERVER --watch src/json/db.json" on your terminal to load the full content of the web
           </Flex>
         </Flex>
       </ModalCard>}
