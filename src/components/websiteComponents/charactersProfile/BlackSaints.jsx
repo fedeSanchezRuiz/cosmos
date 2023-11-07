@@ -80,7 +80,7 @@ const BlackSaints = () => {
                 lg: '1.5rem',
                 xl: '1.5rem',
               }}
-              className={classes.BlackCardStyles}
+              className={`${classes.CommonCardStyles} ${classes.BlackCardStyles}`}
             >
               {renderSaintFeatures(saint)}
             </Flex>

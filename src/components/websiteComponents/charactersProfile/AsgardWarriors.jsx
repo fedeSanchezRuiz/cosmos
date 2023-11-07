@@ -1,29 +1,25 @@
 import { Flex, Image, Box } from '@chakra-ui/react';
 import { useFetch } from '../../hooks/useFetch';
 import classes from './Saints.module.css';
-import Seiya from '../../images/bronze-img/SeiyaPegasus2.jpeg';
-import Shiryu from '../../images/bronze-img/ShiryuDragon2.jpeg';
-import Hyoga from '../../images/bronze-img/HyogaCygnus2.jpeg';
-import Shun from '../../images/bronze-img/ShunAndromeda.jpeg';
-import Ikki from '../../images/bronze-img/IkkiPhoenix2.jpeg';
-import Jabu from '../../images/bronze-img/JabuUnicorn2.jpeg';
-import Ban from '../../images/bronze-img/BanLeon.jpeg';
-import Geki from '../../images/bronze-img/GekiOso.jpeg';
-import Ichi from '../../images/bronze-img/IchiHydra.jpeg';
-import Nachi from '../../images/bronze-img/NachiLobo.jpeg';
+import Thor from '../../images/warriors-img/PhecdaThor.jpeg';
+import Fenrir from '../../images/warriors-img/AliothFenril.jpeg';
+import Hagen from '../../images/warriors-img/MerakHagen.jpeg';
+import Mime from '../../images/warriors-img/BenetnaschMime.jpeg';
+import Alberich from '../../images/warriors-img/MegrezAlberich.jpeg';
+import Syd from '../../images/warriors-img/MizarZyd.jpeg';
+import Bud from '../../images/warriors-img/AlcorBud.jpeg';
+import Siegfried from '../../images/warriors-img/DubheSiegfried.jpeg';
 import ErrorCustom from '../../UI/ErrorCustom';
 
 const images = {
-  Seiya,
-  Shiryu,
-  Hyoga,
-  Shun,
-  Ikki,
-  Jabu,
-  Ban,
-  Geki,
-  Ichi,
-  Nachi,
+  Thor,
+  Fenrir,
+  Hagen,
+  Mime,
+  Alberich,
+  Syd,
+  Bud,
+  Siegfried,
 };
 
 const addImageToCard = (card) => {
@@ -32,9 +28,9 @@ const addImageToCard = (card) => {
   return newCard;
 };
 
-const BronzeSaints = () => {
+const AsgardWarriors = () => {
   const fetchUrl = 'http://localhost:3000/website';
-  const errorMessage = 'Failed to fetch Bronze Saints';
+  const errorMessage = 'Failed to fetch Asgard Saints';
 
   const { error, fetchedData } = useFetch(
     fetchUrl,
@@ -45,20 +41,20 @@ const BronzeSaints = () => {
     return <ErrorCustom message={errorMessage} />;
   }
 
-  const bronzeSaints = fetchedData
-    ? fetchedData[0]?.bronze?.map(addImageToCard)
+  const asgardWarriors = fetchedData
+    ? fetchedData[0]?.asgard?.map(addImageToCard)
     : [];
   const features = fetchedData ? fetchedData[0]?.features : [];
 
-  const renderSaintFeatures = (saint) =>
+  const renderSaintFeatures = (warrior) =>
     features?.map((feature) => (
       <Flex key={feature.key}>
         <Box fontWeight='extrabold'>{feature.label}:</Box>
-        <Box fontWeight='medium'>{saint[feature.key]}</Box>
+        <Box fontWeight='medium'>{warrior[feature.key]}</Box>
       </Flex>
     ));
 
-  const bronzeSaintsList = (
+  const asgardWarriorsList = (
     <Flex
       my={{
         base: '10%',
@@ -80,18 +76,18 @@ const BronzeSaints = () => {
       justifyContent='space-evenly'
       alignItems='center'
     >
-      {bronzeSaints?.map((saint) => (
+      {asgardWarriors?.map((warrior) => (
         <Flex
           width='620px'
           wrap='wrap'
-          key={saint.source}
+          key={warrior.source}
           boxShadow='8px 8px 16px rgba(0, 0, 0, 0.8)'
         >
           <Image
             maxH='423px'
             w='55%'
-            src={saint.source}
-            alt={saint.name}
+            src={warrior.source}
+            alt={warrior.name}
           />
           <Flex
             fontFamily='ARCADECLASSIC'
@@ -101,15 +97,16 @@ const BronzeSaints = () => {
               lg: '1.5rem',
               xl: '1.5rem',
             }}
-            className={`${classes.CommonCardStyles} ${classes.BronzeCardStyles}`}>
-            {renderSaintFeatures(saint)}
+            className={`${classes.CommonCardStyles} ${classes.AsgardCardStyles}`}
+          >
+            {renderSaintFeatures(warrior)}
           </Flex>
         </Flex>
       ))}
     </Flex>
   );
 
-  return bronzeSaintsList;
+  return asgardWarriorsList;
 };
 
-export default BronzeSaints;
+export default AsgardWarriors;

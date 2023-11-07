@@ -67,6 +67,7 @@ const MiddleContent = () => {
           <Link to={category.path}>
             <Image
               style={imageStyles}
+              boxShadow='2px 3px 10px rgba(0, 0, 0, 0.5)'
               _hover={{
                 filter: 'brightness(115%)',
                 ...imageHoverStyles,

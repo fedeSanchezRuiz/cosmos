@@ -2,12 +2,13 @@ import { useParams } from 'react-router-dom';
 import { Box } from '@chakra-ui/react';
 import MiddleTab from '../components/UI/MiddleTab';
 import Cardwrapper from '../components/UI/CardWrapper';
-import MessageCustom from '../components/UI/MessageCustom';
-import shakaMeditate from '../../src/components/images/website-img/ShakaMeditation.png';
 import BronzeSaints from '../components/websiteComponents/charactersProfile/BronzeSaints';
 import BlackSaints from '../components/websiteComponents/charactersProfile/BlackSaints';
 import GoldSaints from '../components/websiteComponents/charactersProfile/GoldSaints';
+import AsgardWarriors from '../components/websiteComponents/charactersProfile/AsgardWarriors';
+import PoseidonMarines from '../components/websiteComponents/charactersProfile/PoseidonMarines';
 import ErrorCustom from '../components/UI/ErrorCustom';
+import SilverSaints from '../components/websiteComponents/charactersProfile/SilverSaints';
 
 const CharacterDetails = () => {
   const { saintsId } = useParams();
@@ -24,10 +25,14 @@ const CharacterDetails = () => {
     case 'gold':
       saintsToRender = <GoldSaints />;
       break;
-    case 'silver':
-    case 'asgard':
+      case 'asgard':
+      saintsToRender = <AsgardWarriors />;
+      break;
     case 'poseidon':
-      saintsToRender = <MessageCustom src={shakaMeditate} />;
+      saintsToRender = <PoseidonMarines />;
+      break;
+    case 'silver':
+      saintsToRender = <SilverSaints />;
       break;
     default:
       saintsToRender = <ErrorCustom title='404' message='Page not Found' />;

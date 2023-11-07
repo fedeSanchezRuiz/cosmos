@@ -105,7 +105,7 @@ const GoldSaints = () => {
               lg: '1.5rem',
               xl: '1.5rem',
             }}
-            className={classes.GoldCardStyles}
+            className={`${classes.CommonCardStyles} ${classes.GoldCardStyles}`}
           >
             {renderSaintFeatures(saint)}
           </Flex>

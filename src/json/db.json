@@ -275,12 +275,12 @@
       ],
       "black": [
         {
-          "name": "BlackPegasus",
+          "name": "Bk.Pegasus",
           "country": "Israel",
           "age": "15",
           "height": "1.70cm",
           "weight": "58kg",
-          "cloth": "BlackPegasus",
+          "cloth": "Bk.Pegasus",
           "attacks": [
             "Black Meteor Fist"
           ],
@@ -288,12 +288,12 @@
           "type": "black"
         },
         {
-          "name": "BlackDragon",
+          "name": "Bk.Dragon",
           "country": "Poland",
           "age": "15",
           "height": "1.73cm",
           "weight": "62kg",
-          "cloth": "BlackDragon",
+          "cloth": "Bk.Dragon",
           "attacks": [
             "Black Rising Dragon"
           ],
@@ -301,12 +301,12 @@
           "type": "black"
         },
         {
-          "name": "BlackCygnus",
+          "name": "Bk.Cygnus",
           "country": "Finland",
           "age": "15",
           "height": "1.73cm",
           "weight": "61kg",
-          "cloth": "BlackCygnus",
+          "cloth": "Bk.Cygnus",
           "attacks": [
             "Black Blizzard"
           ],
@@ -314,12 +314,12 @@
           "type": "black"
         },
         {
-          "name": "BlackAndromeda",
+          "name": "Bk.Andromeda",
           "country": "Turkey",
           "age": "14",
           "height": "1.70cm",
           "weight": "58kg",
-          "cloth": "BlackAndromeda",
+          "cloth": "Bk.Andromeda",
           "attacks": [
             "Black Fang Nebula"
           ],
@@ -327,17 +327,283 @@
           "type": "black"
         },
         {
-          "name": "BlackPhoenix",
+          "name": "Bk.Phoenix",
           "country": "unknown",
           "age": "unknown",
           "height": "unknown",
           "weight": "unknown",
-          "cloth": "BlackPhoenix",
+          "cloth": "Bk.Phoenix",
           "attacks": [
             "Black Phoenix Illusion"
           ],
           "source": "PhoenixBlack",
           "type": "black"
+        }
+      ],
+      "silver": [
+        {
+          "name": "Marin",
+          "country": "Japan",
+          "age": "16",
+          "height": "1.67cm",
+          "weight": "51kg",
+          "cloth": "Eagle",
+          "attacks": [
+            "Eagle Claw Flash"
+          ],
+          "source": "Marin",
+          "type": "silver"
+        },
+        {
+          "name": "Shaina",
+          "country": "Italy",
+          "age": "16",
+          "height": "1.66cm",
+          "weight": "49kg",
+          "cloth": "Ophiuchus",
+          "attacks": [
+            "Thunder Claw"
+          ],
+          "source": "Shaina",
+          "type": "silver"
+        },
+        {
+          "name": "Misty",
+          "country": "France",
+          "age": "16",
+          "height": "1.80cm",
+          "weight": "68kg",
+          "cloth": "Lizard",
+          "attacks": [
+            "Mavrou Trippa"
+          ],
+          "source": "Misty",
+          "type": "silver"
+        },
+        {
+          "name": "Moses",
+          "country": "New Zealand",
+          "age": "17",
+          "height": "2.05cm",
+          "weight": "130kg",
+          "cloth": "Whale",
+          "attacks": [
+            "Kaitoz Spouting Bomber"
+          ],
+          "source": "Moses",
+          "type": "silver"
+        },
+        {
+          "name": "Asterion",
+          "country": "Denmark",
+          "age": "16",
+          "height": "1.83cm",
+          "weight": "75kg",
+          "cloth": "Hound",
+          "attacks": [
+            "Million Ghosts Attack"
+          ],
+          "source": "Asterion",
+          "type": "silver"
+        },
+        {
+          "name": "Babel",
+          "country": "Iraq",
+          "age": "17",
+          "height": "1.85cm",
+          "weight": "80kg",
+          "cloth": "Centaurus",
+          "attacks": [
+            "Fotia Roufihtra"
+          ],
+          "source": "Babel",
+          "type": "silver"
+        },
+        {
+          "name": "Jamian",
+          "country": "England",
+          "age": "17",
+          "height": "1.66cm",
+          "weight": "56kg",
+          "cloth": "Crow",
+          "attacks": [
+            "Black Wing Shift"
+          ],
+          "source": "Jamian",
+          "type": "silver"
+        },
+        {
+          "name": "Algol",
+          "country": "Saudi Arabia",
+          "age": "17",
+          "height": "1.88cm",
+          "weight": "83kg",
+          "cloth": "Perseus",
+          "attacks": [
+            "Medusa Shield",
+            "Ra's Al Ghûl Gorgonio"
+          ],
+          "source": "Algol",
+          "type": "silver"
+        },
+        {
+          "name": "Capella",
+          "country": "Greece",
+          "age": "17",
+          "height": "1.83cm",
+          "weight": "80kg",
+          "cloth": "Auriga",
+          "attacks": [
+            "Saucer Kōgeki"
+          ],
+          "source": "Capella",
+          "type": "silver"
+        },
+        {
+          "name": "Dante",
+          "country": "Italy",
+          "age": "17",
+          "height": "1.85cm",
+          "weight": "93kg",
+          "cloth": "Cerberus",
+          "attacks": [
+            "Jigoku no Kōkyūsa"
+          ],
+          "source": "Dante",
+          "type": "silver"
+        },
+        {
+          "name": "Algethi",
+          "country": "Uganda",
+          "age": "17",
+          "height": "2.40cm",
+          "weight": "180kg",
+          "cloth": "Heracles",
+          "attacks": [
+            "Kornephoros"
+          ],
+          "source": "Algethi",
+          "type": "silver"
+        },
+        {
+          "name": "Dio",
+          "country": "Mexico",
+          "age": "16",
+          "height": "1.60cm",
+          "weight": "56kg",
+          "cloth": "Musca",
+          "attacks": [
+            "Dead End Fly"
+          ],
+          "source": "Dio",
+          "type": "silver"
+        },
+        {
+          "name": "Sirius",
+          "country": "Germany",
+          "age": "17",
+          "height": "1.85cm",
+          "weight": "86kg",
+          "cloth": "Canis Major",
+          "attacks": [
+            "Great Mountain Smasher"
+          ],
+          "source": "Sirius",
+          "type": "silver"
+        },
+        {
+          "name": "Ptolemy",
+          "country": "Libya",
+          "age": "16",
+          "height": "1.80cm",
+          "weight": "73kg",
+          "cloth": "Sagitta",
+          "attacks": [
+            "Phantom Arrow"
+          ],
+          "source": "Ptolemy",
+          "type": "silver"
+        },
+        {
+          "name": "Albiore",
+          "country": "Argentina",
+          "age": "19",
+          "height": "1.87cm",
+          "weight": "89kg",
+          "cloth": "Cepheus",
+          "attacks": [
+            "Nebula Chain",
+            "Rolling Defense"
+          ],
+          "source": "Albiore",
+          "type": "silver"
+        },
+        {
+          "name": "Shiva",
+          "country": "India",
+          "age": "16",
+          "height": "1.80cm",
+          "weight": "78kg",
+          "cloth": "Peacock",
+          "attacks": [
+            "enju Kami Onken"
+          ],
+          "source": "Shiva",
+          "type": "silver"
+        },
+        {
+          "name": "Agora",
+          "country": "India",
+          "age": "17",
+          "height": "1.85cm",
+          "weight": "89kg",
+          "cloth": "Lotus",
+          "attacks": [
+            "Renge Bakusai Ken"
+          ],
+          "source": "Agora",
+          "type": "silver"
+        },
+        {
+          "name": "Arachne",
+          "country": "Turkey",
+          "age": "16",
+          "height": "1.90cm",
+          "weight": "90kg",
+          "cloth": "Tarantula",
+          "attacks": [
+            "Tarantula Net"
+          ],
+          "source": "Arachne",
+          "type": "silver"
+        },
+        {
+          "name": "Spartan",
+          "country": "unknown",
+          "age": "unknown",
+          "height": "unknown",
+          "weight": "unknown",
+          "cloth": "Pyxis",
+          "attacks": [
+            "Nenriki"
+          ],
+          "source": "Spartan",
+          "type": "silver"
+        },
+        {
+          "name": "Orphee",
+          "country": "Greece",
+          "age": "19",
+          "height": "1.73cm",
+          "weight": "60kg",
+          "cloth": "Lyra",
+          "attacks": [
+            "Stinger Fine",
+            "Stringer Nocturne",
+            "Death Trip Serenade"
+          ],
+          "source": "Orphee",
+          "type": "silver"
         }
       ],
       "gold": [
@@ -511,6 +777,238 @@
           ],
           "source": "Aphrodite",
           "type": "gold"
+        }
+      ],
+      "asgard": [
+        {
+          "name": "Thor",
+          "country": "Asgard",
+          "age": "23",
+          "height": "2.65cm",
+          "weight": "220kg",
+          "cloth": "Phecda",
+          "attacks": [
+            "Titanic Hercules",
+            "Mjolnir Hammer"
+          ],
+          "source": "Thor",
+          "type": "warrior"
+        },
+        {
+          "name": "Fenrir",
+          "country": "Asgard",
+          "age": "14",
+          "height": "1.77cm",
+          "weight": "60kg",
+          "cloth": "Alioth",
+          "attacks": [
+            "Wolf Cruelty Claw",
+            "Northern Wolf Pack Punch"
+          ],
+          "source": "Fenrir",
+          "type": "warrior"
+        },
+        {
+          "name": "Hagen",
+          "country": "Asgard",
+          "age": "14",
+          "height": "1.85cm",
+          "weight": "77kg",
+          "cloth": "Merak",
+          "attacks": [
+            "Universe Freezing",
+            "Great Ardent Pressure"
+          ],
+          "source": "Hagen",
+          "type": "warrior"
+        },
+        {
+          "name": "Mime",
+          "country": "Asgard",
+          "age": "15",
+          "height": "1.78cm",
+          "weight": "68kg",
+          "cloth": "Benetnasch",
+          "attacks": [
+            "Lightspeed Attack",
+            "Stringer Requiem"
+          ],
+          "source": "Mime",
+          "type": "warrior"
+        },
+        {
+          "name": "Alberich",
+          "country": "Asgard",
+          "age": "15",
+          "height": "1.60cm",
+          "weight": "58kg",
+          "cloth": "Megrez",
+          "attacks": [
+            "Amethyst Sealed",
+            "Fire Sword"
+          ],
+          "source": "Alberich",
+          "type": "warrior"
+        },
+        {
+          "name": "Syd",
+          "country": "Asgard",
+          "age": "18",
+          "height": "1.85cm",
+          "weight": "72kg",
+          "cloth": "Mizar",
+          "attacks": [
+            "Viking Tiger Claw",
+            "Blue Impulse"
+          ],
+          "source": "Syd",
+          "type": "warrior"
+        },
+        {
+          "name": "Bud",
+          "country": "Asgard",
+          "age": "18",
+          "height": "1.85cm",
+          "weight": "72kg",
+          "cloth": "Alcor",
+          "attacks": [
+            "Shadow Viking Tiger Claw",
+            "Blue Beam"
+          ],
+          "source": "Bud",
+          "type": "warrior"
+        },
+        {
+          "name": "Siegfried",
+          "country": "Asgard",
+          "age": "19",
+          "height": "1.95cm",
+          "weight": "85kg",
+          "cloth": "Dubhe",
+          "attacks": [
+            "Odin Sword",
+            "Dragon Bravest Blizard"
+          ],
+          "source": "Siegfried",
+          "type": "warrior"
+        }
+      ],
+      "poseidon": [
+        {
+          "name": "Thetis",
+          "country": "Denmark",
+          "age": "15",
+          "height": "1.65cm",
+          "weight": "52kg",
+          "cloth": "Mermaid",
+          "attacks": [
+            "Deathtrap Coral"
+          ],
+          "source": "Thetis",
+          "type": "marine"
+        },
+        {
+          "name": "Baian",
+          "country": "Canada",
+          "age": "18",
+          "height": "1.81cm",
+          "weight": "78kg",
+          "cloth": "Sea Horse",
+          "attacks": [
+            "God Breath",
+            "Rising Billows"
+          ],
+          "source": "Baian",
+          "type": "marine"
+        },
+        {
+          "name": "Io",
+          "country": "Chile",
+          "age": "17",
+          "height": "1.80cm",
+          "weight": "71kg",
+          "cloth": "Scylla",
+          "attacks": [
+            "Eagle Clutch",
+            "Wolf's Fang",
+            "Queen Bee's Stinger",
+            "Vampire Inhale",
+            "Serpent Strangler",
+            "Grizzly Slap",
+            "Big Tornado"
+          ],
+          "source": "Io",
+          "type": "marine"
+        },
+        {
+          "name": "Krishna",
+          "country": "Sri Lanka",
+          "age": "19",
+          "height": "1.87cm",
+          "weight": "80kg",
+          "cloth": "Chrysaor",
+          "attacks": [
+            "Flashing Lancer",
+            "Maha Roshini"
+          ],
+          "source": "Krishna",
+          "type": "marine"
+        },
+        {
+          "name": "Kaza",
+          "country": "Portugal",
+          "age": "21",
+          "height": "1.68cm",
+          "weight": "49kg",
+          "cloth": "Lyumnades",
+          "attacks": [
+            "Salamander Shock",
+            "Thunder Veil"
+          ],
+          "source": "Kaza",
+          "type": "marine"
+        },
+        {
+          "name": "Isaac",
+          "country": "Finland",
+          "age": "14",
+          "height": "1.74cm",
+          "weight": "60kg",
+          "cloth": "Kraken",
+          "attacks": [
+            "Diamond Dust",
+            "Aurora Borealis"
+          ],
+          "source": "Isaac",
+          "type": "marine"
+        },
+        {
+          "name": "Sorrento",
+          "country": "Austria",
+          "age": "16",
+          "height": "1.78cm",
+          "weight": "75kg",
+          "cloth": "Siren",
+          "attacks": [
+            "Dead End Symphony",
+            "Dead End Climax"
+          ],
+          "source": "Sorrento",
+          "type": "marine"
+        },
+        {
+          "name": "Kanon",
+          "country": "Greece",
+          "age": "28",
+          "height": "1.88cm",
+          "weight": "87kg",
+          "cloth": "Sea Dragon",
+          "attacks": [
+            "Golden Triangle",
+            "Galaxian Explosion"
+          ],
+          "source": "Kanon",
+          "type": "marine"
         }
       ]
     }

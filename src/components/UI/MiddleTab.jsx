@@ -41,6 +41,7 @@ const MiddleTab = () => {
               backgroundSize='cover'
               fontFamily='ARCADECLASSIC'
               letterSpacing='0.04rem'
+              boxShadow='2px 2px 8px rgba(0, 0, 0, 0.4)'
               fontSize={{
                 base: 'x-small',
                 sm: 'small',

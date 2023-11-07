@@ -1,29 +1,25 @@
 import { Flex, Image, Box } from '@chakra-ui/react';
 import { useFetch } from '../../hooks/useFetch';
 import classes from './Saints.module.css';
-import Seiya from '../../images/bronze-img/SeiyaPegasus2.jpeg';
-import Shiryu from '../../images/bronze-img/ShiryuDragon2.jpeg';
-import Hyoga from '../../images/bronze-img/HyogaCygnus2.jpeg';
-import Shun from '../../images/bronze-img/ShunAndromeda.jpeg';
-import Ikki from '../../images/bronze-img/IkkiPhoenix2.jpeg';
-import Jabu from '../../images/bronze-img/JabuUnicorn2.jpeg';
-import Ban from '../../images/bronze-img/BanLeon.jpeg';
-import Geki from '../../images/bronze-img/GekiOso.jpeg';
-import Ichi from '../../images/bronze-img/IchiHydra.jpeg';
-import Nachi from '../../images/bronze-img/NachiLobo.jpeg';
+import Thetis from '../../images/marines-img/MermaidThetis.jpeg';
+import Baian from '../../images/marines-img/SeaHorseBaian.jpeg';
+import Io from '../../images/marines-img/ScyllaIo.jpeg';
+import Krishna from '../../images/marines-img/ChrysaorKrishna.jpeg';
+import Kaza from '../../images/marines-img/LyumnadesKaza.jpeg';
+import Isaac from '../../images/marines-img/KrakenIsaac.jpeg';
+import Sorrento from '../../images/marines-img/SirenSorrento.jpeg';
+import Kanon from '../../images/marines-img/SeaDragonKanon.jpeg';
 import ErrorCustom from '../../UI/ErrorCustom';
 
 const images = {
-  Seiya,
-  Shiryu,
-  Hyoga,
-  Shun,
-  Ikki,
-  Jabu,
-  Ban,
-  Geki,
-  Ichi,
-  Nachi,
+  Thetis,
+  Baian,
+  Io,
+  Krishna,
+  Kaza,
+  Isaac,
+  Sorrento,
+  Kanon,
 };
 
 const addImageToCard = (card) => {
@@ -32,9 +28,9 @@ const addImageToCard = (card) => {
   return newCard;
 };
 
-const BronzeSaints = () => {
+const PoseidonMarines = () => {
   const fetchUrl = 'http://localhost:3000/website';
-  const errorMessage = 'Failed to fetch Bronze Saints';
+  const errorMessage = 'Failed to fetch Poseidon Marines';
 
   const { error, fetchedData } = useFetch(
     fetchUrl,
@@ -45,20 +41,20 @@ const BronzeSaints = () => {
     return <ErrorCustom message={errorMessage} />;
   }
 
-  const bronzeSaints = fetchedData
-    ? fetchedData[0]?.bronze?.map(addImageToCard)
+  const poseidonMarines = fetchedData
+    ? fetchedData[0]?.poseidon?.map(addImageToCard)
     : [];
   const features = fetchedData ? fetchedData[0]?.features : [];
 
-  const renderSaintFeatures = (saint) =>
+  const renderSaintFeatures = (marine) =>
     features?.map((feature) => (
       <Flex key={feature.key}>
         <Box fontWeight='extrabold'>{feature.label}:</Box>
-        <Box fontWeight='medium'>{saint[feature.key]}</Box>
+        <Box fontWeight='medium'>{marine[feature.key]}</Box>
       </Flex>
     ));
 
-  const bronzeSaintsList = (
+  const poseidonMarinesList = (
     <Flex
       my={{
         base: '10%',
@@ -80,18 +76,18 @@ const BronzeSaints = () => {
       justifyContent='space-evenly'
       alignItems='center'
     >
-      {bronzeSaints?.map((saint) => (
+      {poseidonMarines?.map((marine) => (
         <Flex
           width='620px'
           wrap='wrap'
-          key={saint.source}
+          key={marine.source}
           boxShadow='8px 8px 16px rgba(0, 0, 0, 0.8)'
         >
           <Image
             maxH='423px'
             w='55%'
-            src={saint.source}
-            alt={saint.name}
+            src={marine.source}
+            alt={marine.name}
           />
           <Flex
             fontFamily='ARCADECLASSIC'
@@ -101,15 +97,16 @@ const BronzeSaints = () => {
               lg: '1.5rem',
               xl: '1.5rem',
             }}
-            className={`${classes.CommonCardStyles} ${classes.BronzeCardStyles}`}>
-            {renderSaintFeatures(saint)}
+            className={`${classes.CommonCardStyles} ${classes.PoseidonCardStyles}`}
+          >
+            {renderSaintFeatures(marine)}
           </Flex>
         </Flex>
       ))}
     </Flex>
   );
 
-  return bronzeSaintsList;
+  return poseidonMarinesList;
 };
 
-export default BronzeSaints;
+export default PoseidonMarines;
