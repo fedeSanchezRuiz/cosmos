@@ -1,29 +1,33 @@
 import { Flex, Image, Box } from '@chakra-ui/react';
 import { useFetch } from '../../hooks/useFetch';
 import classes from './Saints.module.css';
-import Seiya from '../../images/bronze-img/SeiyaPegasus2.jpeg';
-import Shiryu from '../../images/bronze-img/ShiryuDragon2.jpeg';
-import Hyoga from '../../images/bronze-img/HyogaCygnus2.jpeg';
-import Shun from '../../images/bronze-img/ShunAndromeda.jpeg';
-import Ikki from '../../images/bronze-img/IkkiPhoenix2.jpeg';
-import Jabu from '../../images/bronze-img/JabuUnicorn2.jpeg';
-import Ban from '../../images/bronze-img/BanLeon.jpeg';
-import Geki from '../../images/bronze-img/GekiOso.jpeg';
-import Ichi from '../../images/bronze-img/IchiHydra.jpeg';
-import Nachi from '../../images/bronze-img/NachiLobo.jpeg';
+import Mu from '../../images/gold-img/AriesMu.jpeg';
+import Aldebaran from '../../images/gold-img/TaurusAldebaran.jpeg';
+import Saga from '../../images/gold-img/GeminiSaga.jpeg';
+import DeathMask from '../../images/gold-img/CancerDM.jpeg';
+import Aiolia from '../../images/gold-img/LeoAiolia.jpeg';
+import Shaka from '../../images/gold-img/VirgoShaka.jpeg';
+import Dohko from '../../images/gold-img/LibraDohko.jpeg';
+import Milo from '../../images/gold-img/ScorpioMilo.jpeg';
+import Aiolos from '../../images/gold-img/SagittariusAiolos.jpeg';
+import Shura from '../../images/gold-img/CapricornShura.jpeg';
+import Camus from '../../images/gold-img/AquariusCamus.jpeg';
+import Aphrodite from '../../images/gold-img/PiscesAphrodite.jpeg';
 import ErrorCustom from '../../UI/ErrorCustom';
 
 const images = {
-  Seiya,
-  Shiryu,
-  Hyoga,
-  Shun,
-  Ikki,
-  Jabu,
-  Ban,
-  Geki,
-  Ichi,
-  Nachi,
+  Mu,
+  Aldebaran,
+  Saga,
+  DeathMask,
+  Aiolia,
+  Shaka,
+  Dohko,
+  Milo,
+  Aiolos,
+  Shura,
+  Camus,
+  Aphrodite,
 };
 
 const addImageToCard = (card) => {
@@ -32,9 +36,9 @@ const addImageToCard = (card) => {
   return newCard;
 };
 
-const BronzeSaints = () => {
+const GoldSaints = () => {
   const fetchUrl = 'http://localhost:3000/website';
-  const errorMessage = 'Failed to fetch Bronze Saints';
+  const errorMessage = 'Failed to fetch Gold Saints';
 
   const { error, fetchedData } = useFetch(
     fetchUrl,
@@ -45,8 +49,8 @@ const BronzeSaints = () => {
     return <ErrorCustom message={errorMessage} />;
   }
 
-  const bronzeSaints = fetchedData
-    ? fetchedData[0]?.bronze?.map(addImageToCard)
+  const goldSaints = fetchedData
+    ? fetchedData[0]?.gold?.map(addImageToCard)
     : [];
   const features = fetchedData ? fetchedData[0]?.features : [];
 
@@ -58,7 +62,7 @@ const BronzeSaints = () => {
       </Flex>
     ));
 
-  const bronzeSaintsList = (
+  const goldSaintsList = (
     <Flex
       my={{
         base: '10%',
@@ -80,7 +84,7 @@ const BronzeSaints = () => {
       justifyContent='space-evenly'
       alignItems='center'
     >
-      {bronzeSaints?.map((saint) => (
+      {goldSaints?.map((saint) => (
         <Flex
           width='620px'
           wrap='wrap'
@@ -101,7 +105,7 @@ const BronzeSaints = () => {
               lg: '1.5rem',
               xl: '1.5rem',
             }}
-            className={classes.BronzeCardStyles}
+            className={classes.GoldCardStyles}
           >
             {renderSaintFeatures(saint)}
           </Flex>
@@ -110,7 +114,7 @@ const BronzeSaints = () => {
     </Flex>
   );
 
-  return bronzeSaintsList;
+  return goldSaintsList;
 };
 
-export default BronzeSaints;
+export default GoldSaints;

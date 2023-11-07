@@ -339,6 +339,179 @@
           "source": "PhoenixBlack",
           "type": "black"
         }
+      ],
+      "gold": [
+        {
+          "name": "Mu",
+          "country": "Tibet",
+          "age": "20",
+          "height": "1.82cm",
+          "weight": "75kg",
+          "cloth": "Aries",
+          "attacks": [
+            "Crystal Wall",
+            "Stardust Revolution",
+            "Starlight Extinction"
+          ],
+          "source": "Mu",
+          "type": "gold"
+        },
+        {
+          "name": "Aldebaran",
+          "country": "Brazil",
+          "age": "20",
+          "height": "2.10cm",
+          "weight": "130kg",
+          "cloth": "Taurus",
+          "attacks": [
+            "Great Horn"
+          ],
+          "source": "Aldebaran",
+          "type": "gold"
+        },
+        {
+          "name": "Saga",
+          "country": "Greece",
+          "age": "28",
+          "height": "1.88cm",
+          "weight": "87kg",
+          "cloth": "Gemini",
+          "attacks": [
+            "Another Dimension",
+            "Galaxian Explosion"
+          ],
+          "source": "Saga",
+          "type": "gold"
+        },
+        {
+          "name": "DeathMask",
+          "country": "Italy",
+          "age": "23",
+          "height": "1.84cm",
+          "weight": "82kg",
+          "cloth": "Cancer",
+          "attacks": [
+            "Spiritual Hell Waves"
+          ],
+          "source": "DeathMask",
+          "type": "gold"
+        },
+        {
+          "name": "Aiolia",
+          "country": "Greece",
+          "age": "20",
+          "height": "1.85cm",
+          "weight": "85kg",
+          "cloth": "Leo",
+          "attacks": [
+            "Lightning Bolt",
+            "Lightning Plasma"
+          ],
+          "source": "Aiolia",
+          "type": "gold"
+        },
+        {
+          "name": "Shaka",
+          "country": "India",
+          "age": "20",
+          "height": "1.82cm",
+          "weight": "68kg",
+          "cloth": "Virgo",
+          "attacks": [
+            "Om",
+            "Kān",
+            "Demon Pacifier",
+            "Heaven Supremacy on Evil Spirits",
+            "Treasures of Heavens"
+          ],
+          "source": "Shaka",
+          "type": "gold"
+        },
+        {
+          "name": "Dohko",
+          "country": "China",
+          "age": "261",
+          "height": "1.70cm",
+          "weight": "87kg",
+          "cloth": "Libra",
+          "attacks": [
+            "Rozan Rising Dragon",
+            "Rozan Flying Dragon",
+            "Rozan One Hundred Dragons"
+          ],
+          "source": "Dohko",
+          "type": "gold"
+        },
+        {
+          "name": "Milo",
+          "country": "Greece",
+          "age": "20",
+          "height": "1.85cm",
+          "weight": "84kg",
+          "cloth": "Scorpio",
+          "attacks": [
+            "Scarlet Needle",
+            "Antares"
+          ],
+          "source": "Milo",
+          "type": "gold"
+        },
+        {
+          "name": "Aiolos",
+          "country": "Greece",
+          "age": "14(27)",
+          "height": "1.87cm",
+          "weight": "85kg",
+          "cloth": "Sagittarius",
+          "attacks": [
+            "Atomic Thunderbolt",
+            "Infinity Break"
+          ],
+          "source": "Aiolos",
+          "type": "gold"
+        },
+        {
+          "name": "Shura",
+          "country": "Spain",
+          "age": "23",
+          "height": "1.86cm",
+          "weight": "83kg",
+          "cloth": "Capricorn",
+          "attacks": [
+            "Excalibur"
+          ],
+          "source": "Shura",
+          "type": "gold"
+        },
+        {
+          "name": "Camus",
+          "country": "France",
+          "age": "20",
+          "height": "1.84cm",
+          "weight": "76kg",
+          "cloth": "Aquarius",
+          "attacks": [
+            "Diamond Dust",
+            "Aurora Execution"
+          ],
+          "source": "Camus",
+          "type": "gold"
+        },
+        {
+          "name": "Aphrodite",
+          "country": "Sweden",
+          "age": "22",
+          "height": "1.83cm",
+          "weight": "72kg",
+          "cloth": "Pisces",
+          "attacks": [
+            "Royal Demon Rose",
+            "Piranhan Rose",
+            "Bloody Rose"
+          ],
+          "source": "Aphrodite",
+          "type": "gold"
+        }
       ]
     }
   ],

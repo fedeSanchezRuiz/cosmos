@@ -6,6 +6,7 @@ import MessageCustom from '../components/UI/MessageCustom';
 import shakaMeditate from '../../src/components/images/website-img/ShakaMeditation.png';
 import BronzeSaints from '../components/websiteComponents/charactersProfile/BronzeSaints';
 import BlackSaints from '../components/websiteComponents/charactersProfile/BlackSaints';
+import GoldSaints from '../components/websiteComponents/charactersProfile/GoldSaints';
 import ErrorCustom from '../components/UI/ErrorCustom';
 
 const CharacterDetails = () => {
@@ -20,8 +21,10 @@ const CharacterDetails = () => {
     case 'black':
       saintsToRender = <BlackSaints />;
       break;
-    case 'silver':
     case 'gold':
+      saintsToRender = <GoldSaints />;
+      break;
+    case 'silver':
     case 'asgard':
     case 'poseidon':
       saintsToRender = <MessageCustom src={shakaMeditate} />;

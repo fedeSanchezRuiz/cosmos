@@ -38,7 +38,7 @@ const BlackSaints = () => {
   const blackSaints = fetchedData ? fetchedData[0]?.black?.map(addImageToCard) : [];
   const features = fetchedData ? fetchedData[0]?.features : [];
 
-  const renderSaintProperties = (saint) =>
+  const renderSaintFeatures = (saint) =>
     features?.map((feature) => (
       <Flex
         className={classes.cardWrap}
@@ -49,43 +49,47 @@ const BlackSaints = () => {
       </Flex>
     ));
 
-  const blackSaintsList = (
-    <Flex className={classes.totalFlex}>
-      {blackSaints?.map((saint) => (
-        <Flex
-          key={saint.name}
-          className={classes.outerFlex}
-        >
-          <Image
-            className={classes.imageStyle}
-            src={saint.source}
-            alt={saint.name}
-          />
+    const blackSaintsList = (
+      <Flex
+      my={{ base: '10%', sm: '7%', md: '6%', lg: '5%', xl: '5%' }}
+        h='100%'
+        gap={{ base: '20px', sm: '25px', md: '35px', lg: '40px', xl: '40px' }}
+        flexWrap='wrap'
+        width='100%'
+        justifyContent='space-evenly'
+        alignItems='center'
+      >
+        {blackSaints?.map((saint) => (
           <Flex
-            fontFamily='ARCADECLASSIC'
-            fontSize={{
-              sm: '1.2rem',
-              md: '1.3rem',
-              lg: '1.5rem',
-              xl: '1.5rem',
-            }}
-            h={{
-              base: '202.5px',
-              sm: '275px',
-              md: '403.5px',
-              lg: '492.5px',
-              xl: '492.5px',
-            }}
-            className={classes.BlackCardStyles}
+            width='620px'
+            wrap='wrap'
+            key={saint.source}
+            boxShadow='8px 8px 16px rgba(0, 0, 0, 0.8)'
           >
-            {renderSaintProperties(saint)}
+            <Image
+              maxH='423px'
+              w='55%'
+              src={saint.source}
+              alt={saint.name}
+            />
+            <Flex
+              fontFamily='ARCADECLASSIC'
+              fontSize={{
+                sm: '1.2rem',
+                md: '1.3rem',
+                lg: '1.5rem',
+                xl: '1.5rem',
+              }}
+              className={classes.BlackCardStyles}
+            >
+              {renderSaintFeatures(saint)}
+            </Flex>
           </Flex>
-        </Flex>
-      ))}
-    </Flex>
-  );
-
-  return (blackSaintsList);
-};
+        ))}
+      </Flex>
+    );
+  
+    return blackSaintsList;
+  };
 
 export default BlackSaints;
