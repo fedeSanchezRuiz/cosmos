@@ -1,17 +1,17 @@
 import { Flex, Image, Box } from '@chakra-ui/react';
 import { useFetch } from '../../hooks/useFetch';
 import classes from './Saints.module.css';
-import Mu from '../../images/gold-img/AriesMu.jpeg';
-import Aldebaran from '../../images/gold-img/TaurusAldebaran.jpeg';
+import Mu from '../../images/gold-img/AriesMu1.jpeg';
+import Aldebaran from '../../images/gold-img/TaurusAldebaran1.jpeg';
 import Saga from '../../images/gold-img/GeminiSaga.jpeg';
 import DeathMask from '../../images/gold-img/CancerDM.jpeg';
 import Aiolia from '../../images/gold-img/LeoAiolia.jpeg';
 import Shaka from '../../images/gold-img/VirgoShaka.jpeg';
-import Dohko from '../../images/gold-img/LibraDohko.jpeg';
-import Milo from '../../images/gold-img/ScorpioMilo.jpeg';
-import Aiolos from '../../images/gold-img/SagittariusAiolos.jpeg';
+import Dohko from '../../images/gold-img/LibraDohko1.jpeg';
+import Milo from '../../images/gold-img/ScorpioMilo1.jpeg';
+import Aiolos from '../../images/gold-img/SagittariusAiolos1.jpeg';
 import Shura from '../../images/gold-img/CapricornShura.jpeg';
-import Camus from '../../images/gold-img/AquariusCamus.jpeg';
+import Camus from '../../images/gold-img/AquariusCamus1.jpeg';
 import Aphrodite from '../../images/gold-img/PiscesAphrodite.jpeg';
 import ErrorCustom from '../../UI/ErrorCustom';
 

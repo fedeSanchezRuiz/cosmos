@@ -30,7 +30,7 @@ const addImageToCard = (card) => {
 
 const AsgardWarriors = () => {
   const fetchUrl = 'http://localhost:3000/website';
-  const errorMessage = 'Failed to fetch Asgard Saints';
+  const errorMessage = 'Failed to fetch Asgard Warriors';
 
   const { error, fetchedData } = useFetch(
     fetchUrl,
