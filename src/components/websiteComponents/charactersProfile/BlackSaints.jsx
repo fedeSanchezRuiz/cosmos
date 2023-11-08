@@ -1,12 +1,16 @@
 import { Flex, Image, Box } from '@chakra-ui/react';
-import { useFetch } from '../../hooks/useFetch';
+// import { useFetch } from '../../hooks/useFetch';
 import classes from './Saints.module.css';
 import PegasusBlack from '../../images/black-img/BlackPegasus.jpeg';
 import DragonBlack from '../../images/black-img/BlackDragon.jpeg';
 import CygnusBlack from '../../images/black-img/BlackCygnus.jpeg';
 import AndromedaBlack from '../../images/black-img/BlackAndromeda.jpeg';
 import PhoenixBlack from '../../images/black-img/BlackPhoenix.jpeg';
-import ErrorCustom from '../../UI/ErrorCustom';
+// import ErrorCustom from '../../UI/ErrorCustom';
+import fakeDatabase from '../../../json/db.json';
+
+const blackSaintsData = fakeDatabase.website[0].black;
+const features = fakeDatabase.website[0].features;
 
 const images = {
   PegasusBlack,
@@ -23,20 +27,22 @@ const addImageToCard = (card) => {
 };
 
 const BlackSaints = () => {
-  const fetchUrl = 'http://localhost:3000/website';
-  const errorMessage = 'Failed to fetch Black Saints';
+  // const fetchUrl = 'http://localhost:3000/website';
+  // const errorMessage = 'Failed to fetch Black Saints';
 
-  const { error, fetchedData } = useFetch(
-    fetchUrl,
-    errorMessage
-  );
+  // const { error, fetchedData } = useFetch(
+  //   fetchUrl,
+  //   errorMessage
+  // );
 
-  if (error) {
-    return <ErrorCustom message={errorMessage} />;
-  }
+  // if (error) {
+  //   return <ErrorCustom message={errorMessage} />;
+  // }
 
-  const blackSaints = fetchedData ? fetchedData[0]?.black?.map(addImageToCard) : [];
-  const features = fetchedData ? fetchedData[0]?.features : [];
+  // const blackSaints = fetchedData ? fetchedData[0]?.black?.map(addImageToCard) : [];
+  // const features = fetchedData ? fetchedData[0]?.features : [];
+
+  const blackSaints = blackSaintsData.map(addImageToCard);
 
   const renderSaintFeatures = (saint) =>
     features?.map((feature) => (

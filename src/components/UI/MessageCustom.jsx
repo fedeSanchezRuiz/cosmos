@@ -9,7 +9,7 @@ const imageHoverStyles = {
   transform: 'scale(1.03)',
 };
 
-const MessageCustom = ({ src, text = 'Coming Soon!' }) => {
+const MessageCustom = ({ src, text = 'Coming Soon!', alt = 'ShakaMeditation' }) => {
   return (
     <Flex
       flexDir='column'
@@ -46,6 +46,7 @@ const MessageCustom = ({ src, text = 'Coming Soon!' }) => {
             xl: '400px',
           }}
           src={src}
+          alt={alt}
           style={imageStyles}
           _hover={imageHoverStyles}
         />

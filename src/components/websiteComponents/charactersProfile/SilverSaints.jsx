@@ -1,5 +1,5 @@
 import { Flex, Image, Box } from '@chakra-ui/react';
-import { useFetch } from '../../hooks/useFetch';
+// import { useFetch } from '../../hooks/useFetch';
 import classes from './Saints.module.css';
 import Marin from '../../images/silver-img/EagleMarin.jpeg';
 import Shaina from '../../images/silver-img/OphiuchusShaina.jpeg';
@@ -21,7 +21,11 @@ import Agora from '../../images/silver-img/LotusAgora.jpeg';
 import Arachne from '../../images/silver-img/TarantulaArachne.jpeg';
 import Spartan from '../../images/silver-img/PyxisSpartan.jpeg';
 import Orphee from '../../images/silver-img/LyraOrphee.jpeg';
-import ErrorCustom from '../../UI/ErrorCustom';
+// import ErrorCustom from '../../UI/ErrorCustom';
+import fakeDatabase from '../../../json/db.json';
+
+const silverSaintsData = fakeDatabase.website[0].silver;
+const features = fakeDatabase.website[0].features;
 
 const images = {
   Marin,
@@ -53,22 +57,24 @@ const addImageToCard = (card) => {
 };
 
 const SilverSaints = () => {
-  const fetchUrl = 'http://localhost:3000/website';
-  const errorMessage = 'Failed to fetch Silver Saints';
+  // const fetchUrl = 'http://localhost:3000/website';
+  // const errorMessage = 'Failed to fetch Silver Saints';
 
-  const { error, fetchedData } = useFetch(
-    fetchUrl,
-    errorMessage
-  );
+  // const { error, fetchedData } = useFetch(
+  //   fetchUrl,
+  //   errorMessage
+  // );
 
-  if (error) {
-    return <ErrorCustom message={errorMessage} />;
-  }
+  // if (error) {
+  //   return <ErrorCustom message={errorMessage} />;
+  // }
 
-  const silverSaints = fetchedData
-    ? fetchedData[0]?.silver?.map(addImageToCard)
-    : [];
-  const features = fetchedData ? fetchedData[0]?.features : [];
+  // const silverSaints = fetchedData
+  //   ? fetchedData[0]?.silver?.map(addImageToCard)
+  //   : [];
+  // const features = fetchedData ? fetchedData[0]?.features : [];
+
+  const silverSaints = silverSaintsData.map(addImageToCard);
 
   const renderSaintFeatures = (saint) =>
     features?.map((feature) => (

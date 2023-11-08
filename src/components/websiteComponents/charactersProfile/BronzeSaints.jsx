@@ -1,5 +1,5 @@
 import { Flex, Image, Box } from '@chakra-ui/react';
-import { useFetch } from '../../hooks/useFetch';
+// import { useFetch } from '../../hooks/useFetch';
 import classes from './Saints.module.css';
 import Seiya from '../../images/bronze-img/SeiyaPegasus2.jpeg';
 import Shiryu from '../../images/bronze-img/ShiryuDragon2.jpeg';
@@ -11,7 +11,11 @@ import Ban from '../../images/bronze-img/BanLeon.jpeg';
 import Geki from '../../images/bronze-img/GekiOso.jpeg';
 import Ichi from '../../images/bronze-img/IchiHydra.jpeg';
 import Nachi from '../../images/bronze-img/NachiLobo.jpeg';
-import ErrorCustom from '../../UI/ErrorCustom';
+// import ErrorCustom from '../../UI/ErrorCustom';
+import fakeDatabase from '../../../json/db.json';
+
+const bronzeSaintsData = fakeDatabase.website[0].bronze;
+const features = fakeDatabase.website[0].features;
 
 const images = {
   Seiya,
@@ -33,22 +37,24 @@ const addImageToCard = (card) => {
 };
 
 const BronzeSaints = () => {
-  const fetchUrl = 'http://localhost:3000/website';
-  const errorMessage = 'Failed to fetch Bronze Saints';
+  // const fetchUrl = 'http://localhost:3000/website';
+  // const errorMessage = 'Failed to fetch Bronze Saints';
 
-  const { error, fetchedData } = useFetch(
-    fetchUrl,
-    errorMessage
-  );
+  // const { error, fetchedData } = useFetch(
+  //   fetchUrl,
+  //   errorMessage
+  // );
 
-  if (error) {
-    return <ErrorCustom message={errorMessage} />;
-  }
+  // if (error) {
+  //   return <ErrorCustom message={errorMessage} />;
+  // }
 
-  const bronzeSaints = fetchedData
-    ? fetchedData[0]?.bronze?.map(addImageToCard)
-    : [];
-  const features = fetchedData ? fetchedData[0]?.features : [];
+  // const bronzeSaints = fetchedData
+  //   ? fetchedData[0]?.bronze?.map(addImageToCard)
+  //   : [];
+  // const features = fetchedData ? fetchedData[0]?.features : [];
+
+  const bronzeSaints = bronzeSaintsData.map(addImageToCard);
 
   const renderSaintFeatures = (saint) =>
     features?.map((feature) => (

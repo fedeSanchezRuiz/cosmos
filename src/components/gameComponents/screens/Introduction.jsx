@@ -1,27 +1,30 @@
 import { useState, useEffect } from 'react';
 import { Flex, Text } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-import { useFetch } from '../../hooks/useFetch';
+// import { useFetch } from '../../hooks/useFetch';
 import ButtonCustom from '../../UI/ButtonCustom';
 import useTypewriter from '../../hooks/useTypewriter';
 import ScreenCard from '../interfaceElements/ScreenCard';
 import NightSkyBackground from '../../images/website-img/TotalBlack.jpeg';
-import Cardwrapper from '../../UI/CardWrapper';
-import ErrorCustom from '../../UI/ErrorCustom';
-import Footer from '../../UI/Footer';
+// import Cardwrapper from '../../UI/CardWrapper';
+// import ErrorCustom from '../../UI/ErrorCustom';
+// import Footer from '../../UI/Footer';
+import fakeDatabase from '../../../json/db.json'
+
+const introText = fakeDatabase.chapters[0].introText;
 
 const Introduction = ({ onStepChange }) => {
-  const fetchUrl = 'http://localhost:3000/chapters';
-  const errorMessage =
-    'Failed to load game data, please try again later';
+  // const fetchUrl = 'http://localhost:3000/chapters';
+  // const errorMessage =
+  //   'Failed to load game data, please try again later';
   const [isClicked, setIsClicked] = useState(false);
 
-  const { error, fetchedData } = useFetch(
-    fetchUrl,
-    errorMessage
-  );
+  // const { error, fetchedData } = useFetch(
+  //   fetchUrl,
+  //   errorMessage
+  // );
 
-  const introText = fetchedData ? fetchedData[0]?.introText : [];
+  // const introText = fetchedData ? fetchedData[0]?.introText : [];
 
   const {
     displayedText,
@@ -43,34 +46,34 @@ const Introduction = ({ onStepChange }) => {
     return () => {
       window.removeEventListener('click', handleClick);
     };
-  }, [setDisplayedText, setIsTypingCompleted, introText]);
+  }, [setDisplayedText, setIsTypingCompleted, /*introText*/]);
 
-  if (error) {
-    return (
-      <>
-        <Cardwrapper>
-          <ErrorCustom
-            imageHeight={{
-              base: '270px',
-              sm: '300px',
-              md: '350px',
-              lg: '380px',
-              xl: '400px',
-            }}
-            marginTop={{
-              base: '15%',
-              sm: '14%',
-              md: '3%',
-              lg: '0%',
-              xl: '-2%',
-            }}
-            message={errorMessage}
-          />
-        </Cardwrapper>
-        <Footer />
-      </>
-    );
-  }
+  // if (error) {
+  //   return (
+  //     <>
+  //       <Cardwrapper>
+  //         <ErrorCustom
+  //           imageHeight={{
+  //             base: '270px',
+  //             sm: '300px',
+  //             md: '350px',
+  //             lg: '380px',
+  //             xl: '400px',
+  //           }}
+  //           marginTop={{
+  //             base: '15%',
+  //             sm: '14%',
+  //             md: '3%',
+  //             lg: '0%',
+  //             xl: '-2%',
+  //           }}
+  //           message={errorMessage}
+  //         />
+  //       </Cardwrapper>
+  //       <Footer />
+  //     </>
+  //   );
+  // }
 
   const goToFightHandler = () => {
     setIsClicked(true);

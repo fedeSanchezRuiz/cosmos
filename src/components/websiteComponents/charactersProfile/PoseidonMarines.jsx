@@ -1,5 +1,5 @@
 import { Flex, Image, Box } from '@chakra-ui/react';
-import { useFetch } from '../../hooks/useFetch';
+// import { useFetch } from '../../hooks/useFetch';
 import classes from './Saints.module.css';
 import Thetis from '../../images/marines-img/MermaidThetis.jpeg';
 import Baian from '../../images/marines-img/SeaHorseBaian.jpeg';
@@ -9,7 +9,11 @@ import Kaza from '../../images/marines-img/LyumnadesKaza.jpeg';
 import Isaac from '../../images/marines-img/KrakenIsaac.jpeg';
 import Sorrento from '../../images/marines-img/SirenSorrento.jpeg';
 import Kanon from '../../images/marines-img/SeaDragonKanon.jpeg';
-import ErrorCustom from '../../UI/ErrorCustom';
+// import ErrorCustom from '../../UI/ErrorCustom';
+import fakeDatabase from '../../../json/db.json';
+
+const poseidonMarinesData = fakeDatabase.website[0].poseidon;
+const features = fakeDatabase.website[0].features;
 
 const images = {
   Thetis,
@@ -29,22 +33,24 @@ const addImageToCard = (card) => {
 };
 
 const PoseidonMarines = () => {
-  const fetchUrl = 'http://localhost:3000/website';
-  const errorMessage = 'Failed to fetch Poseidon Marines';
+  // const fetchUrl = 'http://localhost:3000/website';
+  // const errorMessage = 'Failed to fetch Poseidon Marines';
 
-  const { error, fetchedData } = useFetch(
-    fetchUrl,
-    errorMessage
-  );
+  // const { error, fetchedData } = useFetch(
+  //   fetchUrl,
+  //   errorMessage
+  // );
 
-  if (error) {
-    return <ErrorCustom message={errorMessage} />;
-  }
+  // if (error) {
+  //   return <ErrorCustom message={errorMessage} />;
+  // }
 
-  const poseidonMarines = fetchedData
-    ? fetchedData[0]?.poseidon?.map(addImageToCard)
-    : [];
-  const features = fetchedData ? fetchedData[0]?.features : [];
+  // const poseidonMarines = fetchedData
+  //   ? fetchedData[0]?.poseidon?.map(addImageToCard)
+  //   : [];
+  // const features = fetchedData ? fetchedData[0]?.features : [];
+
+  const poseidonMarines = poseidonMarinesData.map(addImageToCard);
 
   const renderSaintFeatures = (marine) =>
     features?.map((feature) => (

@@ -4,7 +4,7 @@ import { Flex, Text, Image } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { ArrowLeftIcon, ArrowRightIcon } from '@chakra-ui/icons';
 import { NavbarLogo } from '../../UI/navbar/NavbarLogo';
-import { useFetch } from '../../hooks/useFetch';
+// import { useFetch } from '../../hooks/useFetch';
 import ButtonCustom from '../../UI/ButtonCustom';
 import ScreenCard from '../interfaceElements/ScreenCard';
 import ModalCard from '../../UI/ModalCard';
@@ -12,17 +12,21 @@ import CardCollection from '../cardDesigns/CardCollection';
 import useTypewriter from '../../hooks/useTypewriter';
 import PopeAresBackground from '../../images/chapter1-img/PopeAresCut.jpeg';
 import PegasusBox from '../../images/chapter1-img/PegasusBox2.png';
-import Cardwrapper from '../../UI/CardWrapper';
-import ErrorCustom from '../../UI/ErrorCustom';
-import Footer from '../../UI/Footer';
+// import Cardwrapper from '../../UI/CardWrapper';
+// import ErrorCustom from '../../UI/ErrorCustom';
+// import Footer from '../../UI/Footer';
+import fakeDatabase from '../../../json/db.json'
+
+const endingText = fakeDatabase.chapters[0].endingText;
+
 
 
 const TEXT_HIDE_DISTANCE = -300;
 
 const Congratulations = () => {
-  const fetchUrl = 'http://localhost:3000/chapters';
-  const errorMessage =
-    'Failed to load game data, please try again later';
+  // const fetchUrl = 'http://localhost:3000/chapters';
+  // const errorMessage =
+  //   'Failed to load game data, please try again later';
   const navigate = useNavigate(); 
   const [isClicked, setIsClicked] = useState(false);
   const [prizesVisible, setPrizesVisible] = useState(false);
@@ -32,14 +36,14 @@ const Congratulations = () => {
   const [thanksForPlaying, setThanksForPlaying] =
     useState(false);
 
-  const { error, fetchedData } = useFetch(
-    fetchUrl,
-    errorMessage
-  );
+  // const { error, fetchedData } = useFetch(
+  //   fetchUrl,
+  //   errorMessage
+  // );
 
-  const endingText = fetchedData
-    ? fetchedData[0]?.endingText
-    : [];
+  // const endingText = fetchedData
+  //   ? fetchedData[0]?.endingText
+  //   : [];
 
   const {
     displayedText,
@@ -61,7 +65,7 @@ const Congratulations = () => {
     return () => {
       window.removeEventListener('click', handleClick);
     };
-  }, [setDisplayedText, setIsTypingCompleted, endingText]);
+  }, [setDisplayedText, setIsTypingCompleted, /*endingText*/]);
 
   const textAnimation = useMemo(
     () => ({
@@ -84,32 +88,32 @@ const Congratulations = () => {
     navigate('/');
   };
 
-  if (error) {
-    return (
-      <>
-        <Cardwrapper>
-          <ErrorCustom
-            imageHeight={{
-              base: '270px',
-              sm: '300px',
-              md: '350px',
-              lg: '380px',
-              xl: '400px',
-            }}
-            marginTop={{
-              base: '15%',
-              sm: '14%',
-              md: '3%',
-              lg: '0%',
-              xl: '-2%',
-            }}
-            message={errorMessage}
-          />
-        </Cardwrapper>
-        <Footer />
-      </>
-    );
-  }
+  // if (error) {
+  //   return (
+  //     <>
+  //       <Cardwrapper>
+  //         <ErrorCustom
+  //           imageHeight={{
+  //             base: '270px',
+  //             sm: '300px',
+  //             md: '350px',
+  //             lg: '380px',
+  //             xl: '400px',
+  //           }}
+  //           marginTop={{
+  //             base: '15%',
+  //             sm: '14%',
+  //             md: '3%',
+  //             lg: '0%',
+  //             xl: '-2%',
+  //           }}
+  //           message={errorMessage}
+  //         />
+  //       </Cardwrapper>
+  //       <Footer />
+  //     </>
+  //   );
+  // }
 
   const handleImageClick = () => {
     setTimeout(() => {

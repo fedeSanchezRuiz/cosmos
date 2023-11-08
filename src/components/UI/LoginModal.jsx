@@ -5,7 +5,7 @@ import AuthContext from '../../context/authContext';
 import useInput from '../hooks/useInput';
 import StarryNight from '../../components/images/website-img/StarryBack.jpeg';
 import NightSky from '../../components/images/website-img/NightSky.jpeg';
-import ErrorCustom from './ErrorCustom';
+// import ErrorCustom from './ErrorCustom';
 
 const buttonProps = {
   background: `linear-gradient(to bottom, rgba(255, 255, 204, 1), rgba(218, 165, 32, 0.6)), url(${NightSky})`,
@@ -24,7 +24,7 @@ const LoginModal = (props) => {
   const { login } = useContext(AuthContext);
   const [hideMailLabel, setHideMailLabel] = useState(false);
   const [formIsValid, setFormIsValid] = useState(false);
-  const [error, setError] = useState();
+  // const [error, setError] = useState();
 
   const {
     value: enteredEmail,
@@ -83,7 +83,7 @@ const LoginModal = (props) => {
     setHideMailLabel(false);
   };
 
-  const formLoginHandler = async (event) => {
+  const formLoginHandler = (event) => {
     event.preventDefault();
 
     const userData = {
@@ -93,39 +93,61 @@ const LoginModal = (props) => {
     };
 
     if (formIsValid) {
-      try {
-        const url = 'http://localhost:3000/users';
-        const response = await fetch(url, {
-          method: 'POST',
-          headers: {
-            'Content-type': 'application/json',
-          },
-          body: JSON.stringify(userData),
-        });
+      // Log the user in without making a network request
+      login(userData.username);
 
-        if (!response.ok) {
-          throw new Error(
-            'Failed to login, please try again later'
-          );
-        }
-
-        const responseData = await response.json();
-        login(responseData.username);
-
-        if (hideMailLabel) {
-          resetEmailInput();
-        }
-        resetUsernameInput();
-        resetPasswordInput();
-      } catch (error) {
-        setError(error.message);
+      // Reset input fields
+      if (hideMailLabel) {
+        resetEmailInput();
       }
+      resetUsernameInput();
+      resetPasswordInput();
     }
   };
 
-  if (error) {
-    return <ErrorCustom message={error.message} />;
-  }
+  // const formLoginHandler = async (event) => {
+  //   event.preventDefault();
+
+  //   const userData = {
+  //     email: enteredEmail,
+  //     username: enteredUsername,
+  //     password: enteredPassword,
+  //   };
+
+  //   if (formIsValid) {
+  //     try {
+  //       const url = 'http://localhost:3000/users';
+  //       const response = await fetch(url, {
+  //         method: 'POST',
+  //         headers: {
+  //           'Content-type': 'application/json',
+  //         },
+  //         body: JSON.stringify(userData),
+  //       });
+
+  //       if (!response.ok) {
+  //         throw new Error(
+  //           'Failed to login, please try again later'
+  //         );
+  //       }
+
+  //       const responseData = await response.json();
+  //       login(responseData.username);
+
+  //       if (hideMailLabel) {
+  //         resetEmailInput();
+  //       }
+  //       resetUsernameInput();
+  //       resetPasswordInput();
+  //     } catch (error) {
+  //       setError(error.message);
+  //     }
+  //   }
+  // };
+
+  // if (error) {
+  //   return <ErrorCustom message={error.message} />;
+  // }
 
   const closeModalHandler = () => {
     props.onClosingModal();

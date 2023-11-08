@@ -1,16 +1,19 @@
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 import { Flex, Box, Image } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
-import { NavbarLogo } from '../UI/navbar/NavbarLogo';
-import { useFetch } from '../hooks/useFetch';
+// import { NavbarLogo } from '../UI/navbar/NavbarLogo';
+// import { useFetch } from '../hooks/useFetch';
 import BronzeSaints from '../../components/images/website-img/BronzeSaints3.webp';
 import BlackSaints from '../../components/images/website-img/BlackSaints2.webp';
 import SilverSaints from '../../components/images/website-img/SilverSaints2.jpeg';
 import GoldSaints from '../../components/images/website-img/GoldSaints.jpeg';
 import AsgardWarriors from '../../components/images/website-img/AsgardSaints .png';
 import PoseidonScales from '../../components/images/website-img/PoseidonSaints2.jpeg';
-import ErrorCustom from '../UI/ErrorCustom';
-import ModalCard from '../UI/ModalCard';
+// import ErrorCustom from '../UI/ErrorCustom';
+// import ModalCard from '../UI/ModalCard';
+import fakeDatabase from '../../json/db.json';
+
+const saintCategoriesData = fakeDatabase.website[0].saintsCategory;
 
 const images = {
   BronzeSaints,
@@ -35,27 +38,29 @@ const addImageToCategory = (category) => {
   return newCategory;
 };
 
+const saintCategories = saintCategoriesData.map(addImageToCategory);
+
 const MiddleContent = () => {
-  const fetchUrl = 'http://localhost:3000/website';
-  const errorMessage = 'Failed to fetch Saint Categories';
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const fetchUrl = 'http://localhost:3000/website';
+  // const errorMessage = 'Failed to fetch Saint Categories';
+  // const [isModalOpen, setIsModalOpen] = useState(false);
 
-  useEffect(() => {
-    setIsModalOpen(true);
-  }, []);
+  // useEffect(() => {
+  //   setIsModalOpen(true);
+  // }, []);
 
-  const handleModalClose = () => {
-    setIsModalOpen(false);
-  };
+  // const handleModalClose = () => {
+  //   setIsModalOpen(false);
+  // };
 
-  const { error, fetchedData } = useFetch(
-    fetchUrl,
-    errorMessage
-  );
+  // const { error, fetchedData } = useFetch(
+  //   fetchUrl,
+  //   errorMessage
+  // );
 
-  const saintCategories = fetchedData ? fetchedData[0]?.saintsCategory?.map(
-    addImageToCategory
-  ) : [];
+  // const saintCategories = fetchedData ? fetchedData[0]?.saintsCategory?.map(
+  //   addImageToCategory
+  // ) : [];
 
   const saintCategoriesDisplay = (
     <Flex
@@ -98,7 +103,7 @@ const MiddleContent = () => {
           </Link>
         </Box>
       ))}
-      {error && (
+      {/* {error && (
         <>
         <ErrorCustom message={errorMessage} />
         {isModalOpen && <ModalCard
@@ -162,7 +167,7 @@ const MiddleContent = () => {
         </Flex>
       </ModalCard>}
       </>
-      )}
+      )} */}
     </Flex>
   );
 

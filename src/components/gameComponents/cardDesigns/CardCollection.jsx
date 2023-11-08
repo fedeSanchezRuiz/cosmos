@@ -4,9 +4,10 @@ import SeiyaNoCloth from '../../images/chapter1-img/SeiyaFirst.jpeg';
 import PegasusSeiya from '../../images/bronze-img/SeiyaPegasus2.jpeg';
 import Cassios from '../../images/chapter1-img/Cassios1.jpeg';
 import PopeAres from '../../images/chapter1-img/PopeAresA.jpeg';
-import chapter1JSON from '../../../json/chapter1.json';
+import fakeDatabase from '../../../json/db.json';
 
-const rewardCardsData = chapter1JSON.rewards;
+const rewardCardsData = fakeDatabase.chapters[0].rewards;
+
 
 const images = {
   SeiyaNoCloth,

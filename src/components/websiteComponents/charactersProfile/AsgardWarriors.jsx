@@ -1,5 +1,5 @@
 import { Flex, Image, Box } from '@chakra-ui/react';
-import { useFetch } from '../../hooks/useFetch';
+// import { useFetch } from '../../hooks/useFetch';
 import classes from './Saints.module.css';
 import Thor from '../../images/warriors-img/PhecdaThor.jpeg';
 import Fenrir from '../../images/warriors-img/AliothFenril.jpeg';
@@ -9,7 +9,11 @@ import Alberich from '../../images/warriors-img/MegrezAlberich.jpeg';
 import Syd from '../../images/warriors-img/MizarZyd.jpeg';
 import Bud from '../../images/warriors-img/AlcorBud.jpeg';
 import Siegfried from '../../images/warriors-img/DubheSiegfried.jpeg';
-import ErrorCustom from '../../UI/ErrorCustom';
+// import ErrorCustom from '../../UI/ErrorCustom';
+import fakeDatabase from '../../../json/db.json';
+
+const asgardWarriorsData = fakeDatabase.website[0].asgard;
+const features = fakeDatabase.website[0].features;
 
 const images = {
   Thor,
@@ -28,23 +32,25 @@ const addImageToCard = (card) => {
   return newCard;
 };
 
+const asgardWarriors = asgardWarriorsData.map(addImageToCard);
+
 const AsgardWarriors = () => {
-  const fetchUrl = 'http://localhost:3000/website';
-  const errorMessage = 'Failed to fetch Asgard Warriors';
+  // const fetchUrl = 'http://localhost:3000/website';
+  // const errorMessage = 'Failed to fetch Asgard Warriors';
 
-  const { error, fetchedData } = useFetch(
-    fetchUrl,
-    errorMessage
-  );
+  // const { error, fetchedData } = useFetch(
+  //   fetchUrl,
+  //   errorMessage
+  // );
 
-  if (error) {
-    return <ErrorCustom message={errorMessage} />;
-  }
+  // if (error) {
+  //   return <ErrorCustom message={errorMessage} />;
+  // }
 
-  const asgardWarriors = fetchedData
-    ? fetchedData[0]?.asgard?.map(addImageToCard)
-    : [];
-  const features = fetchedData ? fetchedData[0]?.features : [];
+  // const asgardWarriors = fetchedData
+  //   ? fetchedData[0]?.asgard?.map(addImageToCard)
+  //   : [];
+  // const features = fetchedData ? fetchedData[0]?.features : [];
 
   const renderSaintFeatures = (warrior) =>
     features?.map((feature) => (

@@ -1,5 +1,5 @@
 import { Flex, Image, Box } from '@chakra-ui/react';
-import { useFetch } from '../../hooks/useFetch';
+// import { useFetch } from '../../hooks/useFetch';
 import classes from './Saints.module.css';
 import Mu from '../../images/gold-img/AriesMu1.jpeg';
 import Aldebaran from '../../images/gold-img/TaurusAldebaran1.jpeg';
@@ -13,7 +13,11 @@ import Aiolos from '../../images/gold-img/SagittariusAiolos1.jpeg';
 import Shura from '../../images/gold-img/CapricornShura.jpeg';
 import Camus from '../../images/gold-img/AquariusCamus1.jpeg';
 import Aphrodite from '../../images/gold-img/PiscesAphrodite.jpeg';
-import ErrorCustom from '../../UI/ErrorCustom';
+// import ErrorCustom from '../../UI/ErrorCustom';
+import fakeDatabase from '../../../json/db.json';
+
+const goldSaintsData = fakeDatabase.website[0].gold;
+const features = fakeDatabase.website[0].features;
 
 const images = {
   Mu,
@@ -37,22 +41,24 @@ const addImageToCard = (card) => {
 };
 
 const GoldSaints = () => {
-  const fetchUrl = 'http://localhost:3000/website';
-  const errorMessage = 'Failed to fetch Gold Saints';
+  // const fetchUrl = 'http://localhost:3000/website';
+  // const errorMessage = 'Failed to fetch Gold Saints';
 
-  const { error, fetchedData } = useFetch(
-    fetchUrl,
-    errorMessage
-  );
+  // const { error, fetchedData } = useFetch(
+  //   fetchUrl,
+  //   errorMessage
+  // );
 
-  if (error) {
-    return <ErrorCustom message={errorMessage} />;
-  }
+  // if (error) {
+  //   return <ErrorCustom message={errorMessage} />;
+  // }
 
-  const goldSaints = fetchedData
-    ? fetchedData[0]?.gold?.map(addImageToCard)
-    : [];
-  const features = fetchedData ? fetchedData[0]?.features : [];
+  // const goldSaints = fetchedData
+  //   ? fetchedData[0]?.gold?.map(addImageToCard)
+  //   : [];
+  // const features = fetchedData ? fetchedData[0]?.features : [];
+
+  const goldSaints = goldSaintsData.map(addImageToCard);
 
   const renderSaintFeatures = (saint) =>
     features?.map((feature) => (

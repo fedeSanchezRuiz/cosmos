@@ -14,10 +14,10 @@ import ColiseumBackground from '../../images/chapter1-img/Coliseum.webp';
 import SeiyaNoCloth from '../../images/chapter1-img/SeiyaFirst.jpeg';
 import Cassios from '../../images/chapter1-img/Cassios1.jpeg';
 import StarryNight from '../../images/website-img/StarryBack.jpeg';
-import chapter1JSON from '../../../json/chapter1.json';
+import fakeDatabase from '../../../json/db.json';
 
-const playerData = chapter1JSON.player;
-const enemyData = chapter1JSON.enemy;
+const playerData = fakeDatabase.chapters[0].player;
+const enemyData = fakeDatabase.chapters[0].enemy;
 
 const images = {
   Cassios,
