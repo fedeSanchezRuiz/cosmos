@@ -82,6 +82,7 @@ const About = () => {
         xl: 'block',
       }}
       src={DohkoOld}
+      alt='DohkoOld'
     />
   );
 

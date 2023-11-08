@@ -22,6 +22,7 @@ export default function TopContent() {
           w='100%'
           h={{ base: '160px', sm: '200px', md: '250px' }}
           src={Milo}
+          alt='MiloChibi'
         />
       </Flex>
       <Text
@@ -67,6 +68,7 @@ export default function TopContent() {
         <Image
           h={{ base: '160px', sm: '200px', md: '250px' }}
           src={BronzeChibi}
+          alt='BronzeSaintsChibi'
         />
       </Flex>
       <Text
@@ -114,6 +116,7 @@ export default function TopContent() {
           w='100%'
           h={{ base: '160px', sm: '200px', md: '250px' }}
           src={Saori}
+          alt='AthenaChibi'
         />
       </Flex>
       <Text

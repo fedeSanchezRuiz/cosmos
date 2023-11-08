@@ -15,6 +15,7 @@ const Rules = () => {
         xl: 'block',
       }}
       src={AriesMu}
+      alt='MuExplanation'
     />
   );
 
