@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { AnimatePresence } from "framer-motion";
 import { Box, Flex, Heading } from '@chakra-ui/react';
 import { AuthProvider } from './context/authProvider';
 import { HeartProvider } from './context/heartProvider';
@@ -53,7 +54,9 @@ function App() {
       <HeartProvider>
         <Box m='auto'>
           <Suspense fallback={loading}>
-            <RouterProvider router={router} />
+           <AnimatePresence>
+             <RouterProvider router={router} />
+            </AnimatePresence>
           </Suspense>
         </Box>
       </HeartProvider>

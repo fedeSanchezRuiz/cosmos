@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Flex, Heading } from '@chakra-ui/react';
 import { useTimers } from '../../hooks/useTimers';
 import AuthContext from '../../../context/authContext';
@@ -273,7 +273,6 @@ const FightStage = ({ onStepChange }) => {
       backgroundImage={ColiseumBackground}
       justifyContent='top'
     >
-      <AnimatePresence>
         <FlashMessage
           key='fight-text'
           fontSize='90px'
@@ -326,7 +325,6 @@ const FightStage = ({ onStepChange }) => {
           setIsVisible={setMissedAttackVisible}
           style={{ top: '20%' }}
         />
-      </AnimatePresence>
       <Flex
         w={{
           base: '81%',

@@ -100,7 +100,7 @@ const MainScreen = ({ onStepChange }) => {
               animate={{
                 opacity: isDarkening ? 0 : 1,
                 y: isDarkening ? -300 : 0,
-                delay: 0.5,
+                delay: 1.3,
               }}
               transition={{
                 type: 'spring',

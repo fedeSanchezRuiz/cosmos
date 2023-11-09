@@ -157,8 +157,7 @@ const Introduction = ({ onStepChange }) => {
               repeatType: 'loop',
               ease: 'linear',
               duration: 1.5,
-            },
-            duration: 1.5,
+            }
           }}
         >
           {isTypingCompleted ? (

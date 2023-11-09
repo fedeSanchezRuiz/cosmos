@@ -1,6 +1,6 @@
 import { Flex, Heading, Image } from '@chakra-ui/react';
 import classes from './Rules.module.css';
-import AriesMu from '../components/images/website-img/AriesMu.png'
+import AriesMu from '../components/images/website-img/AriesMu.png';
 import Scroll from '../../src/components/images/website-img/ScrollPaperB.webp';
 
 const Rules = () => {
@@ -114,9 +114,9 @@ const Rules = () => {
               <li>
                 If you reach the seventh round and beyond, the
                 dice count resets. For example, round 7 is
-                equivalent to round 1, so only 1s will be
-                counted as damage. Round 8 is equivalent to round
-                2 and so on.
+                equivalent to round 1, so only 1s will be counted
+                as damage. Round 8 is equivalent to round 2 and
+                so on.
               </li>
               <li>
                 Each character has a special attack that will be
@@ -132,6 +132,11 @@ const Rules = () => {
           </Flex>
         </Flex>
       </Flex>
+      <style jsx>{`
+        ::-webkit-scrollbar {
+          width: 0;
+        }
+      `}</style>
     </Flex>
   );
 
