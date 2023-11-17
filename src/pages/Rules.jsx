@@ -29,9 +29,9 @@ const Rules = () => {
     </Flex>
   );
 
-  const stoneBoxes = (
+  const scroll = (
     <Flex
-      className={`${classes.stoneBox} ${classes.outerFlex}`}
+      className={classes.outerFlex}
       fontSize={{
         base: '20px',
         sm: '22px',
@@ -41,9 +41,9 @@ const Rules = () => {
       }}
       style={{
         backgroundImage: `url(${Scroll})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundSize: '100% 100%',
         filter: 'brightness(90%)',
+        height: '100%',
       }}
     >
       <Flex
@@ -71,11 +71,11 @@ const Rules = () => {
             xl: '10%',
           }}
           px={{
-            base: '7%',
-            sm: '20%',
-            md: '12%',
-            lg: '17%',
-            xl: '20%',
+            base: '21%',
+            sm: '24%',
+            md: '23%',
+            lg: '22%',
+            xl: '21%',
           }}
         >
           <Heading
@@ -163,7 +163,7 @@ const Rules = () => {
       wrap='wrap'
     >
       {muExplanation}
-      {stoneBoxes}
+      {scroll}
     </Flex>
   );
 };
